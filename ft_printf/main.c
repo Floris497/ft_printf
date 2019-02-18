@@ -12,8 +12,10 @@
 int main(int argc, const char * argv[]) {
 
 	printf("|");
-	printf("a", 10);
+	printf("%#x", 0);
 	printf("|\n");
-
+//	printf("|");
+//	printf("%-5+.3d", 100);
+//	printf("|\n");
 	return 0;
 }

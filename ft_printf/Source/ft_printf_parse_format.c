@@ -7,7 +7,7 @@
 //
 
 #include <stddef.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "ft_printf_parse_format.h"
 
 #include "ft_printf_parse_conv.h"

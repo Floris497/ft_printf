@@ -8,7 +8,7 @@
 
 #include <stddef.h>
 
-#include "libft/libft.h"
+#include "libft.h"
 #include "ft_printf_parse_conv.h"
 
 t_pf_conv	parse_conv(const char *format_part)

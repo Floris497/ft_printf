@@ -126,7 +126,7 @@ struct	s_pf_part
 		char				*s_ch_ptr_value;
 		void				*ptr;
 	};
-	
+	unsigned long long 		max_len;
 };
 
 typedef struct s_pf_obj t_pf_obj;
