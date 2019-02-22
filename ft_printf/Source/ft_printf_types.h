@@ -9,9 +9,12 @@
 #ifndef FT_PRINTF_TYPES_H
 # define FT_PRINTF_TYPES_H
 
-# pragma mark - definitions
+#if DEBUG
+	#define NYI "Not yet implemented"
+#endif
 
-# define FLAG_CHARS "0987654321#-+' hljtzL."
+#include <stddef.h>
+#include <stdarg.h>
 
 # pragma mark - enums
 
@@ -26,13 +29,12 @@ enum	e_pf_ret
 	PF_RET_SUCCESS			= 0,
 	PF_RET_ERROR			= -1,
 	PF_RET_FORMAT_ERROR		= -2,
+	PF_RET_NO_STATE_SET		= -10,
 };
 
 /*
 ** t_pf_conversion contains the conversion types
 */
-
-# define PF_CONVERSION "diouxXnaAeEfFgGcsv"
 
 typedef enum e_pf_conv		t_pf_conv;
 
@@ -56,14 +58,13 @@ enum	e_pf_conv
 	C_CONV		= 16,
 	S_CONV		= 17,
 	V_CONV		= 18,
+	P_CONV		= 19,
 	NOT_A_CONV	= -1,
 };
 
 /*
 ** t_pf_modifier contains the modifier types
 */
-
-# define PF_MODIFIERS "hh\0h\0l\0ll\0L\nj\0t\0z\0v\0vh\0vl\0vll\0\0"
 
 typedef enum e_pf_mod		t_pf_mod;
 
@@ -102,39 +103,46 @@ enum	e_pf_flag
 
 # pragma mark - structs
 
+typedef union u_pf_value		t_pf_value;
+
+union u_pf_value
+{
+	signed char			s_ch_value;
+	signed short		s_sh_value;
+	signed long			s_ln_value;
+	signed long long	s_ll_value;
+	unsigned char		u_ch_value;
+	unsigned short		u_sh_value;
+	unsigned long		u_ln_value;
+	unsigned long long	u_ll_value;
+	double				s_db_value;
+	long double			s_ld_value;
+	char				*s_ch_ptr_value;
+	void				*ptr;
+};
+
 typedef struct s_pf_part		t_pf_part;
 
 struct	s_pf_part
 {
-	unsigned long			flags;
+	t_pf_flag				flags;
 	int						width;
-	int						precision;
+	int						prcs;
 	t_pf_mod				mod;
 	t_pf_conv				conv;
-	union
-	{
-		signed char			s_ch_value;
-		signed short		s_sh_value;
-		signed long			s_ln_value;
-		signed long long	s_ll_value;
-		unsigned char		u_ch_value;
-		unsigned short		u_sh_value;
-		unsigned long		u_ln_value;
-		unsigned long long	u_ll_value;
-		double				s_db_value;
-		long double			s_ld_value;
-		char				*s_ch_ptr_value;
-		void				*ptr;
-	};
-	unsigned long long 		max_len;
+	t_pf_value				value;
 };
 
 typedef struct s_pf_obj t_pf_obj;
 
 struct s_pf_obj
 {
-	void		(*print)(void *str);
-	t_pf_part	*part_list;
+	t_pf_ret		(*print)(const char *);
+	unsigned int	writen;
+	t_pf_part		*part;
+#if DEBUG
+	char			*error_message;
+#endif
 };
 
 #endif

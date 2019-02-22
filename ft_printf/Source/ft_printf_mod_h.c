@@ -14,9 +14,9 @@ void	s_h(t_pf_part *part, void *val)
 	
 	conv = part->conv;
 	if (conv == O_CONV || conv == U_CONV || conv == XX_CONV || conv == X_CONV)
-		part->u_sh_value = *(unsigned short *)val;
+		part->value.u_sh_value = *(unsigned short *)val;
 	else if (conv == D_CONV || conv == I_CONV)
-		part->s_sh_value = *(signed short *)val;
+		part->value.s_sh_value = *(signed short *)val;
 	else if (conv == N_CONV)
-		part->ptr = val;
+		part->value.ptr = val;
 }

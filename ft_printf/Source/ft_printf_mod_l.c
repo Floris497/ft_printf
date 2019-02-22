@@ -14,11 +14,11 @@ void	s_l(t_pf_part *part, void *val)
 	
 	conv = part->conv;
 	if (conv == O_CONV || conv == U_CONV || conv == XX_CONV || conv == X_CONV)
-		part->u_ln_value = *(unsigned long *)val;
+		part->value.u_ln_value = *(unsigned long *)val;
 	else if (conv == D_CONV || conv == I_CONV)
-		part->u_ln_value = *(signed long *)val;
+		part->value.u_ln_value = *(signed long *)val;
 	else if (conv == E_CONV || conv == G_CONV)
-		part->s_db_value = *(double *)val;
+		part->value.s_db_value = *(double *)val;
 	else if (conv == N_CONV)
-		part->ptr = val;
+		part->value.ptr = val;
 }

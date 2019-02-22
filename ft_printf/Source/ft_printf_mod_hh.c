@@ -14,11 +14,11 @@ void	s_hh(t_pf_part *part, void *val)
 	
 	conv = part->conv;
 	if (conv == O_CONV || conv == U_CONV || conv == XX_CONV || conv == X_CONV)
-		part->u_ch_value = *(unsigned char *)val;
+		part->value.u_ch_value = *(unsigned char *)val;
 	else if (conv == D_CONV || conv == I_CONV || conv == C_CONV)
-		part->s_ch_value = *(signed char *)val;
+		part->value.s_ch_value = *(signed char *)val;
 	else if (conv == S_CONV)
-		part->s_ch_ptr_value = val;
+		part->value.s_ch_ptr_value = val;
 	else if (conv == N_CONV)
-		part->ptr = val;
+		part->value.ptr = val;
 }

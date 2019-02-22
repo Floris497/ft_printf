@@ -10,14 +10,16 @@
 		7008995D221A2509005EDD4D /* ft_printf_mod_l.c in Sources */ = {isa = PBXBuildFile; fileRef = 7008995C221A2509005EDD4D /* ft_printf_mod_l.c */; };
 		70089960221A256C005EDD4D /* ft_printf_mod_ll.c in Sources */ = {isa = PBXBuildFile; fileRef = 7008995F221A256C005EDD4D /* ft_printf_mod_ll.c */; };
 		70089963221A285C005EDD4D /* ft_printf_mod_xl.c in Sources */ = {isa = PBXBuildFile; fileRef = 70089962221A285C005EDD4D /* ft_printf_mod_xl.c */; };
-		70089966221A2E69005EDD4D /* ft_printf_parse_conv.c in Sources */ = {isa = PBXBuildFile; fileRef = 70089965221A2E69005EDD4D /* ft_printf_parse_conv.c */; };
-		70089969221A33FD005EDD4D /* ft_printf_parse_mod.c in Sources */ = {isa = PBXBuildFile; fileRef = 70089968221A33FD005EDD4D /* ft_printf_parse_mod.c */; };
-		706A3647221A08210094DF00 /* ft_printf_parse_format.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DA30B1221A017F00CDEDA3 /* ft_printf_parse_format.c */; };
-		706A364A221A1E0E0094DF00 /* ft_printf_decimal_conv.c in Sources */ = {isa = PBXBuildFile; fileRef = 706A3649221A1E0E0094DF00 /* ft_printf_decimal_conv.c */; };
 		706A364D221A21260094DF00 /* ft_printf_mod_hh.c in Sources */ = {isa = PBXBuildFile; fileRef = 706A364C221A21260094DF00 /* ft_printf_mod_hh.c */; };
 		706A3650221A23F20094DF00 /* ft_printf_mod_h.c in Sources */ = {isa = PBXBuildFile; fileRef = 706A364F221A23F20094DF00 /* ft_printf_mod_h.c */; };
 		70AC90142219C057002B0507 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AC90132219C057002B0507 /* main.c */; };
 		70AC90212219C125002B0507 /* ft_printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AC90202219C125002B0507 /* ft_printf.c */; };
+		70AE736F222093BA00A7685B /* pf_fsm_start_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE736E222093BA00A7685B /* pf_fsm_start_state.c */; };
+		70AE737222209B8700A7685B /* pf_fsm_end_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE737122209B8700A7685B /* pf_fsm_end_state.c */; };
+		70AE737522209FF100A7685B /* pf_fsm_print_char_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE737422209FF100A7685B /* pf_fsm_print_char_state.c */; };
+		70AE73782220A9B100A7685B /* pf_fsm_error_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE73772220A9B100A7685B /* pf_fsm_error_state.c */; };
+		70AE737B2220B6EF00A7685B /* pf_fsm_conv_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE737A2220B6EF00A7685B /* pf_fsm_conv_state.c */; };
+		70AE737E2220BA5200A7685B /* pf_fsm_init_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE737D2220BA5200A7685B /* pf_fsm_init_state.c */; };
 		70DA3108221A074500CDEDA3 /* ft_striter.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DA30B5221A074200CDEDA3 /* ft_striter.c */; };
 		70DA3109221A074500CDEDA3 /* ft_isspace.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DA30B6221A074200CDEDA3 /* ft_isspace.c */; };
 		70DA310A221A074500CDEDA3 /* ft_lstmap.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DA30B7221A074200CDEDA3 /* ft_lstmap.c */; };
@@ -123,8 +125,6 @@
 		70089965221A2E69005EDD4D /* ft_printf_parse_conv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf_parse_conv.c; sourceTree = "<group>"; };
 		70089967221A33FD005EDD4D /* ft_printf_parse_mod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_parse_mod.h; sourceTree = "<group>"; };
 		70089968221A33FD005EDD4D /* ft_printf_parse_mod.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf_parse_mod.c; sourceTree = "<group>"; };
-		706A3648221A1E0E0094DF00 /* ft_printf_decimal_conv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_decimal_conv.h; sourceTree = "<group>"; };
-		706A3649221A1E0E0094DF00 /* ft_printf_decimal_conv.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf_decimal_conv.c; sourceTree = "<group>"; };
 		706A364B221A21260094DF00 /* ft_printf_mod_hh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_mod_hh.h; sourceTree = "<group>"; };
 		706A364C221A21260094DF00 /* ft_printf_mod_hh.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf_mod_hh.c; sourceTree = "<group>"; };
 		706A364E221A23F20094DF00 /* ft_printf_mod_h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_mod_h.h; sourceTree = "<group>"; };
@@ -134,6 +134,18 @@
 		70AC901F2219C125002B0507 /* ft_printf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf.h; sourceTree = "<group>"; };
 		70AC90202219C125002B0507 /* ft_printf.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf.c; sourceTree = "<group>"; };
 		70AC90222219D80F002B0507 /* ft_printf_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_types.h; sourceTree = "<group>"; };
+		70AE736D222093BA00A7685B /* pf_fsm_start_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_fsm_start_state.h; sourceTree = "<group>"; };
+		70AE736E222093BA00A7685B /* pf_fsm_start_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_start_state.c; sourceTree = "<group>"; };
+		70AE737022209B8700A7685B /* pf_fsm_end_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_fsm_end_state.h; sourceTree = "<group>"; };
+		70AE737122209B8700A7685B /* pf_fsm_end_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_end_state.c; sourceTree = "<group>"; };
+		70AE737322209FF100A7685B /* pf_fsm_print_char_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_fsm_print_char_state.h; sourceTree = "<group>"; };
+		70AE737422209FF100A7685B /* pf_fsm_print_char_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_print_char_state.c; sourceTree = "<group>"; };
+		70AE73762220A9B100A7685B /* pf_fsm_error_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_fsm_error_state.h; sourceTree = "<group>"; };
+		70AE73772220A9B100A7685B /* pf_fsm_error_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_error_state.c; sourceTree = "<group>"; };
+		70AE73792220B6EF00A7685B /* pf_fsm_conv_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_fsm_conv_state.h; sourceTree = "<group>"; };
+		70AE737A2220B6EF00A7685B /* pf_fsm_conv_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_conv_state.c; sourceTree = "<group>"; };
+		70AE737C2220BA5200A7685B /* pf_fsm_init_state.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_fsm_init_state.h; sourceTree = "<group>"; };
+		70AE737D2220BA5200A7685B /* pf_fsm_init_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_init_state.c; sourceTree = "<group>"; };
 		70DA30AA2219E23100CDEDA3 /* ft_printf_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_private.h; sourceTree = "<group>"; };
 		70DA30B0221A017F00CDEDA3 /* ft_printf_parse_format.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_parse_format.h; sourceTree = "<group>"; };
 		70DA30B1221A017F00CDEDA3 /* ft_printf_parse_format.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf_parse_format.c; sourceTree = "<group>"; };
@@ -262,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				70DA30B4221A072400CDEDA3 /* libft */,
+				70AE736C2220932A00A7685B /* FSM */,
 				70AC90222219D80F002B0507 /* ft_printf_types.h */,
 				70DA30AA2219E23100CDEDA3 /* ft_printf_private.h */,
 				70AC901F2219C125002B0507 /* ft_printf.h */,
@@ -272,8 +285,6 @@
 				70089965221A2E69005EDD4D /* ft_printf_parse_conv.c */,
 				70089967221A33FD005EDD4D /* ft_printf_parse_mod.h */,
 				70089968221A33FD005EDD4D /* ft_printf_parse_mod.c */,
-				706A3648221A1E0E0094DF00 /* ft_printf_decimal_conv.h */,
-				706A3649221A1E0E0094DF00 /* ft_printf_decimal_conv.c */,
 				706A364B221A21260094DF00 /* ft_printf_mod_hh.h */,
 				706A364C221A21260094DF00 /* ft_printf_mod_hh.c */,
 				706A364E221A23F20094DF00 /* ft_printf_mod_h.h */,
@@ -286,6 +297,25 @@
 				70089962221A285C005EDD4D /* ft_printf_mod_xl.c */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		70AE736C2220932A00A7685B /* FSM */ = {
+			isa = PBXGroup;
+			children = (
+				70AE736D222093BA00A7685B /* pf_fsm_start_state.h */,
+				70AE736E222093BA00A7685B /* pf_fsm_start_state.c */,
+				70AE737322209FF100A7685B /* pf_fsm_print_char_state.h */,
+				70AE737422209FF100A7685B /* pf_fsm_print_char_state.c */,
+				70AE73792220B6EF00A7685B /* pf_fsm_conv_state.h */,
+				70AE737A2220B6EF00A7685B /* pf_fsm_conv_state.c */,
+				70AE737C2220BA5200A7685B /* pf_fsm_init_state.h */,
+				70AE737D2220BA5200A7685B /* pf_fsm_init_state.c */,
+				70AE737022209B8700A7685B /* pf_fsm_end_state.h */,
+				70AE737122209B8700A7685B /* pf_fsm_end_state.c */,
+				70AE73762220A9B100A7685B /* pf_fsm_error_state.h */,
+				70AE73772220A9B100A7685B /* pf_fsm_error_state.c */,
+			);
+			name = FSM;
 			sourceTree = "<group>";
 		};
 		70DA30B4221A072400CDEDA3 /* libft */ = {
@@ -454,7 +484,6 @@
 				70DA3115221A074500CDEDA3 /* ft_isdigit.c in Sources */,
 				70DA3119221A074500CDEDA3 /* ft_memccmp.c in Sources */,
 				70DA3149221A074500CDEDA3 /* ft_tolower.c in Sources */,
-				706A3647221A08210094DF00 /* ft_printf_parse_format.c in Sources */,
 				70DA3124221A074500CDEDA3 /* ft_isalpha.c in Sources */,
 				70DA3120221A074500CDEDA3 /* ft_strmap.c in Sources */,
 				70DA3113221A074500CDEDA3 /* ft_putstr.c in Sources */,
@@ -467,8 +496,9 @@
 				70DA3122221A074500CDEDA3 /* ft_toupper.c in Sources */,
 				70DA3118221A074500CDEDA3 /* ft_lstadd.c in Sources */,
 				70DA310B221A074500CDEDA3 /* ft_strnstr.c in Sources */,
+				70AE73782220A9B100A7685B /* pf_fsm_error_state.c in Sources */,
 				7008995D221A2509005EDD4D /* ft_printf_mod_l.c in Sources */,
-				706A364A221A1E0E0094DF00 /* ft_printf_decimal_conv.c in Sources */,
+				70AE737E2220BA5200A7685B /* pf_fsm_init_state.c in Sources */,
 				70DA3123221A074500CDEDA3 /* ft_strchr.c in Sources */,
 				70DA3136221A074500CDEDA3 /* ft_strstr.c in Sources */,
 				70DA3114221A074500CDEDA3 /* ft_lstfreeone.c in Sources */,
@@ -492,17 +522,18 @@
 				70DA312B221A074500CDEDA3 /* ft_strcmp.c in Sources */,
 				70DA3135221A074500CDEDA3 /* ft_dictremove.c in Sources */,
 				70DA3121221A074500CDEDA3 /* ft_strsplit.c in Sources */,
+				70AE736F222093BA00A7685B /* pf_fsm_start_state.c in Sources */,
 				70DA312E221A074500CDEDA3 /* ft_putnbr.c in Sources */,
 				70DA311A221A074500CDEDA3 /* ft_strncpy.c in Sources */,
 				70DA3133221A074500CDEDA3 /* ft_memccpy.c in Sources */,
 				70DA313D221A074500CDEDA3 /* ft_strndup.c in Sources */,
 				70DA3125221A074500CDEDA3 /* ft_strichr.c in Sources */,
 				70DA3134221A074500CDEDA3 /* ft_strequ.c in Sources */,
-				70089969221A33FD005EDD4D /* ft_printf_parse_mod.c in Sources */,
 				70DA3137221A074500CDEDA3 /* ft_putstr_fd.c in Sources */,
 				70DA310D221A074500CDEDA3 /* ft_putnbr_fd.c in Sources */,
 				70DA3127221A074500CDEDA3 /* ft_isupper.c in Sources */,
 				70DA3128221A074500CDEDA3 /* ft_strrchr.c in Sources */,
+				70AE737222209B8700A7685B /* pf_fsm_end_state.c in Sources */,
 				70DA310A221A074500CDEDA3 /* ft_lstmap.c in Sources */,
 				70DA3152221A074500CDEDA3 /* ft_strnequ.c in Sources */,
 				70DA311D221A074500CDEDA3 /* ft_memalloc.c in Sources */,
@@ -515,14 +546,15 @@
 				70DA311F221A074500CDEDA3 /* ft_isascii.c in Sources */,
 				70DA3143221A074500CDEDA3 /* ft_lstdel.c in Sources */,
 				70089960221A256C005EDD4D /* ft_printf_mod_ll.c in Sources */,
+				70AE737B2220B6EF00A7685B /* pf_fsm_conv_state.c in Sources */,
 				70DA3108221A074500CDEDA3 /* ft_striter.c in Sources */,
 				70DA3147221A074500CDEDA3 /* ft_memmove.c in Sources */,
 				706A3650221A23F20094DF00 /* ft_printf_mod_h.c in Sources */,
 				70DA312F221A074500CDEDA3 /* ft_memset.c in Sources */,
 				70DA3111221A074500CDEDA3 /* ft_strcpy.c in Sources */,
+				70AE737522209FF100A7685B /* pf_fsm_print_char_state.c in Sources */,
 				70DA3155221A074500CDEDA3 /* ft_memichr.c in Sources */,
 				70DA310F221A074500CDEDA3 /* ft_memrcpy.c in Sources */,
-				70089966221A2E69005EDD4D /* ft_printf_parse_conv.c in Sources */,
 				70DA3142221A074500CDEDA3 /* ft_dictfree.c in Sources */,
 				70DA3153221A074500CDEDA3 /* ft_strrepl.c in Sources */,
 				70DA3117221A074500CDEDA3 /* ft_strncat.c in Sources */,

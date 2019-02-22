@@ -11,11 +11,19 @@
 
 int main(int argc, const char * argv[]) {
 
-	printf("|");
-	printf("%#x", 0);
-	printf("|\n");
 //	printf("|");
-//	printf("%-5+.3d", 100);
+////	printf("%3 hallo", 1);
+////	printf("%19 -.4f", 1.0);
+////	printf("%2+0%");
+////	printf("%2 2%");
+//	printf("%");
 //	printf("|\n");
+////	printf("|");
+////	printf("%-5+.3d", 100);
+////	printf("|\n");
+	
+	ft_printf("Hallo\nnog meer\n%d");
+
+
 	return 0;
 }

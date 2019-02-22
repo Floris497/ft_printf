@@ -14,7 +14,7 @@ void	s_xl(t_pf_part *part, void *val)
 
 	conv = part->conv;
 	if (conv == E_CONV || conv == G_CONV)
-		part->s_ld_value = *(long double *)val;
+		part->value.s_ld_value = *(long double *)val;
 	else if (conv == N_CONV)
-		part->ptr = val;
+		part->value.ptr = val;
 }
