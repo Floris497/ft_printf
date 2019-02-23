@@ -100,6 +100,12 @@
 		70DA3156221A074500CDEDA3 /* ft_memdel.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DA3105221A074500CDEDA3 /* ft_memdel.c */; };
 		70DA3157221A074500CDEDA3 /* ft_strctrim.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DA3106221A074500CDEDA3 /* ft_strctrim.c */; };
 		70DA3158221A074500CDEDA3 /* ft_itoa_base.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DA3107221A074500CDEDA3 /* ft_itoa_base.c */; };
+		A35743682221AFF70095A302 /* pf_fsm_width_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A35743662221AFF70095A302 /* pf_fsm_width_state.c */; };
+		A357436B2221B1690095A302 /* pf_fsm_lenght_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A35743692221B1690095A302 /* pf_fsm_lenght_state.c */; };
+		A357436E2221B4040095A302 /* pf_fsm_precis_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A357436C2221B4040095A302 /* pf_fsm_precis_state.c */; };
+		A3C1FE3D22219DB100D3B399 /* pf_fsm_flags_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A3C1FE3B22219DB100D3B399 /* pf_fsm_flags_state.c */; };
+		A3C1FE402221A09500D3B399 /* pf_fsm_print_object_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A3C1FE3E2221A09500D3B399 /* pf_fsm_print_object_state.c */; };
+		A3C1FE432221A11500D3B399 /* pf_fsm_print_empty_object_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A3C1FE412221A11500D3B399 /* pf_fsm_print_empty_object_state.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -232,6 +238,18 @@
 		70DA3105221A074500CDEDA3 /* ft_memdel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_memdel.c; sourceTree = "<group>"; };
 		70DA3106221A074500CDEDA3 /* ft_strctrim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_strctrim.c; sourceTree = "<group>"; };
 		70DA3107221A074500CDEDA3 /* ft_itoa_base.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_itoa_base.c; sourceTree = "<group>"; };
+		A35743662221AFF70095A302 /* pf_fsm_width_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_width_state.c; sourceTree = "<group>"; };
+		A35743672221AFF70095A302 /* pf_fsm_width_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_width_state.h; sourceTree = "<group>"; };
+		A35743692221B1690095A302 /* pf_fsm_lenght_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_lenght_state.c; sourceTree = "<group>"; };
+		A357436A2221B1690095A302 /* pf_fsm_lenght_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_lenght_state.h; sourceTree = "<group>"; };
+		A357436C2221B4040095A302 /* pf_fsm_precis_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_precis_state.c; sourceTree = "<group>"; };
+		A357436D2221B4040095A302 /* pf_fsm_precis_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_precis_state.h; sourceTree = "<group>"; };
+		A3C1FE3B22219DB100D3B399 /* pf_fsm_flags_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_flags_state.c; sourceTree = "<group>"; };
+		A3C1FE3C22219DB100D3B399 /* pf_fsm_flags_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_flags_state.h; sourceTree = "<group>"; };
+		A3C1FE3E2221A09500D3B399 /* pf_fsm_print_object_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_print_object_state.c; sourceTree = "<group>"; };
+		A3C1FE3F2221A09500D3B399 /* pf_fsm_print_object_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_print_object_state.h; sourceTree = "<group>"; };
+		A3C1FE412221A11500D3B399 /* pf_fsm_print_empty_object_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_print_empty_object_state.c; sourceTree = "<group>"; };
+		A3C1FE422221A11500D3B399 /* pf_fsm_print_empty_object_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_print_empty_object_state.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +328,18 @@
 				70AE737A2220B6EF00A7685B /* pf_fsm_conv_state.c */,
 				70AE737C2220BA5200A7685B /* pf_fsm_init_state.h */,
 				70AE737D2220BA5200A7685B /* pf_fsm_init_state.c */,
+				A3C1FE3C22219DB100D3B399 /* pf_fsm_flags_state.h */,
+				A3C1FE3B22219DB100D3B399 /* pf_fsm_flags_state.c */,
+				A3C1FE3F2221A09500D3B399 /* pf_fsm_print_object_state.h */,
+				A3C1FE3E2221A09500D3B399 /* pf_fsm_print_object_state.c */,
+				A3C1FE422221A11500D3B399 /* pf_fsm_print_empty_object_state.h */,
+				A3C1FE412221A11500D3B399 /* pf_fsm_print_empty_object_state.c */,
+				A357436D2221B4040095A302 /* pf_fsm_precis_state.h */,
+				A357436C2221B4040095A302 /* pf_fsm_precis_state.c */,
+				A35743672221AFF70095A302 /* pf_fsm_width_state.h */,
+				A35743662221AFF70095A302 /* pf_fsm_width_state.c */,
+				A357436A2221B1690095A302 /* pf_fsm_lenght_state.h */,
+				A35743692221B1690095A302 /* pf_fsm_lenght_state.c */,
 				70AE737022209B8700A7685B /* pf_fsm_end_state.h */,
 				70AE737122209B8700A7685B /* pf_fsm_end_state.c */,
 				70AE73762220A9B100A7685B /* pf_fsm_error_state.h */,
@@ -487,7 +517,9 @@
 				70DA3124221A074500CDEDA3 /* ft_isalpha.c in Sources */,
 				70DA3120221A074500CDEDA3 /* ft_strmap.c in Sources */,
 				70DA3113221A074500CDEDA3 /* ft_putstr.c in Sources */,
+				A357436B2221B1690095A302 /* pf_fsm_lenght_state.c in Sources */,
 				70DA311B221A074500CDEDA3 /* ft_putendl.c in Sources */,
+				A3C1FE432221A11500D3B399 /* pf_fsm_print_empty_object_state.c in Sources */,
 				70DA314F221A074500CDEDA3 /* ft_memcmp.c in Sources */,
 				70DA313F221A074500CDEDA3 /* ft_memchr.c in Sources */,
 				70DA3139221A074500CDEDA3 /* ft_strdel.c in Sources */,
@@ -502,6 +534,7 @@
 				70DA3123221A074500CDEDA3 /* ft_strchr.c in Sources */,
 				70DA3136221A074500CDEDA3 /* ft_strstr.c in Sources */,
 				70DA3114221A074500CDEDA3 /* ft_lstfreeone.c in Sources */,
+				A357436E2221B4040095A302 /* pf_fsm_precis_state.c in Sources */,
 				70DA3151221A074500CDEDA3 /* ft_putchar.c in Sources */,
 				706A364D221A21260094DF00 /* ft_printf_mod_hh.c in Sources */,
 				70DA314B221A074500CDEDA3 /* ft_log.c in Sources */,
@@ -529,8 +562,10 @@
 				70DA313D221A074500CDEDA3 /* ft_strndup.c in Sources */,
 				70DA3125221A074500CDEDA3 /* ft_strichr.c in Sources */,
 				70DA3134221A074500CDEDA3 /* ft_strequ.c in Sources */,
+				A35743682221AFF70095A302 /* pf_fsm_width_state.c in Sources */,
 				70DA3137221A074500CDEDA3 /* ft_putstr_fd.c in Sources */,
 				70DA310D221A074500CDEDA3 /* ft_putnbr_fd.c in Sources */,
+				A3C1FE3D22219DB100D3B399 /* pf_fsm_flags_state.c in Sources */,
 				70DA3127221A074500CDEDA3 /* ft_isupper.c in Sources */,
 				70DA3128221A074500CDEDA3 /* ft_strrchr.c in Sources */,
 				70AE737222209B8700A7685B /* pf_fsm_end_state.c in Sources */,
@@ -552,6 +587,7 @@
 				706A3650221A23F20094DF00 /* ft_printf_mod_h.c in Sources */,
 				70DA312F221A074500CDEDA3 /* ft_memset.c in Sources */,
 				70DA3111221A074500CDEDA3 /* ft_strcpy.c in Sources */,
+				A3C1FE402221A09500D3B399 /* pf_fsm_print_object_state.c in Sources */,
 				70AE737522209FF100A7685B /* pf_fsm_print_char_state.c in Sources */,
 				70DA3155221A074500CDEDA3 /* ft_memichr.c in Sources */,
 				70DA310F221A074500CDEDA3 /* ft_memrcpy.c in Sources */,
@@ -681,6 +717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -689,6 +726,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

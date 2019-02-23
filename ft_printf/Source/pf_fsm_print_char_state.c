@@ -11,7 +11,7 @@
 
 #include "pf_fsm_error_state.h"
 #include "pf_fsm_end_state.h"
-// init header
+#include "pf_fsm_init_state.h"
 
 /*
 ** Rules

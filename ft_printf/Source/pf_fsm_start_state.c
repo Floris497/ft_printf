@@ -11,17 +11,21 @@
 #include "pf_fsm_error_state.h"
 #include "pf_fsm_end_state.h"
 #include "pf_fsm_print_char_state.h"
-// init header
+#include "pf_fsm_init_state.h"
 
 t_pf_ret	pf_fsm_start_state(const char *input, t_pf_obj *obj)
 {
 	if (*input == '%')
-		return (pf_fsm_error_state(input, obj));
+		return (pf_fsm_init_state(input, obj));
 	else if (*input == '\0')
 		return (pf_fsm_end_state(input, obj));
 	else if (*input != '\0' && *input != '%')
 		return (pf_fsm_print_char_state(input, obj));
 	else
+	{
+#if DEBUG
+		obj->error_message = NYI" - start state";
+#endif
 		return (pf_fsm_error_state(input, obj));
+	}
 }
-
