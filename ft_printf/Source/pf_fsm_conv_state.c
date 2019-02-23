@@ -10,7 +10,7 @@
 #include "pf_fsm_conv_state.h"
 
 #include "pf_fsm_error_state.h"
-// incl print_object_state
+#include "pf_fsm_print_object_state.h"
 
 static t_pf_ret		set_conv(const char c, t_pf_obj *obj)
 {
@@ -45,12 +45,7 @@ t_pf_ret	pf_fsm_conv_state(const char *input, t_pf_obj *obj)
 	if (ft_strchr(CONV_OPTS, *input) != NULL)
 		rc = set_conv(*input, obj);
 	if (rc < 0)
-		pf_fsm_error_state(input, obj);
-	
-	// print object
-	
-#if DEBUG
-	obj->error_message = NYI" - print state not finished";
-#endif
-	return (pf_fsm_error_state(input, obj));
+		return (pf_fsm_error_state(input, obj));
+	else
+		return (pf_fsm_print_object_state(input, obj));
 }

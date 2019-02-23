@@ -11,6 +11,8 @@
 
 # include "ft_printf_types.h"
 
+#define FLAG_OPTS "0 #+-'"
+
 t_pf_ret	pf_fsm_flags_state(const char *input, t_pf_obj *obj);
 
 #endif

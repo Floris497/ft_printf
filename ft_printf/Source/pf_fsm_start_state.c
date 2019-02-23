@@ -22,10 +22,5 @@ t_pf_ret	pf_fsm_start_state(const char *input, t_pf_obj *obj)
 	else if (*input != '\0' && *input != '%')
 		return (pf_fsm_print_char_state(input, obj));
 	else
-	{
-#if DEBUG
-		obj->error_message = NYI" - start state";
-#endif
 		return (pf_fsm_error_state(input, obj));
-	}
 }

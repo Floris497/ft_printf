@@ -11,6 +11,8 @@
 
 # include "ft_printf_types.h"
 
-t_pf_ret	pf_fsm_lenth_state(const char *input, t_pf_obj *obj);
+# define LENG_OPTS "hlfL"
+
+t_pf_ret	pf_fsm_length_state(const char *input, t_pf_obj *obj);
 
 #endif

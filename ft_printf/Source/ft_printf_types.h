@@ -93,12 +93,12 @@ typedef enum e_pf_flag		t_pf_flag;
 
 enum	e_pf_flag
 {
-	HT_PF_FLAG 		= 0b0000001,
-	ZR_PF_FLAG		= 0b0000010,
-	SP_PF_FLAG		= 0b0000100,
-	PL_PF_FLAG		= 0b0001000,
-	MN_PF_FLAG		= 0b0010000,
-	AP_PF_FLAG		= 0b0100000,
+	PF_HT_FLAG 		= 0b0000001,
+	PF_ZR_FLAG		= 0b0000010,
+	PF_SP_FLAG		= 0b0000100,
+	PF_PL_FLAG		= 0b0001000,
+	PF_MN_FLAG		= 0b0010000,
+	PF_AP_FLAG		= 0b0100000,
 };
 
 # pragma mark - structs
@@ -142,6 +142,7 @@ struct s_pf_obj
 	t_pf_part		*part;
 #if DEBUG
 	char			*error_message;
+	const char		*format;
 #endif
 };
 

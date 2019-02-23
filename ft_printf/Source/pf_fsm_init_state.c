@@ -20,15 +20,20 @@
 t_pf_ret			pf_fsm_init_state(const char *input, t_pf_obj *obj)
 {
 	
-	t_pf_part part = {0};
+	static t_pf_part part = {0};
 	
 	obj->part = &part;
-	
-	if (ft_strchr(CONV_OPTS, *(input + 1)) != NULL)
-		return (pf_fsm_conv_state(input + 1, obj));
-	
-#if DEBUG
-	obj->error_message = NYI" - init state has not been finished";
-#endif
-	return (pf_fsm_error_state(input, obj));
+	input++;
+	if (ft_strchr(CONV_OPTS, *input) != NULL)
+		return (pf_fsm_conv_state(input, obj));
+	else if (ft_strchr(FLAG_OPTS, *input) != NULL)
+		return (pf_fsm_flags_state(input, obj));
+	else if (ft_strchr(WIDTH_OPTS, *input))
+		return (pf_fsm_width_state(input, obj));
+	else if (ft_strchr(PRECIS_OPTS, *input))
+		return (pf_fsm_precis_state(input, obj));
+	else if (ft_strchr(LENG_OPTS, *input))
+		return (pf_fsm_length_state(input, obj));
+	else
+		return (pf_fsm_print_empty_object_state(input, obj));
 }

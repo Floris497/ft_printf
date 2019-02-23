@@ -23,6 +23,10 @@ int		ft_printf(const char *format, ...)
 	
 	object.print = &print;
 	
+#if DEBUG
+	object.format = format;
+#endif
+	
 	pf_fsm_start_state(format, &object);
 	
 	return (0);

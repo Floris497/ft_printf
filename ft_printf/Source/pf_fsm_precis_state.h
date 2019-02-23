@@ -11,6 +11,10 @@
 
 # include "ft_printf_types.h"
 
+# define PRECIS_OPTS "."
+# define PRECIS_OPTS_X ".0123456789"
+
+
 t_pf_ret	pf_fsm_precis_state(const char *input, t_pf_obj *obj);
 
 #endif
