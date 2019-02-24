@@ -20,10 +20,13 @@ int main(int argc, const char * argv[]) {
 //////	printf("|");
 //////	printf("%-5+.3d", 100);
 //////	printf("|\n");
+//	printf("%5.6-rp");
 //	printf("|\n");
+//	printf("|%-4c|\n", 'a');
+//	ft_printf("Hallo een var:\t%-0.4dzzz%#%", 10);
+//	printf("\n");
 
-	ft_printf("Hallo een var:%0.4dzzz", 10);
-
+	ft_printf("% %");
 
 	return 0;
 }

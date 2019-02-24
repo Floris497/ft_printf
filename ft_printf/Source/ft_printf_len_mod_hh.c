@@ -1,12 +1,12 @@
 //
-//  ft_printf_mod_hh.c
+//  ft_printf_len_mod_hh.c
 //  ft_printf
 //
 //  Created by Floris Fredrikze on 18/02/2019.
 //  Copyright © 2019 Floris Fredrikze. All rights reserved.
 //
 
-#include "ft_printf_mod_hh.h"
+#include "ft_printf_len_mod_hh.h"
 
 void	s_hh(t_pf_part *part, void *val)
 {

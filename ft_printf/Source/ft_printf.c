@@ -11,6 +11,22 @@
 #include "pf_fsm_start_state.h"
 #include "libft.h"
 
+#if DEBUG
+t_pf_ret	print_db(const char *str)
+{
+	ft_putstr("Print: |");
+	if (!ft_isprint(*str))
+		ft_putstr(" ");
+	else
+		ft_putstr(str);
+	ft_putstr("|");
+	if (!ft_isprint(*str))
+		ft_putstr(" edit");
+	ft_putstr("\n");
+	return (PF_RET_SUCCESS);
+}
+#endif
+
 t_pf_ret	print(const char *str)
 {
 	ft_putstr(str);
@@ -24,6 +40,7 @@ int		ft_printf(const char *format, ...)
 	object.print = &print;
 	
 #if DEBUG
+	object.print_db = &print_db;
 	object.format = format;
 #endif
 	

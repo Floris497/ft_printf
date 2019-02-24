@@ -63,26 +63,26 @@ enum	e_pf_conv
 };
 
 /*
-** t_pf_modifier contains the modifier types
+** t_pf_LEN_MOD contains the len_modifier types
 */
 
-typedef enum e_pf_mod		t_pf_mod;
+typedef enum e_pf_len_mod		t_pf_len_mod;
 
-enum	e_pf_mod
+enum	e_pf_len_mod
 {
-	HH_PF_MODIFIER 		= 1,
-	H_PF_MODIFIER		= 2,
-	L_PF_MODIFIER		= 3,
-	LL_PF_MODIFIER		= 4,
-	XL_PF_MODIFIER		= 5,
-	J_PF_MODIFIER		= 6,
-	T_PF_MODIFIER		= 7,
-	Z_PF_MODIFIER		= 8,
-	V_PF_MODIFIER		= 9,
-	VH_PF_MODIFIER		= 10,
-	VL_PF_MODIFIER		= 11,
-	VLL_PF_MODIFIER 	= 12,
-	NO_MODIFIER			= -1,
+	HH_PF_LEN_MOD 		= 1,
+	H_PF_LEN_MOD		= 2,
+	L_PF_LEN_MOD		= 3,
+	LL_PF_LEN_MOD		= 4,
+	XL_PF_LEN_MOD		= 5,
+	J_PF_LEN_MOD		= 6,
+	T_PF_LEN_MOD		= 7,
+	Z_PF_LEN_MOD		= 8,
+	V_PF_LEN_MOD		= 9,
+	VH_PF_LEN_MOD		= 10,
+	VL_PF_LEN_MOD		= 11,
+	VLL_PF_LEN_MOD 	= 12,
+	NO_LEN_MOD			= -1,
 };
 
 /*
@@ -107,6 +107,7 @@ typedef union u_pf_value		t_pf_value;
 
 union u_pf_value
 {
+	signed int			s_it_value;
 	signed char			s_ch_value;
 	signed short		s_sh_value;
 	signed long			s_ln_value;
@@ -128,9 +129,12 @@ struct	s_pf_part
 	t_pf_flag				flags;
 	int						width;
 	int						prcs;
-	t_pf_mod				mod;
+	t_pf_len_mod			len_mod;
 	t_pf_conv				conv;
 	t_pf_value				value;
+#if DEBUG
+	const char				*start;
+#endif
 };
 
 typedef struct s_pf_obj t_pf_obj;
@@ -141,6 +145,7 @@ struct s_pf_obj
 	unsigned int	writen;
 	t_pf_part		*part;
 #if DEBUG
+	t_pf_ret		(*print_db)(const char *);
 	char			*error_message;
 	const char		*format;
 #endif

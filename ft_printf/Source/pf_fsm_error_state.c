@@ -23,9 +23,9 @@ t_pf_ret	pf_fsm_error_state(const char *input, t_pf_obj *obj)
 		printf("Error: %s\n", obj->error_message);
 		obj->error_message = NULL;
 	}
-	printf("\tDont know what to do with: (%#x|%c)\n\tIn:   |%*s|\n\tFrom: |%s|\n\n", *input, *input, (int)(input - obj->format) + (int)strlen(input), input, obj->format);
+	printf("\tDont know what to do with: (0x%X|%c)\n\tIn:   |%*s|\n\tFrom: |%s|\n\n", *input, *input, (int)(input - obj->format) + (int)strlen(input), input, obj->format);
 #else
-	printf("\tDont know what to do with: %#x/%c\n\tIn |%s|\n\n", *input, *input, input);
+	printf("\tDont know what to do with: (0x%X|%c)\n\tIn: |%s|\n\n", *input, *input, input);
 #endif
 	printf("stacktrace:\n");
 	void* callstack[128];

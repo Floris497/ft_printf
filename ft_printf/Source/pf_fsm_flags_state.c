@@ -41,17 +41,24 @@ t_pf_ret	pf_fsm_flags_state(const char *input, t_pf_obj *obj)
 	t_pf_ret	rc;
 	
 	rc = PF_RET_SUCCESS;
-	if (ft_strchr(CONV_OPTS, *input) != NULL)
+	if (ft_strchr(FLAG_OPTS, *input) != NULL)
 		rc = set_flag(*input, obj);
+	else
+	{
+#if DEBUG
+		obj->error_message = "No flag.. how can it be?!";
+#endif
+		return (pf_fsm_error_state(input, obj));
+	}
 	if (rc < 0)
 		return (pf_fsm_error_state(input, obj));
 	input++;
 	if (ft_strchr(CONV_OPTS, *input) != NULL)
 		return (pf_fsm_conv_state(input, obj));
-	else if (ft_strchr(FLAG_OPTS, *input) != NULL)
-		return (pf_fsm_flags_state(input, obj));
 	else if (ft_strchr(WIDTH_OPTS, *input))
 		return (pf_fsm_width_state(input, obj));
+	else if (ft_strchr(FLAG_OPTS, *input) != NULL)
+		return (pf_fsm_flags_state(input, obj));
 	else if (ft_strchr(PRECIS_OPTS, *input))
 		return (pf_fsm_precis_state(input, obj));
 	else if (ft_strchr(LENG_OPTS, *input))
