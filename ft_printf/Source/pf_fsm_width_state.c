@@ -28,8 +28,8 @@ static t_pf_ret		set_width(const char *input, t_pf_obj *obj)
 	{
 		if (c >= '0' && c <= '9')
 		{
-			obj->part->prcs *= 10;
-			obj->part->prcs += (int)(c - '0');
+			obj->part->width *= 10;
+			obj->part->width += (int)(c - '0');
 		}
 		else
 		{

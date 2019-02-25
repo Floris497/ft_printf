@@ -1,5 +1,5 @@
 //
-//  ft_printf_print_nchar.h
+//  pf_print_nchar.h
 //  ft_printf
 //
 //  Created by Floris Fredrikze on 24/02/2019.
@@ -11,6 +11,6 @@
 
 #include "ft_printf_types.h"
 
-t_pf_ret	ft_printf_print_nchar(int c, size_t n, t_pf_obj *obj);
+t_pf_ret	pf_print_nchar(int c, size_t n, t_pf_obj *obj);
 
 #endif

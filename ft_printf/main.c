@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <math.h>
 #include "ft_printf.h"
 
 int main(int argc, const char * argv[]) {
@@ -26,7 +27,20 @@ int main(int argc, const char * argv[]) {
 //	ft_printf("Hallo een var:\t%-0.4dzzz%#%", 10);
 //	printf("\n");
 
-	ft_printf("% %");
-
+	printf("|%010.2f|\n", 100.2345678 );
+	printf("|%-10.2f|\n", 100.2345678 );
+	printf("|% 10.2f|\n", 100.2345678 );
+	printf("|%+010.2f|\n", 100.2345678 );
+	printf("|%+-10.2f|\n", 100.2345678 );
+	printf("|%+10.2f|\n", 100.2345678 );
+	printf("\n");
+	printf("|%010.2f|\n", -100.2345678 );
+	printf("|%-10.2f|\n", -100.2345678 );
+	printf("|% 10.2f|\n", -100.2345678 );
+	printf("|%+010.2f|\n", -100.2345678 );
+	printf("|%+-10.2f|\n", -100.2345678 );
+	printf("|%+10.2f|\n", -100.2345678 );
+	printf("\n");
+	printf("|%-2c|\n", 'a' );
 	return 0;
 }
