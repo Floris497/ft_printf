@@ -41,6 +41,11 @@ int main(int argc, const char * argv[]) {
 	printf("|%+-10.2f|\n", -100.2345678 );
 	printf("|%+10.2f|\n", -100.2345678 );
 	printf("\n");
-	printf("|%-2c|\n", 'a' );
+	printf("|%10.2d|\n", 100);
+	printf("|%10.2d|\n", -100);
+	printf("|%+10.2d|\n", 100);
+	printf("|%+10.2d|\n", -100);
+	printf("\n");
+	ft_printf("|%hhllL#d|\n", 'a' );
 	return 0;
 }

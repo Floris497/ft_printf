@@ -23,14 +23,14 @@ void	print_struct(const char *input, t_pf_obj *obj)
 		
 	};
 	const char *convs[21] = {
-		"CONV_NOT_SET",
+		"CONV_NS",
 		"D_CONV", "I_CONV", "O_CONV", "U_CONV", "X_CONV", "XX_CONV",
 		"N_CONV", "A_CONV", "XA_CONV", "E_CONV", "XE_CONV", "F_CONV",
 		"XF_CONV", "G_CONV", "XG_CONV", "C_CONV", "S_CONV", "V_CONV",
 		"P_CONV", "NOT_A_CONV"
 	};
 	const char *llen_mods[14] = {
-		"LEN_MOD_NOT_SET",
+		"LEN_MOD_NS",
 		"HH_PF_LEN_MOD", "H_PF_LEN_MOD", "L_PF_LEN_MOD", "LL_PF_LEN_MOD",
 		"XL_PF_LEN_MOD", "J_PF_LEN_MOD", "T_PF_LEN_MOD", "Z_PF_LEN_MOD",
 		"V_PF_LEN_MOD", "VH_PF_LEN_MOD", "VL_PF_LEN_MOD", "VLL_PF_LEN_MOD ",
@@ -48,14 +48,36 @@ void	print_struct(const char *input, t_pf_obj *obj)
 	}
 	printf("Width:\n\t%d\n", obj->part->width);
 	printf("Precis:\n\t%d\n", obj->part->prcs);
-	if (obj->part->conv >= 0 && obj->part->conv <= 19)
-		printf("Conv:\n\t%s\n", convs[obj->part->conv]);
+
+	printf("Conv:\n");
+	if (obj->part->conv == NOT_A_CONV)
+		printf("\t%s\n", convs[20]);
+	else if (obj->part->conv == CONV_NS)
+		printf("\t%s\n", convs[0]);
 	else
-		printf("Conv:\n\t%s\n", convs[20]);
-	if (obj->part->conv >= 0 && obj->part->conv <= 12)
-		printf("Length:\n\t%s\n", llen_mods[obj->part->len_mod]);
+	{
+		for (int i = 0; i < 19; i++)
+		{
+			if ((obj->part->conv & 0b1 << i) >= 1) {
+				printf("\t%s\n", convs[i + 1]);
+			}
+		}
+	}
+
+	printf("Length:\n");
+	if (obj->part->len_mod & NO_LEN_MOD)
+		printf("\t%s\n", llen_mods[13]);
+	else if (obj->part->len_mod & LEN_MOD_NS)
+		printf("\t%s\n", llen_mods[0]);
 	else
-		printf("Length:\n\t%s\n", llen_mods[13]);
+	{
+		for (int i = 0; i < 12; i++)
+		{
+			if ((obj->part->len_mod & 0b1 << i) >= 1) {
+				printf("\t%s\n", llen_mods[i + 1]);
+			}
+		}
+	}
 	if (isprint((int)obj->part->value.u_ln_value))
 		printf("Value:\n\t%c | <0x%02llX>\n",(int)obj->part->value.u_ln_value ,(unsigned long long)obj->part->value.u_ln_value);
 	else

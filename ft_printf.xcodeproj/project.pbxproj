@@ -15,6 +15,7 @@
 		702E34A0222301F700B0CA09 /* ft_printf_print_part_d.c in Sources */ = {isa = PBXBuildFile; fileRef = 702E349F222301F700B0CA09 /* ft_printf_print_part_d.c */; };
 		702E34A322231DEC00B0CA09 /* ft_printf_print_part_c.c in Sources */ = {isa = PBXBuildFile; fileRef = 702E34A222231DEC00B0CA09 /* ft_printf_print_part_c.c */; };
 		702E34A622231F4500B0CA09 /* pf_print_nchar.c in Sources */ = {isa = PBXBuildFile; fileRef = 702E34A522231F4500B0CA09 /* pf_print_nchar.c */; };
+		703D19EB2225A4B000ABD96F /* pf_choose_length_for_mod.c in Sources */ = {isa = PBXBuildFile; fileRef = 703D19EA2225A4B000ABD96F /* pf_choose_length_for_mod.c */; };
 		706A364D221A21260094DF00 /* ft_printf_len_mod_hh.c in Sources */ = {isa = PBXBuildFile; fileRef = 706A364C221A21260094DF00 /* ft_printf_len_mod_hh.c */; };
 		706A3650221A23F20094DF00 /* ft_printf_len_mod_h.c in Sources */ = {isa = PBXBuildFile; fileRef = 706A364F221A23F20094DF00 /* ft_printf_len_mod_h.c */; };
 		70AC90142219C057002B0507 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AC90132219C057002B0507 /* main.c */; };
@@ -143,6 +144,8 @@
 		702E34A222231DEC00B0CA09 /* ft_printf_print_part_c.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf_print_part_c.c; sourceTree = "<group>"; };
 		702E34A422231F4500B0CA09 /* pf_print_nchar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_print_nchar.h; sourceTree = "<group>"; };
 		702E34A522231F4500B0CA09 /* pf_print_nchar.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_print_nchar.c; sourceTree = "<group>"; };
+		703D19E92225A4B000ABD96F /* pf_choose_length_for_mod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_choose_length_for_mod.h; sourceTree = "<group>"; };
+		703D19EA2225A4B000ABD96F /* pf_choose_length_for_mod.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_choose_length_for_mod.c; sourceTree = "<group>"; };
 		706A364B221A21260094DF00 /* ft_printf_len_mod_hh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_len_mod_hh.h; sourceTree = "<group>"; };
 		706A364C221A21260094DF00 /* ft_printf_len_mod_hh.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf_len_mod_hh.c; sourceTree = "<group>"; };
 		706A364E221A23F20094DF00 /* ft_printf_len_mod_h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_len_mod_h.h; sourceTree = "<group>"; };
@@ -326,6 +329,15 @@
 			name = extra;
 			sourceTree = "<group>";
 		};
+		703D19E82225993A00ABD96F /* part completion */ = {
+			isa = PBXGroup;
+			children = (
+				703D19E92225A4B000ABD96F /* pf_choose_length_for_mod.h */,
+				703D19EA2225A4B000ABD96F /* pf_choose_length_for_mod.c */,
+			);
+			name = "part completion";
+			sourceTree = "<group>";
+		};
 		70AC90072219C057002B0507 = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +373,7 @@
 				70DA30AA2219E23100CDEDA3 /* ft_printf_private.h */,
 				70AC901F2219C125002B0507 /* ft_printf.h */,
 				70AC90202219C125002B0507 /* ft_printf.c */,
+				703D19E82225993A00ABD96F /* part completion */,
 				702E349D2223003800B0CA09 /* object printing */,
 				702E349C2222F77100B0CA09 /* length modifiers */,
 			);
@@ -576,6 +589,7 @@
 				70DA3140221A074500CDEDA3 /* ft_isprint.c in Sources */,
 				70DA3126221A074500CDEDA3 /* ft_lstdelone.c in Sources */,
 				70DA3122221A074500CDEDA3 /* ft_toupper.c in Sources */,
+				703D19EB2225A4B000ABD96F /* pf_choose_length_for_mod.c in Sources */,
 				70DA3118221A074500CDEDA3 /* ft_lstadd.c in Sources */,
 				70DA310B221A074500CDEDA3 /* ft_strnstr.c in Sources */,
 				A37A2F632224654100BBF42B /* pf_print_pad.c in Sources */,

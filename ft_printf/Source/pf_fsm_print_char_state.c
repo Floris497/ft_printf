@@ -27,11 +27,7 @@ static t_pf_ret		write_char(const char c, t_pf_obj *obj)
 	char str[2];
 	str[0] = c;
 	str[1] = '\0';
-#if DEBUG
-	rc = obj->print_db(str);
-#else
 	rc = obj->print(str);
-#endif
 	if (rc >= 0)
 		obj->writen += 1;
 	return (rc);

@@ -12,24 +12,29 @@
 #include "libft.h"
 
 #if DEBUG
-t_pf_ret	print_db(const char *str)
+t_pf_ret	print_clean(const char *str)
 {
-	ft_putstr("Print: |");
-	if (!ft_isprint(*str))
-		ft_putstr(" ");
-	else
-		ft_putstr(str);
-	ft_putstr("|");
-	if (!ft_isprint(*str))
-		ft_putstr(" edit");
-	ft_putstr("\n");
+	ft_putstr(str);
 	return (PF_RET_SUCCESS);
 }
 #endif
 
+
 t_pf_ret	print(const char *str)
 {
+#if DEBUG
+	ft_putstr("Print: |");
+	if (!ft_isprint(*str))
+		ft_putstr(" ");
+	else
+#endif
 	ft_putstr(str);
+#if DEBUG
+	ft_putstr("|");
+	if (!ft_isprint(*str))
+		ft_putstr(" edit");
+	ft_putstr("\n");
+#endif
 	return (PF_RET_SUCCESS);
 }
 
@@ -40,7 +45,7 @@ int		ft_printf(const char *format, ...)
 	object.print = &print;
 	
 #if DEBUG
-	object.print_db = &print_db;
+	object.print_clean = &print_clean;
 	object.format = format;
 #endif
 	

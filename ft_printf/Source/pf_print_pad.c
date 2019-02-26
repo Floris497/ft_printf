@@ -10,15 +10,19 @@
 #include "libft.h"
 #include "pf_print_pad.h"
 
-t_pf_ret	pf_print_pad_front(const char *str, t_pf_part *part ,t_pf_obj *obj)
-{
-	size_t	len;
-	
-	len = ft_strlen(str);
-	
-}
-
-t_pf_ret	pf_print_pad_back(const char *str, t_pf_part *part, t_pf_obj *obj)
-{
-	
-}
+//t_pf_ret	pf_print_pad_front(const char *str, t_pf_part *part ,t_pf_obj *obj)
+//{
+//	size_t	len;
+//
+//	len = ft_strlen(str);
+//
+//	if (part->flags & PF_MN_FLAG || part->flags & PF_MN_FLAG) {
+//		<#statements#>
+//	}
+//
+//}
+//
+//t_pf_ret	pf_print_pad_back(const char *str, t_pf_part *part, t_pf_obj *obj)
+//{
+//	
+//}
