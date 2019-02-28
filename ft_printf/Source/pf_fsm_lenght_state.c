@@ -63,6 +63,8 @@ t_pf_ret	pf_fsm_length_state(const char *input, t_pf_obj *obj)
 	input++;
 	if (ft_strchr(WIDTH_OPTS, *input))
 		return (pf_fsm_width_state(input, obj));
+	if (ft_strchr(FLAG_OPTS, *input))
+		return (pf_fsm_flags_state(input, obj));
 	else if (ft_strchr(PRECIS_OPTS, *input))
 		return (pf_fsm_precis_state(input, obj));
 	else if (ft_strchr(LENG_OPTS, *input))

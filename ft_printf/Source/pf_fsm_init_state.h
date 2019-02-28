@@ -11,6 +11,9 @@
 
 # include "ft_printf_types.h"
 
+# define WIDTH_NS -1
+# define PRECIS_NS -1
+
 t_pf_ret	pf_fsm_init_state(const char *input, t_pf_obj *obj);
 
 #endif

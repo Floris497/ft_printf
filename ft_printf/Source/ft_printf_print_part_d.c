@@ -9,6 +9,7 @@
 #include "ft_printf_print_part_d.h"
 
 #include "stdio.h" // ILLIGAL
+
 t_pf_ret	ft_printf_print_part_d(t_pf_obj *obj, t_pf_part *part)
 {
 	fflush(stdout);

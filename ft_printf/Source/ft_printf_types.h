@@ -144,9 +144,10 @@ typedef struct s_pf_obj t_pf_obj;
 
 struct s_pf_obj
 {
-	t_pf_ret		(*print)(const char *);
-	unsigned int	writen;
+	size_t			chr_wrtn;
 	t_pf_part		*part;
+	va_list			*args;
+	t_pf_ret		(*print)(const char *);
 #if DEBUG
 	t_pf_ret		(*print_clean)(const char *);
 	char			*error_message;

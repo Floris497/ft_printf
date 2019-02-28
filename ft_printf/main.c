@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "ft_printf.h"
+#include "libft.h"
 
 int main(int argc, const char * argv[]) {
 
@@ -27,25 +28,58 @@ int main(int argc, const char * argv[]) {
 //	ft_printf("Hallo een var:\t%-0.4dzzz%#%", 10);
 //	printf("\n");
 
-	printf("|%010.2f|\n", 100.2345678 );
-	printf("|%-10.2f|\n", 100.2345678 );
-	printf("|% 10.2f|\n", 100.2345678 );
-	printf("|%+010.2f|\n", 100.2345678 );
-	printf("|%+-10.2f|\n", 100.2345678 );
-	printf("|%+10.2f|\n", 100.2345678 );
-	printf("\n");
-	printf("|%010.2f|\n", -100.2345678 );
-	printf("|%-10.2f|\n", -100.2345678 );
-	printf("|% 10.2f|\n", -100.2345678 );
-	printf("|%+010.2f|\n", -100.2345678 );
-	printf("|%+-10.2f|\n", -100.2345678 );
-	printf("|%+10.2f|\n", -100.2345678 );
-	printf("\n");
-	printf("|%10.2d|\n", 100);
-	printf("|%10.2d|\n", -100);
-	printf("|%+10.2d|\n", 100);
-	printf("|%+10.2d|\n", -100);
-	printf("\n");
-	ft_printf("|%hhllL#d|\n", 'a' );
+//	printf("|%010.2f|\n", 100.2345678 );
+//	printf("|%-10.2f|\n", 100.2345678 );
+//	printf("|% 10.2f|\n", 100.2345678 );
+//	printf("|%+010.2f|\n", 100.2345678 );
+//	printf("|%+-10.2f|\n", 100.2345678 );
+//	printf("|%+10.2f|\n", 100.2345678 );
+//	printf("\n");
+//	printf("|%010.2f|\n", -100.2345678 );
+//	printf("|%-10.2f|\n", -100.2345678 );
+//	printf("|% 10.2f|\n", -100.2345678 );
+//	printf("|%+010.2f|\n", -100.2345678 );
+//	printf("|%+-10.2f|\n", -100.2345678 );
+//	printf("|%+10.2f|\n", -100.2345678 );
+//	printf("\n");
+
+//	printf("|%10.4d|\n", 100);
+//	printf("|%10.4d|\n", -100);
+//	printf("|%+10.4d|\n", 100);
+//	printf("|%+10.4d|\n", -100);
+//	printf("\n");
+//	printf("|%8.4d|\n", 100);
+//	printf("|%8.4d|\n", -100);
+//	printf("|%+8.4d|\n", 100);
+//	printf("|% 8.4d|\n", 100);
+//	printf("|% 8.4d|\n", -100);
+//	printf("|%+-8.2d|\n", 100);
+//	printf("|%+-8.2d|\n", -100);
+//	printf("|%- 8.2d|\n", 100);
+//	printf("|%- 8.2d|\n", -100);
+//	printf("\n");
+//	printf("|%08.4d|\n", 100);
+//	printf("|%08.4d|\n", -100);
+//	printf("|%0+8.4d|\n", 100);
+//	printf("|%0 8.4d|\n", 100);
+//	printf("|%0 8.4d|\n", -100);
+//	printf("|%0+-8.2d|\n", 100);
+//	printf("|%0+-8.2d|\n", -100);
+//	printf("|%0- 8.2d|\n", 100);
+//	printf("|%0- 8.2d|\n", -100);
+//	printf("|%6x|\n", 11);
+
+	int a, b;
+
+	a = 0b00000000000000000000000010001000;
+	b = 0b11111111111111111111111110001000;
+
+
+	ft_printf("|%hhllL#d|\n", 100 );
+
+//	printf("%zu\n", ft_log(16, 16));
+
+//	printf("|%d|\n", 100);
+
 	return 0;
 }

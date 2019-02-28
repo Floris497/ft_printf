@@ -15,8 +15,26 @@
 #include "pf_fsm_start_state.h"
 #include "pf_fsm_end_state.h"
 
-t_pf_ret	pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
+static t_pf_ret		set_value(t_pf_obj *obj, t_pf_part *part)
 {
+	if (part->len_mod == HH_PF_LEN_MOD)
+		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+	else if (part->len_mod == H_PF_LEN_MOD)
+		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+	else if (part->len_mod == LEN_MOD_NS)
+		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+	else if (part->len_mod == L_PF_LEN_MOD)
+		part->value.s_ln_value = (long)va_arg(*(obj->args), long);
+	else if (part->len_mod == LL_PF_LEN_MOD)
+		part->value.s_ll_value = (long long)va_arg(*(obj->args), long long);
+	else
+		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+	return (PF_RET_SUCCESS);
+}
+
+t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
+{
+	set_value(obj, obj->part);
 #if DEBUG
 	print_struct(input, obj);
 #endif

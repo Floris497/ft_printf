@@ -29,7 +29,7 @@ static t_pf_ret		write_char(const char c, t_pf_obj *obj)
 	str[1] = '\0';
 	rc = obj->print(str);
 	if (rc >= 0)
-		obj->writen += 1;
+		obj->chr_wrtn += 1;
 	return (rc);
 }
 

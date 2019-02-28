@@ -40,16 +40,20 @@ t_pf_ret	print(const char *str)
 
 int		ft_printf(const char *format, ...)
 {
+	va_list ap;
 	t_pf_obj object = {0};
 	
 	object.print = &print;
-	
+
 #if DEBUG
 	object.print_clean = &print_clean;
 	object.format = format;
 #endif
-	
+
+	va_start(ap, format);
+	object.args = &ap;
 	pf_fsm_start_state(format, &object);
-	
+	va_end(ap);
+
 	return (0);
 }

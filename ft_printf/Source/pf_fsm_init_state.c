@@ -24,8 +24,8 @@
 static t_pf_ret		empty_part(t_pf_part *part)
 {
 	*part = (const t_pf_part){ 0 };
-	part->prcs = -1;
-	part->width = -1;
+	part->prcs = PRECIS_NS;
+	part->width = WIDTH_NS;
 	part->conv = CONV_NS;
 	part->len_mod = LEN_MOD_NS;
 	return (PF_RET_SUCCESS);
