@@ -1,10 +1,14 @@
-//
-//  pf_choose_length_for_mod.c
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 26/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   pf_choose_length_for_mod.c                        :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:48 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:12 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 #include "pf_choose_length_for_mod.h"

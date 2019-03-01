@@ -566,8 +566,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Release1\" ]; then\n\t/Users/ffredrik/Documents/header.sh\nfi";
+			shellPath = /Users/ffredrik/.brew/bin/fish;
+			shellScript = "# sh /Users/ffredrik/Documents/header.sh $SRCROOT full";
 		};
 		A3DA789A2229843C009DFAF6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

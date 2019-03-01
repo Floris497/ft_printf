@@ -1,10 +1,14 @@
-//
-//  pf_fsm_print_char_state.h
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 22/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   pf_fsm_print_char_state.h                         :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:48 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:13 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PF_FSM_PRINT_CHAR_STATE_H
 #define PF_FSM_PRINT_CHAR_STATE_H

@@ -1,10 +1,14 @@
-//
-//  pf_fsm_lenght_state.h
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 23/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   pf_fsm_lenght_state.h                             :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:48 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:12 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PF_FSM_LENGHT_STATE_H
 #define PF_FSM_LENGHT_STATE_H

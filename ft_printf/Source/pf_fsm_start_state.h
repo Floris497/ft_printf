@@ -1,10 +1,14 @@
-//
-//  pf_fsm_start_state.h
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 22/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   pf_fsm_start_state.h                              :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:49 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:13 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PF_FSM_START_STATE_H
 # define PF_FSM_START_STATE_H

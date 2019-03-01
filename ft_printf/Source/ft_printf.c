@@ -1,10 +1,14 @@
-//
-//  ft_printf.c
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 17/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   ft_printf.c                                       :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:44 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:09 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf_private.h"
 
@@ -18,7 +22,6 @@ t_pf_ret	print_clean(const char *str)
 	return (PF_RET_SUCCESS);
 }
 #endif
-
 
 t_pf_ret	print(const char *str)
 {
@@ -38,22 +41,19 @@ t_pf_ret	print(const char *str)
 	return (PF_RET_SUCCESS);
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list ap;
-	t_pf_obj object = {0};
-	
-	object.print = &print;
 
+	t_pf_obj object = {0};
+	object.print = &print;
 #if DEBUG
 	object.print_clean = &print_clean;
 	object.format = format;
 #endif
-
 	va_start(ap, format);
 	object.args = &ap;
 	pf_fsm_start_state(format, &object);
 	va_end(ap);
-
 	return (0);
 }

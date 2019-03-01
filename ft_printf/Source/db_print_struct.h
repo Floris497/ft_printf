@@ -1,18 +1,22 @@
-//
-//  db_print_struct.h
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 24/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   db_print_struct.h                                 :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:44 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:09 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
-#if DEBUG
-#ifndef db_print_struct_h
-#define db_print_struct_h
+#ifndef DB_PRINT_STRUCT_H
+# define DB_PRINT_STRUCT_H
+# if DEBUG
 
-#include "ft_printf_types.h"
+#  include "ft_printf_types.h"
 
 void	print_struct(const char *input, t_pf_obj *obj);
 
-#endif
+# endif
 #endif

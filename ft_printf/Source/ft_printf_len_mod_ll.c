@@ -1,10 +1,14 @@
-//
-//  ft_printf_len_mod_ll.c
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 18/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   ft_printf_len_mod_ll.c                            :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:45 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:09 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf_len_mod_ll.h"
 

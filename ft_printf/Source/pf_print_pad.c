@@ -1,10 +1,14 @@
-//
-//  pf_print_pad.c
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 25/02/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   pf_print_pad.c                                    :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:49 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/01 17:24:13 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 
 #include "libft.h"
