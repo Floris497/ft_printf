@@ -17,7 +17,7 @@
 //	len = ft_strlen(str);
 //
 //	if (part->flags & PF_MN_FLAG || part->flags & PF_MN_FLAG) {
-//		<#statements#>
+//
 //	}
 //
 //}

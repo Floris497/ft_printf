@@ -511,6 +511,8 @@
 				70AC900C2219C057002B0507 /* Sources */,
 				70AC900D2219C057002B0507 /* Frameworks */,
 				70AC900E2219C057002B0507 /* CopyFiles */,
+				A3DA789A2229843C009DFAF6 /* ShellScript */,
+				A3BAF93A22298DA300761553 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -552,6 +554,35 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3BAF93A22298DA300761553 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Release1\" ]; then\n\t/Users/ffredrik/Documents/header.sh\nfi";
+		};
+		A3DA789A2229843C009DFAF6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /Users/ffredrik/.brew/bin/fish;
+			shellScript = "sh /Users/ffredrik/Documents/norm.sh $SRCROOT";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		70AC900C2219C057002B0507 /* Sources */ = {
