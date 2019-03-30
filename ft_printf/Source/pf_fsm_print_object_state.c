@@ -6,7 +6,7 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/03/01 17:22:49 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/01 17:24:13 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/30 16:46:09 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "pf_fsm_start_state.h"
 #include "pf_fsm_end_state.h"
 
-static t_pf_ret		set_value(t_pf_obj *obj, t_pf_part *part)
+static t_pf_ret		set_value_v(t_pf_obj *obj, t_pf_part *part)
 {
 	if (part->len_mod == HH_PF_LEN_MOD)
 		part->value.s_it_value = (int)va_arg(*(obj->args), int);
@@ -36,9 +36,19 @@ static t_pf_ret		set_value(t_pf_obj *obj, t_pf_part *part)
 	return (PF_RET_SUCCESS);
 }
 
+static t_pf_ret		set_value_p(t_pf_obj *obj, t_pf_part *part)
+{
+	part->value.s_ch_ptr_value = (char *)va_arg(*(obj->args), char *);
+	return (PF_RET_SUCCESS);
+}
+
 t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
 {
-	set_value(obj, obj->part);
+	if (obj->part->conv == S_CONV)
+		set_value_p(obj, obj->part);
+	else
+		set_value_v(obj, obj->part);
+
 #if DEBUG
 	print_struct(input, obj);
 #endif

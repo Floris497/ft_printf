@@ -6,7 +6,7 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/03/01 17:22:44 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/01 17:24:09 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/30 16:45:59 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int main(int argc, const char * argv[]) {
 	b = 0b11111111111111111111111110001000;
 
 
-	ft_printf("|%hhllL#d|\n", 100 );
+	ft_printf("|%p|\n", "Hallo dan" );
 
 //	printf("%zu\n", ft_log(16, 16));
 
