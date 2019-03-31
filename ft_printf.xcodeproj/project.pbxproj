@@ -491,7 +491,7 @@
 /* Begin PBXLegacyTarget section */
 		A304F13D2251303C0082CF3E /* libft */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION) all clean";
+			buildArgumentsString = "all clean";
 			buildConfigurationList = A304F13E2251303C0082CF3E /* Build configuration list for PBXLegacyTarget "libft" */;
 			buildPhases = (
 			);
