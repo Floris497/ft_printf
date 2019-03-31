@@ -6,7 +6,7 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/01/09 17:46:02 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:08 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/31 18:10:24 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ char		*ft_strctrim(char const *s, char c);
 int			ft_islower(int c);
 int			ft_isspace(int c);
 int			ft_isupper(int c);
-size_t		ft_log(unsigned int base, unsigned int n);
-char		*ft_itoa_base(unsigned int base, int n);
+size_t		ft_log(unsigned int base, unsigned long long n);
+char		*ft_itoa_base(unsigned int base, long long n);
 
 # pragma mark - Lists
 

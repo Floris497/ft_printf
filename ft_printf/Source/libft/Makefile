@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = rcs
 
-HEADERS = libft.h
+HEADERS = includes/libft.h
 
 SRCS =	ft_atoi.c \
 		ft_bzero.c \
@@ -104,7 +104,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 %.o: %.c $(HEADERS)
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) -o $@ -c $< $(CFLAGS) -I includes/
 	@echo CC: $<
 
 $(NAME): $(OBJS)
