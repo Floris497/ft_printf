@@ -6,7 +6,7 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/03/01 17:22:44 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:45:59 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/31 18:10:24 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,33 @@ int main(int argc, const char * argv[]) {
 	b = 0b11111111111111111111111110001000;
 
 
-	ft_printf("|%p|\n", "Hallo dan" );
+//	printf("|%-10d|\n", 10);
+//	printf("|%+10d|\n", 10);
+//	printf("|%0 10d|\n", 10);
+//	printf("|%-10d|\n", -10);
+//	printf("|%+10d|\n", -10);
+//	printf("|%0 10d|\n", -10);
+//	printf("|%d|\n", -10);
+//	printf("|%d|\n", 10);
+//
+//	printf("\n");
+//
+//	ft_printf("|%-10d|\n", 10);
+//	ft_printf("|%+10d|\n", 10);
+//	ft_printf("|%0 10d|\n", 10);
+//	ft_printf("|%-10d|\n", -10);
+//	ft_printf("|%+10d|\n", -10);
+//	ft_printf("|%0 10d|\n", -10);
+//	ft_printf("|%d|\n", -10);
+//	ft_printf("|%d|\n", 10);
+
+	printf("|%7.5d|\n", -1646);
+	printf("|%7d|\n", -1646);
+
+	printf("\n");
+
+//	ft_printf("|before%cafter|\n", ' ');
+
 
 //	printf("%zu\n", ft_log(16, 16));
 

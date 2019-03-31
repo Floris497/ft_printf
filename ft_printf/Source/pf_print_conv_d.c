@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                      ::::::::: :::::::::   */
-/*   pf_print_pad.c                                    :+:       :+:          */
+/*   pf_print_conv_d.c                                 :+:       :+:          */
 /*                                                    +:+       +:+           */
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
-/*   Created: 2019/03/01 17:22:49 by ffredrik      #+#       #+#              */
+/*   Created: 2019/03/31 18:10:24 by ffredrik      #+#       #+#              */
 /*   Updated: 2019/03/31 18:10:24 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "libft.h"
-#include "pf_print_pad.h"
-#include "pf_print_nchar.h"
+#include <libft.h>
+#include "pf_print_conv_d.h"
 
 static const char	*is_negative(const char *str, int *is_neg)
 {
@@ -39,48 +37,21 @@ static char *sign_char(int is_neg, t_pf_part *part)
 		return ("");
 }
 
-t_pf_ret	pf_print_pad(const char *str, t_pf_part *part ,t_pf_obj *obj)
+t_pf_ret	pf_print_pad_conv_d(const char *str, t_pf_part *part ,t_pf_obj *obj)
 {
-	size_t	len;
-	long	to_pad;
+
+	int		padding;
 	int		is_neg;
+	size_t	len;
+
+	padding = 0;
+	len = ft_strlen(str);
 
 	str = is_negative(str, &is_neg);
 
-	len = ft_strlen(str);
-	to_pad = 0;
-
-	if (part->flags & PF_PL_FLAG || part->flags & PF_SP_FLAG || is_neg)
-		to_pad--;
-
-	if (part->prcs != 0)
-	{
-		to_pad += part->width - len;
-	}
-
-	if (part->flags & PF_MN_FLAG)
-	{
-		obj->print(sign_char(is_neg, part));
-		obj->print(str);
-		pf_print_nchar(' ', (size_t)to_pad, obj);
-	}
-	else if (part->flags & PF_ZR_FLAG)
-	{
-		obj->print(sign_char(is_neg, part));
-		pf_print_nchar('0', (size_t)to_pad, obj);
-		obj->print(str);
-	}
-	else if (part->flags & PF_PL_FLAG)
-	{
-		pf_print_nchar(' ', (size_t)to_pad, obj);
-		obj->print(sign_char(is_neg, part));
-		obj->print(str);
-	}
-	else
-	{
-		obj->print(sign_char(is_neg, part));
-		obj->print(str);
-	}
 	
+
+
+
 	return (PF_RET_SUCCESS);
 }

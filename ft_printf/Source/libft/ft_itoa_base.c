@@ -6,7 +6,7 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/01/12 18:54:33 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:03 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/31 18:10:23 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char		char_for_number_base(unsigned int n)
 		return ('A' + n - 10);
 }
 
-static void		ft_strnbr_base(int n, unsigned int base, char *dst, size_t len)
+static void		ft_strnbr_base(long long n, unsigned int base, char *dst, size_t len)
 {
 	t_index idx;
 
@@ -38,7 +38,7 @@ static void		ft_strnbr_base(int n, unsigned int base, char *dst, size_t len)
 	}
 }
 
-char			*ft_itoa_base(unsigned int base, int n)
+char			*ft_itoa_base(unsigned int base, long long n)
 {
 	char	*number;
 	size_t	len;

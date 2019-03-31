@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                      ::::::::: :::::::::   */
-/*   ft_printf_len_mod_h.h                             :+:       :+:          */
+/*   pf_print_conv_d.h                                 :+:       :+:          */
 /*                                                    +:+       +:+           */
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
-/*   Created: 2019/03/01 17:22:45 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/31 18:10:23 by ffredrik     ###       ###               */
+/*   Created: 2019/03/31 18:10:24 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/31 18:10:24 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_LEN_MOD_H_H
-# define FT_PRINTF_LEN_MOD_H_H
+#ifndef PF_PRINT_CONV_D_H
+# define PF_PRINT_CONV_D_H
 
 # include "ft_printf_types.h"
 
-void	s_h(t_pf_part *part, void *val);
+t_pf_ret	pf_print_pad
+	(const char *str, t_pf_part *part, t_pf_obj *obj);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/01/12 18:54:33 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:03 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/31 18:10:23 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_log(unsigned int base, unsigned int n)
+size_t	ft_log(unsigned int base, unsigned long long n)
 {
 	if (base == 0)
 		return (0);

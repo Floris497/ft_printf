@@ -6,7 +6,7 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/03/01 17:22:49 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:09 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/31 18:10:24 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@
 static t_pf_ret		set_value_v(t_pf_obj *obj, t_pf_part *part)
 {
 	if (part->len_mod == HH_PF_LEN_MOD)
-		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+		part->value.s_ll_value = (char)va_arg(*(obj->args), long long);
 	else if (part->len_mod == H_PF_LEN_MOD)
-		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+		part->value.s_ll_value = (short)va_arg(*(obj->args), long long);
 	else if (part->len_mod == LEN_MOD_NS)
-		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+		part->value.s_ll_value = (int)va_arg(*(obj->args), long long);
 	else if (part->len_mod == L_PF_LEN_MOD)
-		part->value.s_ln_value = (long)va_arg(*(obj->args), long);
+		part->value.s_ll_value = (long)va_arg(*(obj->args), long long);
 	else if (part->len_mod == LL_PF_LEN_MOD)
 		part->value.s_ll_value = (long long)va_arg(*(obj->args), long long);
 	else
-		part->value.s_it_value = (int)va_arg(*(obj->args), int);
+		part->value.s_it_value = (int)va_arg(*(obj->args), long long);
 	return (PF_RET_SUCCESS);
 }
 

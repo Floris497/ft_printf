@@ -6,7 +6,7 @@
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
 /*   Created: 2019/03/01 17:22:44 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:00 by ffredrik     ###       ###               */
+/*   Updated: 2019/03/31 18:10:23 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_pf_ret	print(const char *str)
 		ft_putstr(" ");
 	else
 #endif
-	ft_putstr(str);
+		ft_putstr(str);
 #if DEBUG
 	ft_putstr("|");
 	if (!ft_isprint(*str))
