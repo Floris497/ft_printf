@@ -823,6 +823,7 @@
 				A304F1402251303C0082CF3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
