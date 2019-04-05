@@ -28,6 +28,8 @@
 		70AE737E2220BA5200A7685B /* pf_fsm_init_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE737D2220BA5200A7685B /* pf_fsm_init_state.c */; };
 		A304F13B22511B7A0082CF3E /* pf_print_conv_d.c in Sources */ = {isa = PBXBuildFile; fileRef = A304F13922511B7A0082CF3E /* pf_print_conv_d.c */; };
 		A304F145225130A10082CF3E /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A304F144225130A10082CF3E /* libft.a */; };
+		A32D88C122579B1F000B0CD0 /* pf_print_num_full.c in Sources */ = {isa = PBXBuildFile; fileRef = A32D88BF22579B1F000B0CD0 /* pf_print_num_full.c */; };
+		A32D88C42257BC35000B0CD0 /* pf_print_conv_o.c in Sources */ = {isa = PBXBuildFile; fileRef = A32D88C22257BC35000B0CD0 /* pf_print_conv_o.c */; };
 		A35743682221AFF70095A302 /* pf_fsm_width_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A35743662221AFF70095A302 /* pf_fsm_width_state.c */; };
 		A357436B2221B1690095A302 /* pf_fsm_lenght_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A35743692221B1690095A302 /* pf_fsm_lenght_state.c */; };
 		A357436E2221B4040095A302 /* pf_fsm_precis_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A357436C2221B4040095A302 /* pf_fsm_precis_state.c */; };
@@ -35,6 +37,7 @@
 		A3C1FE3D22219DB100D3B399 /* pf_fsm_flags_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A3C1FE3B22219DB100D3B399 /* pf_fsm_flags_state.c */; };
 		A3C1FE402221A09500D3B399 /* pf_fsm_print_object_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A3C1FE3E2221A09500D3B399 /* pf_fsm_print_object_state.c */; };
 		A3C1FE432221A11500D3B399 /* pf_fsm_print_empty_object_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A3C1FE412221A11500D3B399 /* pf_fsm_print_empty_object_state.c */; };
+		A3D0DFA62257C7EC00750EDB /* pf_print_conv_x.c in Sources */ = {isa = PBXBuildFile; fileRef = A3D0DFA42257C7EC00750EDB /* pf_print_conv_x.c */; };
 		A3ECDBF0224BC71B00396098 /* ft_printf_print_part_s.c in Sources */ = {isa = PBXBuildFile; fileRef = A3ECDBEE224BC71B00396098 /* ft_printf_print_part_s.c */; };
 		A3F98FDD224FC06100AC9BEE /* ft_printf_print_part_p.c in Sources */ = {isa = PBXBuildFile; fileRef = A3F98FDB224FC06100AC9BEE /* ft_printf_print_part_p.c */; };
 		A3F98FE0224FC07200AC9BEE /* ft_printf_print_part_i.c in Sources */ = {isa = PBXBuildFile; fileRef = A3F98FDE224FC07200AC9BEE /* ft_printf_print_part_i.c */; };
@@ -192,6 +195,10 @@
 		A304F13922511B7A0082CF3E /* pf_print_conv_d.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_conv_d.c; sourceTree = "<group>"; };
 		A304F13A22511B7A0082CF3E /* pf_print_conv_d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_print_conv_d.h; sourceTree = "<group>"; };
 		A304F144225130A10082CF3E /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = ft_printf/Source/libft/libft.a; sourceTree = "<group>"; };
+		A32D88BF22579B1F000B0CD0 /* pf_print_num_full.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_num_full.c; sourceTree = "<group>"; };
+		A32D88C022579B1F000B0CD0 /* pf_print_num_full.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_print_num_full.h; sourceTree = "<group>"; };
+		A32D88C22257BC35000B0CD0 /* pf_print_conv_o.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_conv_o.c; sourceTree = "<group>"; };
+		A32D88C32257BC35000B0CD0 /* pf_print_conv_o.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_print_conv_o.h; sourceTree = "<group>"; };
 		A35743662221AFF70095A302 /* pf_fsm_width_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_width_state.c; sourceTree = "<group>"; };
 		A35743672221AFF70095A302 /* pf_fsm_width_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_width_state.h; sourceTree = "<group>"; };
 		A35743692221B1690095A302 /* pf_fsm_lenght_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_lenght_state.c; sourceTree = "<group>"; };
@@ -206,6 +213,8 @@
 		A3C1FE3F2221A09500D3B399 /* pf_fsm_print_object_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_print_object_state.h; sourceTree = "<group>"; };
 		A3C1FE412221A11500D3B399 /* pf_fsm_print_empty_object_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_print_empty_object_state.c; sourceTree = "<group>"; };
 		A3C1FE422221A11500D3B399 /* pf_fsm_print_empty_object_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_print_empty_object_state.h; sourceTree = "<group>"; };
+		A3D0DFA42257C7EC00750EDB /* pf_print_conv_x.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_conv_x.c; sourceTree = "<group>"; };
+		A3D0DFA52257C7EC00750EDB /* pf_print_conv_x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_print_conv_x.h; sourceTree = "<group>"; };
 		A3ECDBEE224BC71B00396098 /* ft_printf_print_part_s.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_printf_print_part_s.c; sourceTree = "<group>"; };
 		A3ECDBEF224BC71B00396098 /* ft_printf_print_part_s.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ft_printf_print_part_s.h; sourceTree = "<group>"; };
 		A3F98FDB224FC06100AC9BEE /* ft_printf_print_part_p.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_printf_print_part_p.c; sourceTree = "<group>"; };
@@ -292,6 +301,8 @@
 				702E34A522231F4500B0CA09 /* pf_print_nchar.c */,
 				A37A2F622224654100BBF42B /* pf_print_pad.h */,
 				A37A2F612224654100BBF42B /* pf_print_pad.c */,
+				A32D88C022579B1F000B0CD0 /* pf_print_num_full.h */,
+				A32D88BF22579B1F000B0CD0 /* pf_print_num_full.c */,
 			);
 			name = extra;
 			sourceTree = "<group>";
@@ -474,6 +485,10 @@
 			children = (
 				A304F13A22511B7A0082CF3E /* pf_print_conv_d.h */,
 				A304F13922511B7A0082CF3E /* pf_print_conv_d.c */,
+				A32D88C32257BC35000B0CD0 /* pf_print_conv_o.h */,
+				A32D88C22257BC35000B0CD0 /* pf_print_conv_o.c */,
+				A3D0DFA52257C7EC00750EDB /* pf_print_conv_x.h */,
+				A3D0DFA42257C7EC00750EDB /* pf_print_conv_x.c */,
 			);
 			name = print_conv_str;
 			sourceTree = "<group>";
@@ -496,7 +511,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/ffredrik/Documents/GitHub/ft_printf/ft_printf/Source/libft;
+			buildWorkingDirectory = "$(SRCROOT)/ft_printf/Source/libft";
 			dependencies = (
 			);
 			name = libft;
@@ -583,6 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32D88C42257BC35000B0CD0 /* pf_print_conv_o.c in Sources */,
 				70AC90212219C125002B0507 /* ft_printf.c in Sources */,
 				70AC90142219C057002B0507 /* main.c in Sources */,
 				A3F98FE0224FC07200AC9BEE /* ft_printf_print_part_i.c in Sources */,
@@ -590,6 +606,7 @@
 				A3F98FE9224FC08900AC9BEE /* ft_printf_print_part_x.c in Sources */,
 				A357436B2221B1690095A302 /* pf_fsm_lenght_state.c in Sources */,
 				A3C1FE432221A11500D3B399 /* pf_fsm_print_empty_object_state.c in Sources */,
+				A3D0DFA62257C7EC00750EDB /* pf_print_conv_x.c in Sources */,
 				A3F98FEC224FC08F00AC9BEE /* ft_printf_print_part_u.c in Sources */,
 				703D19EB2225A4B000ABD96F /* pf_choose_length_for_mod.c in Sources */,
 				A37A2F632224654100BBF42B /* pf_print_pad.c in Sources */,
@@ -606,6 +623,7 @@
 				A3F98FDD224FC06100AC9BEE /* ft_printf_print_part_p.c in Sources */,
 				70AE736F222093BA00A7685B /* pf_fsm_start_state.c in Sources */,
 				A35743682221AFF70095A302 /* pf_fsm_width_state.c in Sources */,
+				A32D88C122579B1F000B0CD0 /* pf_print_num_full.c in Sources */,
 				A3C1FE3D22219DB100D3B399 /* pf_fsm_flags_state.c in Sources */,
 				70AE737222209B8700A7685B /* pf_fsm_end_state.c in Sources */,
 				702E349B2222F76100B0CA09 /* ft_printf_print_object.c in Sources */,
@@ -758,6 +776,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/ft_printf/Source/libft/includes/";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ft_printf/Source/libft";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;

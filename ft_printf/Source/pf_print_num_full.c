@@ -1,0 +1,23 @@
+//
+//  pf_print_num_full.c
+//  ft_printf
+//
+//  Created by Floris Fredrikze on 05/04/2019.
+//  Copyright © 2019 Floris Fredrikze. All rights reserved.
+//
+
+#include <libft.h>
+#include "pf_print_num_full.h"
+#include "pf_print_nchar.h"
+
+t_pf_ret	print_num_full(const char *str, int num_len, t_pf_obj *obj)
+{
+	size_t len;
+
+	len = ft_strlen(str);
+
+	if (num_len > len)
+		pf_print_nchar('0', num_len - len, obj);
+	obj->print(str);
+	return (PF_RET_SUCCESS);
+}

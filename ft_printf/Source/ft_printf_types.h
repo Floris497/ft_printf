@@ -119,6 +119,7 @@ union	u_pf_value
 	signed short		s_sh_value;
 	signed long			s_ln_value;
 	signed long long	s_ll_value;
+	unsigned int		u_it_value;
 	unsigned char		u_ch_value;
 	unsigned short		u_sh_value;
 	unsigned long		u_ln_value;
@@ -128,6 +129,9 @@ union	u_pf_value
 	char				*s_ch_ptr_value;
 	void				*ptr;
 };
+
+# define WIDTH_NS -1
+# define PRECIS_NS -1
 
 typedef struct s_pf_part		t_pf_part;
 

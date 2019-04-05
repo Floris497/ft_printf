@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "pf_print_pad_conv_d:pf_print_conv_d.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "part-&gt;width">
+            </PersistentString>
+            <PersistentString
+               value = "part-&gt;width - num_len + ((is_neg) ? 1 : 0)">
+            </PersistentString>
+            <PersistentString
+               value = "part-&gt;width - num_len">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ft_print_object:ft_printf_print_object.c">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

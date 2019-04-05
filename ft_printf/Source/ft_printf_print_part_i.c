@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
 #include "ft_printf_print_part_i.h"
+#include "pf_print_conv_d.h"
 
 t_pf_ret	ft_printf_print_part_i(t_pf_obj *obj, t_pf_part *part)
 {
-	obj->print("<FIX IN: "__FILE__">");
+	pf_print_pad_conv_d(ft_itoa_base(10, part->value.s_ll_value), part, obj);
 	return (PF_RET_SUCCESS);
 }
+
