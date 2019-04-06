@@ -21,6 +21,8 @@ t_pf_ret	pf_fsm_error_state(const char *input, t_pf_obj *obj)
 {
 	// VERRY ILLIGAL
 	printf("\n");
+	if (obj)
+		printf("");
 #if DEBUG
 	if (obj->error_message)
 	{

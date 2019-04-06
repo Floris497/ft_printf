@@ -27,7 +27,7 @@
 
 static t_pf_ret		empty_part(t_pf_part *part)
 {
-	*part = (const t_pf_part){ 0 };
+	// *part = (const t_pf_part){0}; what is this line for?
 	part->prcs = PRECIS_NS;
 	part->width = WIDTH_NS;
 	part->conv = CONV_NS;

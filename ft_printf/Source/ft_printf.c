@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
+#include <string.h>
 #include "ft_printf_private.h"
-
 #include "pf_fsm_start_state.h"
-#include "libft.h"
 
 #if DEBUG
 t_pf_ret	print_clean(const char *str, ssize_t n)
 {
+	n += n;
 	ft_putstr(str);
 //	ft_putnstr(str, n);
 	return (PF_RET_SUCCESS);
@@ -26,6 +27,7 @@ t_pf_ret	print_clean(const char *str, ssize_t n)
 
 t_pf_ret	print(const char *str, ssize_t n)
 {
+	n += n;
 #if DEBUG
 	ft_putstr("Print: |");
 	if (!ft_isprint(*str))
@@ -46,7 +48,7 @@ int			ft_printf(const char *format, ...)
 {
 	va_list ap;
 
-	t_pf_obj object = {0};
+	t_pf_obj object;
 	object.print = &print;
 #if DEBUG
 	object.print_clean = &print_clean;
