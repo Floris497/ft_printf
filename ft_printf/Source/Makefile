@@ -34,10 +34,12 @@ $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 fclean: clean
+	make -C libft fclean
 	@echo REMOVING LIBRARY
 	@rm -f $(NAME)
 
 clean:
+	make -C libft clean
 	@echo REMOVING OBJECT FILES
 	@rm -f $(OBJS)
 

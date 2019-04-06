@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "db_print_struct.h"
-
 #include "pf_fsm_print_empty_object_state.h"
 #include "ft_printf_print_object.h"
 
@@ -34,9 +32,6 @@ t_pf_ret			pf_fsm_print_empty_object_state(const char *input, t_pf_obj *obj)
 {
 //	still have to manage some stuff..
 	set_part(input, obj);
-#if DEBUG
-	print_struct(input, obj);
-#endif
 	ft_print_object(obj);
 	input++;
 	if (*input == '\0')

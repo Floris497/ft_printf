@@ -168,7 +168,8 @@ int main(int argc, const char * argv[]) {
 //	printf("|%d|\n", 100);
 
 
-	printf("%#o\n", 0);
+	printf("%5%");
+//	printf("writen: %d\n", ft_printf("test\n", 0));
 
 	return 0;
 }

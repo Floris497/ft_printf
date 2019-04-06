@@ -18,6 +18,6 @@ t_pf_ret	print_num_full(const char *str, int num_len, t_pf_obj *obj)
 
 	if (num_len > (int)len)
 		pf_print_nchar('0', num_len - len, obj);
-	obj->print(str, LEN_NS);
+	obj->print(str, LEN_NS, obj);
 	return (PF_RET_SUCCESS);
 }

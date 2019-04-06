@@ -49,9 +49,7 @@ t_pf_ret	pf_fsm_flags_state(const char *input, t_pf_obj *obj)
 		rc = set_flag(*input, obj);
 	else
 	{
-#if DEBUG
-		obj->error_message = "No flag.. how can it be?!";
-#endif
+
 		return (pf_fsm_error_state(input, obj));
 	}
 	if (rc < 0)
@@ -69,9 +67,5 @@ t_pf_ret	pf_fsm_flags_state(const char *input, t_pf_obj *obj)
 		return (pf_fsm_length_state(input, obj));
 	else
 		return (pf_fsm_print_empty_object_state(input, obj));
-	
-#if DEBUG
-	obj->error_message = NYI" - flags state has not been finished";
-#endif
 	return (pf_fsm_error_state(input, obj));
 }

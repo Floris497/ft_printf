@@ -36,20 +36,10 @@ static t_pf_ret		set_width(const char *input, t_pf_obj *obj)
 			obj->part->width += (int)(c - '0');
 		}
 		else
-		{
-#if DEBUG
-			obj->error_message = "NaN? How can it be?!..";
-#endif
 			return (PF_RET_FORMAT_ERROR);
-		}
 	}
 	else
-	{
-#if DEBUG
-		obj->error_message = "No char found to do something with..";
-#endif
 		return (PF_RET_FORMAT_ERROR);
-	}
 	return (PF_RET_SUCCESS);
 }
 

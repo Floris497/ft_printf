@@ -35,20 +35,10 @@ static t_pf_ret		set_precis(const char *input, t_pf_obj *obj)
 			obj->part->prcs += (int)(c - '0');
 		}
 		else
-		{
-#if DEBUG
-			obj->error_message = "NaN? How can it be?!..";
-#endif
 			return (PF_RET_FORMAT_ERROR);
-		}
 	}
 	else
-	{
-#if DEBUG
-		obj->error_message = "No char found to do something with..";
-#endif
 		return (PF_RET_FORMAT_ERROR);
-	}
 	return (PF_RET_SUCCESS);
 }
 
@@ -72,10 +62,5 @@ t_pf_ret	pf_fsm_precis_state(const char *input, t_pf_obj *obj)
 		return (pf_fsm_length_state(input, obj));
 	else
 		return (pf_fsm_print_empty_object_state(input, obj));
-	
-	
-#if DEBUG
-	obj->error_message = NYI" - precis state has not been finished";
-#endif
 	return (pf_fsm_error_state(input, obj));
 }

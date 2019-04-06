@@ -41,9 +41,6 @@ t_pf_ret			pf_fsm_init_state(const char *input, t_pf_obj *obj)
 
 	empty_part(&part);
 	obj->part = &part;
-#if DEBUG
-	part.start = input;
-#endif
 	input++;
 	if (ft_strchr(CONV_OPTS, *input) != NULL)
 		return (pf_fsm_conv_state(input, obj));
