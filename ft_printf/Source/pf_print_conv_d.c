@@ -69,7 +69,7 @@ t_pf_ret	pf_print_pad_conv_d(const char *str, t_pf_part *part ,t_pf_obj *obj)
 	{
 		if (pad_char(part)[0] == ' ')
 		{
-			obj->print(sign_char(is_neg, part));
+			obj->print(sign_char(is_neg, part), LEN_NS);
 			print_num_full(str, (int)num_len, obj);
 			pf_print_nchar(' ', padding, obj);
 		}
@@ -79,12 +79,12 @@ t_pf_ret	pf_print_pad_conv_d(const char *str, t_pf_part *part ,t_pf_obj *obj)
 		if (pad_char(part)[0] == ' ')
 		{
 			pf_print_nchar(' ', padding, obj);
-			obj->print(sign_char(is_neg, part));
+			obj->print(sign_char(is_neg, part), LEN_NS);
 			print_num_full(str, (int)num_len, obj);
 		}
 		else if (pad_char(part)[0] == '0')
 		{
-			obj->print(sign_char(is_neg, part));
+			obj->print(sign_char(is_neg, part), LEN_NS);
 			pf_print_nchar('0', padding, obj);
 			print_num_full(str, (int)num_len, obj);
 		}

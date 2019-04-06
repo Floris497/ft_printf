@@ -20,7 +20,7 @@ t_pf_ret	pf_print_nchar(int c, size_t n, t_pf_obj *obj)
 	str[1] = '\0';
 	while (n > 0)
 	{
-		obj->print(str);
+		obj->print(str, LEN_NS);
 		n--;
 	}
 	return (PF_RET_SUCCESS);

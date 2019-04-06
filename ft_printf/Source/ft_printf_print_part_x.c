@@ -12,10 +12,37 @@
 
 #include <libft.h>
 #include "ft_printf_print_part_x.h"
-#include "pf_print_conv_o.h"
+#include "pf_print_conv_x.h"
+
+static t_pf_ret	change_chars(char *str, t_pf_part *part)
+{
+	if (part->conv == XX_CONV)
+	{
+		while (*str != '\0')
+		{
+			if (*str >= 'a' && *str <= 'z')
+				*str += 'A' - 'a';
+			str++;
+		}
+	}
+	else
+	{
+		while (*str != '\0')
+		{
+			if (*str >= 'A' && *str <= 'Z')
+				*str -= 'A' - 'a';
+			str++;
+		}
+	}
+	return (PF_RET_SUCCESS);
+}
 
 t_pf_ret	ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part)
 {
-	pf_print_pad_conv_o(ft_itoa_base(16, part->value.u_ll_value), part, obj);
+	char *str;
+
+	str = ft_itoa_base(part->value.u_ll_value, 16);
+	change_chars(str, part);
+	pf_print_pad_conv_x(str, part, obj);
 	return (PF_RET_SUCCESS);
 }

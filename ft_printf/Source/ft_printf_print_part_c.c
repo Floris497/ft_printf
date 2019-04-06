@@ -22,19 +22,19 @@ t_pf_ret	ft_printf_print_part_c(t_pf_obj *obj, t_pf_part *part)
 	
 	if (part->width <= 1)
 	{
-		obj->print(str);
+		obj->print(str, LEN_NS);
 	}
 	else
 	{
 		if ((part->flags & PF_MN_FLAG) != 0)
 		{
-			obj->print(str);
+			obj->print(str, LEN_NS);
 			pf_print_nchar(' ', part->width - 1, obj);
 		}
 		else
 		{
 			pf_print_nchar(' ', part->width - 1, obj);
-			obj->print(str);
+			obj->print(str, LEN_NS);
 		}
 	}
 	return (PF_RET_SUCCESS);

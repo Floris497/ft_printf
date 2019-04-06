@@ -60,26 +60,26 @@ t_pf_ret	pf_print_pad(const char *str, t_pf_part *part ,t_pf_obj *obj)
 
 	if (part->flags & PF_MN_FLAG)
 	{
-		obj->print(sign_char(is_neg, part));
-		obj->print(str);
+		obj->print(sign_char(is_neg, part), LEN_NS);
+		obj->print(str, LEN_NS);
 		pf_print_nchar(' ', (size_t)to_pad, obj);
 	}
 	else if (part->flags & PF_ZR_FLAG)
 	{
-		obj->print(sign_char(is_neg, part));
+		obj->print(sign_char(is_neg, part), LEN_NS);
 		pf_print_nchar('0', (size_t)to_pad, obj);
-		obj->print(str);
+		obj->print(str, LEN_NS);
 	}
 	else if (part->flags & PF_PL_FLAG)
 	{
 		pf_print_nchar(' ', (size_t)to_pad, obj);
-		obj->print(sign_char(is_neg, part));
-		obj->print(str);
+		obj->print(sign_char(is_neg, part), LEN_NS);
+		obj->print(str, LEN_NS);
 	}
 	else
 	{
-		obj->print(sign_char(is_neg, part));
-		obj->print(str);
+		obj->print(sign_char(is_neg, part), LEN_NS);
+		obj->print(str, LEN_NS);
 	}
 	
 	return (PF_RET_SUCCESS);

@@ -38,7 +38,7 @@ static void		ft_strnbr_base(long long n, unsigned int base, char *dst, size_t le
 	}
 }
 
-char			*ft_itoa_base(unsigned int base, long long n)
+char			*ft_itoa_base( long long n, unsigned int base)
 {
 	char	*number;
 	size_t	len;

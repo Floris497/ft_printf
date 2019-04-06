@@ -16,14 +16,15 @@
 #include "libft.h"
 
 #if DEBUG
-t_pf_ret	print_clean(const char *str)
+t_pf_ret	print_clean(const char *str, ssize_t n)
 {
 	ft_putstr(str);
+//	ft_putnstr(str, n);
 	return (PF_RET_SUCCESS);
 }
 #endif
 
-t_pf_ret	print(const char *str)
+t_pf_ret	print(const char *str, ssize_t n)
 {
 #if DEBUG
 	ft_putstr("Print: |");

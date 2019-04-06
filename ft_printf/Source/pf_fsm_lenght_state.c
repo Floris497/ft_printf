@@ -41,9 +41,9 @@ static t_pf_len_mod		update_lenmod(const char c, t_pf_len_mod *lenmod)
 	if (*lenmod == LEN_MOD_NS)
 		return (get_lenmod(c));
 	else if (*lenmod & H_PF_LEN_MOD && get_lenmod(c) == H_PF_LEN_MOD)
-		return (*lenmod |= HH_PF_LEN_MOD);
+		return (*lenmod = HH_PF_LEN_MOD);
 	else if (*lenmod & L_PF_LEN_MOD && get_lenmod(c) == L_PF_LEN_MOD)
-		return (*lenmod |= LL_PF_LEN_MOD);
+		return (*lenmod = LL_PF_LEN_MOD);
 	else
 		return (*lenmod |= get_lenmod(c));
 }

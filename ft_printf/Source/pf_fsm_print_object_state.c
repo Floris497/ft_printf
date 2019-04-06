@@ -63,7 +63,10 @@ t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
 {
 	if (obj->part->conv == S_CONV)
 		set_value_p(obj, obj->part);
-	else if (obj->part->conv == O_CONV || obj->part->conv == X_CONV || obj->part->conv == XX_CONV)
+	else if (obj->part->conv == U_CONV ||
+			 obj->part->conv == O_CONV ||
+			 obj->part->conv == X_CONV ||
+			 obj->part->conv == XX_CONV)
 		set_value_v_u(obj, obj->part);
 	else
 		set_value_v_s(obj, obj->part);

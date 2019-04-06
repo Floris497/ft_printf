@@ -16,6 +16,6 @@
 
 t_pf_ret	ft_printf_print_part_o(t_pf_obj *obj, t_pf_part *part)
 {
-	pf_print_pad_conv_o(ft_itoa_base(8, part->value.u_ll_value), part, obj);
+	pf_print_pad_conv_o(ft_itoa_base(part->value.u_ll_value, 8), part, obj);
 	return (PF_RET_SUCCESS);
 }

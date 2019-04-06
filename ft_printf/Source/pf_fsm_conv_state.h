@@ -15,7 +15,7 @@
 
 # include "ft_printf_types.h"
 
-# define CONV_OPTS "cspdioxX"
+# define CONV_OPTS "cspdiouxX"
 
 t_pf_ret	pf_fsm_conv_state(const char *input, t_pf_obj *obj);
 

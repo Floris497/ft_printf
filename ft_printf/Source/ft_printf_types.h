@@ -148,6 +148,8 @@ struct	s_pf_part
 #endif
 };
 
+# define LEN_NS -1
+
 typedef struct s_pf_obj	t_pf_obj;
 
 struct	s_pf_obj
@@ -155,9 +157,9 @@ struct	s_pf_obj
 	size_t			chr_wrtn;
 	t_pf_part		*part;
 	va_list			*args;
-	t_pf_ret		(*print)(const char *);
+	t_pf_ret		(*print)(const char *, ssize_t n);
 #if DEBUG
-	t_pf_ret		(*print_clean)(const char *);
+	t_pf_ret		(*print_clean)(const char *, ssize_t n);
 	char			*error_message;
 	const char		*format;
 #endif

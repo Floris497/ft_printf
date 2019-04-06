@@ -31,7 +31,7 @@ static t_pf_ret		write_char(const char c, t_pf_obj *obj)
 	char str[2];
 	str[0] = c;
 	str[1] = '\0';
-	rc = obj->print(str);
+	rc = obj->print(str, LEN_NS);
 	if (rc >= 0)
 		obj->chr_wrtn += 1;
 	return (rc);
@@ -40,11 +40,16 @@ static t_pf_ret		write_char(const char c, t_pf_obj *obj)
 t_pf_ret	pf_fsm_print_char_state(const char *input, t_pf_obj *obj)
 {
 	t_pf_ret	rc;
-	
-	rc = write_char(*input, obj);
+
+
+	rc = PF_RET_SUCCESS;
+	while (*input != '%' && *input != '\0' && rc >= 0)
+	{
+		rc = write_char(*input, obj);
+		input++;
+	}
 	if (rc < 0)
 		return (rc);
-	input++;
 	if (*input == '%')
 		return (pf_fsm_init_state(input, obj));
 	else if (*input == '\0')

@@ -51,9 +51,9 @@ t_pf_ret	ft_print_object(t_pf_obj *obj)
 		ft_printf_print_part_x(obj, obj->part);
 	else
 #if DEBUG
-		obj->print("<dbg_value>");
+		obj->print("<dbg_value>", LEN_NS);
 #else
-		obj->print("<value>");
+		obj->print("<value>", LEN_NS);
 #endif
 	return (PF_RET_SUCCESS);
 }
