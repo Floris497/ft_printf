@@ -12,7 +12,6 @@
 
 #include "pf_fsm_print_object_state.h"
 #include "ft_printf_print_object.h"
-
 #include "pf_fsm_error_state.h"
 #include "pf_fsm_start_state.h"
 #include "pf_fsm_end_state.h"
@@ -74,5 +73,5 @@ t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
 	if (*input == '\0')
 		return (pf_fsm_end_state(input, obj));
 	else
-		return (PF_RET_HAS_MORE);
+		return (pf_fsm_start_state(input, obj));
 }

@@ -18,23 +18,17 @@
 static t_pf_ret	change_chars(char *str, t_pf_part *part)
 {
 	if (part->conv == XX_CONV)
-	{
 		while (*str != '\0')
 		{
-			if (*str >= 'a' && *str <= 'z')
-				*str += 'A' - 'a';
+			*str = ft_toupper(*str);
 			str++;
 		}
-	}
 	else
-	{
 		while (*str != '\0')
 		{
-			if (*str >= 'A' && *str <= 'Z')
-				*str -= 'A' - 'a';
+			*str = ft_tolower(*str);
 			str++;
 		}
-	}
 	return (PF_RET_SUCCESS);
 }
 

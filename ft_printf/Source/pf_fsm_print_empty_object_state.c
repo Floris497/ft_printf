@@ -37,5 +37,5 @@ t_pf_ret			pf_fsm_print_empty_object_state(const char *input, t_pf_obj *obj)
 	if (*input == '\0')
 		return (pf_fsm_end_state(input, obj));
 	else
-		return (PF_RET_HAS_MORE);
+		return (pf_fsm_start_state(input, obj));
 }

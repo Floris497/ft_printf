@@ -30,7 +30,7 @@ static void		ft_strnbr_base(long long n, unsigned int base, char *dst, size_t le
 		dst[0] = '-';
 		n = -n;
 	}
-	while ((unsigned int)n >= 1)
+	while ((unsigned long long)n >= 1)
 	{
 		dst[idx - 1] = char_for_number_base(n % base);
 		idx--;

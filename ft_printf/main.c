@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+#include "libft.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
-#include "ft_printf.h"
-#include "libft.h"
+
 
 int main(int argc, const char * argv[]) {
 
@@ -169,7 +170,9 @@ int main(int argc, const char * argv[]) {
 //	printf("|%d|\n", 100);
 
 
-	printf("%s", NULL);
+	ft_printf("%lx\n", 4294967296);
+
+
 //	printf("writen: %d\n", ft_printf("test\n", 0));
 
 	return 0;

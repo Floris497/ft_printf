@@ -37,7 +37,7 @@ static t_pf_ret		empty_part(t_pf_part *part)
 
 t_pf_ret			pf_fsm_init_state(const char *input, t_pf_obj *obj)
 {
-	static t_pf_part part;
+	t_pf_part part;
 
 	empty_part(&part);
 	obj->part = &part;
