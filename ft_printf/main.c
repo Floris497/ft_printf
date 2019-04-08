@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 #include <math.h>
 #include "ft_printf.h"
 #include "libft.h"
@@ -168,7 +169,7 @@ int main(int argc, const char * argv[]) {
 //	printf("|%d|\n", 100);
 
 
-	printf("%5%");
+	printf("%s", NULL);
 //	printf("writen: %d\n", ft_printf("test\n", 0));
 
 	return 0;

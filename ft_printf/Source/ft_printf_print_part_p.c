@@ -14,7 +14,7 @@
 
 t_pf_ret	ft_printf_print_part_p(t_pf_obj *obj, t_pf_part *part)
 {
-	obj->print("<FIX IN: "__FILE__">", LEN_NS);
+	obj->print("<FIX IN: "__FILE__">", LEN_NS, obj);
 	if (part)
 		return (PF_RET_SUCCESS);
 	return (PF_RET_SUCCESS);

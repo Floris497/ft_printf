@@ -32,6 +32,7 @@ typedef enum e_pf_ret		t_pf_ret;
 enum	e_pf_ret
 {
 	PF_RET_SUCCESS = 0,
+	PF_RET_HAS_MORE = 1,
 	PF_RET_ERROR = -1,
 	PF_RET_FORMAT_ERROR = -2,
 	PF_RET_NO_STATE_SET = -10,
@@ -144,9 +145,6 @@ struct	s_pf_part
 	t_pf_len_mod			len_mod;
 	t_pf_conv				conv;
 	t_pf_value				value;
-#if DEBUG
-	const char				*start;
-#endif
 };
 
 # define LEN_NS -1
@@ -158,12 +156,7 @@ struct	s_pf_obj
 	size_t			chr_wrtn;
 	t_pf_part		*part;
 	va_list			*args;
-	t_pf_ret		(*print)(const char *, ssize_t n);
-#if DEBUG
-	t_pf_ret		(*print_clean)(const char *, ssize_t n);
-	char			*error_message;
-	const char		*format;
-#endif
+	t_pf_ret		(*print)(const char *, ssize_t, t_pf_obj *);
 };
 
 #endif

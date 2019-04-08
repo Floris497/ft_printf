@@ -15,10 +15,6 @@
 
 #include "ft_printf_types.h"
 
-#if DEBUG
-t_pf_ret	ft_print_object_clean(t_pf_obj *obj);
-#endif
-
 t_pf_ret	ft_print_object(t_pf_obj *obj);
 
 #endif

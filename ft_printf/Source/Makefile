@@ -30,6 +30,8 @@ all: $(NAME)
 	@echo CC: $<
 
 $(NAME): $(OBJS)
+	@make -C libft
+	@cp libft/libft.a ./$(NAME)
 	@echo MAKING LIBRARY
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 

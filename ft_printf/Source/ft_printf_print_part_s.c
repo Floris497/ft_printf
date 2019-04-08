@@ -14,6 +14,10 @@
 
 t_pf_ret	ft_printf_print_part_s(t_pf_obj *obj, t_pf_part *part)
 {
-	obj->print(part->value.s_ch_ptr_value, LEN_NS);
+	if (part->value.s_ch_ptr_value == NULL)
+	{
+		part->value.s_ch_ptr_value = "(null)";
+	}
+	obj->print(part->value.s_ch_ptr_value, LEN_NS, obj);
 	return (PF_RET_SUCCESS);
 }

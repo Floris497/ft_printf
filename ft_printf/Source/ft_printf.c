@@ -25,22 +25,11 @@ t_pf_ret	print_clean(const char *str, ssize_t n)
 }
 #endif
 
-t_pf_ret	print(const char *str, ssize_t n)
+t_pf_ret	print(const char *str, ssize_t n, t_pf_obj *obj)
 {
 	n += n;
-#if DEBUG
-	ft_putstr("Print: |");
-	if (!ft_isprint(*str))
-		ft_putstr(" ");
-	else
-#endif
-		ft_putstr(str);
-#if DEBUG
-	ft_putstr("|");
-	if (!ft_isprint(*str))
-		ft_putstr(" edit");
-	ft_putstr("\n");
-#endif
+	obj->chr_wrtn += ft_strlen(str);
+	ft_putstr(str);
 	return (PF_RET_SUCCESS);
 }
 
@@ -50,13 +39,10 @@ int			ft_printf(const char *format, ...)
 
 	t_pf_obj object;
 	object.print = &print;
-#if DEBUG
-	object.print_clean = &print_clean;
-	object.format = format;
-#endif
+	object.chr_wrtn = 0;
 	va_start(ap, format);
 	object.args = &ap;
-	pf_fsm_start_state(format, &object);
+	while (pf_fsm_start_state(format, &object) == PF_RET_HAS_MORE)
 	va_end(ap);
-	return (0);
+	return ((int)object.chr_wrtn);
 }

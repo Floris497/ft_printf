@@ -542,8 +542,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /Users/ffredrik/.brew/bin/fish;
-			shellScript = "# sh /Users/ffredrik/Documents/norm.sh $SRCROOT\n# sh /Users/ffredrik/Documents/header.sh $SRCROOT";
+			shellPath = "/usr/bin/env fish";
+			shellScript = "# sh /Users/ffredrik/Documents/norm.sh $SRCROOT\n# sh /Users/ffredrik/Documents/header.sh $SRCROOT\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

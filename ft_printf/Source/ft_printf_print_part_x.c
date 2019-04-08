@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdlib.h>
 #include "ft_printf_print_part_x.h"
 #include "pf_print_conv_x.h"
 
@@ -44,5 +45,6 @@ t_pf_ret	ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part)
 	str = ft_itoa_base(part->value.u_ll_value, 16);
 	change_chars(str, part);
 	pf_print_pad_conv_x(str, part, obj);
+	free(str);
 	return (PF_RET_SUCCESS);
 }

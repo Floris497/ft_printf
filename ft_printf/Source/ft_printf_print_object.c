@@ -21,14 +21,6 @@
 #include "ft_printf_print_part_u.h"
 #include "ft_printf_print_part_x.h"
 
-#if DEBUG
-t_pf_ret	ft_print_object_clean(t_pf_obj *obj)
-{
-	obj->print_clean("PLACEHOLDER");
-	return (PF_RET_SUCCESS);
-}
-#endif
-
 // cspdiouxX
 
 t_pf_ret	ft_print_object(t_pf_obj *obj)
@@ -50,10 +42,6 @@ t_pf_ret	ft_print_object(t_pf_obj *obj)
 	else if (obj->part->conv == X_CONV || obj->part->conv == XX_CONV)
 		ft_printf_print_part_x(obj, obj->part);
 	else
-#if DEBUG
-		obj->print("<dbg_value>", LEN_NS);
-#else
-		obj->print("<value>", LEN_NS);
-#endif
+		obj->print("<value>", LEN_NS, obj);
 	return (PF_RET_SUCCESS);
 }
