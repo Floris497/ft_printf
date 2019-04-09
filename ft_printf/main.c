@@ -170,7 +170,7 @@ int main(int argc, const char * argv[]) {
 //	printf("|%d|\n", 100);
 
 
-	ft_printf("%lx\n", 4294967296);
+	ft_printf("%0.40b\n", 8);
 
 
 //	printf("writen: %d\n", ft_printf("test\n", 0));

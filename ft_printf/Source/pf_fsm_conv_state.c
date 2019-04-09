@@ -36,6 +36,8 @@ static t_pf_ret		set_conv(const char c, t_pf_obj *obj)
 		obj->part->conv = X_CONV;
 	else if (c == 'X')
 		obj->part->conv = XX_CONV;
+	else if (c == 'b')
+		obj->part->conv = B_CONV;
 	else
 		return (PF_RET_FORMAT_ERROR);
 	return (PF_RET_SUCCESS);

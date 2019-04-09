@@ -20,8 +20,9 @@
 #include "ft_printf_print_part_o.h"
 #include "ft_printf_print_part_u.h"
 #include "ft_printf_print_part_x.h"
+#include "ft_printf_print_part_b.h"
 
-// cspdiouxX
+// cspdiouxXb
 
 t_pf_ret	ft_print_object(t_pf_obj *obj)
 {
@@ -41,6 +42,8 @@ t_pf_ret	ft_print_object(t_pf_obj *obj)
 		ft_printf_print_part_u(obj, obj->part);
 	else if (obj->part->conv == X_CONV || obj->part->conv == XX_CONV)
 		ft_printf_print_part_x(obj, obj->part);
+	else if (obj->part->conv == B_CONV)
+		ft_printf_print_part_b(obj, obj->part);
 	else
 		obj->print("<value>", LEN_NS, obj);
 	return (PF_RET_SUCCESS);

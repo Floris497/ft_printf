@@ -24,6 +24,7 @@
 		A304F145225130A10082CF3E /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A304F144225130A10082CF3E /* libft.a */; };
 		A32D88C122579B1F000B0CD0 /* pf_print_num_full.c in Sources */ = {isa = PBXBuildFile; fileRef = A32D88BF22579B1F000B0CD0 /* pf_print_num_full.c */; };
 		A32D88C42257BC35000B0CD0 /* pf_print_conv_o.c in Sources */ = {isa = PBXBuildFile; fileRef = A32D88C22257BC35000B0CD0 /* pf_print_conv_o.c */; };
+		A33341DB225CFC110077DA8B /* ft_printf_print_part_b.c in Sources */ = {isa = PBXBuildFile; fileRef = A33341D9225CFC110077DA8B /* ft_printf_print_part_b.c */; };
 		A35743682221AFF70095A302 /* pf_fsm_width_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A35743662221AFF70095A302 /* pf_fsm_width_state.c */; };
 		A357436B2221B1690095A302 /* pf_fsm_lenght_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A35743692221B1690095A302 /* pf_fsm_lenght_state.c */; };
 		A357436E2221B4040095A302 /* pf_fsm_precis_state.c in Sources */ = {isa = PBXBuildFile; fileRef = A357436C2221B4040095A302 /* pf_fsm_precis_state.c */; };
@@ -181,6 +182,8 @@
 		A32D88C022579B1F000B0CD0 /* pf_print_num_full.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_print_num_full.h; sourceTree = "<group>"; };
 		A32D88C22257BC35000B0CD0 /* pf_print_conv_o.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_conv_o.c; sourceTree = "<group>"; };
 		A32D88C32257BC35000B0CD0 /* pf_print_conv_o.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_print_conv_o.h; sourceTree = "<group>"; };
+		A33341D9225CFC110077DA8B /* ft_printf_print_part_b.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_printf_print_part_b.c; sourceTree = "<group>"; };
+		A33341DA225CFC110077DA8B /* ft_printf_print_part_b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ft_printf_print_part_b.h; sourceTree = "<group>"; };
 		A35743662221AFF70095A302 /* pf_fsm_width_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_width_state.c; sourceTree = "<group>"; };
 		A35743672221AFF70095A302 /* pf_fsm_width_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pf_fsm_width_state.h; sourceTree = "<group>"; };
 		A35743692221B1690095A302 /* pf_fsm_lenght_state.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_fsm_lenght_state.c; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				A3F98FEA224FC08F00AC9BEE /* ft_printf_print_part_u.c */,
 				A3F98FE8224FC08900AC9BEE /* ft_printf_print_part_x.h */,
 				A3F98FE7224FC08900AC9BEE /* ft_printf_print_part_x.c */,
+				A33341DA225CFC110077DA8B /* ft_printf_print_part_b.h */,
+				A33341D9225CFC110077DA8B /* ft_printf_print_part_b.c */,
 			);
 			name = "object printing";
 			sourceTree = "<group>";
@@ -542,7 +547,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/usr/bin/env fish";
+			shellPath = "/usr/bin/env sh";
 			shellScript = "# sh /Users/ffredrik/Documents/norm.sh $SRCROOT\n# sh /Users/ffredrik/Documents/header.sh $SRCROOT\n";
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -562,6 +567,7 @@
 				A3C1FE432221A11500D3B399 /* pf_fsm_print_empty_object_state.c in Sources */,
 				A3D0DFA62257C7EC00750EDB /* pf_print_conv_x.c in Sources */,
 				A3F98FEC224FC08F00AC9BEE /* ft_printf_print_part_u.c in Sources */,
+				A33341DB225CFC110077DA8B /* ft_printf_print_part_b.c in Sources */,
 				703D19EB2225A4B000ABD96F /* pf_choose_length_for_mod.c in Sources */,
 				A37A2F632224654100BBF42B /* pf_print_pad.c in Sources */,
 				70AE73782220A9B100A7685B /* pf_fsm_error_state.c in Sources */,
@@ -652,6 +658,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PATH = "$PATH:/Users/$USER/brew/bin";
+				PATH_FISH = .brew/bin;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -705,6 +713,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PATH = "$PATH:/Users/$USER/brew/bin";
+				PATH_FISH = .brew/bin;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -716,6 +726,7 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/ft_printf/Source/libft/includes/";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ft_printf/Source/libft";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PATH = "$PATH:/Users/$USER/brew/bin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -728,6 +739,7 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/ft_printf/Source/libft/includes/";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ft_printf/Source/libft";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PATH = "$PATH:/Users/$USER/brew/bin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
