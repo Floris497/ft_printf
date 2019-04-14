@@ -35,6 +35,7 @@ enum	e_pf_ret
 	PF_RET_HAS_MORE = 1,
 	PF_RET_ERROR = -1,
 	PF_RET_FORMAT_ERROR = -2,
+	PF_RET_WRITE_ERROR = -3,
 	PF_RET_NO_STATE_SET = -10,
 };
 

@@ -170,8 +170,15 @@ int main(int argc, const char * argv[]) {
 //	printf("|%d|\n", 100);
 
 
-	ft_printf("%0.40b\n", 8);
+//	ft_printf("|%10.40%|\n");
+//	printf("|%10.40%|\n");
+//	ft_printf("|%-10.40%|\n");
+//	printf("|%-10.40%|\n");
 
+//	printf("|Test: -%c- this|\n", 0); fflush(stdout);
+//	ft_printf("|Test: -%c- this|\n", 0);
+	ft_printf("|%#-08x|\n", 42);
+	printf("|%#-08x|\n", 42);
 
 //	printf("writen: %d\n", ft_printf("test\n", 0));
 

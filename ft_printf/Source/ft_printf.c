@@ -14,23 +14,22 @@
 #include <string.h>
 #include "ft_printf_private.h"
 #include "pf_fsm_start_state.h"
-
-#if DEBUG
-t_pf_ret	print_clean(const char *str, ssize_t n)
-{
-	n += n;
-	ft_putstr(str);
-//	ft_putnstr(str, n);
-	return (PF_RET_SUCCESS);
-}
-#endif
+#include <unistd.h>
 
 t_pf_ret	print(const char *str, ssize_t n, t_pf_obj *obj)
 {
-	n += n;
-	obj->chr_wrtn += ft_strlen(str);
-	ft_putstr(str);
-	return (PF_RET_SUCCESS);
+	size_t		len;
+
+	if (n == LEN_NS || n < 0)
+		len = ft_strlen(str);
+	else
+		len = n;
+	if (write(1, str, len) >= 0)
+	{
+		obj->chr_wrtn += len;
+		return (PF_RET_SUCCESS);
+	}
+	return (PF_RET_WRITE_ERROR);
 }
 
 int			ft_printf(const char *format, ...)

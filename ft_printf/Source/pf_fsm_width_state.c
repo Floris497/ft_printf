@@ -26,7 +26,7 @@ static t_pf_ret		set_width(const char *input, t_pf_obj *obj)
 	char c;
 	
 	c = *input;
-	if (ft_strchr(WIDTH_OPTS_X, *(input - 1)) == NULL)
+	if (ft_strchr(WIDTH_OPTS, *(input - 1)) == NULL)
 		obj->part->width = 0;
 	if (ft_strchr(WIDTH_OPTS_X, c))
 	{

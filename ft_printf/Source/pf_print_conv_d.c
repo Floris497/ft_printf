@@ -67,12 +67,9 @@ t_pf_ret	pf_print_pad_conv_d(const char *str, t_pf_part *part ,t_pf_obj *obj)
 
 	if (part->flags & PF_MN_FLAG)
 	{
-		if (pad_char(part)[0] == ' ')
-		{
-			obj->print(sign_char(is_neg, part), LEN_NS, obj);
-			print_num_full(str, (int)num_len, obj);
-			pf_print_nchar(' ', padding, obj);
-		}
+		obj->print(sign_char(is_neg, part), LEN_NS, obj);
+		print_num_full(str, (int)num_len, obj);
+		pf_print_nchar(' ', padding, obj);
 	}
 	else
 	{
