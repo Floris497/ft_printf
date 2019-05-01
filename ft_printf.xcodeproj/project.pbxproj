@@ -13,6 +13,7 @@
 		702E34A622231F4500B0CA09 /* pf_print_nchar.c in Sources */ = {isa = PBXBuildFile; fileRef = 702E34A522231F4500B0CA09 /* pf_print_nchar.c */; };
 		703D19EB2225A4B000ABD96F /* pf_choose_length_for_mod.c in Sources */ = {isa = PBXBuildFile; fileRef = 703D19EA2225A4B000ABD96F /* pf_choose_length_for_mod.c */; };
 		7062D31A2262119B006D8DE4 /* ft_pf_print_fblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 7062D3192262119B006D8DE4 /* ft_pf_print_fblock.c */; };
+		70A819BA22706DB70046AFD0 /* pf_get_full_num_d.c in Sources */ = {isa = PBXBuildFile; fileRef = 70A819B922706DB70046AFD0 /* pf_get_full_num_d.c */; };
 		70AC90142219C057002B0507 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AC90132219C057002B0507 /* main.c */; };
 		70AC90212219C125002B0507 /* ft_printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AC90202219C125002B0507 /* ft_printf.c */; };
 		70AE736F222093BA00A7685B /* pf_fsm_start_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AE736E222093BA00A7685B /* pf_fsm_start_state.c */; };
@@ -77,6 +78,8 @@
 		703D19EA2225A4B000ABD96F /* pf_choose_length_for_mod.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_choose_length_for_mod.c; sourceTree = "<group>"; };
 		7062D3182262119B006D8DE4 /* ft_pf_print_fblock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_pf_print_fblock.h; sourceTree = "<group>"; };
 		7062D3192262119B006D8DE4 /* ft_pf_print_fblock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_pf_print_fblock.c; sourceTree = "<group>"; };
+		70A819B822706DB70046AFD0 /* pf_get_full_num_d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pf_get_full_num_d.h; sourceTree = "<group>"; };
+		70A819B922706DB70046AFD0 /* pf_get_full_num_d.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_get_full_num_d.c; sourceTree = "<group>"; };
 		70AC90102219C057002B0507 /* ft_printf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ft_printf; sourceTree = BUILT_PRODUCTS_DIR; };
 		70AC90132219C057002B0507 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		70AC901F2219C125002B0507 /* ft_printf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf.h; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 		702E349D2223003800B0CA09 /* object printing */ = {
 			isa = PBXGroup;
 			children = (
+				70A819BB22706DC30046AFD0 /* get_full_number */,
 				702E34A722231F4E00B0CA09 /* extra */,
 				A304F13C22511B890082CF3E /* print_conv_str */,
 				702E34992222F76100B0CA09 /* ft_printf_print_object.h */,
@@ -278,6 +282,15 @@
 				703D19EA2225A4B000ABD96F /* pf_choose_length_for_mod.c */,
 			);
 			name = "part completion";
+			sourceTree = "<group>";
+		};
+		70A819BB22706DC30046AFD0 /* get_full_number */ = {
+			isa = PBXGroup;
+			children = (
+				70A819B822706DB70046AFD0 /* pf_get_full_num_d.h */,
+				70A819B922706DB70046AFD0 /* pf_get_full_num_d.c */,
+			);
+			name = get_full_number;
 			sourceTree = "<group>";
 		};
 		70AC90072219C057002B0507 = {
@@ -592,6 +605,7 @@
 				702E349B2222F76100B0CA09 /* ft_printf_print_object.c in Sources */,
 				70AE737B2220B6EF00A7685B /* pf_fsm_conv_state.c in Sources */,
 				A3C1FE402221A09500D3B399 /* pf_fsm_print_object_state.c in Sources */,
+				70A819BA22706DB70046AFD0 /* pf_get_full_num_d.c in Sources */,
 				70AE737522209FF100A7685B /* pf_fsm_print_char_state.c in Sources */,
 				A3F98FE3224FC07900AC9BEE /* ft_printf_print_part_o.c in Sources */,
 			);

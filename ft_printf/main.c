@@ -177,8 +177,8 @@ int main(int argc, const char * argv[]) {
 
 //	printf("|Test: -%c- this|\n", 0); fflush(stdout);
 //	ft_printf("|Test: -%c- this|\n", 0);
-	ft_printf("|%#-08x|\n", 42);
-	printf("|%#-08x|\n", 42);
+	ft_printf("|%#05.6o|\n", 20);
+	printf("|%#05o|\n", 20);
 
 //	printf("writen: %d\n", ft_printf("test\n", 0));
 
