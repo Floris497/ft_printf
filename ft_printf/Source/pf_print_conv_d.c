@@ -13,7 +13,7 @@
 #include <libft.h>
 #include "pf_print_conv_d.h"
 #include "pf_print_nchar.h"
-#include "pf_print_num_full.h"
+#include "pf_print_num_full_d.h"
 
 static const char	*is_negative(const char *str, int *is_neg)
 {
@@ -68,7 +68,7 @@ t_pf_ret	pf_print_pad_conv_d(const char *str, t_pf_part *part ,t_pf_obj *obj)
 	if (part->flags & PF_MN_FLAG)
 	{
 		obj->print(sign_char(is_neg, part), LEN_NS, obj);
-		print_num_full(str, (int)num_len, obj);
+		print_num_full_d(str, (int)num_len, obj);
 		pf_print_nchar(' ', padding, obj);
 	}
 	else
@@ -77,13 +77,13 @@ t_pf_ret	pf_print_pad_conv_d(const char *str, t_pf_part *part ,t_pf_obj *obj)
 		{
 			pf_print_nchar(' ', padding, obj);
 			obj->print(sign_char(is_neg, part), LEN_NS, obj);
-			print_num_full(str, (int)num_len, obj);
+			print_num_full_d(str, (int)num_len, obj);
 		}
 		else if (pad_char(part)[0] == '0')
 		{
 			obj->print(sign_char(is_neg, part), LEN_NS, obj);
 			pf_print_nchar('0', padding, obj);
-			print_num_full(str, (int)num_len, obj);
+			print_num_full_d(str, (int)num_len, obj);
 		}
 	}
 	return (PF_RET_SUCCESS);

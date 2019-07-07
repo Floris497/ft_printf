@@ -11,6 +11,6 @@
 
 #include "ft_printf_types.h"
 
-t_pf_ret	get_full_num_d(char **str, int num_len, t_pf_obj *obj)
+t_pf_ret	get_full_num_d(char **str, int num_len, t_pf_obj *obj);
 
 #endif /* pf_get_full_num_d_h */

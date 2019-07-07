@@ -9,7 +9,7 @@
 #include "pf_print_conv_o.h"
 #include <libft.h>
 #include "pf_print_nchar.h"
-#include "pf_print_num_full.h"
+#include "pf_print_num_full_o.h"
 
 static char *pad_char(t_pf_part *part)
 {
@@ -39,7 +39,7 @@ t_pf_ret	pf_print_pad_conv_o(const char *str, t_pf_part *part ,t_pf_obj *obj)
 	{
 		if (pad_char(part)[0] == ' ')
 		{
-			print_num_full(str, (int)num_len, obj);
+			print_num_full_o(str, (int)num_len, obj);
 			pf_print_nchar(' ', padding, obj);
 		}
 	}
@@ -48,12 +48,12 @@ t_pf_ret	pf_print_pad_conv_o(const char *str, t_pf_part *part ,t_pf_obj *obj)
 		if (pad_char(part)[0] == ' ')
 		{
 			pf_print_nchar(' ', padding, obj);
-			print_num_full(str, (int)num_len, obj);
+			print_num_full_o(str, (int)num_len, obj);
 		}
 		else if (pad_char(part)[0] == '0')
 		{
 			pf_print_nchar('0', padding, obj);
-			print_num_full(str, (int)num_len, obj);
+			print_num_full_o(str, (int)num_len, obj);
 		}
 	}
 	return (PF_RET_SUCCESS);
