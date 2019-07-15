@@ -32,6 +32,7 @@ static t_pf_ret		empty_part(t_pf_part *part)
 	part->width = WIDTH_NS;
 	part->conv = CONV_NS;
 	part->len_mod = LEN_MOD_NS;
+	part->flags = 0;
 	return (PF_RET_SUCCESS);
 }
 

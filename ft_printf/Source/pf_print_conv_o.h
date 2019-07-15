@@ -11,8 +11,6 @@
 
 # include "ft_printf_types.h"
 
-
-t_pf_ret	pf_print_pad_conv_o
-	(const char *str, t_pf_part *part ,t_pf_obj *obj);
+t_pf_ret	pf_print_pad_conv_o(const char *str, t_pf_part *part ,t_pf_obj *obj);
 
 #endif

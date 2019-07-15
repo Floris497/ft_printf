@@ -161,4 +161,22 @@ struct	s_pf_obj
 	t_pf_ret		(*print)(const char *, ssize_t, t_pf_obj *);
 };
 
+typedef enum s_pf_blk_order		t_pf_blk_order;
+
+enum s_pf_blk_order
+{
+	SNP,
+	SPN,
+	PSN,
+};
+
+typedef struct s_lenblock
+{
+	int r_prsc;
+	int r_width;
+	int pad_len;
+	int total_len;
+	t_pf_blk_order order;
+} t_lenblock;
+
 #endif

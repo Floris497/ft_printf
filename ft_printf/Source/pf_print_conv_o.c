@@ -6,55 +6,54 @@
 //  Copyright © 2019 Floris Fredrikze. All rights reserved.
 //
 
-#include "pf_print_conv_o.h"
 #include <libft.h>
+#include <stdlib.h>
+#include "pf_print_conv_o.h"
 #include "pf_print_nchar.h"
 #include "pf_print_num_full_o.h"
 
-static char *pad_char(t_pf_part *part)
+static t_pf_ret	pf_print_pad_conv_o_blk(const char *str, t_pf_part *part ,t_pf_obj *obj, t_lenblock lblock)
 {
-	if (part->prcs != PRECIS_NS)
-		return (" ");
-	else if (part->flags & PF_ZR_FLAG)
-		return ("0");
-	return (" ");
+	
+	if (lblock.order == SNP) {
+		print_num_full_o(str, lblock.r_prsc, obj);
+		pf_print_nchar(' ', lblock.pad_len, obj);
+	}
+	if (lblock.order == SPN) {
+		if (part->flags & PF_ZR_FLAG && part->prcs == PRECIS_NS)
+			pf_print_nchar('0', lblock.pad_len, obj);
+		else
+			pf_print_nchar(' ', lblock.pad_len, obj);
+		print_num_full_o(str, lblock.r_prsc, obj);
+	}
+	return (PF_RET_SUCCESS);
 }
 
 t_pf_ret	pf_print_pad_conv_o(const char *str, t_pf_part *part ,t_pf_obj *obj)
 {
-
-	int		padding;
-	size_t	num_len;
-	size_t	len;
-
-	len = ft_strlen(str);
-
-	num_len = (part->prcs > 0 && part->prcs > (int)len) ? part->prcs : len;
-	padding = (part->width >= 0) ? part->width : 0;
-	padding -= num_len;
-	padding = (padding < 0) ? 0 : padding;
-
-
+	t_lenblock lblock;
+	char *str_new;
+	str_new = NULL;
+	
+	if (part->prcs == 0 && part->value.s_ll_value == 0)
+		str = "";
+	if (part->flags & PF_HT_FLAG && *str != '0') {
+		str_new = ft_strnew(ft_strlen(str) + 1);
+		*str_new = '0';
+		ft_strcat(str_new, str);
+		str = str_new;
+	}
+	
+	lblock.r_prsc = (int)ft_strlen(str);
+	lblock.r_prsc = (part->prcs > lblock.r_prsc) ? part->prcs : lblock.r_prsc;
+	lblock.r_width = lblock.r_prsc;
+	lblock.total_len = (lblock.r_width < part->width) ? part->width : lblock.r_width;
+	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
-	{
-		if (pad_char(part)[0] == ' ')
-		{
-			print_num_full_o(str, (int)num_len, obj);
-			pf_print_nchar(' ', padding, obj);
-		}
-	}
+		lblock.order = SNP;
 	else
-	{
-		if (pad_char(part)[0] == ' ')
-		{
-			pf_print_nchar(' ', padding, obj);
-			print_num_full_o(str, (int)num_len, obj);
-		}
-		else if (pad_char(part)[0] == '0')
-		{
-			pf_print_nchar('0', padding, obj);
-			print_num_full_o(str, (int)num_len, obj);
-		}
-	}
+		lblock.order = SPN;
+	pf_print_pad_conv_o_blk(str, part, obj, lblock);
+	free(str_new);
 	return (PF_RET_SUCCESS);
 }

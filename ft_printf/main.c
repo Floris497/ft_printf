@@ -99,6 +99,8 @@ int main(int argc, const char * argv[]) {
 //	printf("%hhx\n", -10);
 //	ft_printf("%hhx\n", -10);
 
+	ft_printf("%05o", 43);
+/*
 	printf("=== Decimal Numbers ===\n");
 	   printf("|%-10d|\n", 10); fflush(stdout);
 	ft_printf("|%-10d|\n""\n", 10);
@@ -158,7 +160,7 @@ int main(int argc, const char * argv[]) {
 	ft_printf("|%-10.7o|\n""\n", 1646);
 	   printf("|%-10.7o|\n", 1646); fflush(stdout);
 	ft_printf("|%-10.7o|\n""\n", 1646);
-
+*/
 //
 //	printf("|\n");
 

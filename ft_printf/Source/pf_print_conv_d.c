@@ -15,76 +15,59 @@
 #include "pf_print_nchar.h"
 #include "pf_print_num_full_d.h"
 
-static const char	*is_negative(const char *str, int *is_neg)
+static void	print_sign(t_pf_part *part, t_pf_obj *obj)
 {
-	if (*str == '-')
+	if (part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || part->value.s_ll_value < 0)
 	{
-		*is_neg = 1;
-		str++;
+		if (part->value.s_ll_value < 0)
+			obj->print("-", LEN_NS, obj);
+		else
+			obj->print((part->flags & PF_PL_FLAG) ? "+" : " ", LEN_NS, obj);
 	}
-	else
-		*is_neg = 0;
-	return str;
 }
 
-static char *pad_char(t_pf_part *part)
+static t_pf_ret	pf_print_pad_conv_d_blk(const char *str, t_pf_part *part ,t_pf_obj *obj, t_lenblock lblock)
 {
-	if (part->prcs != PRECIS_NS)
-		return (" ");
-	else if (part->flags & PF_ZR_FLAG)
-		return ("0");
-	return (" ");
-}
-
-static char *sign_char(int is_neg, t_pf_part *part)
-{
-	if (is_neg == 1)
-		return ("-");
-	else if (part->flags & PF_PL_FLAG)
-		return ("+");
-	else if (part->flags & PF_SP_FLAG)
-		return (" ");
-	else
-		return ("");
+	
+	if (lblock.order == SNP) {
+		print_sign(part, obj);
+		print_num_full_d(str, lblock.r_prsc, obj);
+		pf_print_nchar(' ', lblock.pad_len, obj);
+	}
+	if (lblock.order == SPN) {
+		print_sign(part, obj);
+		pf_print_nchar('0', lblock.pad_len, obj);
+		print_num_full_d(str, lblock.r_prsc, obj);
+	}
+	if (lblock.order == PSN)
+	{
+		pf_print_nchar(' ', lblock.pad_len, obj);
+		print_sign(part, obj);
+		print_num_full_d(str, lblock.r_prsc, obj);
+	}
+	return (PF_RET_SUCCESS);
 }
 
 t_pf_ret	pf_print_pad_conv_d(const char *str, t_pf_part *part ,t_pf_obj *obj)
 {
-
-	int		padding;
-	size_t	num_len;
-	int		is_neg;
-	size_t	len;
-
-	str = is_negative(str, &is_neg);
-	len = ft_strlen(str);
-
-	num_len = (part->prcs > 0 && part->prcs > (int)len) ? part->prcs : len;
-	padding = (part->width >= 0) ? part->width : 0;
-	padding -= num_len + ft_strlen(sign_char(is_neg, part));
-	padding = (padding < 0) ? 0 : padding;
-
-
+	t_lenblock lblock;
+	
+	if (part->prcs == 0 && part->value.s_ll_value == 0)
+		str = "";
+	
+	lblock.r_prsc = (int)ft_strlen(str);
+	lblock.r_prsc = (part->prcs > lblock.r_prsc) ? part->prcs : lblock.r_prsc;
+	lblock.r_width = lblock.r_prsc + (part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || part->value.s_ll_value < 0);
+	lblock.total_len = (lblock.r_width < part->width) ? part->width : lblock.r_width;
+	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
-	{
-		obj->print(sign_char(is_neg, part), LEN_NS, obj);
-		print_num_full_d(str, (int)num_len, obj);
-		pf_print_nchar(' ', padding, obj);
-	}
+		lblock.order = SNP;
+	else if (part->prcs != PRECIS_NS)
+		lblock.order = PSN;
+	else if (part->flags & PF_ZR_FLAG)
+		lblock.order = SPN;
 	else
-	{
-		if (pad_char(part)[0] == ' ')
-		{
-			pf_print_nchar(' ', padding, obj);
-			obj->print(sign_char(is_neg, part), LEN_NS, obj);
-			print_num_full_d(str, (int)num_len, obj);
-		}
-		else if (pad_char(part)[0] == '0')
-		{
-			obj->print(sign_char(is_neg, part), LEN_NS, obj);
-			pf_print_nchar('0', padding, obj);
-			print_num_full_d(str, (int)num_len, obj);
-		}
-	}
+		lblock.order = PSN;
+	pf_print_pad_conv_d_blk(str, part, obj, lblock);
 	return (PF_RET_SUCCESS);
 }

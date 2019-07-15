@@ -48,10 +48,7 @@ t_pf_ret	pf_fsm_flags_state(const char *input, t_pf_obj *obj)
 	if (ft_strchr(FLAG_OPTS, *input) != NULL)
 		rc = set_flag(*input, obj);
 	else
-	{
-
 		return (pf_fsm_error_state(input, obj));
-	}
 	if (rc < 0)
 		return (pf_fsm_error_state(input, obj));
 	input++;
