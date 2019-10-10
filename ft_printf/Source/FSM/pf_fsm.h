@@ -1,0 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   pf_fsm.h                                          :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:49 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/30 16:46:10 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PF_FSM_H
+#define PF_FSM_H
+
+# include "ft_printf_types.h"
+
+# define WIDTH_OPTS "123456789"
+# define WIDTH_OPTS_X "0123456789"
+# define PRECIS_OPTS_X ".0123456789"
+# define PRECIS_OPTS "."
+# define LENG_OPTS "hlfL"
+# define FLAG_OPTS "0 #+-'"
+# define CONV_OPTS "cspdiouxXb"
+
+t_pf_ret	pf_fsm_conv_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_end_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_error_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_flags_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_length_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_precis_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_width_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_start_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_print_object_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_print_empty_object_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_print_char_state(const char *input, t_pf_obj *obj);
+t_pf_ret	pf_fsm_init_state(const char *input, t_pf_obj *obj);
+
+#endif
