@@ -20,28 +20,11 @@ static char		char_for_number_base(unsigned int n)
 		return ('A' + n - 10);
 }
 
-//static void		ft_strnbr_base(long long n, unsigned int base, char *dst, size_t len)
-//{
-//	t_index idx;
-//
-//	idx = len;
-//	if (n < 0)
-//	{
-//		dst[0] = '-';
-//		n = -n;
-//	}
-//	while ((unsigned long long)n >= 1)
-//	{
-//		dst[idx - 1] = char_for_number_base(n % base);
-//		idx--;
-//		n /= base;
-//	}
-//}
-
-static void		ft_strnbr_base_cl(long long n, unsigned int base, char *dst, size_t len)
+static void		ft_strnbr_base_cl
+	(long long n, unsigned int base, char *dst, size_t len)
 {
 	t_index idx;
-	
+
 	idx = len;
 	if (n < 0)
 		n = -n;

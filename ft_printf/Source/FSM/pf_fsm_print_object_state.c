@@ -30,21 +30,26 @@ static t_pf_ret		set_value_v_s(t_pf_obj *obj, t_pf_part *part)
 	return (PF_RET_SUCCESS);
 }
 
-// this code can be simplyfied.. va_args casting does not need to happen?
 static t_pf_ret		set_value_v_u(t_pf_obj *obj, t_pf_part *part)
 {
 	if (part->len_mod == HH_PF_LEN_MOD)
-		part->value.u_ll_value = (unsigned char)va_arg(*(obj->args), long long);
+		part->value.u_ll_value =
+		(unsigned char)va_arg(*(obj->args), long long);
 	else if (part->len_mod == H_PF_LEN_MOD)
-		part->value.u_ll_value = (unsigned short)va_arg(*(obj->args), long long);
+		part->value.u_ll_value =
+		(unsigned short)va_arg(*(obj->args), long long);
 	else if (part->len_mod == LEN_MOD_NS)
-		part->value.u_ll_value = (unsigned int)va_arg(*(obj->args), long long);
+		part->value.u_ll_value =
+		(unsigned int)va_arg(*(obj->args), long long);
 	else if (part->len_mod == L_PF_LEN_MOD)
-		part->value.u_ll_value = (unsigned long)va_arg(*(obj->args), long long);
+		part->value.u_ll_value =
+		(unsigned long)va_arg(*(obj->args), long long);
 	else if (part->len_mod == LL_PF_LEN_MOD)
-		part->value.u_ll_value = (unsigned long long)va_arg(*(obj->args), long long);
+		part->value.u_ll_value =
+		(unsigned long long)va_arg(*(obj->args), long long);
 	else
-		part->value.u_it_value = (unsigned int)va_arg(*(obj->args), long long);
+		part->value.u_it_value =
+		(unsigned int)va_arg(*(obj->args), long long);
 	return (PF_RET_SUCCESS);
 }
 
@@ -58,14 +63,14 @@ t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
 {
 	if (obj->part->conv == S_CONV)
 		set_value_p(obj, obj->part);
-	else if (obj->part->conv == U_CONV ||
-			 obj->part->conv == O_CONV ||
-			 obj->part->conv == X_CONV ||
-			 obj->part->conv == XX_CONV)
+	else if (
+				obj->part->conv == U_CONV ||
+				obj->part->conv == O_CONV ||
+				obj->part->conv == X_CONV ||
+				obj->part->conv == XX_CONV)
 		set_value_v_u(obj, obj->part);
 	else
 		set_value_v_s(obj, obj->part);
-
 	ft_print_object(obj);
 	input++;
 	if (*input == '\0')

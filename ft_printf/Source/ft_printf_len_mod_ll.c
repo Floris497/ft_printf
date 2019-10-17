@@ -15,7 +15,7 @@
 void	s_ll(t_pf_part *part, void *val)
 {
 	t_pf_conv conv;
-	
+
 	conv = part->conv;
 	if (conv == O_CONV || conv == U_CONV || conv == XX_CONV || conv == X_CONV)
 		part->value.u_ll_value = *(unsigned long long *)val;

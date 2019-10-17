@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_MOD_XL_H
-# define FT_PRINTF_MOD_XL_H
+#ifndef FT_PRINTF_LEN_MOD_XL_H
+# define FT_PRINTF_LEN_MOD_XL_H
 
 # include "ft_printf_types.h"
 
 void	s_xl(t_pf_part *part, void *val);
 
 #endif
-

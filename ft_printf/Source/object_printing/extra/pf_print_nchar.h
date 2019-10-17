@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_PRINT_NCHAR_H
-#define FT_PRINTF_PRINT_NCHAR_H
+#ifndef PF_PRINT_NCHAR_H
+# define PF_PRINT_NCHAR_H
 
-#include "ft_printf_types.h"
+# include "ft_printf_types.h"
 
 t_pf_ret	pf_print_nchar(int c, size_t n, t_pf_obj *obj);
 
