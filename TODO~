@@ -1,0 +1,21 @@
+Shitton of different files, why :'(
+	hard to find relevant (macro) defines
+	less .h, maybe subdirs for similar .c's?
+
+Norm. because of different editors?
+
+ft_printf_types.h
+	what does # pragma mark - enums do
+	why use 0b instead of 0x
+
+t_pf_part
+	what is conv for? Tells the type to convert to?
+
+fsm:
+	init not a real state, just a hub function?
+	flag state is actually just init state, [init X {0, ' ', #, +, -, '} -> init]
+	width is similar, but Xtreme. Not only [1-9] will go back to width (init) but [0-9].
+	same with precis. not only '.', but all of [0-9, '.']. Doesn't go to width.
+	leng seems to be just init, [init X {hlfL} -> init].
+
+	not just an fsm, but an fst-ish?
