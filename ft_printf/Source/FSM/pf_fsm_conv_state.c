@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "pf_fsm.h"
 
-static t_pf_ret		set_conv(const char c, t_pf_obj *obj)
+static t_pf_ret	set_conv(const char c, t_pf_obj *obj)
 {
 	if (c == 'c')
 		obj->part->conv = C_CONV;
@@ -40,7 +40,7 @@ static t_pf_ret		set_conv(const char c, t_pf_obj *obj)
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret	pf_fsm_conv_state(const char *input, t_pf_obj *obj)
+t_pf_ret		pf_fsm_conv_state(const char *input, t_pf_obj *obj)
 {
 	t_pf_ret	rc;
 

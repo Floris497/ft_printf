@@ -30,6 +30,7 @@ static t_pf_ret		set_value_v_s(t_pf_obj *obj, t_pf_part *part)
 	return (PF_RET_SUCCESS);
 }
 
+// this code can be simplyfied.. va_args casting does not need to happen?
 static t_pf_ret		set_value_v_u(t_pf_obj *obj, t_pf_part *part)
 {
 	if (part->len_mod == HH_PF_LEN_MOD)

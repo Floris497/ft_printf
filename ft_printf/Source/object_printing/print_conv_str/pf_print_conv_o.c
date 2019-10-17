@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include "pf_print_conv.h"
 #include "pf_print_nchar.h"
-#include "pf_print_num_full_o.h"
+#include "pf_print_num_full.h"
 
 static t_pf_ret	pf_print_pad_conv_o_blk(const char *str, t_pf_part *part ,t_pf_obj *obj, t_lenblock lblock)
 {

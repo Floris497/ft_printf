@@ -14,7 +14,7 @@
 
 #include "pf_fsm.h"
 
-static t_pf_ret		set_width(const char *input, t_pf_obj *obj)
+static t_pf_ret	set_width(const char *input, t_pf_obj *obj)
 {
 	char c;
 
@@ -36,7 +36,7 @@ static t_pf_ret		set_width(const char *input, t_pf_obj *obj)
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret	pf_fsm_width_state(const char *input, t_pf_obj *obj)
+t_pf_ret		pf_fsm_width_state(const char *input, t_pf_obj *obj)
 {
 	t_pf_ret	rc;
 

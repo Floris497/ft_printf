@@ -13,7 +13,7 @@
 #include <libft.h>
 #include "pf_print_conv.h"
 #include "pf_print_nchar.h"
-#include "pf_print_num_full_d.h"
+#include "pf_print_num_full.h"
 
 static void		print_sign(t_pf_part *part, t_pf_obj *obj)
 {
