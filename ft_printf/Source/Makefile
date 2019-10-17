@@ -18,15 +18,16 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = rcs
 
-HEADERS = libft/includes/libft.h
+HEADERS = 
+INCLUDES = ./ ./libft/includes/ ./FSM/ ./object\ printing/
 
-SRCS = $(wildcard *.c)
+SRCS = $(wildcard *.c) $(wildcard FSM/*.c)
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 %.o: %.c $(HEADERS)
-	@$(CC) -o $@ -c $< $(CFLAGS) -I libft/includes
+	@$(CC) -o $@ -c $< $(CFLAGS) -I libft/includes -I ./FSM -I ./ -I object_printing/ ./part_completion
 	@echo CC: $<
 
 $(NAME): $(OBJS)
