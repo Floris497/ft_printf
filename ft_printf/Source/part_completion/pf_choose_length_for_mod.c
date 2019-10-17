@@ -39,7 +39,8 @@ static t_pf_len_mod	get_default_length(t_pf_conv *conv)
 		return (L_PF_LEN_MOD);
 }
 
-t_pf_len_mod		pf_get_length_for_conv(t_pf_len_mod *lenmod, t_pf_conv *conv)
+t_pf_len_mod		pf_get_length_for_conv(\
+	t_pf_len_mod *lenmod, t_pf_conv *conv)
 {
 	if (DECI_CONV & *conv)
 	{
@@ -52,7 +53,7 @@ t_pf_len_mod		pf_get_length_for_conv(t_pf_len_mod *lenmod, t_pf_conv *conv)
 		else if (*lenmod & HH_PF_LEN_MOD)
 			return (HH_PF_LEN_MOD);
 		else
-			return get_default_length(conv);
+			return (get_default_length(conv));
 	}
 	else if (STR_CONV & *conv)
 		return (get_default_length(conv));
