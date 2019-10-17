@@ -19,21 +19,20 @@
 ** 3: Calls itself when: *[!(%) && !nul] | thus when no other option
 */
 
-static t_pf_ret		write_char(const char c, t_pf_obj *obj)
+static t_pf_ret	write_char(const char c, t_pf_obj *obj)
 {
-	t_pf_ret rc;
+	t_pf_ret	rc;
+	char		str[2];
 
-	char str[2];
 	str[0] = c;
 	str[1] = '\0';
 	rc = obj->print(str, LEN_NS, obj);
 	return (rc);
 }
 
-t_pf_ret	pf_fsm_print_char_state(const char *input, t_pf_obj *obj)
+t_pf_ret		pf_fsm_print_char_state(const char *input, t_pf_obj *obj)
 {
 	t_pf_ret	rc;
-
 
 	rc = PF_RET_SUCCESS;
 	while (*input != '%' && *input != '\0' && rc >= 0)

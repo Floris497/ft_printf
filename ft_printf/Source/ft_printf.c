@@ -34,14 +34,15 @@ t_pf_ret	print(const char *str, ssize_t n, t_pf_obj *obj)
 
 int			ft_printf(const char *format, ...)
 {
-	va_list ap;
+	va_list		ap;
+	t_pf_obj	object;
 
-	t_pf_obj object;
 	object.print = &print;
 	object.chr_wrtn = 0;
 	va_start(ap, format);
 	object.args = &ap;
 	while (pf_fsm_start_state(format, &object) == PF_RET_HAS_MORE)
+		; // not sure about this line..
 	va_end(ap);
 	return ((int)object.chr_wrtn);
 }

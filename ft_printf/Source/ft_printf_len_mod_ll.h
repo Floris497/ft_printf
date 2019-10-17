@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_MOD_LL_H
-# define FT_PRINTF_MOD_LL_H
+#ifndef FT_PRINTF_LEN_MOD_LL_H
+# define FT_PRINTF_LEN_MOD_LL_H
 
 # include "ft_printf_types.h"
 

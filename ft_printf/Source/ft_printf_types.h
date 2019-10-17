@@ -13,13 +13,13 @@
 #ifndef FT_PRINTF_TYPES_H
 # define FT_PRINTF_TYPES_H
 
-#if DEBUG
-#define NYI "Not yet implemented"
-#endif
+# if DEBUG
+#  define NYI "Not yet implemented"
+# endif
 
-#include <stddef.h>
-#include <stdarg.h>
-#include <string.h>
+# include <stddef.h>
+# include <stdarg.h>
+# include <string.h>
 
 # pragma mark - enums
 
@@ -76,7 +76,7 @@ enum	e_pf_conv
 ** t_pf_LEN_MOD contains the len_modifier types
 */
 
-typedef enum e_pf_len_mod		t_pf_len_mod;
+typedef enum e_pf_len_mod	t_pf_len_mod;
 
 enum	e_pf_len_mod
 {
@@ -114,7 +114,7 @@ enum	e_pf_flag
 
 # pragma mark - structs
 
-typedef union u_pf_value		t_pf_value;
+typedef union u_pf_value	t_pf_value;
 
 union	u_pf_value
 {
@@ -137,7 +137,7 @@ union	u_pf_value
 # define WIDTH_NS -1
 # define PRECIS_NS -1
 
-typedef struct s_pf_part		t_pf_part;
+typedef struct s_pf_part	t_pf_part;
 
 struct	s_pf_part
 {
@@ -151,7 +151,7 @@ struct	s_pf_part
 
 # define LEN_NS -1
 
-typedef struct s_pf_obj	t_pf_obj;
+typedef struct s_pf_obj		t_pf_obj;
 
 struct	s_pf_obj
 {
@@ -161,22 +161,24 @@ struct	s_pf_obj
 	t_pf_ret		(*print)(const char *, ssize_t, t_pf_obj *);
 };
 
-typedef enum s_pf_blk_order		t_pf_blk_order;
+typedef enum e_pf_blk_order	t_pf_blk_order;
 
-enum s_pf_blk_order
+enum	e_pf_blk_order
 {
 	SNP,
 	SPN,
 	PSN,
 };
 
-typedef struct s_lenblock
+typedef struct s_lenblock	t_lenblock;
+
+struct	s_lenblock
 {
-	int r_prsc;
-	int r_width;
-	int pad_len;
-	int total_len;
-	t_pf_blk_order order;
-} t_lenblock;
+	int				r_prsc;
+	int				r_width;
+	int				pad_len;
+	int				total_len;
+	t_pf_blk_order	order;
+};
 
 #endif

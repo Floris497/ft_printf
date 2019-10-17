@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef PF_FSM_H
-#define PF_FSM_H
+# define PF_FSM_H
 
 # include "ft_printf_types.h"
 

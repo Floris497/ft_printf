@@ -13,19 +13,19 @@
 #include "ft_printf_print.h"
 #include "pf_fsm.h"
 
-static t_pf_ret		set_part(const char *input, t_pf_obj *obj)
+static t_pf_ret
+	set_part(const char *input, t_pf_obj *obj)
 {
 	t_pf_part *part;
 
 	part = obj->part;
-
 	part->conv = C_CONV;
 	part->value.s_it_value = (int)*input;
-
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret			pf_fsm_print_empty_object_state(const char *input, t_pf_obj *obj)
+t_pf_ret
+	pf_fsm_print_empty_object_state(const char *input, t_pf_obj *obj)
 {
 //	still have to manage some stuff..
 	set_part(input, obj);
