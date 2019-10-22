@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_PRINT_H
-#define FT_PRINTF_PRINT_H
+# define FT_PRINTF_PRINT_H
 
-#include "ft_printf_types.h"
+# include "ft_printf_types.h"
 
 t_pf_ret	ft_print_object(t_pf_obj *obj);
 t_pf_ret	ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part);

@@ -1,10 +1,14 @@
-//
-//  ft_printf_print_part_b.c
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 09/04/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   ft_printf_print_part_b.c                          :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:49 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/31 18:10:24 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <libft.h>
 #include <stdlib.h>

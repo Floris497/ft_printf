@@ -32,6 +32,11 @@ t_pf_ret	print(const char *str, ssize_t n, t_pf_obj *obj)
 	return (PF_RET_WRITE_ERROR);
 }
 
+/*
+** not sure about this line..
+** edit: You meant the while loop.
+*/
+
 int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
@@ -42,7 +47,6 @@ int			ft_printf(const char *format, ...)
 	va_start(ap, format);
 	object.args = &ap;
 	while (pf_fsm_start_state(format, &object) == PF_RET_HAS_MORE)
-		; // not sure about this line..
-	va_end(ap);
+		va_end(ap);
 	return ((int)object.chr_wrtn);
 }

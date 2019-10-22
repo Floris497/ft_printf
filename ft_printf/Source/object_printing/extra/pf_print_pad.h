@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_PRINT_PAD_H
-#define FT_PRINTF_PRINT_PAD_H
+#ifndef PF_PRINT_PAD_H
+# define PF_PRINT_PAD_H
 
-#include "ft_printf_types.h"
+# include "ft_printf_types.h"
 
-t_pf_ret	pf_print_pad_front(const char *str, t_pf_part *part ,t_pf_obj *obj);
+t_pf_ret	pf_print_pad_front(const char *str, t_pf_part *part, t_pf_obj *obj);
 t_pf_ret	pf_print_pad_back(const char *str, t_pf_part *part, t_pf_obj *obj);
-t_pf_ret	pf_print_pad(const char *str, t_pf_part *part ,t_pf_obj *obj);
-
+t_pf_ret	pf_print_pad(const char *str, t_pf_part *part, t_pf_obj *obj);
 
 #endif

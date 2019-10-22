@@ -24,10 +24,14 @@ static t_pf_ret
 	return (PF_RET_SUCCESS);
 }
 
+/*
+** still have to manage some stuff.. (later me: ehm but what?)
+** later not you, moved this comment here and put this in TODO.
+*/
+
 t_pf_ret
 	pf_fsm_print_empty_object_state(const char *input, t_pf_obj *obj)
 {
-//	still have to manage some stuff.. (later me: ehm but what?)
 	set_part(input, obj);
 	ft_print_object(obj);
 	input++;

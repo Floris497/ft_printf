@@ -32,7 +32,7 @@ static t_pf_ret	change_chars(char *str, t_pf_part *part)
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret	ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part)
+t_pf_ret		ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part)
 {
 	char *str;
 
