@@ -56,7 +56,7 @@ static void 		pf_print_pad_flags(\
 		pf_print_nchar('0', (size_t)(*to_pad), *obj);
 		(*obj)->print(str, LEN_NS, *obj);
 	}
-	else (part->flags & PF_PL_FLAG)
+	else if (part->flags & PF_PL_FLAG)
 	{
 		pf_print_nchar(' ', (size_t)(*to_pad), *obj);
 		(*obj)->print(sign_char(is_neg, part), LEN_NS, *obj);
@@ -78,7 +78,7 @@ t_pf_ret			pf_print_pad(\
 		to_pad--;
 	if (part->prcs != 0)
 		to_pad += part->width - len;
-	if (part->flags & (PF_MN_FLAG || PF_ZR_FLAG || PF_PL_FLAG))
+	if (part->flags & (PF_MN_FLAG | PF_ZR_FLAG | PF_PL_FLAG))
 		pf_print_pad_flags(str, part, &obj, &to_pad);
 	else
 	{

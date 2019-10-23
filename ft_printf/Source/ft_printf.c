@@ -47,6 +47,7 @@ int			ft_printf(const char *format, ...)
 	va_start(ap, format);
 	object.args = &ap;
 	while (pf_fsm_start_state(format, &object) == PF_RET_HAS_MORE)
-		va_end(ap);
+		;
+	va_end(ap);
 	return ((int)object.chr_wrtn);
 }
