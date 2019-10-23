@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = libftprintf
 
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
@@ -56,14 +56,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C libft
-	@cp libft/libft.a ./$(NAME)
+	@cp libft/libft.a ./$(NAME).a
 	@echo MAKING LIBRARY
-	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@$(AR) $(ARFLAGS) $(NAME).a $(OBJS)
+	clang -fPIC -dynamiclib -o $(NAME).dylib $(OBJS) -lft -L./libft/
 
 fclean: clean
 	make -C libft fclean
 	@echo REMOVING LIBRARY
-	@rm -f $(NAME)
+	@rm -f $(NAME).a $(NAME).dylib
 
 clean:
 	make -C libft clean
