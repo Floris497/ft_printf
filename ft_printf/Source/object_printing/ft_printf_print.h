@@ -25,5 +25,6 @@ t_pf_ret	ft_printf_print_part_i(t_pf_obj *obj, t_pf_part *part);
 t_pf_ret	ft_printf_print_part_d(t_pf_obj *obj, t_pf_part *part);
 t_pf_ret	ft_printf_print_part_c(t_pf_obj *obj, t_pf_part *part);
 t_pf_ret	ft_printf_print_part_b(t_pf_obj *obj, t_pf_part *part);
+t_pf_ret	ft_printf_print_part_f(t_pf_obj *obj, t_pf_part *part);
 
 #endif

@@ -128,6 +128,7 @@ union	u_pf_value
 	unsigned short		u_sh_value;
 	unsigned long		u_ln_value;
 	unsigned long long	u_ll_value;
+	float				s_fl_value;
 	double				s_db_value;
 	long double			s_ld_value;
 	char				*s_ch_ptr_value;
@@ -180,5 +181,11 @@ struct	s_lenblock
 	int				total_len;
 	t_pf_blk_order	order;
 };
+
+typedef union		u_pf_f2u
+{
+	float			f;
+	unsigned int	u;
+}					t_pf_f2u;
 
 #endif
