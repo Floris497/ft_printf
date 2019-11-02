@@ -182,9 +182,11 @@ struct	s_lenblock
 	t_pf_blk_order	order;
 };
 
-# define SINGLE_PRECISION_SIGN 0x80000000;
-# define SINGLE_PRECISION_EXP 0x7F800000;
-# define SINGLE_PRECISION_MANTISSA 0x007FFFFF;
+# define FLOAT_SIGN 0x80000000;
+# define FLOAT_EXP 0x7F800000;
+# define FLOAT_MANTISSA 0x007FFFFF;
+# define FLOAT_MANTISSA_BITS 23;
+# define FLOAT_EXP_BIAS 127;
 
 typedef union		u_pf_f2u
 {
@@ -192,9 +194,9 @@ typedef union		u_pf_f2u
 	unsigned int	u;
 }					t_pf_f2u;
 
-# define DOUBLE_PRECISION_SIGN 0x8000000000000000;
-# define DOUBLE_PRECISION_EXP 0x7FF0000000000000;
-# define DOUBLE_PRECISION_MANTISSA 0x000FFFFFFFFFFFFF;
+# define DOUBLE_SIGN 0x8000000000000000;
+# define DOUBLE_EXP 0x7FF0000000000000;
+# define DOUBLE_MANTISSA 0x000FFFFFFFFFFFFF;
 
 typedef union		u_pf_db2u
 {
