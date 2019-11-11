@@ -53,7 +53,6 @@ static char		*ftoa(int s, int e, int m)
 		return (ft_strjoin(str, dst));
 	// THIS SHOULD PLACE THE DECIMAL POINT WITHIN THE NUMBER
 	else if (dec_exp < 0 && ft_power(10, (-dec_exp)) < m)
-		//AAAARGH PLACE THE DECIMAL POINT SOMEWHERE
 		return ("NYI");
 	// THE NUMBER IS ALL BEHIND THE DECIMAL POINT
 	else if (dec_exp < 0)
