@@ -182,26 +182,17 @@ struct	s_lenblock
 	t_pf_blk_order	order;
 };
 
-# define FLOAT_SIGN 0x80000000;
-# define FLOAT_EXP 0x7F800000;
-# define FLOAT_MANTISSA 0x007FFFFF;
-# define FLOAT_MANTISSA_BITS 23;
-# define FLOAT_EXP_BIAS 127;
-
 typedef union		u_pf_f2u
 {
-	float			f;
-	unsigned int	u;
+	long double			f;
+	unsigned long long	u;
+	int					m;
 }					t_pf_f2u;
 
-# define DOUBLE_SIGN 0x8000000000000000;
-# define DOUBLE_EXP 0x7FF0000000000000;
-# define DOUBLE_MANTISSA 0x000FFFFFFFFFFFFF;
-
-typedef union		u_pf_db2u
-{
-	double			f;
-	unsigned long	u;
-}					t_pf_db2u;
-
-#endif
+# define LD_SIGN 0x80000000000000000000;
+# define LD_EXP 0x7FFF0000000000000000;
+# define LD_MANTISSA 0x0000FFFFFFFFFFFFFFFF;
+# define LD_INTEGER_PART 0x00008000000000000000;
+# define LD_FRACTION 0x00007FFFFFFFFFFFFFFF;
+# define LD_MANTISSA_BITS 64;
+# define LD_EXP_BIAS 16383;
