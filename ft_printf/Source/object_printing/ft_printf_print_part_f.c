@@ -15,69 +15,81 @@
 #include "ft_printf_print.h"
 #include "pf_print_conv.h"
 
-static char		*float_special_value(unsigned long long m, unsigned long long s)
+static char		*float_special_value(t_ld_parts ld)
 {
-	if (m)
+	if (ld.m)
 		return (ft_memdup("NaN", 4));
-	else if (s)
+	else if (ld.sign_exp & LD_SIGN)
 		return(ft_memdup("-Inf", 5));
 	return(ft_memdup("Inf", 4));
 }
 
-// static char		*ftoa(unsigned long s, unsigned long e, unsigned long m)
-// {
-// 	int			dec_exp;
-// 	long double	f;
-// 	char		*str;
-// 	char		*dst;
-//
-// 	f = e >= 0 ? (long double)(1 << e) : (long double)(1 << (-e));
-// 	dec_exp = 0;
-// 	while (f >= 10.0)
-// 	{
-// 		f /= 10.0;
-// 		dec_exp++;
-// 	}
-// 	dec_exp = e >= 0 ? dec_exp : (-dec_exp);
-// 	// THIS LOSES SOME PRECISION, WHICH WILL MATTER
-// 	// TRY MULTIPLYING BY HIGHEST NON-OVERFLOWING POWER OF 10
-// 	// STORE IN LONG LONG INSTEAD OF INT
-// 	m = (int)(m * f);
-// 	str = ft_itoa(m);
-// 	if (dec_exp)
-// 	{
-// 		dst = (char*)ft_memmalloc(dec_exp > 0 ? dec_exp + 1 : (-dec_exp) + 1);
-// 		ft_memset(dst, '0', dec_exp);
-// 	}
-// 	if (dec_exp > 1)
-// 		return (ft_strjoin(str, dst));
-// 	// THIS SHOULD PLACE THE DECIMAL POINT WITHIN THE NUMBER
-// 	else if (dec_exp < 0 && ft_power(10, (-dec_exp)) < m)
-// 		return ("NYI");
-// 	// THE NUMBER IS ALL BEHIND THE DECIMAL POINT
-// 	else if (dec_exp < 0)
-// 		return (ft_strjoin(ft_memdup("0.", 3), ft_strjoin(dst, str)));
-// 	// THE NUMBER IS JUST THE NUMBER
-// 	return(str);
-// }
-
-static char		*ft_float_to_str(t_pf_part *part)
+static int		get_dec_exp(int e)
 {
-	t_pf_f2u			f2u;
+	size_t	dec_exp;
 
-	f2u.f = (long double)part->value;
-	if (!(f2u.u & LD_EXP))
-		return (special_value(f2u.u & LD_MANTISSA, f2u.u & LD_SIGN));
-	return (ftoa(f2u, part));
+	dec_exp = 0;
+	if (e < 0)
+	{
+		e *= -1;
+		while (e >= 10.0)
+		{
+			e /= 10.0;
+			dec_exp--;
+		}
+		return (dec_exp);
+	}
+	while (e >= 10.0)
+	{
+		frac /= 10.0;
+		dec_exp++;
+	}
+	return (dec_exp);
+}
+
+static char		*init_str(int sign, int prcs, int d_exp)
+{
+	char	*str;
+
+	str = (char*)ft_memmalloc(sizeof(char) * (sign + abs(d_exp) + prcs + 1));
+	if (prcs)
+		str[abs(d_exp) + 1] = '.';
+	return (str);
+}
+
+static char		*set_str(char *str, )
+{
+	int	i;
+
+	i = LD_MANTISSA_BITS;
+	while (i >= 0)
+	{
+		if (!(ld.m & 1 << i))
+		{
+			i--;
+			continue ;
+		}
+		
+	}
+	return (str);
 }
 
 t_pf_ret		ft_printf_print_part_f(
 	t_pf_obj *obj, t_pf_part *part)
 {
-	char *number;
+	t_pf_f2u			f2u;
+	int					d_exp;
+	int					e;
+	char				*str;
 
-	number = ft_float_to_str(part->value.s_fl_value, part->flags);
-	ft_putstr(number);
-	free(number);
+	f2u.f = (long double)part->value;
+	if (!(f2u.ld.sign_exp & LD_EXP))
+		return (special_value(f2u.ld));
+	e = (ld.sign_exp & LD_EXP) - LD_EXP_BIAS;
+	d_exp = get_dec_exp(ld, e);
+	str = init_str(ld.sign_exp & LD_SIGN ? TRUE : FALSE, part->prcs, d_exp);
+	str = set_str(str, ld);
+	ft_putstr(str);
+	free(str);
 	return (PF_RET_SUCCESS);
 }

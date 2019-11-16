@@ -43,6 +43,7 @@ enum	e_pf_ret
 ** t_pf_conversion contains the conversion types
 */
 
+typedef enum e_pf_conv		t_pf_conv;
 typedef enum e_pf_conv	t_pf_conv;
 
 enum	e_pf_conv
@@ -182,20 +183,22 @@ struct	s_lenblock
 	t_pf_blk_order	order;
 };
 
-typedef union u_pf_f2u	t_pf_f2u;
-
-union	u_pf_f2u
+typedef	struct 		s_ld_parts
 {
-	long double			f;
-	unsigned long long	u;
-	int					m;
-};
+	unsigned long	m;
+	unsigned long	sign_exp;
+}					t_ld_parts;
 
-# define LD_SIGN 0x80000000000000000000;
-# define LD_EXP 0x7FFF0000000000000000;
-# define LD_MANTISSA 0x0000FFFFFFFFFFFFFFFF;
-# define LD_INTEGER_PART 0x00008000000000000000;
-# define LD_FRACTION 0x00007FFFFFFFFFFFFFFF;
+typedef union		u_pf_f2u
+{
+	long double		f;
+	t_ld_parts		ld;
+}					t_pf_f2u;
+
+# define LD_SIGN 0x8000;
+# define LD_EXP 0x7FFF;
+# define LD_INTEGER_PART 0x8000000000000000;
+# define LD_FRACTION 0x7FFFFFFFFFFFFFFF;
 # define LD_MANTISSA_BITS 64;
 # define LD_EXP_BIAS 16383;
 
