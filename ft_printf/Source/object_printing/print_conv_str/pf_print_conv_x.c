@@ -16,8 +16,8 @@
 #include "pf_print_nchar.h"
 #include "pf_print_num_full.h"
 
-static t_pf_ret	pf_print_pad_conv_x_blk(\
-	const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
+static t_pf_ret	pf_print_pad_conv_x_blk
+	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
 	if (lb.order == SNP)
 	{
@@ -35,8 +35,8 @@ static t_pf_ret	pf_print_pad_conv_x_blk(\
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret		pf_print_pad_conv_x(\
-	const char *str, t_pf_part *part, t_pf_obj *obj)
+t_pf_ret		pf_print_pad_conv_x
+	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
 	t_lenblock	lb;
 	char		*str_new;

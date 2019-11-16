@@ -27,8 +27,8 @@ static void		print_sign(t_pf_part *part, t_pf_obj *obj)
 	}
 }
 
-static t_pf_ret	pf_print_pad_conv_d_blk(\
-	const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lblock)
+static t_pf_ret	pf_print_pad_conv_d_blk
+	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lblock)
 {
 	if (lblock.order == SNP)
 	{
@@ -51,8 +51,8 @@ static t_pf_ret	pf_print_pad_conv_d_blk(\
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret		pf_print_pad_conv_d(\
-	const char *str, t_pf_part *part, t_pf_obj *obj)
+t_pf_ret		pf_print_pad_conv_d
+	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
 	t_lenblock lblock;
 
@@ -62,8 +62,8 @@ t_pf_ret		pf_print_pad_conv_d(\
 	lblock.r_prsc = (part->prcs > lblock.r_prsc) ? part->prcs : lblock.r_prsc;
 	lblock.r_width = lblock.r_prsc + (part->flags & PF_SP_FLAG ||
 		part->flags & PF_PL_FLAG || part->value.s_ll_value < 0);
-	lblock.total_len = (\
-		lblock.r_width < part->width) ? part->width : lblock.r_width;
+	lblock.total_len =
+		(lblock.r_width < part->width) ? part->width : lblock.r_width;
 	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
 		lblock.order = SNP;
