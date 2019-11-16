@@ -19,6 +19,16 @@
 # define STR_CONV (C_CONV | S_CONV | P_CONV)
 # define FLT_CONV (F_CONV)
 
+/*
+** not yet classified
+** A_CONV | XA_CONV | E_CONV | XE_CONV | G_CONV | XG_CONV | V_CONV | B_CONV |CONV_NS
+*/
+
+# define PNTR_CONV (N_CONV | S_CONV | P_CONV)
+# define SIGN_CONV (U_CONV | O_CONV | X_CONV | XX_CONV)
+
+# define NO_PNTR_CONV (D_CONV | I_CONV | O_CONV | U_CONV | X_CONV | XX_CONV | F_CONV | XF_CONV | C_CONV)
+
 t_pf_len_mod pf_get_length_for_conv(t_pf_len_mod *lenmod, t_pf_conv *conv);
 
 #endif

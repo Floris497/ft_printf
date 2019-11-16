@@ -10,12 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
+#include <stdlib.h>
 #include "ft_printf_print.h"
+#include "pf_print_conv.h"
 
-t_pf_ret	ft_printf_print_part_p(t_pf_obj *obj, t_pf_part *part)
+t_pf_ret		ft_printf_print_part_p(t_pf_obj *obj, t_pf_part *part)
 {
-	obj->print("<FIX IN: "__FILE__">", LEN_NS, obj);
-	if (part)
-		return (PF_RET_SUCCESS);
+	char *str;
+
+	str = ft_itoa_base((unsigned long long)part->value.ptr, 16);
+	part->prcs = 16;
+	pf_print_pad_conv_p(str, part, obj);
+	free(str);
 	return (PF_RET_SUCCESS);
 }

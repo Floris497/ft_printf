@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf_print.h"
+#include "pf_choose_length_for_mod.h"
 #include "pf_fsm.h"
 
 static t_pf_ret		set_value_v_s(t_pf_obj *obj, t_pf_part *part)
@@ -61,12 +62,9 @@ static t_pf_ret		set_value_p(t_pf_obj *obj, t_pf_part *part)
 
 t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
 {
-	if (obj->part->conv == S_CONV)
+	if ((obj->part->conv & PNTR_CONV) != 0)
 		set_value_p(obj, obj->part);
-	else if (obj->part->conv == U_CONV ||
-				obj->part->conv == O_CONV ||
-				obj->part->conv == X_CONV ||
-				obj->part->conv == XX_CONV)
+	else if ((obj->part->conv & SIGN_CONV) != 0)
 		set_value_v_u(obj, obj->part);
 	else
 		set_value_v_s(obj, obj->part);

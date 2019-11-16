@@ -16,7 +16,7 @@
 #include "pf_print_nchar.h"
 #include "pf_print_num_full.h"
 
-static t_pf_ret	pf_print_pad_conv_x_blk
+static t_pf_ret	pf_print_pad_conv_p_blk
 	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
 	if (lb.order == SNP)
@@ -35,7 +35,7 @@ static t_pf_ret	pf_print_pad_conv_x_blk
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret		pf_print_pad_conv_x
+t_pf_ret		pf_print_pad_conv_p
 	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
 	t_lenblock	lb;
@@ -47,7 +47,7 @@ t_pf_ret		pf_print_pad_conv_x
 	if (part->flags & PF_HT_FLAG && *str != '0')
 	{
 		str_new = ft_strnew(ft_strlen(str) + 2);
-		(part->conv == X_CONV) ? ft_strcpy(str_new, "0x") : ft_strcpy(str_new, "0X");
+		ft_strcpy(str_new, "0x");
 		ft_strcat(str_new, str);
 		str = str_new;
 	}
@@ -60,7 +60,7 @@ t_pf_ret		pf_print_pad_conv_x
 		lb.order = SNP;
 	else
 		lb.order = SPN;
-	pf_print_pad_conv_x_blk(str, part, obj, lb);
+	pf_print_pad_conv_p_blk(str, part, obj, lb);
 	free(str_new);
 	return (PF_RET_SUCCESS);
 }
