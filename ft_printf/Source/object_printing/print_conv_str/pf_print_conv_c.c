@@ -38,8 +38,7 @@ t_pf_ret		pf_print_pad_conv_c
 {
 	t_lenblock lblock;
 
-	lblock.r_prsc = (int)ft_strlen(str);
-	lblock.r_prsc = (part->prcs > lblock.r_prsc) ? part->prcs : lblock.r_prsc;
+	lblock.r_prsc = (part->prcs > 1) ? part->prcs : 1;
 	lblock.r_width = lblock.r_prsc;
 	lblock.total_len =
 		(lblock.r_width < part->width) ? part->width : lblock.r_width;
