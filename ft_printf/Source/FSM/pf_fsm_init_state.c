@@ -38,7 +38,7 @@ t_pf_ret			pf_fsm_init_state(t_pf_obj *obj)
 	else if (ft_strchr(WIDTH_OPTS, *(obj->input)))
 		return (PF_RET_WIDTH_STATE);
 	else if (ft_strchr(PRECIS_OPTS, *(obj->input)))
-		return (PF_RET_LENGTH_STATE);
+		return (PF_RET_PRECIS_STATE);
 	else if (ft_strchr(LENG_OPTS, *(obj->input)))
 		return (PF_RET_LENGTH_STATE);
 	else

@@ -61,7 +61,7 @@ t_pf_ret				pf_fsm_length_state(t_pf_obj *obj)
 	if (ft_strchr(FLAG_OPTS, *(obj->input)))
 		return (PF_RET_FLAGS_STATE);
 	else if (ft_strchr(PRECIS_OPTS, *(obj->input)))
-		return (PF_RET_LENGTH_STATE);
+		return (PF_RET_PRECIS_STATE);
 	else if (ft_strchr(LENG_OPTS, *(obj->input)))
 		return (PF_RET_LENGTH_STATE);
 	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
