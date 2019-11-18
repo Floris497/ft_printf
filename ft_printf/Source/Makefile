@@ -59,7 +59,7 @@ $(NAME): $(OBJS)
 	@cp libft/libft.a ./$(NAME).a
 	@echo MAKING LIBRARY
 	@$(AR) $(ARFLAGS) $(NAME).a $(OBJS)
-	# clang -fPIC -dynamiclib -o $(NAME).dylib $(OBJS) -lft -L./libft/ -g
+	clang -fPIC -dynamiclib -o $(NAME).dylib $(OBJS) -lft -L./libft/ -g
 
 fclean: clean
 	make -C libft fclean

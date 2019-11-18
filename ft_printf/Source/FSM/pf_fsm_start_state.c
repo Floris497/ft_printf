@@ -15,12 +15,12 @@
 t_pf_ret	pf_fsm_start_state(t_pf_obj *obj)
 {
 	if (*(obj->input) == '%')
-		pf_fsm_init_state(obj);
+		return (PF_RET_INIT_STATE);
 	else if (*(obj->input) != '\0' && *(obj->input) != '%')
-		pf_fsm_print_char_state(obj);
+		return (PF_RET_PRINT_CHAR_STATE);
 
 	if (*(obj->input) == '\0')
-		return (pf_fsm_end_state(obj));
+		return (PF_RET_END_STATE);
 	else
 		return (PF_RET_HAS_MORE);
 }

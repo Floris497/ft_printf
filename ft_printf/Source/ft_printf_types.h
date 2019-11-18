@@ -21,6 +21,10 @@
 # include <stdarg.h>
 # include <string.h>
 
+# ifdef linux
+#  include <sys/types.h>
+# endif
+
 # pragma mark - enums
 
 /*
@@ -37,6 +41,20 @@ enum	e_pf_ret
 	PF_RET_FORMAT_ERROR = -2,
 	PF_RET_WRITE_ERROR = -3,
 	PF_RET_NO_STATE_SET = -10,
+
+	PF_RET_CONV_STATE = 10,
+	PF_RET_END_STATE = 11,
+	PF_RET_ERROR_STATE = 12,
+	PF_RET_FLAGS_STATE = 13,
+	PF_RET_LENGTH_STATE = 14,
+	PF_RET_PRECIS_STATE = 15,
+	PF_RET_WIDTH_STATE = 16,
+	PF_RET_START_STATE = 17,
+	PF_RET_PRINT_OBJECT_STATE = 18,
+	PF_RET_PRINT_EMPTY_OBJECT_STATE = 19,
+	PF_RET_PRINT_CHAR_STATE = 20,
+	PF_RET_INIT_STATE  = 21,
+
 };
 
 /*
@@ -44,7 +62,7 @@ enum	e_pf_ret
 */
 
 typedef enum e_pf_conv		t_pf_conv;
-typedef enum e_pf_conv	t_pf_conv;
+typedef enum e_pf_conv		t_pf_conv;
 
 enum	e_pf_conv
 {

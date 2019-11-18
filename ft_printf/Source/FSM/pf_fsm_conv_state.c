@@ -44,11 +44,11 @@ t_pf_ret		pf_fsm_conv_state(t_pf_obj *obj)
 {
 	t_pf_ret	rc;
 
-	rc = PF_RET_SUCCESS;
+	rc = PF_RET_PRINT_OBJECT_STATE;
 	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
 		rc = set_conv(*(obj->input), obj);
 	if (rc < 0)
-		return (pf_fsm_error_state(obj));
+		return (PF_RET_ERROR_STATE);
 	else
-		return (pf_fsm_print_object_state(obj));
+		return (PF_RET_PRINT_OBJECT_STATE);
 }
