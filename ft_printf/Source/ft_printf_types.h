@@ -21,6 +21,10 @@
 # include <stdarg.h>
 # include <string.h>
 
+# ifdef linux
+#  include <sys/types.h>
+# endif
+
 # pragma mark - enums
 
 /*
