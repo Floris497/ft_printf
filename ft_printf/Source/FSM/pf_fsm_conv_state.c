@@ -40,15 +40,15 @@ static t_pf_ret	set_conv(const char c, t_pf_obj *obj)
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret		pf_fsm_conv_state(const char *input, t_pf_obj *obj)
+t_pf_ret		pf_fsm_conv_state(t_pf_obj *obj)
 {
 	t_pf_ret	rc;
 
 	rc = PF_RET_SUCCESS;
-	if (ft_strchr(CONV_OPTS, *input) != NULL)
-		rc = set_conv(*input, obj);
+	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
+		rc = set_conv(*(obj->input), obj);
 	if (rc < 0)
-		return (pf_fsm_error_state(input, obj));
+		return (pf_fsm_error_state(obj));
 	else
-		return (pf_fsm_print_object_state(input, obj));
+		return (pf_fsm_print_object_state(obj));
 }

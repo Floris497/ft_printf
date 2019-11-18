@@ -157,6 +157,7 @@ typedef struct s_pf_obj		t_pf_obj;
 
 struct	s_pf_obj
 {
+	const char 		*input;
 	size_t			chr_wrtn;
 	t_pf_part		*part;
 	va_list			*args;

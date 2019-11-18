@@ -60,7 +60,7 @@ static t_pf_ret		set_value_p(t_pf_obj *obj, t_pf_part *part)
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
+t_pf_ret			pf_fsm_print_object_state(t_pf_obj *obj)
 {
 	if ((obj->part->conv & PNTR_CONV) != 0)
 		set_value_p(obj, obj->part);
@@ -69,9 +69,6 @@ t_pf_ret			pf_fsm_print_object_state(const char *input, t_pf_obj *obj)
 	else
 		set_value_v_s(obj, obj->part);
 	ft_print_object(obj);
-	input++;
-	if (*input == '\0')
-		return (pf_fsm_end_state(input, obj));
-	else
-		return (pf_fsm_start_state(input, obj));
+	(obj->input)++;
+	return (pf_fsm_end_state(obj));
 }

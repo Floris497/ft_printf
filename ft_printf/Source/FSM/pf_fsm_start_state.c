@@ -12,14 +12,15 @@
 
 #include "pf_fsm.h"
 
-t_pf_ret	pf_fsm_start_state(const char *input, t_pf_obj *obj)
+t_pf_ret	pf_fsm_start_state(t_pf_obj *obj)
 {
-	if (*input == '%')
-		return (pf_fsm_init_state(input, obj));
-	else if (*input == '\0')
-		return (pf_fsm_end_state(input, obj));
-	else if (*input != '\0' && *input != '%')
-		return (pf_fsm_print_char_state(input, obj));
+	if (*(obj->input) == '%')
+		pf_fsm_init_state(obj);
+	else if (*(obj->input) != '\0' && *(obj->input) != '%')
+		pf_fsm_print_char_state(obj);
+
+	if (*(obj->input) == '\0')
+		return (pf_fsm_end_state(obj));
 	else
-		return (pf_fsm_error_state(input, obj));
+		return (PF_RET_HAS_MORE);
 }

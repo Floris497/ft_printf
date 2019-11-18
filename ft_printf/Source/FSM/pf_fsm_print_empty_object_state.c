@@ -14,13 +14,13 @@
 #include "pf_fsm.h"
 
 static t_pf_ret
-	set_part(const char *input, t_pf_obj *obj)
+	set_part(t_pf_obj *obj)
 {
 	t_pf_part *part;
 
 	part = obj->part;
 	part->conv = C_CONV;
-	part->value.s_it_value = (int)*input;
+	part->value.s_it_value = (int)*(obj->input);
 	return (PF_RET_SUCCESS);
 }
 
@@ -30,13 +30,10 @@ static t_pf_ret
 */
 
 t_pf_ret
-	pf_fsm_print_empty_object_state(const char *input, t_pf_obj *obj)
+	pf_fsm_print_empty_object_state(t_pf_obj *obj)
 {
-	set_part(input, obj);
+	set_part(obj);
 	ft_print_object(obj);
-	input++;
-	if (*input == '\0')
-		return (pf_fsm_end_state(input, obj));
-	else
-		return (pf_fsm_start_state(input, obj));
+	(obj->input)++;
+	return (pf_fsm_end_state(obj));
 }
