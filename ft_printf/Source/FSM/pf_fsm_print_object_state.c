@@ -70,5 +70,5 @@ t_pf_ret			pf_fsm_print_object_state(t_pf_obj *obj)
 		set_value_v_s(obj, obj->part);
 	ft_print_object(obj);
 	(obj->input)++;
-	return (pf_fsm_end_state(obj));
+	return (PF_RET_END_STATE);
 }

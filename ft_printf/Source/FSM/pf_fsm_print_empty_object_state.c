@@ -35,5 +35,5 @@ t_pf_ret
 	set_part(obj);
 	ft_print_object(obj);
 	(obj->input)++;
-	return (pf_fsm_end_state(obj));
+	return (PF_RET_END_STATE);
 }

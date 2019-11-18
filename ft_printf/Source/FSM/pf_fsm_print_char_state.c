@@ -44,7 +44,7 @@ t_pf_ret		pf_fsm_print_char_state(t_pf_obj *obj)
 		return (rc);
 
 	if (*(obj->input) == '\0')
-		return (pf_fsm_end_state(obj));
+		return (PF_RET_END_STATE);
 	else
-		return (PF_RET_HAS_MORE);
+		return (PF_RET_START_STATE);
 }

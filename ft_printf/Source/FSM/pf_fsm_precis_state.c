@@ -43,17 +43,17 @@ t_pf_ret		pf_fsm_precis_state(t_pf_obj *obj)
 	if (ft_strchr(PRECIS_OPTS_X, *(obj->input)) != NULL)
 		rc = set_precis(obj);
 	if (rc < 0)
-		return (pf_fsm_error_state(obj));
+		return (PF_RET_ERROR_STATE);
 	(obj->input)++;
 	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
-		return (pf_fsm_conv_state(obj));
+		return (PF_RET_CONV_STATE);
 	else if (ft_strchr(PRECIS_OPTS_X, *(obj->input)))
-		return (pf_fsm_precis_state(obj));
+		return (PF_RET_LENGTH_STATE);
 	else if (ft_strchr(FLAG_OPTS, *(obj->input)) != NULL)
-		return (pf_fsm_flags_state(obj));
+		return (PF_RET_FLAGS_STATE);
 	else if (ft_strchr(LENG_OPTS, *(obj->input)))
-		return (pf_fsm_length_state(obj));
+		return (PF_RET_LENGTH_STATE);
 	else
-		return (pf_fsm_print_empty_object_state(obj));
-	return (pf_fsm_error_state(obj));
+		return (PF_RET_PRINT_EMPTY_OBJECT_STATE);
+	return (PF_RET_ERROR_STATE);
 }
