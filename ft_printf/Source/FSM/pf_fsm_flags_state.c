@@ -36,7 +36,6 @@ t_pf_ret		pf_fsm_flags_state(t_pf_obj *obj)
 {
 	t_pf_ret	rc;
 
-	rc = PF_RET_SUCCESS;
 	if (ft_strchr(FLAG_OPTS, *(obj->input)) != NULL)
 		rc = set_flag(*(obj->input), obj);
 	else
