@@ -211,7 +211,7 @@ int main(int argc, const char *argv[])
 	
 #endif
     
-    sleep(1);
+    // sleep(1);
     
 //    for (int a = 0; a < 1000; a++)
 //    {

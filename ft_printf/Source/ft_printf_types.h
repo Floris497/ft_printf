@@ -62,7 +62,7 @@ enum	e_pf_ret
 */
 
 typedef enum e_pf_conv		t_pf_conv;
-typedef enum e_pf_conv	t_pf_conv;
+typedef enum e_pf_conv		t_pf_conv;
 
 enum	e_pf_conv
 {
