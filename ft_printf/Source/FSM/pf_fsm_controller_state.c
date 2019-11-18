@@ -22,40 +22,33 @@ PF_RET_PRINT_EMPTY_OBJECT_STATE = 19,
 PF_RET_PRINT_CHAR_STATE = 20,
 PF_RET_INIT_STATE  = 21,
 
-*/
+ */
+
+typedef t_pf_ret (*state_function)(t_pf_obj *);
+
+static state_function jump_table[12] =
+{
+	pf_fsm_conv_state,
+	pf_fsm_end_state,
+	pf_fsm_error_state,
+	pf_fsm_flags_state,
+	pf_fsm_length_state,
+	pf_fsm_precis_state,
+	pf_fsm_width_state,
+	pf_fsm_start_state,
+	pf_fsm_print_object_state,
+	pf_fsm_print_empty_object_state,
+	pf_fsm_print_char_state,
+	pf_fsm_init_state,
+};
 
 t_pf_ret	pf_fsm_controller_state(t_pf_obj *obj)
 {
 	t_pf_ret ret = PF_RET_START_STATE;
 
-	while (ret >= 0)
+	while (ret >= 10 && ret <= 21)
 	{
-		if (ret >= 10) {
-			if (ret == PF_RET_CONV_STATE)
-				ret = pf_fsm_conv_state(obj);
-			else if (ret == PF_RET_END_STATE)
-				ret = pf_fsm_end_state(obj);
-			else if (ret == PF_RET_ERROR_STATE)
-				ret = pf_fsm_error_state(obj);
-			else if (ret == PF_RET_FLAGS_STATE)
-				ret = pf_fsm_flags_state(obj);
-			else if (ret == PF_RET_LENGTH_STATE)
-				ret = pf_fsm_length_state(obj);
-			else if (ret == PF_RET_PRECIS_STATE)
-				ret = pf_fsm_precis_state(obj);
-			else if (ret == PF_RET_WIDTH_STATE)
-				ret = pf_fsm_width_state(obj);
-			else if (ret == PF_RET_START_STATE)
-				ret = pf_fsm_start_state(obj);
-			else if (ret == PF_RET_PRINT_OBJECT_STATE)
-				ret = pf_fsm_print_object_state(obj);
-			else if (ret == PF_RET_PRINT_EMPTY_OBJECT_STATE)
-				ret = pf_fsm_print_empty_object_state(obj);
-			else if (ret == PF_RET_PRINT_CHAR_STATE)
-				ret = pf_fsm_print_char_state(obj);
-			else if (ret == PF_RET_INIT_STATE)
-				ret = pf_fsm_init_state(obj);
-		}
+		ret = jump_table[ret - 10](obj);
 		if (ret == PF_RET_SUCCESS && *(obj->input) != '\0')
 			ret = PF_RET_START_STATE;
 	}
