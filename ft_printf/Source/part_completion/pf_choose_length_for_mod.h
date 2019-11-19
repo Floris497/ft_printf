@@ -26,6 +26,7 @@
 
 # define PNTR_CONV (N_CONV | S_CONV | P_CONV)
 # define SIGN_CONV (U_CONV | O_CONV | X_CONV | XX_CONV)
+# define FLOAT_CONV (F_CONV)
 
 # define NO_PNTR_CONV (D_CONV | I_CONV | O_CONV | U_CONV | X_CONV | XX_CONV | F_CONV | XF_CONV | C_CONV)
 
