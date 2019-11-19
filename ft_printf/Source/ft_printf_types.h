@@ -21,6 +21,10 @@
 # include <stdarg.h>
 # include <string.h>
 
+# ifdef linux
+#  include <sys/types.h>
+# endif
+
 # pragma mark - enums
 
 /*
@@ -37,6 +41,20 @@ enum	e_pf_ret
 	PF_RET_FORMAT_ERROR = -2,
 	PF_RET_WRITE_ERROR = -3,
 	PF_RET_NO_STATE_SET = -10,
+
+	PF_RET_CONV_STATE = 10,
+	PF_RET_END_STATE = 11,
+	PF_RET_ERROR_STATE = 12,
+	PF_RET_FLAGS_STATE = 13,
+	PF_RET_LENGTH_STATE = 14,
+	PF_RET_PRECIS_STATE = 15,
+	PF_RET_WIDTH_STATE = 16,
+	PF_RET_START_STATE = 17,
+	PF_RET_PRINT_OBJECT_STATE = 18,
+	PF_RET_PRINT_EMPTY_OBJECT_STATE = 19,
+	PF_RET_PRINT_CHAR_STATE = 20,
+	PF_RET_INIT_STATE  = 21,
+
 };
 
 /*
@@ -44,33 +62,68 @@ enum	e_pf_ret
 */
 
 typedef enum e_pf_conv		t_pf_conv;
-typedef enum e_pf_conv	t_pf_conv;
+typedef enum e_pf_conv		t_pf_conv;
 
 enum	e_pf_conv
 {
-	D_CONV = 1 >> 21,
-	I_CONV = 1 >> 20,
-	O_CONV = 1 >> 19,
-	U_CONV = 1 >> 18,
-	X_CONV = 1 >> 17,
-	XX_CONV = 1 >> 16,
-	N_CONV = 1 >> 15,
-	A_CONV = 1 >> 14,
-	XA_CONV = 1 >> 13,
-	E_CONV = 1 >> 12,
-	XE_CONV = 1 >> 11,
-	F_CONV = 1 >> 10,
-	XF_CONV = 1 >> 9,
-	G_CONV = 1 >> 8,
-	XG_CONV = 1 >> 7,
-	C_CONV = 1 >> 6,
-	S_CONV = 1 >> 5,
-	V_CONV = 1 >> 4,
-	P_CONV = 1 >> 3,
-	B_CONV = 1 >> 2,
-	CONV_NS = 1 >> 1,
-	NOT_A_CONV = 1 >> ,
+	CONV_NS = (unsigned long long)1 << 1,
+	NOT_A_CONV = (unsigned long long)1 << 0,
+
+	XA_CONV = (unsigned long long)1 << 2,
+	XB_CONV = (unsigned long long)1 << 3,
+	XC_CONV = (unsigned long long)1 << 4,
+	XD_CONV = (unsigned long long)1 << 5,
+	XE_CONV = (unsigned long long)1 << 6,
+	XF_CONV = (unsigned long long)1 << 7,
+	XG_CONV = (unsigned long long)1 << 8,
+	XH_CONV = (unsigned long long)1 << 9,
+	XI_CONV = (unsigned long long)1 << 10,
+	XJ_CONV = (unsigned long long)1 << 11,
+	XK_CONV = (unsigned long long)1 << 12,
+	XL_CONV = (unsigned long long)1 << 13,
+	XM_CONV = (unsigned long long)1 << 14,
+	XN_CONV = (unsigned long long)1 << 15,
+	XO_CONV = (unsigned long long)1 << 16,
+	XP_CONV = (unsigned long long)1 << 17,
+	XQ_CONV = (unsigned long long)1 << 18,
+	XR_CONV = (unsigned long long)1 << 19,
+	XS_CONV = (unsigned long long)1 << 20,
+	XT_CONV = (unsigned long long)1 << 21,
+	XU_CONV = (unsigned long long)1 << 22,
+	XV_CONV = (unsigned long long)1 << 23,
+	XW_CONV = (unsigned long long)1 << 24,
+	XX_CONV = (unsigned long long)1 << 25,
+	XY_CONV = (unsigned long long)1 << 26,
+	XZ_CONV = (unsigned long long)1 << 27,
+
+	A_CONV = (unsigned long long)1 << 34,
+	B_CONV = (unsigned long long)1 << 35,
+	C_CONV = (unsigned long long)1 << 36,
+	D_CONV = (unsigned long long)1 << 37,
+	E_CONV = (unsigned long long)1 << 38,
+	F_CONV = (unsigned long long)1 << 39,
+	G_CONV = (unsigned long long)1 << 40,
+	H_CONV = (unsigned long long)1 << 41,
+	I_CONV = (unsigned long long)1 << 42,
+	J_CONV = (unsigned long long)1 << 43,
+	K_CONV = (unsigned long long)1 << 44,
+	L_CONV = (unsigned long long)1 << 45,
+	M_CONV = (unsigned long long)1 << 46,
+	N_CONV = (unsigned long long)1 << 47,
+	O_CONV = (unsigned long long)1 << 48,
+	P_CONV = (unsigned long long)1 << 49,
+	Q_CONV = (unsigned long long)1 << 50,
+	R_CONV = (unsigned long long)1 << 51,
+	S_CONV = (unsigned long long)1 << 52,
+	T_CONV = (unsigned long long)1 << 53,
+	U_CONV = (unsigned long long)1 << 54,
+	V_CONV = (unsigned long long)1 << 55,
+	W_CONV = (unsigned long long)1 << 56,
+	X_CONV = (unsigned long long)1 << 57,
+	Y_CONV = (unsigned long long)1 << 58,
+	Z_CONV = (unsigned long long)1 << 59,
 };
+
 
 /*
 ** t_pf_LEN_MOD contains the len_modifier types
@@ -80,20 +133,20 @@ typedef enum e_pf_len_mod	t_pf_len_mod;
 
 enum	e_pf_len_mod
 {
-	HH_PF_LEN_MOD = 1 >> 16,
-	H_PF_LEN_MOD = 1 >> 15,
-	L_PF_LEN_MOD = 1 >> 14,
-	LL_PF_LEN_MOD = 1 >> 13,
-	XL_PF_LEN_MOD = 1 >> 12,
-	J_PF_LEN_MOD = 1 >> 11,
-	T_PF_LEN_MOD = 1 >> 10,
-	Z_PF_LEN_MOD = 1 >> 9,
-	V_PF_LEN_MOD = 1 >> 8,
-	VH_PF_LEN_MOD = 1 >> 7,
-	VL_PF_LEN_MOD = 1 >> 6,
-	VLL_PF_LEN_MOD = 1 >> 5,
-	LEN_MOD_NS = 1 >> 1,
-	NO_LEN_MOD = 1 >> ,
+	HH_PF_LEN_MOD = 1 << 16,
+	H_PF_LEN_MOD = 1 << 15,
+	L_PF_LEN_MOD = 1 << 14,
+	LL_PF_LEN_MOD = 1 << 13,
+	XL_PF_LEN_MOD = 1 << 12,
+	J_PF_LEN_MOD = 1 << 11,
+	T_PF_LEN_MOD = 1 << 10,
+	Z_PF_LEN_MOD = 1 << 9,
+	V_PF_LEN_MOD = 1 << 8,
+	VH_PF_LEN_MOD = 1 << 7,
+	VL_PF_LEN_MOD = 1 << 6,
+	VLL_PF_LEN_MOD = 1 << 5,
+	LEN_MOD_NS = 1 << 1,
+	NO_LEN_MOD = 1 << 0,
 };
 
 /*
@@ -104,12 +157,12 @@ typedef enum e_pf_flag	t_pf_flag;
 
 enum	e_pf_flag
 {
-	PF_HT_FLAG = 1 >> 7,
-	PF_ZR_FLAG = 1 >> 6,
-	PF_SP_FLAG = 1 >> 5,
-	PF_PL_FLAG = 1 >> 4,
-	PF_MN_FLAG = 1 >> 3,
-	PF_AP_FLAG = 1 >> 2,
+	PF_HT_FLAG = 1 << 7,
+	PF_ZR_FLAG = 1 << 6,
+	PF_SP_FLAG = 1 << 5,
+	PF_PL_FLAG = 1 << 4,
+	PF_MN_FLAG = 1 << 3,
+	PF_AP_FLAG = 1 << 2,
 };
 
 # pragma mark - structs
@@ -156,6 +209,7 @@ typedef struct s_pf_obj		t_pf_obj;
 
 struct	s_pf_obj
 {
+	const char 		*input;
 	size_t			chr_wrtn;
 	t_pf_part		*part;
 	va_list			*args;

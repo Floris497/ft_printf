@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
 #include "pf_fsm.h"
 
 /*
@@ -19,34 +20,40 @@
 ** 3: Calls itself when: *[!(%) && !nul] | thus when no other option
 */
 
-static t_pf_ret	write_char(const char c, t_pf_obj *obj)
+//static t_pf_ret	write_char(t_pf_obj *obj)
+//{
+//	t_pf_ret	rc;
+//	char		str[2];
+//
+//	str[0] = *(obj->input);
+//	str[1] = '\0';
+//	rc = obj->print(str, LEN_NS, obj);
+//	return (rc);
+//}
+
+t_pf_ret		pf_fsm_print_char_state(t_pf_obj *obj)
 {
 	t_pf_ret	rc;
-	char		str[2];
-
-	str[0] = c;
-	str[1] = '\0';
-	rc = obj->print(str, LEN_NS, obj);
-	return (rc);
-}
-
-t_pf_ret		pf_fsm_print_char_state(const char *input, t_pf_obj *obj)
-{
-	t_pf_ret	rc;
+	ptrdiff_t	diff;
+	char		*adr;
 
 	rc = PF_RET_SUCCESS;
-	while (*input != '%' && *input != '\0' && rc >= 0)
+	diff = LEN_NS;
+	if (*(obj->input) != '%' && *(obj->input) != '\0' && rc >= 0)
 	{
-		rc = write_char(*input, obj);
-		input++;
+		adr = ft_strchr(obj->input, '%');
+		if (adr == NULL)
+			adr = ft_strchr(obj->input, '\0');
+		diff = adr - obj->input;
+		rc = obj->print(obj->input, diff, obj);
+
+		(obj->input) += diff;
 	}
 	if (rc < 0)
 		return (rc);
-	if (*input == '%')
-		return (pf_fsm_init_state(input, obj));
-	else if (*input == '\0')
-		return (pf_fsm_end_state(input, obj));
-	else if (*input != '\0' || *input == '%')
-		return (pf_fsm_print_char_state(input, obj));
-	return (pf_fsm_error_state(input, obj));
+
+	if (*(obj->input) == '\0')
+		return (PF_RET_END_STATE);
+	else
+		return (PF_RET_START_STATE);
 }

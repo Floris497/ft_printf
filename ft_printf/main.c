@@ -16,6 +16,24 @@
 #include <unistd.h>
 #include <math.h>
 
+void run_code()
+{    
+	ft_printf("||");
+	ft_printf("|%3 hallo|", 1);
+	ft_printf("|%19 -.4f|", 1.0);
+	ft_printf("|%2+0%|");
+	ft_printf("|%2 2%|");
+	ft_printf("|%. 010f|", 2.345);
+	ft_printf("||");
+	ft_printf("|%-5+.3d|", 100);
+	ft_printf("||\n");
+	ft_printf("|%5.6-rp|");
+	ft_printf("||\n");
+	ft_printf("|%-4c|\n", 'a');
+	ft_printf("|Hallo een var:\t%-0.4dzzz%#%|", 10);
+	ft_printf("|\n");
+}
+
 int main(int argc, const char *argv[])
 {
 
@@ -192,6 +210,18 @@ int main(int argc, const char *argv[])
 	printf("writen: %d\n", ft_printf("test\n", 0));
 	
 #endif
+    
+    // sleep(1);
+    
+//    for (int a = 0; a < 1000; a++)
+//    {
+//        run_code();
+//    }
+
+	ft_printf("Hallo |%d|\n", 10);
 
 	return (0);
 }
+
+
+

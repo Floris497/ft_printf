@@ -13,7 +13,7 @@
 NAME = libftprintf
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 AR = ar
 ARFLAGS = rcs
@@ -40,7 +40,7 @@ INCLUDES = \
 SRCS = \
 	$(wildcard *.c) \
 	$(wildcard FSM/*.c) \
-	$(wildcard object_printing/*.c) \
+	$(filter-out object_printing/ft_printf_print_part_f.c, $(wildcard object_printing/*.c))\
 	$(wildcard object_printing/extra/*.c) \
 	$(wildcard object_printing/extra/print_num_full/*.c) \
 	$(wildcard object_printing/print_conv_str/*.c) \
@@ -59,7 +59,7 @@ $(NAME): $(OBJS)
 	@cp libft/libft.a ./$(NAME).a
 	@echo MAKING LIBRARY
 	@$(AR) $(ARFLAGS) $(NAME).a $(OBJS)
-	clang -fPIC -dynamiclib -o $(NAME).dylib $(OBJS) -lft -L./libft/
+	clang -fPIC -dynamiclib -o $(NAME).dylib $(OBJS) -lft -L./libft/ -g
 
 fclean: clean
 	make -C libft fclean

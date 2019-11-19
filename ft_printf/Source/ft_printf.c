@@ -16,6 +16,16 @@
 #include "pf_fsm.h"
 #include <unistd.h>
 
+static t_pf_ret		empty_part(t_pf_part *part)
+{
+	part->prcs = PRECIS_NS;
+	part->width = WIDTH_NS;
+	part->conv = CONV_NS;
+	part->len_mod = LEN_MOD_NS;
+	part->flags = 0;
+	return (PF_RET_SUCCESS);
+}
+
 t_pf_ret	print(const char *str, ssize_t n, t_pf_obj *obj)
 {
 	size_t		len;
@@ -41,13 +51,16 @@ int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	t_pf_obj	object;
+	t_pf_part	part;
 
+	empty_part(&part);
+	object.part = &part;
 	object.print = &print;
 	object.chr_wrtn = 0;
 	va_start(ap, format);
 	object.args = &ap;
-	while (pf_fsm_start_state(format, &object) == PF_RET_HAS_MORE)
-		;
+	object.input = format;
+	pf_fsm_controller_state(&object);
 	va_end(ap);
 	return ((int)object.chr_wrtn);
 }

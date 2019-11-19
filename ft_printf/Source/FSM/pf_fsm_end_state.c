@@ -13,13 +13,13 @@
 #include "pf_fsm.h"
 
 /*
-* this function needs to be expanded the if statement is there to
-* make the code compile without a warning for unused parameters
+** this function needs to be expanded the if statement is there to
+** make the code compile without a warning for unused parameters
 */
 
-t_pf_ret	pf_fsm_end_state(const char *input, t_pf_obj *obj)
+t_pf_ret	pf_fsm_end_state(t_pf_obj *obj)
 {
-	if (input || obj)
+	if (obj)
 		return (PF_RET_SUCCESS);
 	return (PF_RET_SUCCESS);
 }

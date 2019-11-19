@@ -38,8 +38,8 @@ static char			*sign_char(int is_neg, t_pf_part *part)
 		return ("");
 }
 
-static void 		pf_print_pad_flags(\
-	const char *str, t_pf_part *part, t_pf_obj **obj, long *to_pad)
+static void			pf_print_pad_flags
+	(const char *str, t_pf_part *part, t_pf_obj **obj, long *to_pad)
 {
 	int		is_neg;
 
@@ -64,8 +64,8 @@ static void 		pf_print_pad_flags(\
 	}
 }
 
-t_pf_ret			pf_print_pad(\
-	const char *str, t_pf_part *part, t_pf_obj *obj)
+t_pf_ret			pf_print_pad
+	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
 	size_t	len;
 	long	to_pad;

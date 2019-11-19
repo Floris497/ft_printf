@@ -13,9 +13,9 @@
 #include <libft.h>
 #include "pf_fsm.h"
 
-t_pf_ret	pf_fsm_error_state(const char *input, t_pf_obj *obj)
+t_pf_ret	pf_fsm_error_state(t_pf_obj *obj)
 {
 	if (obj)
-		ft_putstr(input);
+		ft_putstr(obj->input);
 	return (PF_RET_NO_STATE_SET);
 }
