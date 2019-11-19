@@ -52,13 +52,10 @@ t_pf_ret		pf_print_pad_conv_x
 	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
 	t_lenblock	lb;
-	char		*str_new;
 	size_t		len;
 
-	str_new = NULL;
 	if (part->prcs == 0 && part->value.s_ll_value == 0)
 		str = "";
-
 	len = ft_strlen(str);
 	lb.r_prsc = (int)len;
 	lb.r_prsc = (part->prcs > lb.r_prsc) ? part->prcs : lb.r_prsc;
@@ -72,6 +69,5 @@ t_pf_ret		pf_print_pad_conv_x
 	else
 		lb.order = SPN;
 	pf_print_pad_conv_x_blk(str, part, obj, lb);
-	free(str_new);
 	return (PF_RET_SUCCESS);
 }
