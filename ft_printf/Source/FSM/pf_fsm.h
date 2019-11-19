@@ -21,7 +21,7 @@
 # define PRECIS_OPTS "."
 # define LENG_OPTS "hlfL"
 # define FLAG_OPTS "0 #+-'"
-# define CONV_OPTS "cspdiouxXb"
+# define CONV_OPTS "cspdiouxXbf"
 
 t_pf_ret	pf_fsm_controller_state(t_pf_obj *obj);
 t_pf_ret	pf_fsm_conv_state(t_pf_obj *obj);
