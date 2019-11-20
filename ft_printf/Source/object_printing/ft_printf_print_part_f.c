@@ -47,13 +47,22 @@ static int		get_dec_exp(int e)
 	return (dec_exp);
 }
 
-static char		*str_add(char *dst, char *src, size_t n)
+static char		*str_add(char *dst, char *src, size_t n, int *overflow)
 {
+	overflow = FALSE;
 	while (n)
 	{
 		dst[n - 1] = dst[n - 1] + (src[n - 1] - '0');
-		if (dst[n - 1] > '9' && n - 2 >= 0)
-			dst[n - 2] += (dst[n - 1] - '0') / 10;
+		if (dst[n - 1] > '9')
+		{
+			if (n - 2 < 0)
+			{
+				overflow = TRUE;
+				dst[n - (dst[n - 2] == '.' ? 3 : 2)] += (dst[n - 1] - '0') / 10;
+			}
+			else
+				dst[n - 2] += (dst[n - 1] - '0') / 10;
+		}
 		n--;
 	}
 	return (dst);
@@ -105,6 +114,7 @@ static char		*str_half(char *str, int prcs)
 static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, int i)
 {
 	int		exp;
+	int		overflow;
 	char	*buff;
 
 	buff = (char *)malloc(sizeof(char) * prcs);
@@ -120,10 +130,42 @@ static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, int i)
 				buff = str_half(buff, prcs);
 				exp++;
 			}
-			str = str_add(str, buff, prcs);
+			str = str_add(str, buff, prcs, &overflow);
 		}
 		i++;
 	}
+	free(buff);
+	return (overflow ? str - 1 : str);
+}
+
+static	char	*str_round(char *str, t_ld_parts ld, int i)
+{
+	int		last_i;
+	char	*buff;
+
+	last_i = ft_strlen(str) - 1
+	if (!prcs)
+	{
+		if ((ld.m & (1 << (LD_MANTISSA_BITS - (i + 1)))))
+		{
+			if (str[last_i] & 1 &&
+				!(ld.m & ((1 << (LD_MANTISSA_BITS - (i + 1))) - 1)))
+					return (str);
+		}
+		else
+			return (str);
+	}
+	else
+	{
+		str = &str[last_i - prcs];
+		// AAAARGH HOW TO KNOW IF ROUNDING IS NEEDED, MAYBE ROUND IN set_right_of_dot?
+		// CHECK WHICH i WOULD POINT TO THE BIT IN MANTISSA CORRESPONDING WITH 2 ^ -1, AND CHECK ALL SHIT AGAIN WITH HIGHER PREC?
+		// OR HAVE HIGHER PREC IN set_right_of_dot?
+		// PROBABLY THAT LAST THING, CREATE THE ENTIRE BUFF.
+	}
+	buff = (char*)ft_memalloc(sizeof(char) * (prcs ? prcs : last_i + 1));
+	buff[prcs ? prcs : last_i] = '1';
+	str = str_add(str, buff, prcs ? prcs : last_i);
 	free(buff);
 	return (str);
 }
@@ -144,10 +186,13 @@ t_pf_ret		ft_printf_print_part_f(
 	size = (ld.sign_exp & LD_SIGN ? 1 : 0) + abs(d_exp) + part->prcs + 1;
 	str = (char*)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
+	str[0] = ld.sign_exp & LD_SIGN ? '-' : '0';
 	str[abs(d_exp) + 1] = part->prcs ? '.' : '\0';
-	str = set_left_of_dot(str, d_exp, ld, &i);
+	str = set_left_of_dot(ld.sign_exp & LD_SIGN ? str[1] : str, d_exp, ld, &i);
 	if (part->prcs)
 		str = set_right_of_dot(str[abs(d_exp) + 2], part->prcs, ld, i);
+	else
+		str = str_round(ld.sign_exp & LD_SIGN ? str[1] : str, ld, i);
 	ft_putstr(str);
 	free(str);
 	return (PF_RET_SUCCESS);
