@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_lstdelone.c                                    :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/02/07 16:29:18 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:04 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_lstdelone.c                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/24 16:05:07 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/24 18:22:02 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	del((*alst)->content, (*alst)->content_size);
-	free(*alst);
+	t_list	*lst;
+
+	lst = *alst;
+	del(lst->content, lst->content_size);
+	free(lst);
 	*alst = NULL;
 }

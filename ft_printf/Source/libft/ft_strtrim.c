@@ -1,54 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strtrim.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:20 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:08 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strtrim.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/20 18:47:24 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/25 18:31:22 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_index	find_start(char const *s)
+static int	strtrim_get_start(char const *s, int stop)
 {
-	t_index		idx;
+	int	start;
 
-	idx = 0;
-	while (ft_memrchr(" \t\n", (int)s[idx], ft_strlen(" \t\n")) != NULL)
-		idx++;
-	return (idx);
+	start = 0;
+	while (start < stop \
+		&& (s[start] == ' ' || s[start] == '\n' || s[start] == '\t'))
+		start++;
+	return (start);
 }
 
-static t_index	find_end(char const *s)
+static int	strtrim_get_stop(char const *s, int start, int stop)
 {
-	size_t		len;
-	t_index		idx;
-
-	len = ft_strlen(s);
-	idx = len - 1;
-	;
-	while (ft_memrchr(" \t\n", (int)s[idx], ft_strlen(" \t\n")) != NULL)
-		idx--;
-	return (idx);
+	while (stop >= start \
+		&& (s[stop] == ' ' || s[stop] == '\n' || s[stop] == '\t'))
+		stop--;
+	return (stop);
 }
 
-char			*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
-	t_index start;
-	t_index end;
-	char	*dest;
+	int		i;
+	int		stop;
+	int		start;
+	char	*str;
+	char	*src;
 
-	if (*s == '\0')
-		return (ft_strdup(s));
-	start = find_start(s);
-	if (start == ft_strlen(s))
-		return (ft_strdup(""));
-	end = find_end(s);
-	if (end <= start)
-		return (ft_strdup(""));
-	dest = ft_strndup(&s[start], end - start + 1);
-	return (dest);
+	stop = ft_strlen(s) - 1;
+	start = strtrim_get_start(s, stop);
+	stop = strtrim_get_stop(s, start, stop);
+	if (stop == 0 || s[start] == '\0')
+		return ((char *)ft_memalloc(1));
+	str = (char *)malloc(stop - start + 2);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	src = (char *)&s[start];
+	stop -= start;
+	while (i <= stop)
+	{
+		str[i] = src[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

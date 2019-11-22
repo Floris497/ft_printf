@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strmapi.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:19 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:07 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strmapi.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/20 16:47:46 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/20 18:50:46 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char		*dst;
-	size_t		len;
-	t_index		idx;
+	int		i;
+	char	*map;
 
-	len = ft_strlen(s);
-	dst = ft_strnew(len);
-	if (dst == NULL)
-		return (dst);
-	idx = 0;
-	while (idx < len)
+	map = (char *)malloc(ft_strlen(s) + 1);
+	if (map == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		dst[idx] = f((unsigned int)idx, s[idx]);
-		idx++;
+		map[i] = f(i, s[i]);
+		i++;
 	}
-	return (dst);
+	map[i] = '\0';
+	return (map);
 }

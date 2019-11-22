@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strlcat.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/10 11:09:35 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:06 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strlcat.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/13 17:21:44 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/22 20:48:01 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t dlen;
-	size_t slen;
-	size_t to_copy;
+	int	len_src;
+	int	len_dst;
+	int	n;
 
-	dlen = ft_strllen(dst, dstsize);
-	slen = ft_strlen(src);
-	if ((dlen + slen + 1) > dstsize)
-		to_copy = dstsize - dlen - 1;
-	else if (slen > 0)
-		to_copy = slen;
-	else
-		to_copy = 0;
-	if (dlen < dstsize && to_copy > 0)
+	len_src = ft_strlen(src);
+	len_dst = ft_strlen(dst);
+	n = ft_min(size - len_dst - 1, len_src);
+	if (n > 0)
 	{
-		ft_memcpy(&dst[dlen], src, to_copy);
-		dst[dlen + to_copy] = '\0';
+		ft_memcpy(&dst[len_dst], src, n);
+		dst[len_src + len_dst < (int)size ?\
+			len_src + len_dst : size - 1] = '\0';
 	}
-	return (dlen + slen);
+	return (size <= (unsigned long)len_dst ?
+		size + len_src : len_src + len_dst);
 }

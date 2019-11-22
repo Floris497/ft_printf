@@ -1,53 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_atoi.c                                         :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:14 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:02 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_atoi.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/11 13:48:34 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/19 17:49:42 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		get_options(const char *str, int *is_negative, t_index *index)
+int	ft_atoi(const char *str)
 {
-	while (ft_isspace(str[*index]))
-		*index += 1;
-	if (str[*index] == '-')
-	{
-		*index += 1;
-		*is_negative = 1;
-	}
-	else if (str[*index] == '+')
-		*index += 1;
-}
+	int		result;
+	int		i;
+	int		sign;
 
-int				ft_atoi(const char *str)
-{
-	t_index				index;
-	int					is_negative;
-	unsigned long long	result;
-
-	index = 0;
-	is_negative = 0;
+	i = 0;
 	result = 0;
-	get_options(str, &is_negative, &index);
-	while (ft_isdigit(str[index]))
+	sign = 1;
+	while (ft_isspace(str[i]) == TRUE)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		result *= 10;
-		result += str[index] - '0';
-		index++;
-		if (result >= 9223372036854775808UL)
-		{
-			if (is_negative)
-				return (0);
-			return (-1);
-		}
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	if (is_negative)
-		return ((int)(-result));
-	return ((int)(result));
+	while (str[i] != '\0')
+	{
+		if (ft_isdigit(str[i]) == FALSE)
+			return (sign * result);
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (sign * result);
 }

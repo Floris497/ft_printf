@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_lstmap.c                                       :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/02/07 19:24:51 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:04 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_lstmap.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/23 19:22:25 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/25 13:15:58 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*new;
+	t_list	*nxt;
+	t_list	*map;
 
-	if (lst)
-	{
-		new = f(lst);
-		new->next = ft_lstmap(lst->next, f);
-		return (new);
-	}
-	return (NULL);
+	map = f(lst);
+	nxt = lst->next;
+	if (nxt != NULL)
+		map->next = ft_lstmap(nxt, f);
+	return (map);
 }

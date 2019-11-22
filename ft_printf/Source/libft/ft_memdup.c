@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_memdup.c                                       :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:16 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:04 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_memdup.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/23 16:55:42 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/23 17:01:27 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memdup(const void *src, size_t len)
+void	*ft_memdup(void const *b, size_t n)
 {
-	void	*dst;
+	char	*arr;
 
-	dst = (void *)ft_memalloc(len);
-	if (dst == NULL)
+	arr = (char *)malloc(n);
+	if (arr == NULL)
 		return (NULL);
-	ft_memcpy(dst, src, len);
-	return (dst);
+	ft_memcpy(arr, b, n);
+	return (arr);
 }

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_putnbr_fd.c                                    :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:16 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:05 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/12 18:49:42 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/31 13:26:25 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int temp;
-
-	if (nb < 0)
+	if (n == FT_INT_MIN)
 	{
-		temp = -nb;
-		ft_putchar_fd('-', fd);
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
-		temp = nb;
-	if (temp > 9)
-		ft_putnbr_fd(temp / 10, fd);
-	ft_putchar_fd((temp % 10) + '0', fd);
+		ft_putchar_fd(n + '0', fd);
 }

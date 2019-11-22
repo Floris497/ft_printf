@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_max.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 16:02:07 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/01/11 16:03:43 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/02/03 14:02:45 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/02/03 14:03:15 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isdigit(int c)
+int	ft_max(int x, int y)
 {
-	if (c >= '0' && c <= '9')
-		return (TRUE);
-	return (FALSE);
+	if (x >= y)
+		return (x);
+	return (y);
 }

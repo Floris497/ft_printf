@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   ft_lstappend.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/16 16:31:43 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/01/23 17:01:17 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/01/23 19:38:30 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/24 12:32:32 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void	ft_lstappend(t_list **alst, t_list *new)
 {
-	t_list	*link;
-	char	*cont_copy;
+	t_list	*current;
 
-	if (content == NULL)
-		content_size = 0;
-	link = (t_list *)malloc(sizeof(t_list));
-	if (link == NULL)
-		return (NULL);
-	if (content_size > 0)
-		cont_copy = ft_memdup((char *)content, content_size);
-	else
-		cont_copy = NULL;
-	link->content = cont_copy;
-	link->content_size = content_size;
-	link->next = NULL;
-	return (link);
+	current = *alst;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = new;
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strnew.c                                       :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:20 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:07 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strnew.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/20 16:33:09 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/20 16:34:42 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnew(size_t size)
 {
-	char *string;
+	char	*str;
 
-	string = (char *)ft_memalloc(sizeof(char) * (size + 1));
-	return (string);
+	str = ft_memalloc(size + 1);
+	return (str);
 }

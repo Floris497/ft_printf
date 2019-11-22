@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_foreach.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*   By: fmiceli <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 16:02:07 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/01/11 16:03:43 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/01/09 20:15:43 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/16 18:54:12 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isdigit(int c)
+void	ft_foreach(int *tab, int len, void (*f)(int))
 {
-	if (c >= '0' && c <= '9')
-		return (TRUE);
-	return (FALSE);
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		f(tab[i]);
+		i++;
+	}
 }

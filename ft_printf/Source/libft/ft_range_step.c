@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   ft_range_step.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/16 16:31:43 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/01/23 17:01:17 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/01/11 19:34:43 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/16 19:00:16 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+int	*ft_range_step(int min, int max, int step)
 {
-	t_list	*link;
-	char	*cont_copy;
+	int *range;
+	int i;
+	int	len;
 
-	if (content == NULL)
-		content_size = 0;
-	link = (t_list *)malloc(sizeof(t_list));
-	if (link == NULL)
+	if (min >= max)
 		return (NULL);
-	if (content_size > 0)
-		cont_copy = ft_memdup((char *)content, content_size);
-	else
-		cont_copy = NULL;
-	link->content = cont_copy;
-	link->content_size = content_size;
-	link->next = NULL;
-	return (link);
+	len = (max - min) / step;
+	range = (int *)malloc(sizeof(int) * len);
+	i = 0;
+	while (i < len)
+	{
+		range[i] = min + (i * step);
+		i++;
+	}
+	return (range);
 }

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_isalpha.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:14 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:03 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_isalpha.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/11 14:51:36 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/11 15:00:37 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	return (ft_isprint(c) &&
-			((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')));
+	if (ft_isupper(c) == TRUE || ft_islower(c) == TRUE)
+		return (TRUE);
+	return (FALSE);
 }

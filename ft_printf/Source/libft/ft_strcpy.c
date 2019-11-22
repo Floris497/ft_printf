@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strcpy.c                                       :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:18 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:06 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strcpy.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/13 13:38:44 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/22 18:27:40 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@ char	*ft_strcpy(char *dst, const char *src)
 	size_t	len;
 
 	len = ft_strlen(src);
-	return (ft_strncpy(dst, src, len + 1));
+	dst = ft_memcpy(dst, src, len + 1);
+	return (dst);
 }

@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_toupper.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:21 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:08 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_toupper.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/11 16:20:14 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/11 16:28:19 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if (ft_islower(c))
+	if (ft_islower(c) == TRUE)
 		return (c - 'a' + 'A');
-	else
-		return (c);
+	return (c);
 }

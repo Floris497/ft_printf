@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_memccpy.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:15 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:04 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_memccpy.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/13 17:57:53 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/02/02 16:45:44 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	t_index			idx;
-	unsigned char	*ldst;
-	unsigned char	*lsrc;
+	unsigned char	*stop_addres;
 
-	ldst = ((unsigned char*)dst);
-	lsrc = ((unsigned char*)src);
-	idx = 0;
-	while (idx < len)
+	if (n == 0)
+		return (NULL);
+	stop_addres = (unsigned char *)ft_memchr(src, c, n);
+	if (stop_addres != NULL)
 	{
-		ldst[idx] = lsrc[idx];
-		if (lsrc[idx] == (unsigned char)c)
-			return (&ldst[idx + 1]);
-		idx++;
+		ft_memcpy(dst, src, stop_addres - (unsigned char *)src + 1);
+		return (&dst[stop_addres - (unsigned char *)src + 1]);
 	}
+	ft_memcpy(dst, src, n);
 	return (NULL);
 }

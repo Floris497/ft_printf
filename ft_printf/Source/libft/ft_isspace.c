@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_isspace.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/19 19:30:31 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:03 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_isspace.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/11 14:22:17 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/11 17:23:04 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isspace(int c)
+int	ft_isspace(int c)
 {
-	if (c == '\t' ||
-		c == '\n' ||
-		c == '\v' ||
-		c == '\f' ||
-		c == '\r' ||
-		c == ' ')
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	if (c == ' ' || (c >= '\t' && c <= '\r'))
+		return (TRUE);
+	return (FALSE);
 }

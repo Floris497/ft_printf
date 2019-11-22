@@ -14,6 +14,13 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+# define TRUE 1
+# define FALSE 0
+# define FT_INT_MIN -2147483648
+# define FT_INT_MAX 2147483647
 
 typedef size_t	t_index;
 
@@ -45,6 +52,20 @@ int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 
+char		*ft_strupper(char *str);
+char		*ft_strlower(char *str);
+
+int			ft_sqrt_floor(int nb);
+int			ft_sqrt_ceil(int nb);
+
+int			*ft_range(int min, int max);
+int			*ft_range_step(int min, int max, int step);
+
+int			ft_min(int x, int y);
+int			ft_max(int x, int y);
+
+int			ft_count_if(char **tab, int (*f)(char*));
+
 void		*ft_memalloc(size_t size);
 void		ft_memdel(void **ap);
 char		*ft_strnew(size_t size);
@@ -73,6 +94,9 @@ void		*ft_memrcpy(void *dst, const void *src, size_t n);
 void		*ft_memdup(const void *src, size_t len);
 void		*ft_memichr(const void *s, int c, size_t n);
 void		*ft_memrchr(const void *s, int c, size_t n);
+
+void		*ft_slow_memchr(const void *s, int c, size_t n);
+
 int			ft_memccmp(const void *s1, const void *s2, int c, size_t n);
 size_t		ft_strclen(const char *s, char c);
 size_t		ft_strllen(const char *s, size_t size);
@@ -88,9 +112,18 @@ size_t		ft_log(unsigned int base, unsigned long long n);
 char		*ft_itoa_base(long long n, unsigned int base);
 char		*ft_itoa_base_sm(long long n, unsigned int base);
 
+typedef struct s_magicmask t_magicmask;
+
+struct		s_magicmask
+{
+	unsigned long	lomagic;
+	unsigned long	himagic;
+	unsigned long	word;
+};
+
 # pragma mark - Lists
 
-typedef struct s_list	t_list;
+typedef struct s_list t_list;
 
 struct		s_list
 {
@@ -129,5 +162,9 @@ t_dict		*ft_dictadd(t_dict *dict, int key, void *content);
 t_dict		*ft_dictget(t_dict *dict, int key);
 void		ft_dictremove(t_dict *dict, int key);
 void		ft_dictfree(t_dict *dict);
+
+t_list		*ft_lstdequeue(t_list **alst);
+t_list		*ft_lstunlink(t_list **head_node, t_list *to_unlink);
+void		ft_lstappend(t_list **alst, t_list *new);
 
 #endif

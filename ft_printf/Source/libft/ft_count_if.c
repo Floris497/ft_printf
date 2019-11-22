@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_count_if.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*   By: fmiceli <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 16:02:07 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/01/11 16:03:43 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/01/09 20:18:46 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/09 20:21:26 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isdigit(int c)
+int	ft_count_if(char **tab, int (*f)(char*))
 {
-	if (c >= '0' && c <= '9')
-		return (TRUE);
-	return (FALSE);
+	int i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (tab[i] != 0)
+	{
+		if (f(&tab[i][0]) == 1)
+			count++;
+		i++;
+	}
+	return (count);
 }

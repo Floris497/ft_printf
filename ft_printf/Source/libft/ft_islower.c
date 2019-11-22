@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_islower.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:14 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:03 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_islower.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/11 15:00:58 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/19 17:37:59 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_islower(int c)
+int	ft_islower(int c)
 {
-	return (ft_isalpha(c) && c >= 'a' && c <= 'z');
+	if (c >= 'a' && c <= 'z')
+		return (TRUE);
+	return (FALSE);
 }

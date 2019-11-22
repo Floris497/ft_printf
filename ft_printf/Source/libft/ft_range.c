@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_range.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*   By: fmiceli <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 16:02:07 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/01/11 16:03:43 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/01/09 16:39:59 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/12 14:20:14 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	*ft_range(int min, int max)
 {
-	if (c >= '0' && c <= '9')
-		return (TRUE);
-	return (FALSE);
+	int	*range;
+	int i;
+	int len;
+
+	if (min >= max)
+		return (NULL);
+	len = max - min;
+	range = (int *)malloc(sizeof(int) * len);
+	i = 0;
+	while (i < len)
+	{
+		range[i] = min + i;
+		i++;
+	}
+	return (range);
 }

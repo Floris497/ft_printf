@@ -1,87 +1,83 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strsplit.c                                     :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/12 23:05:10 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:07 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strsplit.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/25 14:41:45 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/31 13:47:09 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-static size_t	find_word_count(char const *s, char c)
+static int	strsplit_count_words(char const *s, char c)
 {
-	size_t		wcount;
+	int	i;
+	int	n;
 
-	wcount = 0;
-	if (s == NULL || *s == '\0')
-		return (0);
-	while ((s = ft_strichr(s, c)) != NULL)
+	n = 0;
+	i = 0;
+	while (s[i] != '\0')
 	{
-		s = ft_strchr(s, c);
-		wcount++;
-	}
-	return (wcount);
-}
-
-static char		*get_word(const char *s, char c, t_index idx)
-{
-	size_t		wcount;
-
-	wcount = 0;
-	if (s == NULL || *s == '\0')
-		return (NULL);
-	while (wcount < idx)
-	{
-		s = ft_strchr(s, c);
-		s = ft_strichr(s, c);
-		if (s == NULL)
-			return (NULL);
-		wcount++;
-	}
-	return (ft_strndup(s, ft_strclen(s, c)));
-}
-
-static char		*check_valid(char const *s, char c)
-{
-	char	*string;
-
-	string = ft_strctrim(s, c);
-	if (string == NULL || *string == '\0')
-	{
-		free(string);
-		return (NULL);
-	}
-	return (string);
-}
-
-char			**ft_strsplit(char const *s, char c)
-{
-	size_t		wcount;
-	char		**list;
-	t_index		idx;
-	char		*string;
-
-	string = check_valid(s, c);
-	if (string == NULL)
-		return ((char **)ft_memalloc(sizeof(char *)));
-	wcount = find_word_count(string, c);
-	if (wcount != 0)
-	{
-		list = (char **)ft_memalloc(sizeof(char *) * (wcount + 1));
-		idx = 0;
-		while (list != NULL && idx <= wcount)
+		if (s[i] != c)
 		{
-			list[idx] = get_word(string, c, idx);
-			idx++;
+			n++;
+			while (s[i + 1] != c && s[i + 1] != '\0')
+				i++;
 		}
-		free(string);
-		return (list);
+		i++;
 	}
-	free(string);
-	return (NULL);
+	return (n);
+}
+
+static int	strsplit_next_word_start(char const *s, int start, char c)
+{
+	int i;
+
+	i = start;
+	while (s[i] == c)
+		i++;
+	return (i);
+}
+
+static int	strsplit_next_word_len(char const *s, int start, char c)
+{
+	int		len;
+	char	*str;
+
+	len = 0;
+	str = (char *)&s[start];
+	while (str[len] != c && str[len] != '\0')
+		len++;
+	return (len);
+}
+
+char		**ft_strsplit(char const *s, char c)
+{
+	char	**arr;
+	int		nwords;
+	int		i;
+	int		start;
+	int		wordlen;
+
+	nwords = strsplit_count_words(s, c);
+	arr = (char **)malloc(sizeof(char **) * (nwords + 1));
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	start = 0;
+	while (s[start] == c)
+		start++;
+	while (i < nwords)
+	{
+		start = strsplit_next_word_start(s, start, c);
+		wordlen = strsplit_next_word_len(s, start, c);
+		arr[i] = ft_strsub(s, start, wordlen);
+		start += wordlen;
+		i++;
+	}
+	arr[i] = NULL;
+	return (arr);
 }

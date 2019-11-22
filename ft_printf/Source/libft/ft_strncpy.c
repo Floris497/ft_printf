@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strncpy.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:19 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:07 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strncpy.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/13 14:18:24 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/16 19:27:45 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	t_index		idx;
-	size_t		slen;
+	size_t	len_src;
 
-	idx = 0;
-	slen = ft_strlen(src);
-	while (idx < len)
-	{
-		if (idx < slen)
-			dst[idx] = src[idx];
-		else
-			dst[idx] = '\0';
-		idx++;
-	}
+	len_src = ft_strlen(src);
+	ft_memcpy(dst, src, ft_min(len_src + 1, len));
+	if (len_src < len)
+		ft_bzero(&dst[len_src], len - len_src);
 	return (dst);
 }

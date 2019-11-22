@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_memmove.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:16 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:05 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_memmove.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/13 18:26:55 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/25 12:56:00 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (!(dst == src))
+	size_t			i;
+	unsigned char	*source;
+	unsigned char	*dest;
+
+	if (src > dst)
+		ft_memcpy(dst, src, len);
+	else
 	{
-		if (src < dst)
-			ft_memrcpy(dst, src, len);
-		else
-			ft_memcpy(dst, src, len);
+		source = (unsigned char *)src;
+		dest = (unsigned char *)dst;
+		i = len;
+		while (i > 0)
+		{
+			dest[i - 1] = source[i - 1];
+			i--;
+		}
 	}
 	return (dst);
 }

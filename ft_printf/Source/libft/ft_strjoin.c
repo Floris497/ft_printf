@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strjoin.c                                      :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:18 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:06 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strjoin.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/20 18:41:23 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/20 18:46:26 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*dest;
+	int		len_s1;
+	int		len_s2;
+	char	*str;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	dest = ft_strnew(len1 + len2);
-	if (dest != NULL)
-	{
-		ft_strcpy(dest, s1);
-		ft_strcpy(&dest[len1], s2);
-	}
-	return (dest);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	str = (char *)malloc(len_s1 + len_s2 + 1);
+	if (str == NULL)
+		return (NULL);
+	ft_memcpy(str, s1, len_s1);
+	ft_memcpy(&str[len_s1], s2, len_s2);
+	str[len_s1 + len_s2] = '\0';
+	return (str);
 }

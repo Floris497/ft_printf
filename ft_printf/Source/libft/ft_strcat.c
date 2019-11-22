@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                      ::::::::: :::::::::   */
-/*   ft_strcat.c                                       :+:       :+:          */
-/*                                                    +:+       +:+           */
-/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
-/*                                                  +#+       +#+             */
-/*   Created: 2019/01/09 17:45:17 by ffredrik      #+#       #+#              */
-/*   Updated: 2019/03/30 16:46:05 by ffredrik     ###       ###               */
+/*                                                        ::::::::            */
+/*   ft_strcat.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/01/13 14:51:43 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/16 16:36:38 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	size_t	len;
-
-	len = ft_strlen(s1);
-	if (s1 != NULL)
-	{
-		ft_strcpy(&s1[len], s2);
-	}
+	ft_strcpy(&s1[ft_strlen(s1)], s2);
 	return (s1);
 }
