@@ -32,6 +32,8 @@ t_pf_ret	ft_print_object(t_pf_obj *obj)
 		ft_printf_print_part_x(obj, obj->part);
 	else if (obj->part->conv == B_CONV)
 		ft_printf_print_part_b(obj, obj->part);
+	else if (obj->part->conv == F_CONV)
+		ft_printf_print_part_f(obj, obj->part);
 	else
 		obj->print("<value>", LEN_NS, obj);
 	return (PF_RET_SUCCESS);

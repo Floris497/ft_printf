@@ -18,10 +18,10 @@
 static char		*float_special_value(t_ld_parts ld)
 {
 	if (ld.m)
-		return (ft_memdup("NaN", 4));
+		return ("NaN");
 	else if (ld.sign_exp & LD_SIGN)
-		return(ft_memdup("-Inf", 5));
-	return(ft_memdup("Inf", 4));
+		return("-Inf");
+	return("Inf");
 }
 
 static int		get_dec_exp(int e)
@@ -37,17 +37,17 @@ static int		get_dec_exp(int e)
 			e /= 10.0;
 			dec_exp--;
 		}
-		return (dec_exp);
+		return (int)(dec_exp);
 	}
 	while (e >= 10.0)
 	{
-		frac /= 10.0;
+		e /= 10.0;
 		dec_exp++;
 	}
-	return (dec_exp);
+	return (int)(dec_exp);
 }
 
-static char		*str_add(char *dst, char *src, size_t n, int *frac_status)
+static char		*str_add(char *dst, char *src, size_t n, char *frac_status)
 {
 	char	*tmp;
 
@@ -66,8 +66,8 @@ static char		*str_add(char *dst, char *src, size_t n, int *frac_status)
 				tmp = (char*)malloc(sizeof(char) * n + 2);
 				tmp[n + 1] = '\0';
 				tmp[0] = (dst[n - 1] - '0') / 10;
-				tmp = ft_strlcat(tmp, dst, n + 1);
-				free(dst);
+				ft_strlcat(tmp, dst, n + 1);
+//				free(dst);
 				dst = tmp;
 			}
 			else
@@ -84,7 +84,7 @@ static char		*set_left_of_dot(char *str, int d_exp, t_ld_parts ld, int *i)
 	char	*buff;
 
 	(*i) = 0;
-	buff = (char *)malloc(sizeof(char) * n);
+	buff = (char *)malloc(sizeof(char) * d_exp);
 	exp = (ld.sign_exp & LD_EXP) - LD_EXP_BIAS;
 	while (exp >= 0 && (*i) < LD_MANTISSA_BITS)
 	{
@@ -102,7 +102,7 @@ static char		*set_left_of_dot(char *str, int d_exp, t_ld_parts ld, int *i)
 		}
 		(*i)++;
 	}
-	free(buff);
+//	free(buff);
 	return (str);
 }
 
@@ -118,19 +118,19 @@ static char		*str_half(char *str, int prcs)
 		str[i] = ((str[i] - '0') / 2) + '0';
 		i++;
 	}
-	return (buff);
+	return (str);
 }
 
 static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, int i)
 {
 	int		exp;
-	int		*frac_info;
+	char	frac_info;
 	char	*buff;
 	char	*frac_addr;
 
 	frac_addr = ft_strchr(str, '.');
 	buff = (char *)malloc(sizeof(char) * prcs);
-	*frac_info = 1;
+	frac_info = 1;
 	while (i < LD_MANTISSA_BITS)
 	{
 		if ((ld.m & (1 << (LD_MANTISSA_BITS - i))))
@@ -144,28 +144,28 @@ static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, int i)
 				exp++;
 			}
 			frac_addr = str_add(frac_addr, buff, prcs, &frac_info);
-			if (*frac_info == 2)
+			if (frac_info == 2)
 			{
-				free(buff);
+//				free(buff);
 				buff = (char*)ft_memalloc(str - ft_strchr(str, '.'));
-				buff = ft_memset(buff, '0');
-				str = str_add(str, buff, frac_addr - str);
+				buff = ft_memset(buff, '0', str - ft_strchr(str, '.'));
+				str = str_add(str, buff, frac_addr - str, &frac_info);
 				free(buff);
 				buff = (char *)malloc(sizeof(char) * prcs);
 			}
 		}
 		i++;
 	}
-	free(buff);
+//	free(buff);
 	return (str);
 }
 
-static	char	*str_round(char *str, t_ld_parts ld, int i)
+static	char	*str_round(char *str, t_ld_parts ld, int i, int prcs)
 {
 	int		last_i;
 	char	*buff;
 
-	last_i = ft_strlen(str) - 1
+	last_i = (int)ft_strlen(str) - 1;
 	if (!prcs)
 	{
 		if ((ld.m & (1 << (LD_MANTISSA_BITS - (i + 1)))))
@@ -179,8 +179,8 @@ static	char	*str_round(char *str, t_ld_parts ld, int i)
 	}
 	buff = (char*)ft_memalloc(sizeof(char) * (prcs ? prcs : last_i + 1));
 	buff[prcs ? prcs : last_i] = '1';
-	str = str_add(str, buff, prcs ? prcs : last_i, '\0');
-	free(buff);
+	str = str_add(str, buff, prcs ? prcs : last_i, "\0");
+//	free(buff);
 	return (str);
 }
 
@@ -193,20 +193,23 @@ t_pf_ret		ft_printf_print_part_f(
 	char				*str;
 	size_t				size;
 
-	f2u.f = (long double)part->value;
+	f2u.f = part->value.s_ld_value;
 	if (!(f2u.ld.sign_exp & LD_EXP))
-		return (special_value(f2u.ld));
-	d_exp = get_dec_exp((ld.sign_exp & LD_EXP) - LD_EXP_BIAS);
+	{
+		obj->print(float_special_value(f2u.ld), LEN_NS, obj);
+		return (PF_RET_SUCCESS);
+	}
+	d_exp = get_dec_exp((f2u.ld.sign_exp & LD_EXP) - LD_EXP_BIAS);
 	size = (d_exp < 0 ? -d_exp : d_exp) + (part->prcs ? part->prcs + 2 : 1);
 	str = (char*)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp) + 1] = part->prcs ? '.' : '\0';
-	str = set_left_of_dot(str, d_exp, ld, &i);
+	str = set_left_of_dot(str, d_exp, f2u.ld, &i);
 	if (part->prcs)
-		str = set_right_of_dot(str, part->prcs, ld, i);
+		str = set_right_of_dot(str, part->prcs, f2u.ld, i);
 	else
-		str = str_round(str, ld, i);
-	ft_putstr(str);
-	free(str);
+		str = str_round(str, f2u.ld, i, part->prcs);
+	obj->print(str, LEN_NS, obj);
+//	free(str);
 	return (PF_RET_SUCCESS);
 }
