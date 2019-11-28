@@ -56,7 +56,10 @@ static t_pf_ret		set_value_v_u(t_pf_obj *obj, t_pf_part *part)
 
 static t_pf_ret		set_value_f(t_pf_obj *obj, t_pf_part *part)
 {
-	part->value.s_fl_value = (double)va_arg(*(obj->args), double);
+	if (part->len_mod == XL_PF_LEN_MOD)
+		part->value.s_ld_value = (long double)va_arg(*(obj->args), long double);
+	else
+		part->value.s_ld_value = (double)va_arg(*(obj->args), double);
 	return (PF_RET_SUCCESS);
 }
 
