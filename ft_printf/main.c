@@ -219,8 +219,8 @@ int main(int argc, const char *argv[])
 //    }
 
 	ft_printf("Hallo |%d|\n", 10);
-	printf("%.0f|\n", -2.0);
-	ft_printf("%.0f|\n", -2.0);
+	printf("%.2f|\n", 200.056);
+	ft_printf("%.2f|\n", 200.056);
 
 	return (0);
 }

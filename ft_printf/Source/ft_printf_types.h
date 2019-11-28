@@ -238,8 +238,8 @@ struct	s_lenblock
 
 typedef	struct 		s_ld_parts
 {
-	unsigned long	sign_exp;
 	unsigned long	m;
+	unsigned long	sign_exp;
 }					t_ld_parts;
 
 typedef union		u_pf_f2u
