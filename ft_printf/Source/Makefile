@@ -26,7 +26,7 @@ HEADERS = \
 	$(wildcard object_printing/extra/print_num_full/*.h) \
 	$(wildcard object_printing/print_conv_str/*.h) \
 	$(wildcard part_completion/*.h) \
-	
+
 INCLUDES = \
 	-I ./ \
 	-I ./libft/includes/ \
@@ -40,7 +40,7 @@ INCLUDES = \
 SRCS = \
 	$(wildcard *.c) \
 	$(wildcard FSM/*.c) \
-	$(filter-out object_printing/ft_printf_print_part_f.c, $(wildcard object_printing/*.c))\
+	$(wildcard object_printing/*.c)\
 	$(wildcard object_printing/extra/*.c) \
 	$(wildcard object_printing/extra/print_num_full/*.c) \
 	$(wildcard object_printing/print_conv_str/*.c) \

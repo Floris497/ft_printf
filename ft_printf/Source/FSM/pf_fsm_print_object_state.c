@@ -56,7 +56,7 @@ static t_pf_ret		set_value_v_u(t_pf_obj *obj, t_pf_part *part)
 
 static t_pf_ret		set_value_f(t_pf_obj *obj, t_pf_part *part)
 {
-	part->value.s_fl_value = (double)va_arg(*(obj->args), double);
+	part->value.s_db_value = (double)va_arg(*(obj->args), double);
 	return (PF_RET_SUCCESS);
 }
 

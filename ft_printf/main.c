@@ -17,7 +17,7 @@
 #include <math.h>
 
 void run_code()
-{    
+{
 	ft_printf("||");
 	ft_printf("|%3 hallo|", 1);
 	ft_printf("|%19 -.4f|", 1.0);
@@ -208,20 +208,19 @@ int main(int argc, const char *argv[])
 	ft_printf("|%#05.6o|\n", 20);
 	printf("|%#05.6o|\n", 20);
 	printf("writen: %d\n", ft_printf("test\n", 0));
-	
+
 #endif
-    
+
     // sleep(1);
-    
+
 //    for (int a = 0; a < 1000; a++)
 //    {
 //        run_code();
 //    }
 
 	ft_printf("Hallo |%d|\n", 10);
+	printf("%.0f|\n", -2.0);
+	ft_printf("%.0f|\n", -2.0);
 
 	return (0);
 }
-
-
-

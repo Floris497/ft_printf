@@ -12,6 +12,7 @@
 
 #include <libft.h>
 #include <stdlib.h>
+#include <stdio.h> //illegal
 #include "ft_printf_print.h"
 #include "pf_print_conv.h"
 
@@ -20,8 +21,8 @@ static char		*float_special_value(t_ld_parts ld)
 	if (ld.m)
 		return ("NaN");
 	else if (ld.sign_exp & LD_SIGN)
-		return("-Inf");
-	return("Inf");
+		return ("-Inf");
+	return ("Inf");
 }
 
 static int		get_dec_exp(int e)
@@ -194,6 +195,7 @@ t_pf_ret		ft_printf_print_part_f(
 	size_t				size;
 
 	f2u.f = part->value.s_ld_value;
+	printf("%lx\n%lx\n", f2u.ld.sign_exp, f2u.ld.m);
 	if (!(f2u.ld.sign_exp & LD_EXP))
 	{
 		obj->print(float_special_value(f2u.ld), LEN_NS, obj);
