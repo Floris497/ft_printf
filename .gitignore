@@ -1,7 +1,8 @@
-
 *.xcuserstate
 ft_printf/Source/libft/libft.a
-TODO
 *.xcbkptlist
 *.xcuserstate
-
+*.o
+*.a
+*.dylib
+main
