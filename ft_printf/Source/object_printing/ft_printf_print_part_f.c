@@ -18,6 +18,12 @@
 
 static char		*float_special_value(t_ld_parts ld)
 {
+	if (ld.m == 0 && (ld.s_exp & LD_EXP) == 0)
+	{
+		if (ld.s_exp & LD_SIGN)
+			return ("-0");
+		return ("0");
+	}
 	if (ld.m & LD_FRACTION)
 		return ("nan");
 	else if (ld.s_exp & LD_SIGN)
@@ -200,13 +206,12 @@ t_pf_ret		ft_printf_print_part_f(
 	f2u.f = part->value.s_ld_value;
 	f2u.ld.s_exp &= 0x000000000000FFFF;
 	printf("se: %lx\nm:  %lx\n", f2u.ld.s_exp, f2u.ld.m);
-	if ((f2u.ld.s_exp & LD_EXP) == LD_EXP)
+	if ((f2u.ld.s_exp & LD_EXP) == LD_EXP || f2u.ld.m == 0)
 	{
 		obj->print(float_special_value(f2u.ld), LEN_NS, obj);
 		return (PF_RET_SUCCESS);
 	}
-	d_exp = get_dec_exp(f2u.ld.s_exp & (LD_EXP ^ LD_EXP_P) ?
-		(f2u.ld.s_exp & LD_EXP_P) - LD_EXP_BIAS : f2u.ld.s_exp & LD_EXP_P);
+	d_exp = get_dec_exp((f2u.ld.s_exp & LD_EXP) - LD_EXP_BIAS);
 	ft_putstr("d_exp: ");
 	ft_putnbr(d_exp);
 	ft_putchar('\n');
