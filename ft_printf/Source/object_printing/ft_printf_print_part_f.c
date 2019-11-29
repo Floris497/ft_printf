@@ -35,9 +35,6 @@ static int		get_dec_exp(int e)
 {
 	size_t	dec_exp;
 
-	ft_putstr("e: ");
-	ft_putnbr(e);
-	ft_putchar('\n');
 	dec_exp = 0;
 	if (e < 0)
 	{
@@ -99,20 +96,27 @@ static char		*set_left_of_dot(char *str, int d_exp, t_ld_parts ld, int *i)
 	while (exp >= 0 && (*i) < LD_MANTISSA_BITS)
 	{
 		exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - (*i);
-		if ((ld.m & (1 << (LD_MANTISSA_BITS - (*i)))))
+		// printf("exp: %d\ni  :%d\n", exp, *i);
+		if ((ld.m & (1 << (LD_MANTISSA_BITS - 1 - (*i)))))
 		{
-			buff = ft_memset(buff, '0', d_exp);
-			buff[d_exp - 1] = '1';
-			while (exp)
+			// printf("seti:%d\nd_exp:%d\n", *i, d_exp);
+			buff = ft_memset(buff, '0', d_exp + 1);
+			buff[d_exp] = exp > 0 ? '2' : '1';
+			exp--;
+			while (exp > 0)
 			{
-				buff = str_add(buff, buff, d_exp, "\0");
+				buff = str_add(buff, buff, d_exp + 1, "\0");
 				exp--;
 			}
-			str = str_add(str, buff, d_exp, "\0");
+			str = str_add(str, buff, d_exp + 1, "\0");
+			// ft_putendl("New str:");
+			// ft_putendl(str);
 		}
 		(*i)++;
 	}
 //	free(buff);
+	// ft_putendl("Final str:");
+	// ft_putendl(str);
 	return (str);
 }
 
@@ -211,15 +215,18 @@ t_pf_ret		ft_printf_print_part_f(
 		obj->print(float_special_value(f2u.ld), LEN_NS, obj);
 		return (PF_RET_SUCCESS);
 	}
+	// ft_putstr("e: ");
+	// ft_putnbr((f2u.ld.s_exp & LD_EXP) - LD_EXP_BIAS);
+	// ft_putchar('\n');
 	d_exp = get_dec_exp((f2u.ld.s_exp & LD_EXP) - LD_EXP_BIAS);
-	ft_putstr("d_exp: ");
-	ft_putnbr(d_exp);
-	ft_putchar('\n');
-	ft_putstr("prcs: ");
-	ft_putnbr(part->prcs);
-	ft_putchar('\n');
+	// ft_putstr("d_exp: ");
+	// ft_putnbr(d_exp);
+	// ft_putchar('\n');
+	// ft_putstr("prcs: ");
+	// ft_putnbr(part->prcs);
+	// ft_putchar('\n');
 	size = (d_exp <= 0 ? 0 : d_exp) + (part->prcs ? part->prcs + 3 : 1);
-	printf("size: %d\n", (int)size);
+	// printf("size: %d\n", (int)size);
 	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp) + 1] = part->prcs ? '.' : '\0';

@@ -235,14 +235,14 @@ int main(int argc, const char *argv[])
 	printf("%f|\n", 0.0);
 	ft_printf("%f|\n\n", 0.0);
 
+	printf("%f|\n", 1.0);
+	ft_printf("%f|\n\n", 1.0);
+
 	printf("%.20f|\n", 1.0);
 	ft_printf("%.20f|\n\n", 1.0);
 
 	printf("%.6f|\n", 1.0);
 	ft_printf("%.6f|\n\n", 1.0);
-
-	printf("%f|\n", 1.0);
-	ft_printf("%f|\n\n", 1.0);
 
 	printf("%.0f|\n", 2.5);
 	ft_printf("%.0f|\n\n", 2.5);
