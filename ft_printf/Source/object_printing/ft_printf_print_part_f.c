@@ -35,9 +35,9 @@ static int		get_dec_exp(int e)
 {
 	size_t	dec_exp;
 
-	// ft_putstr("e: ");
-	// ft_putnbr(e);
-	// ft_putchar('\n');
+	ft_putstr("e: ");
+	ft_putnbr(e);
+	ft_putchar('\n');
 	dec_exp = 0;
 	if (e < 0)
 	{
@@ -212,11 +212,14 @@ t_pf_ret		ft_printf_print_part_f(
 		return (PF_RET_SUCCESS);
 	}
 	d_exp = get_dec_exp((f2u.ld.s_exp & LD_EXP) - LD_EXP_BIAS);
-	// ft_putstr("d_exp: ");
-	// ft_putnbr(d_exp);
-	// ft_putchar('\n');
-	size = (d_exp < 0 ? -d_exp : d_exp) + (part->prcs ? part->prcs + 2 : 1);
-	printf("size: %d\n", size);
+	ft_putstr("d_exp: ");
+	ft_putnbr(d_exp);
+	ft_putchar('\n');
+	ft_putstr("prcs: ");
+	ft_putnbr(part->prcs);
+	ft_putchar('\n');
+	size = (d_exp <= 0 ? 0 : d_exp) + (part->prcs ? part->prcs + 3 : 1);
+	printf("size: %d\n", (int)size);
 	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp) + 1] = part->prcs ? '.' : '\0';

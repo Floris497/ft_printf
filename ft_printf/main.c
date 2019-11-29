@@ -235,6 +235,12 @@ int main(int argc, const char *argv[])
 	printf("%f|\n", 0.0);
 	ft_printf("%f|\n\n", 0.0);
 
+	printf("%.20f|\n", 1.0);
+	ft_printf("%.20f|\n\n", 1.0);
+
+	printf("%.6f|\n", 1.0);
+	ft_printf("%.6f|\n\n", 1.0);
+
 	printf("%f|\n", 1.0);
 	ft_printf("%f|\n\n", 1.0);
 
@@ -249,9 +255,15 @@ int main(int argc, const char *argv[])
 
 	printf("%f|\n", -0.00125);
 	ft_printf("%f|\n\n", -0.00125);
-	
+
 	printf("%f|\n", 100000000.0);
 	ft_printf("%f|\n\n", 100000000.0);
+
+	printf("%f|\n", 7.0/11.0);
+	ft_printf("%f|\n\n", 7.0/11.0);
+
+	printf("%.20f|\n", 7.0/11.0);
+	ft_printf("%.20f|\n\n", 7.0/11.0);
 
 	return (0);
 }
