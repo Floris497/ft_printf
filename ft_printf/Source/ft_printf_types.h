@@ -189,7 +189,7 @@ union	u_pf_value
 };
 
 # define WIDTH_NS -1
-# define PRECIS_NS -1
+# define PRCS_NS -1
 
 typedef struct s_pf_part	t_pf_part;
 

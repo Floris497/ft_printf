@@ -37,7 +37,7 @@ t_pf_ret		pf_print_pad_conv_s
 	int			len;
 
 	len = (int)ft_strlen(str);
-	if (part->prcs == PRECIS_NS)
+	if (part->prcs == PRCS_NS)
 		lblock.r_prsc = len;
 	else
 		lblock.r_prsc = part->prcs;

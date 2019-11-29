@@ -19,7 +19,7 @@
 
 static t_pf_ret		empty_part(t_pf_part *part)
 {
-	part->prcs = PRECIS_NS;
+	part->prcs = PRCS_NS;
 	part->width = WIDTH_NS;
 	part->conv = CONV_NS;
 	part->len_mod = LEN_MOD_NS;
