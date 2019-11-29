@@ -26,7 +26,7 @@ static t_pf_ret	pf_print_pad_conv_o_blk
 	}
 	if (lb.order == SPN)
 	{
-		if (part->flags & PF_ZR_FLAG && part->prcs == PRECIS_NS)
+		if (part->flags & PF_ZR_FLAG && part->prcs == PRCS_NS)
 			pf_print_nchar('0', lb.pad_len, obj);
 		else
 			pf_print_nchar(' ', lb.pad_len, obj);

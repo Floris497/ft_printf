@@ -67,7 +67,7 @@ t_pf_ret		pf_print_pad_conv_d
 	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
 		lblock.order = SNP;
-	else if (part->prcs != PRECIS_NS)
+	else if (part->prcs != PRCS_NS)
 		lblock.order = PSN;
 	else if (part->flags & PF_ZR_FLAG)
 		lblock.order = SPN;

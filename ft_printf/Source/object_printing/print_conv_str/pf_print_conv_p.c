@@ -31,7 +31,7 @@ static t_pf_ret	pf_print_pad_conv_p_blk
 	}
 	if (lb.order == SPN)
 	{
-		if (part->flags & PF_ZR_FLAG && part->prcs == PRECIS_NS)
+		if (part->flags & PF_ZR_FLAG && part->prcs == PRCS_NS)
 		{
 			if (has_prefix)
 				obj->print("0x", LEN_NS, obj);
