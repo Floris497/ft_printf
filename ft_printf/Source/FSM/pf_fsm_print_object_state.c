@@ -76,7 +76,10 @@ t_pf_ret			pf_fsm_print_object_state(t_pf_obj *obj)
 	else if ((obj->part->conv & SIGN_CONV) != 0)
 		set_value_v_u(obj, obj->part);
 	else if ((obj->part->conv & FLOAT_CONV) != 0)
+	{
 		set_value_f(obj, obj->part);
+		obj->part->prcs = (obj->part->prcs == NS_PRCS ? 6 : NS_PRCS)
+	}
 	else
 		set_value_v_s(obj, obj->part);
 	ft_print_object(obj);
