@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   pf_fsm_controller_state.c                         :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/30 16:46:01 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/30 16:46:01 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pf_fsm.h"
 
-typedef t_pf_ret (*state_function)(t_pf_obj *);
+typedef t_pf_ret		(*t_state_function)(t_pf_obj *);
 
-static state_function jump_table[12] =
+static t_state_function	g_jump_table[12] =
 {
 	pf_fsm_conv_state,
 	pf_fsm_end_state,
@@ -18,13 +30,14 @@ static state_function jump_table[12] =
 	pf_fsm_init_state,
 };
 
-t_pf_ret	pf_fsm_controller_state(t_pf_obj *obj)
+t_pf_ret				pf_fsm_controller_state(t_pf_obj *obj)
 {
-	t_pf_ret ret = PF_RET_START_STATE;
+	t_pf_ret ret;
 
+	ret = PF_RET_START_STATE;
 	while (ret >= 10 && ret <= 21)
 	{
-		ret = jump_table[ret - 10](obj);
+		ret = g_jump_table[ret - 10](obj);
 		if (ret == PF_RET_SUCCESS && *(obj->input) != '\0')
 			ret = PF_RET_START_STATE;
 	}

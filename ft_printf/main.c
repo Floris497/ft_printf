@@ -218,9 +218,40 @@ int main(int argc, const char *argv[])
 //        run_code();
 //    }
 
-	ft_printf("Hallo |%d|\n", 10);
-	printf("%.2f|\n", 200.056);
-	ft_printf("%.2f|\n", 200.056);
+	printf("\nFloats:\n\n");
+
+	printf("%.2f|\n", 0.0/0.0);
+	ft_printf("%.2f|\n\n", 0.0/0.0);
+
+	printf("%.2f|\n", 2.0/0.0);
+	ft_printf("%.2f|\n\n", 2.0/0.0);
+
+	printf("%.2f|\n", -2.0/0.0);
+	ft_printf("%.2f|\n\n", -2.0/0.0);
+
+	printf("%f|\n", -0.0);
+	ft_printf("%f|\n\n", -0.0);
+
+	printf("%f|\n", 0.0);
+	ft_printf("%f|\n\n", 0.0);
+
+	printf("%f|\n", 1.0);
+	ft_printf("%f|\n\n", 1.0);
+
+	printf("%.0f|\n", 2.5);
+	ft_printf("%.0f|\n\n", 2.5);
+
+	printf("%.0f|\n", 3.5);
+	ft_printf("%.0f|\n\n", 3.5);
+
+	printf("%.2f|\n", -0.125);
+	ft_printf("%.2f|\n\n", -0.125);
+
+	printf("%f|\n", -0.00125);
+	ft_printf("%f|\n\n", -0.00125);
+	
+	printf("%f|\n", 100000000.0);
+	ft_printf("%f|\n\n", 100000000.0);
 
 	return (0);
 }

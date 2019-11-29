@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "pf_fsm.h"
 
-static t_pf_conv conversion_table[58] =
+static t_pf_conv g_conversion_table[58] =
 {
 	XA_CONV, XB_CONV, XC_CONV, XD_CONV, XE_CONV, XF_CONV, XG_CONV, XH_CONV,
 	XI_CONV, XJ_CONV, XK_CONV, XL_CONV, XM_CONV, XN_CONV, XO_CONV, XP_CONV,
@@ -30,7 +30,7 @@ static t_pf_conv conversion_table[58] =
 static t_pf_ret	set_conv(const char c, t_pf_obj *obj)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		obj->part->conv = conversion_table[(c - 'A')];
+		obj->part->conv = g_conversion_table[(c - 'A')];
 	else
 		return (PF_RET_FORMAT_ERROR);
 	return (PF_RET_SUCCESS);

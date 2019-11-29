@@ -12,22 +12,26 @@
 
 #include <libft.h>
 #include <stdlib.h>
+#include <stdio.h> //illegal
 #include "ft_printf_print.h"
 #include "pf_print_conv.h"
 
 static char		*float_special_value(t_ld_parts ld)
 {
-	if (ld.m)
-		return ("NaN");
-	else if (ld.sign_exp & LD_SIGN)
-		return ("-Inf");
-	return ("Inf");
+	if (ld.m & LD_FRACTION)
+		return ("nan");
+	else if (ld.s_exp & LD_SIGN)
+		return ("-inf");
+	return ("inf");
 }
 
 static int		get_dec_exp(int e)
 {
 	size_t	dec_exp;
 
+	ft_putstr("e: ");
+	ft_putnbr(e);
+	ft_putchar('\n');
 	dec_exp = 0;
 	if (e < 0)
 	{
@@ -85,10 +89,10 @@ static char		*set_left_of_dot(char *str, int d_exp, t_ld_parts ld, int *i)
 
 	(*i) = 0;
 	buff = (char *)malloc(sizeof(char) * d_exp);
-	exp = (ld.sign_exp & LD_EXP) - LD_EXP_BIAS;
+	exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS;
 	while (exp >= 0 && (*i) < LD_MANTISSA_BITS)
 	{
-		exp = (ld.sign_exp & LD_EXP) - LD_EXP_BIAS - (*i);
+		exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - (*i);
 		if ((ld.m & (1 << (LD_MANTISSA_BITS - (*i)))))
 		{
 			buff = ft_memset(buff, '0', d_exp);
@@ -135,7 +139,7 @@ static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, int i)
 	{
 		if ((ld.m & (1 << (LD_MANTISSA_BITS - i))))
 		{
-			exp = (ld.sign_exp & LD_EXP) - LD_EXP_BIAS - i;
+			exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - i;
 			buff = ft_memset(buff, '0', prcs);
 			buff[0] = '5';
 			while (exp < 0)
@@ -194,15 +198,20 @@ t_pf_ret		ft_printf_print_part_f(
 	size_t				size;
 
 	f2u.f = part->value.s_ld_value;
-	f2u.ld.sign_exp &= 0x000000000000FFFF;
-	if (!(f2u.ld.sign_exp & LD_EXP))
+	f2u.ld.s_exp &= 0x000000000000FFFF;
+	printf("se: %lx\nm:  %lx\n", f2u.ld.s_exp, f2u.ld.m);
+	if ((f2u.ld.s_exp & LD_EXP) == LD_EXP)
 	{
 		obj->print(float_special_value(f2u.ld), LEN_NS, obj);
 		return (PF_RET_SUCCESS);
 	}
-	d_exp = get_dec_exp((f2u.ld.sign_exp & LD_EXP) - LD_EXP_BIAS);
+	d_exp = get_dec_exp(f2u.ld.s_exp & (LD_EXP ^ LD_EXP_P) ?
+		(f2u.ld.s_exp & LD_EXP_P) - LD_EXP_BIAS : f2u.ld.s_exp & LD_EXP_P);
+	ft_putstr("d_exp: ");
+	ft_putnbr(d_exp);
+	ft_putchar('\n');
 	size = (d_exp < 0 ? -d_exp : d_exp) + (part->prcs ? part->prcs + 2 : 1);
-	str = (char*)ft_memalloc(sizeof(char) * size);
+	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp) + 1] = part->prcs ? '.' : '\0';
 	str = set_left_of_dot(str, d_exp, f2u.ld, &i);

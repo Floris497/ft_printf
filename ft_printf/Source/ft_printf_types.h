@@ -239,7 +239,7 @@ struct	s_lenblock
 typedef	struct 		s_ld_parts
 {
 	unsigned long	m;
-	unsigned long	sign_exp;
+	unsigned long	s_exp;
 }					t_ld_parts;
 
 typedef union		u_pf_f2u
@@ -248,8 +248,9 @@ typedef union		u_pf_f2u
 	t_ld_parts		ld;
 }					t_pf_f2u;
 
-# define LD_SIGN 0x8000
-# define LD_EXP 0x7FFF
+# define LD_SIGN 0x0000000000008000
+# define LD_EXP 0x0000000000007FFF
+# define LD_EXP_P 0x0000000000003FFF
 # define LD_FRACTION 0x7FFFFFFFFFFFFFFF
 # define LD_MANTISSA_BITS 64
 # define LD_EXP_BIAS 16383
