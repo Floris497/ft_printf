@@ -85,38 +85,49 @@ static char		*str_add(char *dst, char *src, size_t n, char *frac_status)
 	return (dst);
 }
 
-static char		*set_left_of_dot(char *str, int d_exp, t_ld_parts ld, int *i)
+static char		*set_left_of_dot(char *str, int d_exp, t_ld_parts ld, unsigned long *i)
 {
-	int		exp;
+	long	exp;
 	char	*buff;
 
 	(*i) = 0;
-	buff = (char *)malloc(sizeof(char) * d_exp);
+	buff = (char *)ft_memalloc(sizeof(char) * (d_exp + 2));
 	exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS;
 	while (exp >= 0 && (*i) < LD_MANTISSA_BITS)
 	{
 		exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - (*i);
-		// printf("exp: %d\ni  :%d\n", exp, *i);
-		if ((ld.m & (1 << (LD_MANTISSA_BITS - 1 - (*i)))))
+		printf("exp: %ld\ni  : %lu\n\n", exp, *i);
+		if ((ld.m & (1UL << (LD_MANTISSA_BITS - 1UL - (*i)))))
 		{
-			// printf("seti:%d\nd_exp:%d\n", *i, d_exp);
+			printf("seti:%lu\nd_exp:%d\n\n", *i, d_exp);
 			buff = ft_memset(buff, '0', d_exp + 1);
 			buff[d_exp] = exp > 0 ? '2' : '1';
 			exp--;
 			while (exp > 0)
 			{
+				ft_putendl("Pre add str:");
+				ft_putendl(str);
+				ft_putendl("Pre add buff:");
+				ft_putendl(buff);
 				buff = str_add(buff, buff, d_exp + 1, "\0");
+				ft_putendl("Post add str:");
+				ft_putendl(str);
 				exp--;
 			}
+			ft_putendl("Pre extra add str:");
+			ft_putendl(str);
+			ft_putendl("Pre add buff:");
+			ft_putendl(buff);
+			ft_putchar('\n');
 			str = str_add(str, buff, d_exp + 1, "\0");
-			// ft_putendl("New str:");
-			// ft_putendl(str);
+			ft_putendl("Post extra add str:");
+			ft_putendl(str);
 		}
 		(*i)++;
 	}
 //	free(buff);
-	// ft_putendl("Final str:");
-	// ft_putendl(str);
+	ft_putendl("Final str:");
+	ft_putendl(str);
 	return (str);
 }
 
@@ -135,21 +146,26 @@ static char		*str_half(char *str, int prcs)
 	return (str);
 }
 
-static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, int i)
+static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, unsigned long i)
 {
 	int		exp;
 	char	frac_info;
 	char	*buff;
 	char	*frac_addr;
 
-	frac_addr = ft_strchr(str, '.');
+	ft_putendl("ping");
+	frac_addr = ft_strchr(str, '.') + 1;
 	buff = (char *)malloc(sizeof(char) * prcs);
 	frac_info = 1;
 	while (i < LD_MANTISSA_BITS)
 	{
-		if ((ld.m & (1 << (LD_MANTISSA_BITS - i))))
+		if ((ld.m & (1UL << (LD_MANTISSA_BITS - 1UL - i))))
 		{
-			exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - i;
+			printf("se2:%lx\nm2: %lx\nmask:%lx\n", ld.s_exp, ld.m, (unsigned long)(1UL << (LD_MANTISSA_BITS - 1 - i)));
+			ft_putstr("\nBit set: ");
+			ft_putnbr(i);
+			ft_putchar('\n');
+			exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - 1 - i;
 			buff = ft_memset(buff, '0', prcs);
 			buff[0] = '5';
 			while (exp < 0)
@@ -182,10 +198,10 @@ static	char	*str_round(char *str, t_ld_parts ld, int i, int prcs)
 	last_i = (int)ft_strlen(str) - 1;
 	if (!prcs)
 	{
-		if ((ld.m & (1 << (LD_MANTISSA_BITS - (i + 1)))))
+		if ((ld.m & (1 << (LD_MANTISSA_BITS - 1 - i))))
 		{
 			if (str[last_i] & 1 &&
-				!(ld.m & ((1 << (LD_MANTISSA_BITS - (i + 1))) - 1)))
+				!(ld.m & ((1 << (LD_MANTISSA_BITS - 1 - i)) - 1)))
 					return (str);
 		}
 		else
@@ -203,13 +219,13 @@ t_pf_ret		ft_printf_print_part_f(
 {
 	t_pf_f2u			f2u;
 	int					d_exp;
-	int					i;
+	unsigned long		i;
 	char				*str;
 	size_t				size;
 
 	f2u.f = part->value.s_ld_value;
 	f2u.ld.s_exp &= 0x000000000000FFFF;
-	printf("se: %lx\nm:  %lx\n", f2u.ld.s_exp, f2u.ld.m);
+	// printf("se: %lx\nm:  %lx\n", f2u.ld.s_exp, f2u.ld.m);
 	if ((f2u.ld.s_exp & LD_EXP) == LD_EXP || f2u.ld.m == 0)
 	{
 		obj->print(float_special_value(f2u.ld), LEN_NS, obj);

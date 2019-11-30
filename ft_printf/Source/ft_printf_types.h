@@ -251,7 +251,7 @@ typedef union		u_pf_f2u
 # define LD_SIGN 0x0000000000008000
 # define LD_EXP 0x0000000000007FFF
 # define LD_FRACTION 0x7FFFFFFFFFFFFFFF
-# define LD_MANTISSA_BITS 64
+# define LD_MANTISSA_BITS 64UL
 # define LD_EXP_BIAS 16383
 
 #endif
