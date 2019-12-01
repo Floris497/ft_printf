@@ -26,6 +26,7 @@ HEADERS = \
 	$(wildcard object_printing/extra/print_num_full/*.h) \
 	$(wildcard object_printing/print_conv_str/*.h) \
 	$(wildcard part_completion/*.h) \
+	$(wildcard object_printing/float_aux/*.h) \
 
 INCLUDES = \
 	-I ./ \
@@ -36,6 +37,7 @@ INCLUDES = \
 	-I ./object_printing/extra/print_num_full/ \
 	-I ./object_printing/print_conv_str \
 	-I ./part_completion/ \
+	-I ./object_printing/float_aux \
 
 SRCS = \
 	$(wildcard *.c) \
@@ -45,6 +47,7 @@ SRCS = \
 	$(wildcard object_printing/extra/print_num_full/*.c) \
 	$(wildcard object_printing/print_conv_str/*.c) \
 	$(wildcard part_completion/*.c) \
+	$(wildcard object_printing/float_aux/*.c) \
 
 OBJS = $(SRCS:.c=.o)
 

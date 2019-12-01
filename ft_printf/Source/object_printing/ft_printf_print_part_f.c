@@ -15,6 +15,7 @@
 #include <stdio.h> //illegal
 #include "ft_printf_print.h"
 #include "pf_print_conv.h"
+#include "float_aux.h"
 
 static char		*float_special_value(t_ld_parts ld)
 {
@@ -54,122 +55,6 @@ static int		get_dec_exp(int e)
 	return (int)(dec_exp);
 }
 
-static char		*str_add(char *dst, char *src, size_t n, char *frac_status)
-{
-	char	*tmp;
-
-	while (n)
-	{
-		dst[n - 1] = dst[n - 1] + (src[n - 1] - '0');
-		if (dst[n - 1] > '9')
-		{
-			if (n - 2 < 0 && *frac_status != 0)
-			{
-				dst[n - 3] += (dst[n - 1] - '0') / 10;
-				*frac_status = 2;
-			}
-			else if (n - 2 < 0)
-			{
-				tmp = (char*)malloc(sizeof(char) * n + 2);
-				tmp[n + 1] = '\0';
-				tmp[0] = (dst[n - 1] - '0') / 10;
-				ft_strlcat(tmp, dst, n + 1);
-//				free(dst);
-				dst = tmp;
-			}
-			else
-				dst[n - 2] += (dst[n - 1] - '0') / 10;
-		}
-		n--;
-	}
-	return (dst);
-}
-
-static char		*set_left_of_dot(char *str, int d_exp, t_ld_parts ld, unsigned long *i)
-{
-	long	exp;
-	char	*buff;
-
-	(*i) = 0;
-	buff = (char *)ft_memalloc(sizeof(char) * (d_exp + 2));
-	exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS;
-	while (exp >= 0 && (*i) < LD_MANTISSA_BITS)
-	{
-		exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - 1 - (*i);
-		// printf("exp: %ld\ni  : %lu\n\n", exp, *i);
-		if ((ld.m & (1UL << (LD_MANTISSA_BITS - 1UL - (*i)))))
-		{
-			// printf("seti:%lu\nd_exp:%d\n\n", *i, d_exp);
-			buff = ft_memset(buff, '0', d_exp + 1);
-			buff[d_exp] = exp >= 0 ? '2' : '1';
-			exp--;
-			while (exp > 0)
-			{
-				buff = str_add(buff, buff, d_exp + 1, "\0");
-				exp--;
-			}
-			str = str_add(str, buff, d_exp + 1, "\0");
-		}
-		(*i)++;
-	}
-//	free(buff);
-	return (str);
-}
-
-static char		*str_half(char *str, int prcs)
-{
-	int	i;
-
-	i = 0;
-	while (i < prcs)
-	{
-		if ((str[i] - '0') % 2 == 1 && i + 1 < prcs)
-			str[i + 1] = '5';
-		str[i] = ((str[i] - '0') / 2) + '0';
-		i++;
-	}
-	return (str);
-}
-
-static char		*set_right_of_dot(char *str, int prcs, t_ld_parts ld, unsigned long i)
-{
-	int		exp;
-	char	frac_info;
-	char	*buff;
-	char	*frac_addr;
-
-	frac_addr = ft_strchr(str, '.') + 1;
-	buff = (char *)malloc(sizeof(char) * prcs);
-	frac_info = 1;
-	while (i < LD_MANTISSA_BITS)
-	{
-		if ((ld.m & (1UL << (LD_MANTISSA_BITS - 1UL - i))))
-		{
-			exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - 1 - i;
-			buff = ft_memset(buff, '0', prcs);
-			buff[0] = '5';
-			while (exp < 0)
-			{
-				buff = str_half(buff, prcs);
-				exp++;
-			}
-			frac_addr = str_add(frac_addr, buff, prcs, &frac_info);
-			if (frac_info == 2)
-			{
-//				free(buff);
-				buff = (char*)ft_memalloc(str - ft_strchr(str, '.'));
-				buff = ft_memset(buff, '0', str - ft_strchr(str, '.'));
-				str = str_add(str, buff, frac_addr - str, &frac_info);
-				free(buff);
-				buff = (char *)malloc(sizeof(char) * prcs);
-			}
-		}
-		i++;
-	}
-//	free(buff);
-	return (str);
-}
-
 static	char	*str_round(char *str, t_ld_parts ld, int i, int prcs)
 {
 	int		last_i;
@@ -189,7 +74,7 @@ static	char	*str_round(char *str, t_ld_parts ld, int i, int prcs)
 	}
 	buff = (char*)ft_memalloc(sizeof(char) * (prcs ? prcs : last_i + 1));
 	buff[prcs ? prcs : last_i] = '1';
-	str = str_add(str, buff, prcs ? prcs : last_i, "\0");
+	str = str_add(str, buff, prcs ? prcs : last_i);
 //	free(buff);
 	return (str);
 }
