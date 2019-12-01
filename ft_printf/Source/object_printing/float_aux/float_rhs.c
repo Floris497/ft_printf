@@ -13,6 +13,7 @@
 #include "libft.h"
 #include "float_aux.h"
 #include "ft_printf_types.h"
+#include <stdio.h> //illegal
 
 static char	*str_add_rightside(
 	char *dst, char *src, size_t n, char *overflow)
@@ -59,13 +60,13 @@ char		*set_right_of_dot(
 	char	*frac_addr;
 
 	frac_addr = ft_strchr(str, '.') + 1;
-	buff = (char *)malloc(sizeof(char) * prcs);
+	buff = (char *)ft_memalloc(sizeof(char) * prcs + 1);
 	overflow = FALSE;
 	while (i < LD_MANTISSA_BITS)
 	{
 		if ((ld.m & (1UL << (LD_MANTISSA_BITS - 1UL - i))))
 		{
-			exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - 1 - i;
+			exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS + 1 - i;
 			buff = ft_memset(buff, '0', prcs);
 			buff[0] = '5';
 			while (exp < 0)
