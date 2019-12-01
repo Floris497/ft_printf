@@ -220,59 +220,59 @@ int main(int argc, const char *argv[])
 
 	printf("\nFloats:\n\n");
 
-	// printf("pf: %.2f|\n", 0.0/0.0);
-	// ft_printf("ft: %.2f|\n\n", 0.0/0.0);
-	//
-	// printf("pf: %.2f|\n", 2.0/0.0);
-	// ft_printf("ft: %.2f|\n\n", 2.0/0.0);
-	//
-	// printf("pf: %.2f|\n", -2.0/0.0);
-	// ft_printf("ft: %.2f|\n\n", -2.0/0.0);
-	//
-	// printf("pf: %f|\n", -0.0);
-	// ft_printf("ft: %f|\n\n", -0.0);
-	//
-	// printf("pf: %f|\n", 0.0);
-	// ft_printf("ft: %f|\n\n", 0.0);
-	//
-	// printf("pf: %f|\n", 1.0);
-	// ft_printf("ft: %f|\n\n", 1.0);
-	//
-	// printf("pf: %.20f|\n", 1.0);
-	// ft_printf("ft: %.20f|\n\n", 1.0);
-	//
-	// printf("pf: %.6f|\n", 1.0);
-	// ft_printf("ft: %.6f|\n\n", 1.0);
+	printf("pf: %.2f|\n", 0.0/0.0);
+	ft_printf("ft: %.2f|\n\n", 0.0/0.0);
+
+	printf("pf: %.2f|\n", 2.0/0.0);
+	ft_printf("ft: %.2f|\n\n", 2.0/0.0);
+
+	printf("pf: %.2f|\n", -2.0/0.0);
+	ft_printf("ft: %.2f|\n\n", -2.0/0.0);
+
+	printf("pf: %f|\n", -0.0);
+	ft_printf("ft: %f|\n\n", -0.0);
+
+	printf("pf: %f|\n", 0.0);
+	ft_printf("ft: %f|\n\n", 0.0);
+
+	printf("pf: %f|\n", 1.0);
+	ft_printf("ft: %f|\n\n", 1.0);
+
+	printf("pf: %.20f|\n", 1.0);
+	ft_printf("ft: %.20f|\n\n", 1.0);
+
+	printf("pf: %.6f|\n", 1.0);
+	ft_printf("ft: %.6f|\n\n", 1.0);
 
 	printf("pf: %.0f|\n", 2.5);
 	ft_printf("ft: %.0f|\n\n", 2.5);
 
-	// printf("pf: %.0f|\n", 3.5);
-	// ft_printf("ft: %.0f|\n\n", 3.5);
-	//
-	// printf("pf: %.1f|\n", 0.25);
-	// ft_printf("ft: %.1f|\n\n", 0.25);
-	//
-	// printf("pf: %.1f|\n", 0.35);
-	// ft_printf("ft: %.1f|\n\n", 0.35);
-	//
-	// printf("pf: %.1f|\n", 0.75);
-	// ft_printf("ft: %.1f|\n\n", 0.75);
-	//
-	// printf("pf: %.2f|\n", -0.125);
-	// ft_printf("ft: %.2f|\n\n", -0.125);
-	//
-	// printf("pf: %f|\n", -0.00125);
-	// ft_printf("ft: %f|\n\n", -0.00125);
-	//
-	// printf("pf: %f|\n", 100000000.0);
-	// ft_printf("ft: %f|\n\n", 100000000.0);
-	//
-	// printf("pf: %f|\n", 7.0/11.0);
-	// ft_printf("ft: %f|\n\n", 7.0/11.0);
-	//
-	// printf("pf: %.20f|\n", 7.0/11.0);
-	// ft_printf("ft: %.20f|\n\n", 7.0/11.0);
+	printf("pf: %.0f|\n", 3.5);
+	ft_printf("ft: %.0f|\n\n", 3.5);
+
+	printf("pf: %.1f|\n", 0.25);
+	ft_printf("ft: %.1f|\n\n", 0.25);
+
+	printf("pf: %.1f|\n", 0.35);
+	ft_printf("ft: %.1f|\n\n", 0.35);
+
+	printf("pf: %.1f|\n", 0.75);
+	ft_printf("ft: %.1f|\n\n", 0.75);
+
+	printf("pf: %.2f|\n", -0.125);
+	ft_printf("ft: %.2f|\n\n", -0.125);
+
+	printf("pf: %f|\n", -0.00125);
+	ft_printf("ft: %f|\n\n", -0.00125);
+
+	printf("pf: %f|\n", 100000000.0);
+	ft_printf("ft: %f|\n\n", 100000000.0);
+
+	printf("pf: %f|\n", 7.0/11.0);
+	ft_printf("ft: %f|\n\n", 7.0/11.0);
+
+	printf("pf: %.20f|\n", 7.0/11.0);
+	ft_printf("ft: %.20f|\n\n", 7.0/11.0);
 
 	return (0);
 }
