@@ -78,6 +78,7 @@ t_pf_ret			pf_fsm_print_object_state(t_pf_obj *obj)
 	else if ((obj->part->conv & FLOAT_CONV) != 0)
 	{
 		set_value_f(obj, obj->part);
+		// move this line to ft_printf_print_part_f.c
 		obj->part->prcs = (obj->part->prcs == PRCS_NS ? 6 : obj->part->prcs);
 	}
 	else

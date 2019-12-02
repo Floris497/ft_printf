@@ -19,31 +19,28 @@
 static t_pf_ret	pf_print_pad_conv_p_blk
 (const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
-	int has_prefix;
+	int		has_prefix;
+	size_t	idx;
 
+	idx = 0;
 	has_prefix = (part->flags & PF_HT_FLAG);
-	if (lb.order == SNP)
+
+	while (lb.order[idx] != '\0')
 	{
-		if (has_prefix)
+		if (lb.order[idx] == 'X')
+		{
 			obj->print("0x", LEN_NS, obj);
-		print_num_full_x(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
-		pf_print_nchar(' ', lb.pad_len, obj);
-	}
-	if (lb.order == SPN)
-	{
-		if (part->flags & PF_ZR_FLAG && part->prcs == PRCS_NS)
-		{
-			if (has_prefix)
-				obj->print("0x", LEN_NS, obj);
-			pf_print_nchar('0', lb.pad_len, obj);
 		}
-		else
+		else if (lb.order[idx] == 'P' && has_prefix)
 		{
-			pf_print_nchar(' ', lb.pad_len, obj);
-			if (has_prefix)
-				obj->print("0x", LEN_NS, obj);
+			if (part->flags & PF_ZR_FLAG && part->prcs == PRCS_NS)
+				pf_print_nchar('0', lb.pad_len, obj);
+			else
+				pf_print_nchar(' ', lb.pad_len, obj);
 		}
-		print_num_full_x(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
+		else if (lb.order[idx] == 'N')
+			print_num_full_x(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
+		idx++;
 	}
 	return (PF_RET_SUCCESS);
 }
@@ -61,9 +58,9 @@ t_pf_ret		pf_print_pad_conv_p
 	lb.total_len = (lb.r_width < part->width) ? part->width : lb.r_width;
 	lb.pad_len = lb.total_len - lb.r_width;
 	if (part->flags & PF_MN_FLAG)
-		lb.order = SNP;
+		lb.order = "XNP";
 	else
-		lb.order = SPN;
+		lb.order = "PXN";
 	pf_print_pad_conv_p_blk(str, part, obj, lb);
 	return (PF_RET_SUCCESS);
 }

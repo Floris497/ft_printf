@@ -23,7 +23,7 @@ static t_pf_ret	change_chars(char *str, t_pf_part *part)
 			*str = ft_toupper(*str);
 			str++;
 		}
-	else
+	else if (part->conv == X_CONV)
 		while (*str != '\0')
 		{
 			*str = ft_tolower(*str);

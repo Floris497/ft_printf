@@ -15,17 +15,18 @@
 #include "pf_print_nchar.h"
 
 static t_pf_ret	pf_print_pad_conv_s_blk
-	(const char *str, t_pf_obj *obj, t_lenblock lblock)
+	(const char *str, t_pf_obj *obj, t_lenblock lb)
 {
-	if (lblock.order == SNP)
+	size_t	idx;
+	
+	idx = 0;
+	while (lb.order[idx] != '\0')
 	{
-		obj->print(str, lblock.r_prsc, obj);
-		pf_print_nchar(' ', lblock.pad_len, obj);
-	}
-	else if (lblock.order == SPN)
-	{
-		pf_print_nchar(' ', lblock.pad_len, obj);
-		obj->print(str, lblock.r_prsc, obj);
+		if (lb.order[idx] == 'N')
+			obj->print(str, lb.r_prsc, obj);
+		else if (lb.order[idx] == 'P')
+			pf_print_nchar(' ', lb.pad_len, obj);
+		idx++;
 	}
 	return (PF_RET_SUCCESS);
 }
@@ -47,9 +48,9 @@ t_pf_ret		pf_print_pad_conv_s
 	else
 		lblock.pad_len = (part->width - lblock.r_prsc) > 0 ? (part->width - lblock.r_prsc) : 0;
 	if (part->flags & PF_MN_FLAG)
-		lblock.order = SNP;
+		lblock.order = "SNP";
 	else
-		lblock.order = SPN;
+		lblock.order = "SPN";
 	pf_print_pad_conv_s_blk(str, obj, lblock);
 	return (PF_RET_SUCCESS);
 }
