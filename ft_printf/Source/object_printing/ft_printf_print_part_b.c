@@ -20,7 +20,7 @@ t_pf_ret	ft_printf_print_part_b(t_pf_obj *obj, t_pf_part *part)
 	char *number;
 
 	number = ft_itoa_base(part->value.u_ll_value, 2);
-	pf_print_pad_conv_d(number, part, obj);
+	pf_print_pad_conv_x(number, part, obj);
 	free(number);
 	return (PF_RET_SUCCESS);
 }

@@ -14,21 +14,25 @@
 #include "pf_print_conv.h"
 #include "pf_print_nchar.h"
 
+
 static t_pf_ret	pf_print_pad_conv_c_blk
-	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lblock)
+	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
-	if (lblock.order == SNP)
+	size_t	idx;
+	
+	idx = 0;
+	while (lb.order[idx] != '\0')
 	{
-		obj->print(str, 1, obj);
-		pf_print_nchar(' ', lblock.pad_len, obj);
-	}
-	if (lblock.order == SPN)
-	{
-		if (part->flags & PF_ZR_FLAG)
-			pf_print_nchar('0', lblock.pad_len, obj);
-		else
-			pf_print_nchar(' ', lblock.pad_len, obj);
-		obj->print(str, 1, obj);
+		if (lb.order[idx] == 'N')
+			obj->print(str, 1, obj);
+		else if (lb.order[idx] == 'P')
+		{
+			if (part->flags & PF_ZR_FLAG)
+				pf_print_nchar('0', lb.pad_len, obj);
+			else
+				pf_print_nchar(' ', lb.pad_len, obj);
+		}
+		idx++;
 	}
 	return (PF_RET_SUCCESS);
 }
@@ -44,9 +48,9 @@ t_pf_ret		pf_print_pad_conv_c
 		(lblock.r_width < part->width) ? part->width : lblock.r_width;
 	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
-		lblock.order = SNP;
+		lblock.order = "NP";
 	else
-		lblock.order = SPN;
+		lblock.order = "PN";
 	pf_print_pad_conv_c_blk(str, part, obj, lblock);
 	return (PF_RET_SUCCESS);
 }

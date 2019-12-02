@@ -28,25 +28,25 @@ static void		print_sign(t_pf_part *part, t_pf_obj *obj)
 }
 
 static t_pf_ret	pf_print_pad_conv_d_blk
-	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lblock)
+	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
-	if (lblock.order == SNP)
+	size_t	idx;
+	
+	idx = 0;
+	while (lb.order[idx] != '\0')
 	{
-		print_sign(part, obj);
-		print_num_full_d(str, lblock.r_prsc, obj);
-		pf_print_nchar(' ', lblock.pad_len, obj);
-	}
-	if (lblock.order == SPN)
-	{
-		print_sign(part, obj);
-		pf_print_nchar('0', lblock.pad_len, obj);
-		print_num_full_d(str, lblock.r_prsc, obj);
-	}
-	if (lblock.order == PSN)
-	{
-		pf_print_nchar(' ', lblock.pad_len, obj);
-		print_sign(part, obj);
-		print_num_full_d(str, lblock.r_prsc, obj);
+		if (lb.order[idx] == 'S')
+			print_sign(part, obj);
+		else if (lb.order[idx] == 'P')
+		{
+			if (idx == 1)
+				pf_print_nchar('0', lb.pad_len, obj);
+			else
+				pf_print_nchar(' ', lb.pad_len, obj);
+		}
+		else if (lb.order[idx] == 'N')
+			print_num_full_d(str, lb.r_prsc, obj);
+		idx++;
 	}
 	return (PF_RET_SUCCESS);
 }
@@ -66,13 +66,13 @@ t_pf_ret		pf_print_pad_conv_d
 		(lblock.r_width < part->width) ? part->width : lblock.r_width;
 	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
-		lblock.order = SNP;
+		lblock.order = "SNP";
 	else if (part->prcs != PRCS_NS)
-		lblock.order = PSN;
+		lblock.order = "PSN";
 	else if (part->flags & PF_ZR_FLAG)
-		lblock.order = SPN;
+		lblock.order = "SPN";
 	else
-		lblock.order = PSN;
+		lblock.order = "PSN";
 	pf_print_pad_conv_d_blk(str, part, obj, lblock);
 	return (PF_RET_SUCCESS);
 }

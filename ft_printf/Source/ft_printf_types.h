@@ -190,6 +190,7 @@ union	u_pf_value
 
 # define WIDTH_NS -1
 # define PRCS_NS -1
+# define LEN_NS -1
 
 typedef struct s_pf_part	t_pf_part;
 
@@ -203,8 +204,6 @@ struct	s_pf_part
 	t_pf_value				value;
 };
 
-# define LEN_NS -1
-
 typedef struct s_pf_obj		t_pf_obj;
 
 struct	s_pf_obj
@@ -216,15 +215,6 @@ struct	s_pf_obj
 	t_pf_ret		(*print)(const char *, ssize_t, t_pf_obj *);
 };
 
-typedef enum e_pf_blk_order	t_pf_blk_order;
-
-enum	e_pf_blk_order
-{
-	SNP,
-	SPN,
-	PSN,
-};
-
 typedef struct s_lenblock	t_lenblock;
 
 struct	s_lenblock
@@ -233,7 +223,7 @@ struct	s_lenblock
 	int				r_width;
 	int				pad_len;
 	int				total_len;
-	t_pf_blk_order	order;
+	char			*order;
 };
 
 typedef	struct 		s_ld_parts
