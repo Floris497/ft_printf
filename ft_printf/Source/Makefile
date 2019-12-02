@@ -9,7 +9,7 @@
 #    Updated: 2019/03/30 16:46:08 by ffredrik     ###       ###                #
 #                                                                              #
 # **************************************************************************** #
-
+	
 NAME = libftprintf
 
 CC = clang
@@ -97,29 +97,40 @@ SRCS = \
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+.PHONY: clean fclean libft
+
+all: $(NAME).a
 
 %.o: %.c $(HEADERS)
 	@$(CC) -o $@ -c $< $(CFLAGS) $(INCLUDES)
 	@echo CC: $<
 
-$(NAME): $(OBJS)
-	@make -C libft
-	@cp libft/libft.a ./$(NAME).a
-	@echo MAKING LIBRARY
+$(NAME).a: libft/libft.a $(OBJS)
+	@cp libft/libft.a $(NAME).a
+	@echo CREATING: $(NAME).a
 	@$(AR) $(ARFLAGS) $(NAME).a $(OBJS)
 
-dylib: $(OBJS)
+$(NAME).dylib: libft/libft.a $(OBJS)
+	@echo CREATING: $(NAME).dylib
 	clang -fPIC -dynamiclib -o $(NAME).dylib $(OBJS) -lft -L./libft/
 
+libft/libft.a: libft
+
+libft:
+	@make -C libft
+
+dylib: $(NAME).dylib
+
 fclean: clean
-	make -C libft fclean
-	@echo REMOVING LIBRARY
-	@rm -f $(NAME).a $(NAME).dylib
+	@make -C libft fclean
+	@echo DELETING: $(NAME).a
+	@rm -f $(NAME).a 
+	@echo DELETING: $(NAME).dylib
+	@rm -f $(NAME).dylib
 
 clean:
-	make -C libft clean
-	@echo REMOVING OBJECT FILES
+	@make -C libft clean
+	@echo DELETING: $(OBJS)
 	@rm -f $(OBJS)
 
 re: fclean $(NAME)

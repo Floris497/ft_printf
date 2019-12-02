@@ -125,15 +125,15 @@ all: $(NAME)
 	@echo CC: $<
 
 $(NAME): $(OBJS)
-	@echo MAKING LIBRARY
+	@echo CREATING: $(NAME)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 fclean: clean
-	@echo REMOVING LIBRARY
+	@echo DELETING: $(NAME)
 	@rm -f $(NAME)
 
 clean:
-	@echo REMOVING OBJECT FILES
+	@echo DELETING: $(OBJS)
 	@rm -f $(OBJS)
 
 re: fclean $(NAME)
