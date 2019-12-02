@@ -34,26 +34,35 @@ static char		*float_special_value(t_ld_parts ld)
 
 static int		get_dec_exp(int e)
 {
-	size_t	dec_exp;
+	int	dec_exp;
+	t_pf_f2u 	magic_f;
 
-	dec_exp = 0;
 	if (e < 0)
 	{
+		dec_exp = 0;
 		e *= -1;
 		while (e >= 10.0)
 		{
 			e /= 10.0;
 			dec_exp--;
 		}
-		return (int)(dec_exp);
+		return (dec_exp);
 	}
-	while (e >= 10.0)
-	{
-		e /= 10.0;
-		dec_exp++;
-	}
-	return (int)(dec_exp);
+	magic_f.ld.s_exp = 0x0000000000004000;
+	magic_f.ld.m = 0xd49a784bcd1b8800;
+
+	return (((int)(e / magic_f.f) == 0) ? 0 : (e / magic_f.f) + 1);
 }
+
+// static int		get_dec_exp(int e)
+// {
+// 	t_pf_f2u 	magic_f;
+//
+// 	magic_f.ld.s_exp = 0x0000000000004000;
+// 	magic_f.ld.m = 0xd49a784bcd1b8800;
+//
+// 	return (e / magic_f.f);
+// }
 
 static	char	*str_round(char *str, t_ld_parts ld, int i, int prcs)
 {

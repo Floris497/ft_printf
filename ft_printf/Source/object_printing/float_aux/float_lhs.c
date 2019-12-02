@@ -13,6 +13,7 @@
 #include "libft.h"
 #include "float_aux.h"
 #include "ft_printf_types.h"
+#include <stdio.h> //illegal
 
 char		*set_left_of_dot(
 	char *str, int d_exp, t_ld_parts ld, unsigned long *i)
@@ -21,6 +22,7 @@ char		*set_left_of_dot(
 	char	*buff;
 
 	(*i) = 0;
+	// printf("\nenter lhs\nd_exp: %d\nstr:\n%s\n", d_exp, str);
 	buff = (char *)ft_memalloc(sizeof(char) * (d_exp + 2));
 	exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS;
 	while (exp >= 0 && (*i) < LD_MANTISSA_BITS)
