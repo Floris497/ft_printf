@@ -109,7 +109,7 @@ t_pf_ret		ft_printf_print_part_f(
 	size = (d_exp <= 0 ? 1 : d_exp + 1) + (part->prcs ? part->prcs + 2 : 1);
 	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
-	str[(d_exp < 0 ? -d_exp : d_exp) + 1] = part->prcs ? '.' : '\0';
+	str[(d_exp < 0 ? -d_exp : d_exp + 1)] = part->prcs ? '.' : '\0';
 	str = set_left_of_dot(str, d_exp, f2u.ld, &i);
 	// printf("part->prcs: %d\n", part->prcs);
 	if (part->prcs)
