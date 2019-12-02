@@ -111,6 +111,7 @@ t_pf_ret		ft_printf_print_part_f(
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp) + 1] = part->prcs ? '.' : '\0';
 	str = set_left_of_dot(str, d_exp, f2u.ld, &i);
+	// printf("part->prcs: %d\n", part->prcs);
 	if (part->prcs)
 		str = set_right_of_dot(str, part->prcs, f2u.ld, i);
 	else
