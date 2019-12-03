@@ -31,8 +31,8 @@ HEADERS = \
 	object_printing/extra/pf_print_nchar.h \
 	object_printing/extra/pf_print_pad.h \
 	object_printing/extra/print_num_full/pf_print_num_full.h \
-	object_printing/float_aux/float_aux.h \
 	object_printing/ft_printf_print.h \
+	object_printing/print_conv_str/float_aux/float_aux.h \
 	object_printing/print_conv_str/pf_print_conv.h \
 	part_completion/pf_choose_length_for_mod.h
 
@@ -44,6 +44,7 @@ INCLUDES = \
 	-I ./object_printing/extra/ \
 	-I ./object_printing/extra/print_num_full/ \
 	-I ./object_printing/print_conv_str \
+	-I ./object_printing/print_conv_str/float_aux \
 	-I ./part_completion/ \
 	-I ./object_printing/float_aux \
 
@@ -73,9 +74,6 @@ SRCS = \
 	object_printing/extra/print_num_full/pf_print_num_full_d.c \
 	object_printing/extra/print_num_full/pf_print_num_full_o.c \
 	object_printing/extra/print_num_full/pf_print_num_full_x.c \
-	object_printing/float_aux/float_aux.c \
-	object_printing/float_aux/float_lhs.c \
-	object_printing/float_aux/float_rhs.c \
 	object_printing/ft_printf_print_object.c \
 	object_printing/ft_printf_print_part_b.c \
 	object_printing/ft_printf_print_part_c.c \
@@ -87,8 +85,13 @@ SRCS = \
 	object_printing/ft_printf_print_part_s.c \
 	object_printing/ft_printf_print_part_u.c \
 	object_printing/ft_printf_print_part_x.c \
+	object_printing/print_conv_str/float_aux/float_aux.c \
+	object_printing/print_conv_str/float_aux/float_lhs.c \
+	object_printing/print_conv_str/float_aux/float_rhs.c \
+	object_printing/print_conv_str/float_aux/ft_ftoa.c \
 	object_printing/print_conv_str/pf_print_conv_c.c \
 	object_printing/print_conv_str/pf_print_conv_d.c \
+	object_printing/print_conv_str/pf_print_conv_f.c \
 	object_printing/print_conv_str/pf_print_conv_o.c \
 	object_printing/print_conv_str/pf_print_conv_p.c \
 	object_printing/print_conv_str/pf_print_conv_s.c \
@@ -97,7 +100,7 @@ SRCS = \
 
 OBJS = $(SRCS:.c=.o)
 
-.PHONY: clean fclean libft
+.PHONY: clean fclean
 
 all: $(NAME).a
 
@@ -110,16 +113,14 @@ $(NAME).a: libft/libft.a $(OBJS)
 	@echo CREATING: $(NAME).a
 	@$(AR) $(ARFLAGS) $(NAME).a $(OBJS)
 
+dylib: $(NAME).dylib
+
 $(NAME).dylib: libft/libft.a $(OBJS)
 	@echo CREATING: $(NAME).dylib
 	clang -fPIC -dynamiclib -o $(NAME).dylib $(OBJS) -lft -L./libft/
 
 libft/libft.a: libft
-
-libft:
 	@make -C libft
-
-dylib: $(NAME).dylib
 
 fclean: clean
 	@make -C libft fclean
@@ -134,3 +135,4 @@ clean:
 	@rm -f $(OBJS)
 
 re: fclean $(NAME)
+	
