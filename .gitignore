@@ -6,3 +6,4 @@ ft_printf/Source/libft/libft.a
 *.a
 *.dylib
 main
+.DS_Store
