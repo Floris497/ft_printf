@@ -19,8 +19,13 @@ t_pf_ret		ft_printf_print_part_f(t_pf_obj *obj, t_pf_part *part)
 {
 	char *str;
 
+	obj->part->prcs = (obj->part->prcs == PRCS_NS ? 6 : obj->part->prcs);
+	
 	str = ft_ftoa(part);
-	pf_print_pad_conv_f(str, part, obj);
+	
+	obj->print(str, LEN_NS, obj);
+	
+//	pf_print_pad_conv_f(str, part, obj);
 //	free(str);
 	return (PF_RET_SUCCESS);
 }
