@@ -15,19 +15,15 @@
 #include "ft_printf_types.h"
 #include <stdio.h> //illegal
 
+
+
 static char        *float_special_value(t_ld_parts ld)
 {
 	if (ld.m == 0 && (ld.s_exp & LD_EXP) == 0)
-	{
-		if (ld.s_exp & LD_SIGN)
-			return ("-0");
-		return ("0");
-	}
+		return ft_strdup("*0");
 	if (ld.m & LD_FRACTION)
-		return ("nan");
-	else if (ld.s_exp & LD_SIGN)
-		return ("-inf");
-	return ("inf");
+		return ft_strdup("*nan");
+	return ft_strdup("*inf");
 }
 
 static int        get_dec_exp(int e)

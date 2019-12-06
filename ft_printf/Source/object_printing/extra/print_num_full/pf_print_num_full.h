@@ -15,9 +15,6 @@
 
 # include "ft_printf_types.h"
 
-t_pf_ret	print_num_full_x(const char *str, int num_len, t_pf_obj *obj);
-t_pf_ret	print_num_full_o(const char *str, int num_len, t_pf_obj *obj);
 t_pf_ret	print_num_full_d(const char *str, int num_len, t_pf_obj *obj);
-t_pf_ret	print_num_full_b(const char *str, int num_len, t_pf_obj *obj);
 
 #endif

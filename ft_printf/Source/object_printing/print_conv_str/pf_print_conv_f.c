@@ -17,19 +17,22 @@
 #include "pf_print_num_full.h"
 
 static t_pf_ret	pf_print_pad_conv_f_blk
-(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
+	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
-	int		has_prefix;
-	size_t	idx;
-	
+	t_pf_f2u	f2u;
+	size_t		idx;
+
 	idx = 0;
-	has_prefix = ((part->flags & PF_HT_FLAG) && part->value.s_ll_value != 0);
+	f2u.f = part->value.s_ld_value;
+	f2u.ld.s_exp &= 0x000000000000FFFF;
+
+	int is_negative = (f2u.ld.s_exp & LD_SIGN);
 	
 	while (lb.order[idx] != '\0')
 	{
-		if (lb.order[idx] == 'X' && has_prefix)
+		if (lb.order[idx] == 'S' && is_negative)
 		{
-			obj->print((part->conv == X_CONV) ? "0x" : "0X", LEN_NS, obj);
+			obj->print("-", 1, obj);
 		}
 		else if (lb.order[idx] == 'P')
 		{
@@ -39,7 +42,11 @@ static t_pf_ret	pf_print_pad_conv_f_blk
 				pf_print_nchar(' ', lb.pad_len, obj);
 		}
 		else if (lb.order[idx] == 'N')
-			print_num_full_x(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
+			print_num_full_d(str, lb.r_prsc, obj);
+		else if (lb.order[idx] == 'D')
+			obj->print(".", 1, obj);
+		else if (lb.order[idx] == 'p')
+			pf_print_nchar('0', part->prcs, obj);
 		idx++;
 	}
 	return (PF_RET_SUCCESS);
@@ -48,28 +55,19 @@ static t_pf_ret	pf_print_pad_conv_f_blk
 t_pf_ret		pf_print_pad_conv_f
 	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
-	t_lenblock	lb;
-	size_t		len;
-
-	if (part->prcs == 0 && part->value.s_ll_value == 0)
-		str = "";
-	len = ft_strlen(str);
-	lb.r_prsc = (int)len;
-	lb.r_prsc = (part->prcs > lb.r_prsc) ? part->prcs : lb.r_prsc;
-	if (part->flags & PF_HT_FLAG && part->value.s_ll_value != 0)
-		lb.r_prsc += 2;
-	lb.r_width = lb.r_prsc;
-	lb.total_len = (lb.r_width < part->width) ? part->width : lb.r_width;
-	lb.pad_len = lb.total_len - lb.r_width;
-	if (part->flags & PF_MN_FLAG)
-		lb.order = "XNP";
-	else
+	t_lenblock	lb = {0};
+	char 		*dot;
+	
+	if (part->prcs != 0 && (str[0] != '*' && str[1] != '0'))
 	{
-		if (part->flags & PF_ZR_FLAG && part->prcs == PRCS_NS)
-			lb.order = "XPN";
-		else
-			lb.order = "PXN";
+		dot = ft_strchr(str, '.');
+		if (dot == NULL)
+			lb.order = "SNDp";
 	}
-	pf_print_pad_conv_f_blk(str, part, obj, lb);
+	
+	if (lb.order == NULL)
+		lb.order = "SN";
+	
+	pf_print_pad_conv_f_blk(*str == '*' ? str + 1 : str, part, obj, lb);
 	return (PF_RET_SUCCESS);
 }

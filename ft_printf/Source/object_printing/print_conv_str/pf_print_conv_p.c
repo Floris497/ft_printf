@@ -39,7 +39,7 @@ static t_pf_ret	pf_print_pad_conv_p_blk
 				pf_print_nchar(' ', lb.pad_len, obj);
 		}
 		else if (lb.order[idx] == 'N')
-			print_num_full_x(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
+			print_num_full_d(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
 		idx++;
 	}
 	return (PF_RET_SUCCESS);

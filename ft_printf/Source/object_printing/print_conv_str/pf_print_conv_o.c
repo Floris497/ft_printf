@@ -32,7 +32,7 @@ static t_pf_ret	pf_print_pad_conv_o_blk
 				pf_print_nchar(' ', lb.pad_len, obj);
 		}
 		else if (lb.order[idx] == 'N')
-			print_num_full_o(str, lb.r_prsc, obj);
+			print_num_full_d(str, lb.r_prsc, obj);
 		idx++;
 	}
 	return (PF_RET_SUCCESS);
