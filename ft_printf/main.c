@@ -250,6 +250,9 @@ int main(int argc, const char *argv[])
 	printf("pf: %.0f|\n", 4.0);
 	ft_printf("ft: %.0f|\n\n", 4.0);
 
+	printf("pf: %.0f|\n", 500.0);
+	ft_printf("ft: %.0f|\n\n", 500.0);
+
 	printf("pf: %.0f|\n", 2.5);
 	ft_printf("ft: %.0f|\n\n", 2.5);
 

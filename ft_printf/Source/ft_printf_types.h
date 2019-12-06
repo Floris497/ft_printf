@@ -243,5 +243,6 @@ typedef union		u_pf_f2u
 # define LD_FRACTION 0x7FFFFFFFFFFFFFFF
 # define LD_MANTISSA_BITS 64UL
 # define LD_EXP_BIAS 16383
+# define LD_PRCS 21
 
 #endif

@@ -58,16 +58,18 @@ static char	*str_half(char *str, int prcs)
 }
 
 char		*set_right_of_dot(
-	char *str, int prcs, t_ld_parts ld, unsigned long i)
+	char *str, int size, t_ld_parts ld, unsigned long i)
 {
 	int		exp;
 	char	overflow;
 	char	*buff;
 	char	*frac_addr;
+	int		len;
 
 	// ft_putendl("Enter srod");
 	frac_addr = ft_strchr(str, '.') + 1;
-	buff = (char *)ft_memalloc(sizeof(char) * prcs + 1);
+	len = (size - (frac_addr - str)) + 1;
+	buff = (char *)ft_memalloc(sizeof(char) * (len + 1));
 	overflow = FALSE;
 	while (i < LD_MANTISSA_BITS)
 	{
@@ -75,18 +77,18 @@ char		*set_right_of_dot(
 		if ((ld.m & (1UL << (LD_MANTISSA_BITS - 1UL - i))))
 		{
 			exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS + 1 - i;
-			buff = ft_memset(buff, '0', prcs);
+			buff = ft_memset(buff, '0', len);
 			buff[0] = '5';
 			while (exp < 0)
 			{
 				// printf("exp: %d\nbuff pre half:\n%s\n", exp, buff);
-				buff = str_half(buff, prcs);
+				buff = str_half(buff, len);
 				// printf("buff post half:\n%s\n", buff);
 				exp++;
 			}
 			// printf("buff pre add:\n%s\n", buff);
 			// printf("str pre add:\n%s\n", str);
-			frac_addr = str_add_rightside(frac_addr, buff, prcs, &overflow);
+			frac_addr = str_add_rightside(frac_addr, buff, len, &overflow);
 			// printf("str post add:\n%s\n", str);
 			if (overflow == TRUE)
 			{
@@ -95,7 +97,7 @@ char		*set_right_of_dot(
 				buff = ft_memset(buff, '0', str - ft_strchr(str, '.'));
 				str = str_add(str, buff, frac_addr - str);
 				free(buff);
-				buff = (char *)malloc(sizeof(char) * prcs);
+				buff = (char *)malloc(sizeof(char) * len);
 			}
 		}
 		i++;
