@@ -99,7 +99,8 @@ char    *ft_ftoa(t_pf_part *part)
 	// ft_putnbr(part->prcs);
 	// ft_putchar('\n');
 	// size = (d_exp <= 0 ? 1 : d_exp + 1) + (part->prcs ? part->prcs + 2 : 1);
-	size = (d_exp < 0 ? ft_max(LD_PRCS, -d_exp) : d_exp + LD_PRCS) + 3;
+	// size = (d_exp < 0 ? ft_max(LD_PRCS, -d_exp) : d_exp + LD_PRCS) + 3;
+	size = (d_exp < 0 ? -d_exp + LD_PRCS : d_exp + LD_PRCS) + 3;
 	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp + 1)] = '.';
