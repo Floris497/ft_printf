@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
+#include <float.h>
 
 void run_code()
 {
@@ -285,6 +286,102 @@ int main(int argc, const char *argv[])
 
 	printf("pf: %.20f|\n", 7.0/11.0);
 	ft_printf("ft: %.20f|\n\n", 7.0/11.0);
+
+	printf("FLT values\n\n");
+
+	printf("pf: %f|\n", FLT_MIN);
+	ft_printf("ft: %f|\n\n", FLT_MIN);
+
+	printf("pf: %f|\n", -FLT_MIN);
+	ft_printf("ft: %f|\n\n", -FLT_MIN);
+
+	printf("pf: %f|\n", FLT_MAX);
+	ft_printf("ft: %f|\n\n", FLT_MAX);
+
+	printf("pf: %f|\n", -FLT_MAX);
+	ft_printf("ft: %f|\n\n", -FLT_MAX);
+
+	printf("pf: %.0f|\n", FLT_MIN);
+	ft_printf("ft: %.0f|\n\n", FLT_MIN);
+
+	printf("pf: %.0f|\n", -FLT_MIN);
+	ft_printf("ft: %.0f|\n\n", -FLT_MIN);
+
+	printf("pf: %.0f|\n", FLT_MAX);
+	ft_printf("ft: %.0f|\n\n", FLT_MAX);
+
+	printf("pf: %.0f|\n", -FLT_MAX);
+	ft_printf("ft: %.0f|\n\n", -FLT_MAX);
+
+	printf("pf: %f|\n", FLT_TRUE_MIN);
+	ft_printf("ft: %f|\n\n", FLT_TRUE_MIN);
+
+	printf("pf: %f|\n", -FLT_TRUE_MIN);
+	ft_printf("ft: %f|\n\n", -FLT_TRUE_MIN);
+
+	printf("DBL values\n\n");
+
+	printf("pf: %lf|\n", DBL_MIN);
+	ft_printf("ft: %lf|\n\n", DBL_MIN);
+
+	printf("pf: %lf|\n", -DBL_MIN);
+	ft_printf("ft: %lf|\n\n", -DBL_MIN);
+
+	printf("pf: %lf|\n", DBL_MAX);
+	ft_printf("ft: %lf|\n\n", DBL_MAX);
+
+	printf("pf: %lf|\n", -DBL_MAX);
+	ft_printf("ft: %lf|\n\n", -DBL_MAX);
+
+	printf("pf: %.0lf|\n", DBL_MIN);
+	ft_printf("ft: %.0lf|\n\n", DBL_MIN);
+
+	printf("pf: %.0lf|\n", -DBL_MIN);
+	ft_printf("ft: %.0lf|\n\n", -DBL_MIN);
+
+	printf("pf: %.0lf|\n", DBL_MAX);
+	ft_printf("ft: %.0lf|\n\n", DBL_MAX);
+
+	printf("pf: %.0lf|\n", -DBL_MAX);
+	ft_printf("ft: %.0lf|\n\n", -DBL_MAX);
+
+	printf("pf: %lf|\n", DBL_TRUE_MIN);
+	ft_printf("ft: %lf|\n\n", DBL_TRUE_MIN);
+
+	printf("pf: %lf|\n", -DBL_TRUE_MIN);
+	ft_printf("ft: %lf|\n\n", -DBL_TRUE_MIN);
+
+	printf("LDBL values\n\n");
+
+	printf("pf: %Lf|\n", LDBL_MIN);
+	ft_printf("ft: %Lf|\n\n", LDBL_MIN);
+
+	printf("pf: %Lf|\n", -LDBL_MIN);
+	ft_printf("ft: %Lf|\n\n", -LDBL_MIN);
+
+	printf("pf: %Lf|\n", LDBL_MAX);
+	ft_printf("ft: %Lf|\n\n", LDBL_MAX);
+
+	printf("pf: %Lf|\n", -LDBL_MAX);
+	ft_printf("ft: %Lf|\n\n", -LDBL_MAX);
+
+	printf("pf: %.0Lf|\n", LDBL_MIN);
+	ft_printf("ft: %.0Lf|\n\n", LDBL_MIN);
+
+	printf("pf: %.0Lf|\n", -LDBL_MIN);
+	ft_printf("ft: %.0Lf|\n\n", -LDBL_MIN);
+
+	printf("pf: %.0Lf|\n", LDBL_MAX);
+	ft_printf("ft: %.0Lf|\n\n", LDBL_MAX);
+
+	printf("pf: %.0Lf|\n", -LDBL_MAX);
+	ft_printf("ft: %.0Lf|\n\n", -LDBL_MAX);
+
+	printf("pf: %Lf|\n", LDBL_TRUE_MIN);
+	ft_printf("ft: %Lf|\n\n", LDBL_TRUE_MIN);
+
+	printf("pf: %Lf|\n", -LDBL_TRUE_MIN);
+	ft_printf("ft: %Lf|\n\n", -LDBL_TRUE_MIN);
 
 	return (0);
 }
