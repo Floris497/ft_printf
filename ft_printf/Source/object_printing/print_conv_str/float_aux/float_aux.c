@@ -14,7 +14,6 @@
 
 char		*str_add(char *dst, char *src, int n)
 {
-	char	*tmp;
 	int		carry;
 
 	carry = 0;
@@ -25,17 +24,7 @@ char		*str_add(char *dst, char *src, int n)
 		if (dst[n - 1] > '9')
 		{
 			if (n - 2 < 0)
-			{
 				ft_putendl("Overflow NYI");
-				(void)tmp;
-// 				tmp = (char*)malloc(sizeof(char) * n + 2);
-// 				tmp[n + 1] = '\0';
-// 				tmp[0] = (dst[n - 1] - '0') / 10;
-// 				ft_strlcat(tmp, dst, n + 1);
-// 				tmp[1] = ((dst[n - 1] - '0') % 10) + '0';
-// //				free(dst);
-// 				dst = tmp;
-			}
 			else
 			{
 				carry = (dst[n - 1] - '0') / 10;
@@ -69,12 +58,33 @@ char	*str_add_rightside(
 	return (dst);
 }
 
+static char	*str_round_up(char *str, int prcs, size_t buff_size)
+{
+	char	overflow;
+	char	*buff;
+
+	if (!prcs)
+	{
+		buff = (char*)ft_memalloc(sizeof(char) * buff_size);
+		buff = ft_memset(buff, '0', buff_size - 2);
+		buff[buff_size - 2] = '1';
+		str = str_add(str, buff, buff_size - 1);
+		free(buff);
+		return (str);
+	}
+	buff = (char*)ft_memalloc(sizeof(char) * (prcs + 1));
+	buff = ft_memset(buff, '0', prcs - 1);
+	buff[prcs - 1] = '1';
+	overflow = FALSE;
+	str_add_rightside(ft_strchr(str, '.') + 1, buff, prcs, &overflow);
+	free(buff);
+	return (str);
+}
+
 char    *str_round(char *str, int prcs)
 {
-	char	*buff;
 	char	*non_significant;
 	char	*ptr;
-	char	overflow;
 
 	non_significant = ft_strchr(str, '.') + 1 + prcs;
 	if (*non_significant <= '5')
@@ -90,28 +100,5 @@ char    *str_round(char *str, int prcs)
 				return (str);
 		}
 	}
-	else if (!prcs)
-	{
-		buff = (char*)ft_memalloc(sizeof(char) * (non_significant - str));
-		buff = ft_memset(buff, '0', non_significant - str - 2);
-		buff[(non_significant - str) - 2] = '1';
-		str = str_add(str, buff, (non_significant - str) - 1);
-		//    free(buff);
-		return (str);
-	}
-	if (!prcs)
-	{
-		buff = (char*)ft_memalloc(sizeof(char) * (non_significant - str));
-		buff = ft_memset(buff, '0', non_significant - str - 2);
-		buff[(non_significant - str) - 2] = '1';
-		str = str_add(str, buff, (non_significant - str) - 1);
-		//    free(buff);
-		return (str);
-	}
-	buff = (char*)ft_memalloc(sizeof(char) * (prcs + 1));
-	buff = ft_memset(buff, '0', prcs - 1);
-	buff[prcs - 1] = '1';
-	overflow = FALSE;
-	str_add_rightside(ft_strchr(str, '.') + 1, buff, prcs, &overflow);
-	return (str);
+	return (str_round_up(str, prcs, non_significant - str));
 }
