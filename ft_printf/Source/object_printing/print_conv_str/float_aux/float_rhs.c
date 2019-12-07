@@ -15,28 +15,6 @@
 #include "ft_printf_types.h"
 #include <stdio.h> //illegal
 
-static char	*str_add_rightside(
-	char *dst, char *src, size_t n, char *overflow)
-{
-	while (n)
-	{
-		dst[n - 1] = dst[n - 1] + (src[n - 1] - '0');
-		if (dst[n - 1] > '9')
-		{
-			if (n - 2 < 0)
-			{
-				dst[n - 3] += (dst[n - 1] - '0') / 10;
-				*overflow = TRUE;
-			}
-			else
-				dst[n - 2] += (dst[n - 1] - '0') / 10;
-			dst[n - 1] = ((dst[n - 1] - '0') % 10) + '0';
-		}
-		n--;
-	}
-	return (dst);
-}
-
 static char	*str_half(char *str, int prcs)
 {
 	int	i;
@@ -66,7 +44,6 @@ char		*set_right_of_dot(
 	char	*frac_addr;
 	int		len;
 
-	// ft_putendl("Enter srod");
 	frac_addr = ft_strchr(str, '.') + 1;
 	len = (size - (frac_addr - str)) + 1;
 	buff = (char *)ft_memalloc(sizeof(char) * (len + 1));

@@ -50,29 +50,29 @@ static int        get_dec_exp(int e)
 //     return (e / magic_f.f);
 // }
 
-static    char    *str_round(char *str, t_ld_parts ld, int i, int prcs)
-{
-	int		last_i;
-	char	*buff;
-
-	last_i = (int)ft_strlen(str) - 1;
-	if (!prcs)
-	{
-		if ((ld.m & (1 << (LD_MANTISSA_BITS - 1 - i))))
-		{
-			if (str[last_i] & 1 &&
-				!(ld.m & ((1 << (LD_MANTISSA_BITS - 1 - i)) - 1)))
-				return (str);
-		}
-		else
-			return (str);
-	}
-	buff = (char*)ft_memalloc(sizeof(char) * (prcs ? prcs : last_i + 1));
-	buff[prcs ? prcs : last_i] = '1';
-	str = str_add(str, buff, prcs ? prcs : last_i);
-	//    free(buff);
-	return (str);
-}
+// static    char    *str_round(char *str, t_ld_parts ld, int i, int prcs)
+// {
+// 	int		last_i;
+// 	char	*buff;
+//
+// 	last_i = (int)ft_strlen(str) - 1;
+// 	if (!prcs)
+// 	{
+// 		if ((ld.m & (1 << (LD_MANTISSA_BITS - 1 - i))))
+// 		{
+// 			if (str[last_i] & 1 &&
+// 				!(ld.m & ((1 << (LD_MANTISSA_BITS - 1 - i)) - 1)))
+// 				return (str);
+// 		}
+// 		else
+// 			return (str);
+// 	}
+// 	buff = (char*)ft_memalloc(sizeof(char) * (prcs ? prcs : last_i + 1));
+// 	buff[prcs ? prcs : last_i] = '1';
+// 	str = str_add(str, buff, prcs ? prcs : last_i);
+// 	//    free(buff);
+// 	return (str);
+// }
 
 char    *ft_ftoa(t_pf_part *part)
 {
@@ -106,10 +106,8 @@ char    *ft_ftoa(t_pf_part *part)
 	str[(d_exp < 0 ? -d_exp : d_exp + 1)] = '.';
 	str = set_left_of_dot(str, d_exp, f2u.ld, &i);
 	// printf("part->prcs: %d\n", part->prcs);
-	if (part->prcs)
-		str = set_right_of_dot(str, size, f2u.ld, i);
-	else
-		str = str_round(str, f2u.ld, i, part->prcs);
+	str = set_right_of_dot(str, size, f2u.ld, i);
+	str = str_round(str, part->prcs);
 	str[(ft_strchr(str, '.') - str) + part->prcs + (part->prcs ? 1 : 0)] = '\0';
 	return (str);
 }
