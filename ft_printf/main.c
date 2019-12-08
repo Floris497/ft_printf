@@ -284,12 +284,18 @@ int main(int argc, const char *argv[])
 	printf("pf: %f|\n", 3.9999999);
 	ft_printf("ft: %f|\n\n", 3.9999999);
 
+	printf("pf: %.20f|\n", 1.025978542436587568678);
+	ft_printf("ft: %.20f|\n\n", 1.025978542436587568678);
+
+	printf("pf: %.20f|\n", 1.025978548534310422034);
+	ft_printf("ft: %.20f|\n\n", 1.025978548534310422034);
+
 	printf("pf: %f|\n", 7.0/11.0);
 	ft_printf("ft: %f|\n\n", 7.0/11.0);
 
 	printf("pf: %.20f|\n", 7.0/11.0);
 	ft_printf("ft: %.20f|\n\n", 7.0/11.0);
-
+	
 	printf("FLT values\n\n");
 
 	printf("pf: %f|\n", FLT_MIN);
