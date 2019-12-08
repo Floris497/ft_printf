@@ -70,10 +70,7 @@ SRCS = \
 	ft_printf_len_mod_xl.c \
 	object_printing/extra/pf_print_nchar.c \
 	object_printing/extra/pf_print_pad.c \
-	object_printing/extra/print_num_full/pf_print_num_full_b.c \
 	object_printing/extra/print_num_full/pf_print_num_full_d.c \
-	object_printing/extra/print_num_full/pf_print_num_full_o.c \
-	object_printing/extra/print_num_full/pf_print_num_full_x.c \
 	object_printing/ft_printf_print_object.c \
 	object_printing/ft_printf_print_part_b.c \
 	object_printing/ft_printf_print_part_c.c \
@@ -134,5 +131,5 @@ clean:
 	@echo DELETING: $(OBJS)
 	@rm -f $(OBJS)
 
-re: fclean $(NAME)
+re: fclean $(NAME).a
 	
