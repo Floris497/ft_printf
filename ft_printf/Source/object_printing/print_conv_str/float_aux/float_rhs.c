@@ -77,7 +77,7 @@ char		*set_right_of_dot(
 	int		len;
 
 	frac_addr = ft_strchr(str, '.') + 1;
-	len = (size - (frac_addr - str)) + 1;
+	len = (size - (frac_addr - str));
 	buff = (char *)ft_memalloc(sizeof(char) * (len + 1));
 	overflow = FALSE;
 	while (i < LD_MANTISSA_BITS)

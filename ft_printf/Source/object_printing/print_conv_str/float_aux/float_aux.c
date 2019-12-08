@@ -37,7 +37,7 @@ char		*str_add(char *dst, char *src, int n)
 }
 
 char	*str_add_rightside(
-	char *dst, char *src, size_t n, char *overflow)
+	char *dst, char *src, int n, char *overflow)
 {
 	while (n)
 	{
