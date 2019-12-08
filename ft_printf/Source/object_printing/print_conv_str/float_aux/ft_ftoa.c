@@ -56,6 +56,7 @@ char    *ft_ftoa(t_pf_part *part)
 	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp + 1)] = '.';
+	i = 0;
 	str = set_left_of_dot(str, d_exp, f2u.ld, &i);
 	str = set_right_of_dot(str, size, f2u.ld, i);
 	str = str_round(str, part->prcs);

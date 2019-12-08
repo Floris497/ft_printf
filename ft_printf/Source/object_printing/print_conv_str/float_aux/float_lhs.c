@@ -20,26 +20,26 @@ char		*set_left_of_dot(
 	long	exp;
 	char	*buff;
 
-	(*i) = 0;
+	if (d_exp < 0)
+		return (str);
 	buff = (char *)ft_memalloc(sizeof(char) * (d_exp + 2));
+	buff = ft_memset(buff, '0', d_exp + 1);
 	exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS;
 	while (exp >= 0 && (*i) < LD_MANTISSA_BITS)
 	{
 		if ((ld.m & (1UL << (LD_MANTISSA_BITS - 1UL - (*i)))))
-		{
-			buff = ft_memset(buff, '0', d_exp + 1);
-			buff[d_exp] = exp > 0 ? '2' : '1';
-			exp--;
-			while (exp > 0)
-			{
-				buff = str_add(buff, buff, d_exp + 1);
-				exp--;
-			}
-			str = str_add(str, buff, d_exp + 1);
-		}
+			buff[d_exp] += 1;
+		if (exp > 0)
+			buff = str_add(buff, buff, d_exp + 1);
+		exp--;
 		(*i)++;
-		exp = (ld.s_exp & LD_EXP) - LD_EXP_BIAS - (*i);
 	}
+	while (exp > 0)
+	{
+		buff = str_add(buff, buff, d_exp + 1);
+		exp--;
+	}
+	str = str_add(str, buff, d_exp + 1);
 	free(buff);
 	return (str);
 }
