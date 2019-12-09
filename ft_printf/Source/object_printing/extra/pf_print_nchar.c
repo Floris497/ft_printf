@@ -31,9 +31,9 @@ t_pf_ret	pf_print_nchar(int c, size_t n, t_pf_obj *obj)
 {
 	char *str;
 
-	str = (char*)malloc(sizeof(char) * n + 1);
-	str[n] = '\0';
+	str = (char*)malloc(sizeof(char) * n);
 	str = ft_memset(str, c, n);
 	obj->print(str, n, obj);
+	free(str);
 	return (PF_RET_SUCCESS);
 }
