@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7008D103239E97B7001109CD /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7008D102239E97B7001109CD /* Makefile */; };
 		708C423D2382ECA100645174 /* pf_fsm_controller_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 708C423C2382ECA100645174 /* pf_fsm_controller_state.c */; };
 		708C42402382F63500645174 /* pf_print_conv_s.c in Sources */ = {isa = PBXBuildFile; fileRef = 708C423E2382F63500645174 /* pf_print_conv_s.c */; };
 		708C42412382F63500645174 /* pf_print_conv_p.c in Sources */ = {isa = PBXBuildFile; fileRef = 708C423F2382F63500645174 /* pf_print_conv_p.c */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7008D102239E97B7001109CD /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		708C423C2382ECA100645174 /* pf_fsm_controller_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_controller_state.c; sourceTree = "<group>"; };
 		708C423E2382F63500645174 /* pf_print_conv_s.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_conv_s.c; sourceTree = "<group>"; };
 		708C423F2382F63500645174 /* pf_print_conv_p.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_conv_p.c; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		70AC901E2219C117002B0507 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7008D102239E97B7001109CD /* Makefile */,
 				A3CB37142358B831005BBA2C /* object_printing */,
 				A3CB37312358B831005BBA2C /* part_completion */,
 				A3CB36E62358B381005BBA2C /* FSM */,
@@ -562,6 +565,7 @@
 				A3CB37442358B831005BBA2C /* pf_print_conv_c.c in Sources */,
 				A3CB373D2358B831005BBA2C /* ft_printf_print_part_d.c in Sources */,
 				A3CB373E2358B831005BBA2C /* ft_printf_print_part_i.c in Sources */,
+				7008D103239E97B7001109CD /* Makefile in Sources */,
 				A3CB374B2358C42F005BBA2C /* pf_fsm_error_state.c in Sources */,
 				70E8A71823968CE0000E0B64 /* float_lhs.c in Sources */,
 				A3CB373F2358B831005BBA2C /* ft_printf_print_part_o.c in Sources */,
