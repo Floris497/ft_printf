@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7008D103239E97B7001109CD /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7008D102239E97B7001109CD /* Makefile */; };
 		708C423D2382ECA100645174 /* pf_fsm_controller_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 708C423C2382ECA100645174 /* pf_fsm_controller_state.c */; };
 		708C42402382F63500645174 /* pf_print_conv_s.c in Sources */ = {isa = PBXBuildFile; fileRef = 708C423E2382F63500645174 /* pf_print_conv_s.c */; };
 		708C42412382F63500645174 /* pf_print_conv_p.c in Sources */ = {isa = PBXBuildFile; fileRef = 708C423F2382F63500645174 /* pf_print_conv_p.c */; };
@@ -526,6 +525,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 70AC90072219C057002B0507;
 			productRefGroup = 70AC90112219C057002B0507 /* Products */;
@@ -565,7 +565,6 @@
 				A3CB37442358B831005BBA2C /* pf_print_conv_c.c in Sources */,
 				A3CB373D2358B831005BBA2C /* ft_printf_print_part_d.c in Sources */,
 				A3CB373E2358B831005BBA2C /* ft_printf_print_part_i.c in Sources */,
-				7008D103239E97B7001109CD /* Makefile in Sources */,
 				A3CB374B2358C42F005BBA2C /* pf_fsm_error_state.c in Sources */,
 				70E8A71823968CE0000E0B64 /* float_lhs.c in Sources */,
 				A3CB373F2358B831005BBA2C /* ft_printf_print_part_o.c in Sources */,

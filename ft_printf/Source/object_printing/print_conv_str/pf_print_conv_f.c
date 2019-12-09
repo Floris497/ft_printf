@@ -16,33 +16,47 @@
 #include "pf_print_nchar.h"
 #include "pf_print_num_full.h"
 
-static void		pad_helper(t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
+static int		is_negative(t_pf_part *part)
 {
-	if ((part->flags & PF_ZR_FLAG) && part->prcs == PRCS_NS)
-		pf_print_nchar('0', lb.pad_len, obj);
-	else
-		pf_print_nchar(' ', lb.pad_len, obj);
+	t_pf_f2u	f2u;
+
+	f2u.f = part->value.s_ld_value;
+	f2u.ld.s_exp &= 0x000000000000FFFF;
+	return (f2u.ld.s_exp & LD_SIGN);
+}
+
+static void		print_sign(t_pf_part *part, t_pf_obj *obj)
+{
+	if (part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || is_negative(part))
+	{
+		if (is_negative(part))
+			obj->print("-", 1, obj);
+		else
+			obj->print((part->flags & PF_PL_FLAG) ? "+" : " ", 1, obj);
+	}
 }
 
 static t_pf_ret	pf_print_pad_conv_f_blk
 	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
-	t_pf_f2u	f2u;
 	size_t		idx;
-	int 		is_negative;
-
+	
 	idx = 0;
-	f2u.f = part->value.s_ld_value;
-	f2u.ld.s_exp &= 0x000000000000FFFF;
-	is_negative = (f2u.ld.s_exp & LD_SIGN);
 	while (lb.order[idx] != '\0')
 	{
-		if (lb.order[idx] == 'S' && is_negative)
-			obj->print("-", 1, obj);
+		if (lb.order[idx] == 'S')
+		{
+			print_sign(part, obj);
+		}
 		else if (lb.order[idx] == 'P')
-			pad_helper(part, obj, lb);
+		{
+			if (idx == 1)
+				pf_print_nchar('0', lb.pad_len, obj);
+			else
+				pf_print_nchar(' ', lb.pad_len, obj);
+		}
 		else if (lb.order[idx] == 'N')
-			print_num_full_d(str, lb.r_prsc, obj);
+			print_num_full_d(str, part->prcs, obj);
 		else if (lb.order[idx] == 'D')
 			obj->print(".", 1, obj);
 		else if (lb.order[idx] == 'p')
@@ -55,17 +69,20 @@ static t_pf_ret	pf_print_pad_conv_f_blk
 t_pf_ret		pf_print_pad_conv_f
 	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
-	t_lenblock	lb = {0};
-	char 		*dot;
+	t_lenblock lblock;
+	int		   needs_dot;
 
-	if (part->prcs != 0 && (str[0] != '*' && str[1] != '0'))
-	{
-		dot = ft_strchr(str, '.');
-		if (dot == NULL)
-			lb.order = "SNDp";
-	}
-	if (lb.order == NULL)
-		lb.order = "SN";
-	pf_print_pad_conv_f_blk(*str == '*' ? str + 1 : str, part, obj, lb);
+	needs_dot = ((part->flags & PF_HT_FLAG) && ft_strchr(str, '.') == NULL);
+	lblock.r_prsc = (int)ft_strlen(*str == '*' ? str + 1 : str);
+	lblock.r_width = lblock.r_prsc + (part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || is_negative(part)) + needs_dot;
+	lblock.total_len = (lblock.r_width < part->width) ? part->width : lblock.r_width;
+	lblock.pad_len = lblock.total_len - lblock.r_width;
+	if (part->flags & PF_MN_FLAG)
+		lblock.order = needs_dot ? "SNDP" : "SNP";
+	else if (part->flags & PF_ZR_FLAG)
+		lblock.order = needs_dot ? "SPND" : "SPN";
+	else
+		lblock.order = needs_dot ? "PSND" : "PSN";
+	pf_print_pad_conv_f_blk(*str == '*' ? str + 1 : str, part, obj, lblock);
 	return (PF_RET_SUCCESS);
 }
