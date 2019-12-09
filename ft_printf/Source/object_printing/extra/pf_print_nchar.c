@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
 #include "pf_print_nchar.h"
 
 // t_pf_ret	pf_print_nchar(int c, size_t n, t_pf_obj *obj)
@@ -28,11 +29,25 @@
 
 t_pf_ret	pf_print_nchar(int c, size_t n, t_pf_obj *obj)
 {
+<<<<<<< HEAD
 	char *str;
 
 	str = (char*)malloc(sizeof(char) * n + 1);
 	str[n] = '\0';
 	str = ft_memset(str, c, n);
 	obj->print(str, n, obj);
+=======
+	char str[16];
+	
+	ft_memset(str, c, 16);
+	while (n >= 16)
+	{
+		obj->print(str, 16, obj);
+		n -= 16;
+	}
+	if (n != 0)
+		obj->print(str, n, obj);
+
+>>>>>>> 9d55e6ad8a4ff67b8e59924a0389ced07c50c3ac
 	return (PF_RET_SUCCESS);
 }
