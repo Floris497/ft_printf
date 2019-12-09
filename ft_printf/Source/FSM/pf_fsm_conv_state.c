@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 #include "pf_fsm.h"
 
 static t_pf_conv g_conversion_table[58] =

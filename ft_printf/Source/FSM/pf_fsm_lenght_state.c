@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 #include "pf_fsm.h"
 
 t_pf_len_mod			get_lenmod(const char c)

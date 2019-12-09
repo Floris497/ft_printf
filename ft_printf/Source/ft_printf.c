@@ -12,9 +12,10 @@
 
 #include <libft.h>
 #include <string.h>
+#include <unistd.h>
+
 #include "ft_printf_private.h"
 #include "pf_fsm.h"
-#include <unistd.h>
 
 static t_pf_ret	empty_part(t_pf_part *part)
 {

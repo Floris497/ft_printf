@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 #include "pf_fsm.h"
 
 static t_pf_ret	set_flag(const char c, t_pf_obj *obj)
