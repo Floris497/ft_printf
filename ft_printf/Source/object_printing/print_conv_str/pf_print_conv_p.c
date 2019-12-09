@@ -16,15 +16,14 @@
 #include "pf_print_nchar.h"
 #include "pf_print_num_full.h"
 
-static t_pf_ret	pf_print_pad_conv_p_blk
-(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
+static t_pf_ret	pf_print_pad_conv_p_blk(
+	const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
 	int		has_prefix;
 	size_t	idx;
 
 	idx = 0;
 	has_prefix = (part->flags & PF_HT_FLAG);
-
 	while (lb.order[idx] != '\0')
 	{
 		if (lb.order[idx] == 'X')
@@ -39,7 +38,8 @@ static t_pf_ret	pf_print_pad_conv_p_blk
 				pf_print_nchar(' ', lb.pad_len, obj);
 		}
 		else if (lb.order[idx] == 'N')
-			print_num_full_d(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
+			print_num_full_d(
+				str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
 		idx++;
 	}
 	return (PF_RET_SUCCESS);

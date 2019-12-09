@@ -18,7 +18,6 @@ t_pf_ret	pf_fsm_start_state(t_pf_obj *obj)
 		return (PF_RET_INIT_STATE);
 	else if (*(obj->input) != '\0' && *(obj->input) != '%')
 		return (PF_RET_PRINT_CHAR_STATE);
-
 	if (*(obj->input) == '\0')
 		return (PF_RET_END_STATE);
 	else

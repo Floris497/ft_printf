@@ -15,25 +15,17 @@
 #include "pf_print_conv.h"
 #include "float_aux.h"
 
-t_pf_ret		ft_printf_print_part_f(t_pf_obj *obj, t_pf_part *part)
+t_pf_ret	ft_printf_print_part_f(t_pf_obj *obj, t_pf_part *part)
 {
-	char *str;
-	size_t idx;
-	
-	idx = 0;
+	char	*str;
+	size_t	idx;
 
+	idx = 0;
 	obj->part->prcs = (obj->part->prcs == PRCS_NS ? 6 : obj->part->prcs);
 	str = ft_ftoa(part);
-		
-//	if (str[idx] == '*')
-//		idx++;
-//	else
-		while (str[idx] != '\0' && (str[idx] == '0' && str[idx + 1] != '.')) // is this line dangerouse? can we be sure we can look 1 forward?
-			idx++;
-
+	while (str[idx] != '\0' && (str[idx] == '0' && str[idx + 1] != '.'))
+		idx++;
 	pf_print_pad_conv_f(&str[idx], part, obj);
-	
 	free(str);
 	return (PF_RET_SUCCESS);
 }
-

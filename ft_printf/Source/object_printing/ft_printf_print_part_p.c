@@ -20,7 +20,6 @@ t_pf_ret		ft_printf_print_part_p(t_pf_obj *obj, t_pf_part *part)
 	char *str;
 
 	str = ft_itoa_base_sm((unsigned long long)part->value.ptr, 16);
-//	part->prcs = 16;
 	part->flags |= PF_HT_FLAG;
 	pf_print_pad_conv_p(str, part, obj);
 	free(str);

@@ -16,7 +16,7 @@
 #include "pf_fsm.h"
 #include <unistd.h>
 
-static t_pf_ret		empty_part(t_pf_part *part)
+static t_pf_ret	empty_part(t_pf_part *part)
 {
 	part->prcs = PRCS_NS;
 	part->width = WIDTH_NS;
@@ -26,7 +26,7 @@ static t_pf_ret		empty_part(t_pf_part *part)
 	return (PF_RET_SUCCESS);
 }
 
-t_pf_ret	print(const char *str, ssize_t n, t_pf_obj *obj)
+t_pf_ret		print(const char *str, ssize_t n, t_pf_obj *obj)
 {
 	size_t		len;
 
@@ -47,7 +47,7 @@ t_pf_ret	print(const char *str, ssize_t n, t_pf_obj *obj)
 ** edit: You meant the while loop.
 */
 
-int			ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	t_pf_obj	object;

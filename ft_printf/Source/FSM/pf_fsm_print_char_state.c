@@ -34,12 +34,10 @@ t_pf_ret		pf_fsm_print_char_state(t_pf_obj *obj)
 			adr = ft_strchr(obj->input, '\0');
 		diff = adr - obj->input;
 		rc = obj->print(obj->input, diff, obj);
-
 		(obj->input) += diff;
 	}
 	if (rc < 0)
 		return (rc);
-
 	if (*(obj->input) == '\0')
 		return (PF_RET_END_STATE);
 	else

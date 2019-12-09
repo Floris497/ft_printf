@@ -14,23 +14,22 @@
 #include "float_aux.h"
 #include "ft_printf_types.h"
 
-static char        *float_special_value(t_ld_parts ld)
+static char	*float_special_value(t_ld_parts ld)
 {
 	if (ld.m == 0 && (ld.s_exp & LD_EXP) == 0)
-		return ft_strdup("*0");
+		return (ft_strdup("*0"));
 	if (ld.m & LD_FRACTION)
-		return ft_strdup("*nan");
-	return ft_strdup("*inf");
+		return (ft_strdup("*nan"));
+	return (ft_strdup("*inf"));
 }
 
-static int        get_dec_exp(int e)
+static int	get_dec_exp(int e)
 {
 	t_pf_f2u	magic_f;
 	long double	ret;
 
 	magic_f.ld.s_exp = 0x0000000000004000;
 	magic_f.ld.m = 0xd49a784bcd1b8800;
-
 	ret = e / magic_f.f;
 	if (ret == 0)
 		return (0);
@@ -39,7 +38,7 @@ static int        get_dec_exp(int e)
 	return (ret + 1);
 }
 
-char    *ft_ftoa(t_pf_part *part)
+char		*ft_ftoa(t_pf_part *part)
 {
 	t_pf_f2u		f2u;
 	int				d_exp;

@@ -112,7 +112,7 @@ size_t		ft_log(unsigned int base, unsigned long long n);
 char		*ft_itoa_base(long long n, unsigned int base);
 char		*ft_itoa_base_sm(long long n, unsigned int base);
 
-typedef struct s_magicmask t_magicmask;
+typedef struct s_magicmask	t_magicmask;
 
 struct		s_magicmask
 {
@@ -123,7 +123,7 @@ struct		s_magicmask
 
 # pragma mark - Lists
 
-typedef struct s_list t_list;
+typedef struct s_list	t_list;
 
 struct		s_list
 {

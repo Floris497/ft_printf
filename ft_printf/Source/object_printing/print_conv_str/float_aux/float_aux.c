@@ -36,8 +36,7 @@ char		*str_add(char *dst, char *src, int n)
 	return (dst);
 }
 
-char	*str_add_rightside(
-	char *dst, char *src, int n, char *overflow)
+char		*str_add_rightside(char *dst, char *src, int n)
 {
 	while (n)
 	{
@@ -45,10 +44,7 @@ char	*str_add_rightside(
 		if (dst[n - 1] > '9')
 		{
 			if (n - 2 < 0)
-			{
 				dst[n - 3] += (dst[n - 1] - '0') / 10;
-				*overflow = TRUE;
-			}
 			else
 				dst[n - 2] += (dst[n - 1] - '0') / 10;
 			dst[n - 1] = ((dst[n - 1] - '0') % 10) + '0';
@@ -60,7 +56,6 @@ char	*str_add_rightside(
 
 static char	*str_round_up(char *str, int prcs, size_t buff_size)
 {
-	char	overflow;
 	char	*buff;
 
 	if (!prcs)
@@ -75,13 +70,12 @@ static char	*str_round_up(char *str, int prcs, size_t buff_size)
 	buff = (char*)ft_memalloc(sizeof(char) * (prcs + 1));
 	buff = ft_memset(buff, '0', prcs - 1);
 	buff[prcs - 1] = '1';
-	overflow = FALSE;
-	str_add_rightside(ft_strchr(str, '.') + 1, buff, prcs, &overflow);
+	str_add_rightside(ft_strchr(str, '.') + 1, buff, prcs);
 	free(buff);
 	return (str);
 }
 
-char    *str_round(char *str, int prcs)
+char		*str_round(char *str, int prcs)
 {
 	char	*non_significant;
 	char	*ptr;

@@ -19,7 +19,6 @@ t_pf_ret	ft_printf_print_part_c(t_pf_obj *obj, t_pf_part *part)
 
 	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
 		part->flags &= ~PF_ZR_FLAG;
-
 	str[0] = part->value.u_ch_value;
 	str[1] = '\0';
 	pf_print_pad_conv_c(str, part, obj);

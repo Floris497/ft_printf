@@ -18,7 +18,7 @@ static t_pf_ret	pf_print_pad_conv_s_blk
 	(const char *str, t_pf_obj *obj, t_lenblock lb)
 {
 	size_t	idx;
-	
+
 	idx = 0;
 	while (lb.order[idx] != '\0')
 	{
@@ -46,7 +46,8 @@ t_pf_ret		pf_print_pad_conv_s
 	if (part->width == WIDTH_NS)
 		lblock.pad_len = 0;
 	else
-		lblock.pad_len = (part->width - lblock.r_prsc) > 0 ? (part->width - lblock.r_prsc) : 0;
+		lblock.pad_len =
+		(part->width - lblock.r_prsc) > 0 ? (part->width - lblock.r_prsc) : 0;
 	if (part->flags & PF_MN_FLAG)
 		lblock.order = "SNP";
 	else
