@@ -21,10 +21,9 @@ static t_pf_ret	pf_print_pad_conv_x_blk
 {
 	int		has_prefix;
 	size_t	idx;
-	
+
 	idx = 0;
 	has_prefix = ((part->flags & PF_HT_FLAG) && part->value.s_ll_value != 0);
-	
 	while (lb.order[idx] != '\0')
 	{
 		if (lb.order[idx] == 'X' && has_prefix)
@@ -39,7 +38,8 @@ static t_pf_ret	pf_print_pad_conv_x_blk
 				pf_print_nchar(' ', lb.pad_len, obj);
 		}
 		else if (lb.order[idx] == 'N')
-			print_num_full_d(str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
+			print_num_full_d(
+				str, (has_prefix) ? lb.r_prsc - 2 : lb.r_prsc, obj);
 		idx++;
 	}
 	return (PF_RET_SUCCESS);
