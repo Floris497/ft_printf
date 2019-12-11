@@ -44,19 +44,19 @@ static t_pf_ret	pf_print_pad_conv_f_blk
 	idx = 0;
 	while (lb.order[idx] != '\0')
 	{
-		if (lb.order[idx] == 'S')
+		if (lb.order[idx] == 'S' && *str != '*')
 		{
 			print_sign(part, obj);
 		}
 		else if (lb.order[idx] == 'P')
 		{
-			if (idx == 1)
+			if (idx == 1 && *str != '*')
 				pf_print_nchar('0', lb.pad_len, obj);
 			else
 				pf_print_nchar(' ', lb.pad_len, obj);
 		}
 		else if (lb.order[idx] == 'N')
-			print_num_full_d(str, part->prcs, obj);
+			print_num_full_d(*str == '*' ? str + 1 : str, part->prcs, obj);
 		else if (lb.order[idx] == 'D')
 			obj->print(".", 1, obj);
 		else if (lb.order[idx] == 'p')
@@ -74,7 +74,7 @@ t_pf_ret		pf_print_pad_conv_f
 
 	needs_dot = ((part->flags & PF_HT_FLAG) && ft_strchr(str, '.') == NULL);
 	lblock.r_prsc = (int)ft_strlen(*str == '*' ? str + 1 : str);
-	lblock.r_width = lblock.r_prsc + (part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || is_negative(part)) + needs_dot;
+	lblock.r_width = lblock.r_prsc + ((part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || is_negative(part)) && *str != '*') + needs_dot;
 	lblock.total_len = (lblock.r_width < part->width) ? part->width : lblock.r_width;
 	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
@@ -83,6 +83,6 @@ t_pf_ret		pf_print_pad_conv_f
 		lblock.order = needs_dot ? "SPND" : "SPN";
 	else
 		lblock.order = needs_dot ? "PSND" : "PSN";
-	pf_print_pad_conv_f_blk(*str == '*' ? str + 1 : str, part, obj, lblock);
+	pf_print_pad_conv_f_blk(str, part, obj, lblock);
 	return (PF_RET_SUCCESS);
 }
