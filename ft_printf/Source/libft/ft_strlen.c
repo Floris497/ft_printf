@@ -34,7 +34,7 @@ static size_t	strlen_unrolled(const char *str, unsigned long himagic,\
 	while (TRUE)
 	{
 		longword = *longword_ptr;
-		*longword_ptr++;
+		longword_ptr++;
 		if (((longword - lomagic) & ~longword & himagic) != 0)
 		{
 			c = (const char *)(longword_ptr - 1);

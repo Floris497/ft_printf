@@ -12,40 +12,31 @@
 
 #include "libft.h"
 
-static char		char_for_number_base(unsigned int n, int type)
+static char		char_for_number_base(unsigned int n)
 {
 	if (n <= 9)
 		return ('0' + n);
 	else
-		return (((type == 0) ? 'A' : 'a') + n - 10);
+		return ('A' + n - 10);
 }
 
-char			*ft_itoa_base(long long n, unsigned int base)
+static void		ft_strnbr_base_cl
+	(long long n, unsigned int base, char *dst, size_t len)
 {
-	char	*number;
-	size_t	idx;
+	t_index idx;
 
-	if (n == 0)
-		return (ft_strdup("0"));
-	else
-	{
-		if (n < 0)
-			n = -n;
-		idx = ft_log(base, n) + 1;
-	}
-	number = (char *)ft_memalloc(idx + 1);
-	if (!number)
-		return (number);
+	idx = len;
+	if (n < 0)
+		n = -n;
 	while ((unsigned long long)n >= 1)
 	{
-		dst[idx - 1] = char_for_number_base(n % base, type);
+		dst[idx - 1] = char_for_number_base(n % base);
 		idx--;
 		n /= base;
 	}
-	return (number);
 }
 
-char			*ft_itoa_base_sm(long long n, unsigned int base)
+char			*ft_itoa_base(long long n, unsigned int base)
 {
 	char	*number;
 	size_t	len;
@@ -62,6 +53,6 @@ char			*ft_itoa_base_sm(long long n, unsigned int base)
 	number = (char *)ft_memalloc(len + 1);
 	if (!number)
 		return (number);
-	ft_strnbr_base_cl(n, base, number, len, 1);
+	ft_strnbr_base_cl(n, base, number, len);
 	return (number);
 }
