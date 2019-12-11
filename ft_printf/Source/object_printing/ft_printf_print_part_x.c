@@ -18,17 +18,9 @@
 static t_pf_ret	change_chars(char *str, t_pf_part *part)
 {
 	if (part->conv == XX_CONV)
-		while (*str != '\0')
-		{
-			*str = ft_toupper(*str);
-			str++;
-		}
+		ft_strupper(str);
 	else if (part->conv == X_CONV)
-		while (*str != '\0')
-		{
-			*str = ft_tolower(*str);
-			str++;
-		}
+		ft_strlower(str);
 	return (PF_RET_SUCCESS);
 }
 
