@@ -82,6 +82,7 @@ C_SRCS = \
 	./object_printing/print_conv_str/pf_print_conv_o.c \
 	./object_printing/print_conv_str/pf_print_conv_p.c \
 	./object_printing/print_conv_str/pf_print_conv_s.c \
+	./object_printing/print_conv_str/pf_print_conv_u.c \
 	./object_printing/print_conv_str/pf_print_conv_x.c \
 	./part_completion/pf_choose_length_for_mod.c
 

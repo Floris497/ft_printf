@@ -110,7 +110,7 @@ int			ft_isspace(int c);
 int			ft_isupper(int c);
 size_t		ft_log(unsigned int base, unsigned long long n);
 char		*ft_itoa_base(long long n, unsigned int base);
-char		*ft_itoa_base_sm(long long n, unsigned int base);
+char		*ft_utoa_base(unsigned long long n, unsigned int base);
 
 typedef struct s_magicmask	t_magicmask;
 

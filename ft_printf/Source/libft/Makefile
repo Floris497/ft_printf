@@ -45,6 +45,7 @@ SRCS = \
 	ft_putnbr.c \
 	ft_strclr.c \
 	ft_itoa_base.c \
+	ft_utoa_base.c \
 	ft_strsplit.c \
 	ft_putnbr_fd.c \
 	ft_lstiter.c \
