@@ -195,18 +195,21 @@ int main(int argc, const char *argv[])
 
 	printf("pf: %.15f|\n", 2.0/0.0);
 	ft_printf("ft: %.15f|\n\n", 2.0/0.0);
-	
+
 	printf("pf: %-.15f|\n", 2.0/0.0);
 	ft_printf("ft: %-.15f|\n\n", 2.0/0.0);
-	
+
 	printf("pf: %10.2f|\n", 2.0/0.0);
 	ft_printf("ft: %10.2f|\n\n", 2.0/0.0);
-	
+
 	printf("pf: %-10.2f|\n", 2.0/0.0);
 	ft_printf("ft: %-10.2f|\n\n", 2.0/0.0);
-	
+
 	printf("pf: %.2f|\n", -2.0/0.0);
 	ft_printf("ft: %.2f|\n\n", -2.0/0.0);
-	
+
+	printf("pf: %.100f|\n", 0.237);
+	ft_printf("ft: %.100f|\n\n", 0.237);
+
 	return (0);
 }
