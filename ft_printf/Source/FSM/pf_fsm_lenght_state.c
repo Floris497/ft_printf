@@ -42,7 +42,7 @@ static t_pf_len_mod		update_lenmod(const char c, t_pf_len_mod *lenmod)
 	else if (*lenmod & L_PF_LEN_MOD && get_lenmod(c) == L_PF_LEN_MOD)
 		return (*lenmod = LL_PF_LEN_MOD);
 	else
-		return (*lenmod |= get_lenmod(c));
+		return (*lenmod = get_lenmod(c));
 }
 
 static t_pf_ret			set_length(t_pf_obj *obj)
