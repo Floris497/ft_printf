@@ -23,6 +23,12 @@ t_pf_len_mod			get_lenmod(const char c)
 		return (L_PF_LEN_MOD);
 	else if (c == 'L')
 		return (XL_PF_LEN_MOD);
+	else if (c == 'z')
+		return (LL_PF_LEN_MOD);
+	else if (c == 'j')
+		return (LL_PF_LEN_MOD);
+	else if (c == 't')
+		return (LL_PF_LEN_MOD);
 	else
 		return (NO_LEN_MOD);
 }

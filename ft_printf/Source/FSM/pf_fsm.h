@@ -19,7 +19,7 @@
 # define WIDTH_OPTS_X "0123456789"
 # define PRECIS_OPTS_X ".0123456789"
 # define PRECIS_OPTS "."
-# define LENG_OPTS "hlL"
+# define LENG_OPTS "hlLzjt"
 # define FLAG_OPTS "0 #+-'"
 # define CONV_OPTS "cspdiouxXbf"
 
