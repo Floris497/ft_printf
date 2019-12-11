@@ -51,9 +51,11 @@ t_pf_ret		pf_print_pad_conv_p
 	t_lenblock	lb;
 	size_t		len;
 
+	if (part->prcs == 0 && part->value.s_ll_value == 0)
+		str = "";
 	len = ft_strlen(str);
 	lb.r_prsc = (int)len + 2;
-	lb.r_prsc = (part->prcs > lb.r_prsc) ? part->prcs : lb.r_prsc;
+	lb.r_prsc = (part->prcs + 2 > lb.r_prsc) ? part->prcs + 2 : lb.r_prsc;
 	lb.r_width = lb.r_prsc;
 	lb.total_len = (lb.r_width < part->width) ? part->width : lb.r_width;
 	lb.pad_len = lb.total_len - lb.r_width;
