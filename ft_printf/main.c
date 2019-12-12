@@ -17,7 +17,7 @@
 #include <math.h>
 #include <float.h>
 
-int flaots(void);
+void floats(void);
 void wildcards(void);
 
 int main(int argc, const char *argv[])
