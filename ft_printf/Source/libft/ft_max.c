@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_max(int x, int y)
+long long	ft_max(long long x, long long y)
 {
 	if (x >= y)
 		return (x);

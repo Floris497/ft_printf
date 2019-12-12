@@ -21,16 +21,17 @@ AR = ar
 AR_FLAGS = rcs
 
 C_HEADERS = \
-	FSM/pf_fsm.h \
-	ft_printf.h \
-	ft_printf_private.h \
-	ft_printf_types.h \
-	object_printing/extra/pf_print_nchar.h \
-	object_printing/extra/print_num_full/pf_print_num_full.h \
-	object_printing/ft_printf_print.h \
-	object_printing/print_conv_str/float_aux/float_aux.h \
-	object_printing/print_conv_str/pf_print_conv.h \
-	part_completion/pf_choose_length_for_mod.h
+	./FSM/pf_fsm.h \
+	./ft_print_functions.h \
+	./ft_printf.h \
+	./ft_printf_types.h \
+	./object_printing/extra/pf_print_nchar.h \
+	./object_printing/extra/print_num_full/pf_print_num_full.h \
+	./object_printing/ft_printf_print.h \
+	./object_printing/print_conv_str/float_aux/float_aux.h \
+	./object_printing/print_conv_str/pf_print_conv.h \
+	./part_completion/pf_choose_length_for_mod.h \
+	./utils.h
 
 C_INCLUDES = \
 	-I ./ \
@@ -45,7 +46,6 @@ C_INCLUDES = \
 	-I ./object_printing/float_aux
 
 C_SRCS = \
-	./ft_printf.c \
 	./FSM/pf_fsm_controller_state.c \
 	./FSM/pf_fsm_conv_state.c \
 	./FSM/pf_fsm_end_state.c \
@@ -61,6 +61,8 @@ C_SRCS = \
 	./FSM/pf_fsm_width_state.c \
 	./FSM/pf_fsm_wildcard_prcs_state.c \
 	./FSM/pf_fsm_wildcard_width_state.c \
+	./ft_print_functions.c \
+	./ft_printf.c \
 	./object_printing/extra/pf_print_nchar.c \
 	./object_printing/extra/print_num_full/pf_print_num_full_d.c \
 	./object_printing/ft_printf_print_object.c \
@@ -86,7 +88,8 @@ C_SRCS = \
 	./object_printing/print_conv_str/pf_print_conv_s.c \
 	./object_printing/print_conv_str/pf_print_conv_u.c \
 	./object_printing/print_conv_str/pf_print_conv_x.c \
-	./part_completion/pf_choose_length_for_mod.c
+	./part_completion/pf_choose_length_for_mod.c \
+	./utils.c
 
 C_OBJS = $(C_SRCS:.c=.o)
 

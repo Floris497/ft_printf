@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "write_to_buffer:ft_print_functions.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "pf_print_pad_conv_x:pf_print_conv_x.c">
          <PersistentStrings>
             <PersistentString

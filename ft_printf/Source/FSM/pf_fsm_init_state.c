@@ -12,20 +12,7 @@
 
 #include <libft.h>
 #include "pf_fsm.h"
-
-/*
-** Static var for part drastically increses call depth in FSM
-*/
-
-static t_pf_ret		empty_part(t_pf_part *part)
-{
-	part->prcs = PRCS_NS;
-	part->width = WIDTH_NS;
-	part->conv = CONV_NS;
-	part->len_mod = LEN_MOD_NS;
-	part->flags = 0;
-	return (PF_RET_SUCCESS);
-}
+#include "utils.h"
 
 t_pf_ret			pf_fsm_init_state(t_pf_obj *obj)
 {
