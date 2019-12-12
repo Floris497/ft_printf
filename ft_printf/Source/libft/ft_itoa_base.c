@@ -44,14 +44,17 @@ char		*ft_itoa_base(long long n, unsigned int base)
 	else
 	{
 		if (n < 0)
-			len = ft_log(base, (unsigned long long)-n) + 1;
+			len = ft_log(base, (unsigned long long)-n) + 2;
 		else
 			len = ft_log(base, n) + 1;
 	}
 	number = (char *)ft_memalloc(len + 1);
 	if (!number)
 		return (number);
+	if (n < 0) {
+		number[0] = '-';
+	}
 	ft_strnbr_base_cl(n < 0 ? (unsigned long long)-n :
-		(unsigned long long)n, base, number, len);
+		(unsigned long long)n, base, n < 0 ? number + 1 : number, len);
 	return (number);
 }
