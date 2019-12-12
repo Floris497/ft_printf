@@ -38,6 +38,15 @@ static int	get_dec_exp(int e)
 	return (ret + 1);
 }
 
+static int	get_str_size(int d_exp, int prcs)
+{
+	int	size;
+
+	size = (d_exp < 0 ? -d_exp + LD_PRCS : d_exp + LD_PRCS) + 3;
+	size = ft_max(prcs + 4 + (d_exp > 1 ? d_exp : 0) + LD_PRCS, size);
+	return (size);
+}
+
 char		*ft_ftoa(t_pf_part *part)
 {
 	t_pf_f2u		f2u;
@@ -51,8 +60,7 @@ char		*ft_ftoa(t_pf_part *part)
 	if ((f2u.ld.s_exp & LD_EXP) == LD_EXP || f2u.ld.m == 0)
 		return (float_special_value(f2u.ld));
 	d_exp = get_dec_exp((f2u.ld.s_exp & LD_EXP) - LD_EXP_BIAS);
-	size = (d_exp < 0 ? -d_exp + LD_PRCS : d_exp + LD_PRCS) + 3;
-	size = part->prcs + 4 > (int)size ? part->prcs + 4 : size;
+	size = get_str_size(d_exp, part->prcs);
 	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
 	str[(d_exp < 0 ? -d_exp : d_exp + 1)] = '.';
