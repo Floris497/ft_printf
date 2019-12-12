@@ -11,42 +11,11 @@
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <string.h>
-#include <unistd.h>
 
-#include "ft_printf_private.h"
+#include "utils.h"
+#include "ft_print_functions.h"
+#include "ft_printf_types.h"
 #include "pf_fsm.h"
-
-static t_pf_ret	empty_part(t_pf_part *part)
-{
-	part->prcs = PRCS_NS;
-	part->width = WIDTH_NS;
-	part->conv = CONV_NS;
-	part->len_mod = LEN_MOD_NS;
-	part->flags = 0;
-	return (PF_RET_SUCCESS);
-}
-
-t_pf_ret		print(const char *str, ssize_t n, t_pf_obj *obj)
-{
-	size_t		len;
-
-	if (n == LEN_NS || n < 0)
-		len = ft_strlen(str);
-	else
-		len = n;
-	if (write(1, str, len) >= 0)
-	{
-		obj->chr_wrtn += len;
-		return (PF_RET_SUCCESS);
-	}
-	return (PF_RET_WRITE_ERROR);
-}
-
-/*
-** not sure about this line..
-** edit: You meant the while loop.
-*/
 
 int				ft_printf(const char *format, ...)
 {

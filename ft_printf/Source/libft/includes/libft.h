@@ -61,8 +61,8 @@ int			ft_sqrt_ceil(int nb);
 int			*ft_range(int min, int max);
 int			*ft_range_step(int min, int max, int step);
 
-int			ft_min(int x, int y);
-int			ft_max(int x, int y);
+long long	ft_min(long long x, long long y);
+long long	ft_max(long long x, long long y);
 
 int			ft_count_if(char **tab, int (*f)(char*));
 

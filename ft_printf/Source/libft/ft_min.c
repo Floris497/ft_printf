@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_min(int x, int y)
+long long	ft_min(long long x, long long y)
 {
 	if (x <= y)
 		return (x);

@@ -43,5 +43,6 @@ t_pf_ret				pf_fsm_controller_state(t_pf_obj *obj)
 		if (ret == PF_RET_SUCCESS && *(obj->input) != '\0')
 			ret = PF_RET_START_STATE;
 	}
+	obj->print(NULL, 0, obj);
 	return (ret);
 }
