@@ -22,6 +22,7 @@ void wildcards(void);
 
 int main(int argc, const char *argv[])
 {
+
 	wildcards();
 //	floats();
 }
@@ -74,6 +75,59 @@ void wildcards(void)
 	
 	printf("|%**.4**d|\n",	 4, 20, 6, 21, 40);
 	ft_printf("|%**.4**d|\n\n",	 4, 20, 6, 21, 40);
+	
+	printf("\nWildcards moulitest:\n\n");
+	
+	printf("|%*d|\n", 5, 42);
+	ft_printf("|%*d|\n\n", 5, 42);
+
+	printf("|%*d|\n", -5, 42);
+	ft_printf("|%*d|\n\n", -5, 42);
+
+	printf("|%*d|\n", 0, 42);
+	ft_printf("|%*d|\n\n", 0, 42);
+
+	printf("|%*c|\n", 0, 0);
+	ft_printf("|%*c|\n\n", 0, 0);
+
+	printf("|%*c|\n", -15, 0);
+	ft_printf("|%*c|\n\n", -15, 0);
+
+	printf("|%.*d|\n", 5, 42);
+	ft_printf("|%.*d|\n\n", 5, 42);
+
+	printf("|%.*d|\n", -5, 42);
+	ft_printf("|%.*d|\n\n", -5, 42);
+
+	printf("|%.*d|\n", 0, 42);
+	ft_printf("|%.*d|\n\n", 0, 42);
+
+	printf("|%.*s|\n", 5, "42");
+	ft_printf("|%.*s|\n\n", 5, "42");
+
+	printf("|%.*s|\n", -5, "42");
+	ft_printf("|%.*s|\n\n", -5, "42");
+	
+	printf("|%.*s|\n", 0, "42");
+	ft_printf("|%.*s|\n\n", 0, "42");
+
+	printf("|%*s|\n", 5, 0);
+	ft_printf("|%*s|\n\n", 5, 0);
+
+	printf("|%*p|\n", 10, 0);
+	ft_printf("|%*p|\n\n", 10, 0);
+
+	printf("|%*3d|\n", 5, 0);
+	ft_printf("|%*3d|\n\n", 5, 0);
+
+	printf("|%05.*d|\n", -15, 42);
+	ft_printf("|%05.*d|\n\n", -15, 42);
+
+	printf("|%*.*d|\n", 0, 3, 0);
+	ft_printf("|%*.*d|\n\n", 0, 3, 0);
+
+	
+	
 }
 
 void floats(void) {
