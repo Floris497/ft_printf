@@ -17,9 +17,67 @@
 #include <math.h>
 #include <float.h>
 
+int flaots(void);
+void wildcards(void);
+
 int main(int argc, const char *argv[])
 {
+	wildcards();
+//	floats();
+}
 
+void wildcards(void)
+{
+	printf("\nWildcards:\n\n");
+
+	printf("|%d|\n", 10);
+	ft_printf("|%d|\n\n", 10);
+	
+	printf("|%*.*d|\n", 4, 20, 40);
+	ft_printf("|%*.*d|\n\n", 4, 20, 40);
+	
+	printf("|%*.*4d|\n", 4, 20, 40);
+	ft_printf("|%*.*4d|\n\n", 4, 20, 40);
+	
+	printf("|%*.*.4d|\n", 4, 20, 40);
+	ft_printf("|%*.*.4d|\n\n", 4, 20, 40);
+	
+	printf("|%*.4.*d|\n", 4, 20, 40);
+	ft_printf("|%*.4.*d|\n\n", 4, 20, 40);
+	
+	printf("|%*.4.*d|\n", 4, 20, 40);
+	ft_printf("|%*.4.*d|\n\n", 4, 20, 40);
+	
+	printf("|%*.4*d|\n", 4, 20, 40);
+	ft_printf("|%*.4*d|\n\n", 4, 20, 40);
+	
+	printf("|%*.4*d|\n", 4, 20, 40);
+	ft_printf("|%*.4*d|\n\n", 4, 20, 40);
+	
+	printf("|%**.**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.**d|\n\n",	 4, 20, 6, 21, 40);
+	
+	printf("|%**.**4d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.**4d|\n\n",	 4, 20, 6, 21, 40);
+	
+	printf("|%**.**.4d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.**.4d|\n\n",	 4, 20, 6, 21, 40);
+	
+	printf("|%**.4.**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4.**d|\n\n",	 4, 20, 6, 21, 40);
+	
+	printf("|%**.4.**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4.**d|\n\n",	 4, 20, 6, 21, 40);
+	
+	printf("|%**.4**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4**d|\n\n",	 4, 20, 6, 21, 40);
+	
+	printf("|%**.4**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4**d|\n\n",	 4, 20, 6, 21, 40);
+}
+
+void floats(void) {
+	
 	printf("\nFloats:\n\n");
 
 	printf("pf: %.2f|\n", 0.0/0.0);
@@ -129,6 +187,8 @@ int main(int argc, const char *argv[])
 	printf("pf: %f|\n", -FLT_TRUE_MIN);
 	ft_printf("ft: %f|\n\n", -FLT_TRUE_MIN);
 
+	
+	
 	printf("DBL values\n\n");
 
 	printf("pf: %lf|\n", DBL_MIN);
@@ -210,6 +270,12 @@ int main(int argc, const char *argv[])
 
 	printf("pf: %.100f|\n", 0.237);
 	ft_printf("ft: %.100f|\n\n", 0.237);
+	
+	int a = printf("pf: %.20000f|\n", 623.28376510723481);
+	int b = ft_printf("pf: %.20000f|\n", 623.28376510723481);
 
-	return (0);
+
+	printf("pf: %.2000Lf\n", LDBL_MIN);
+	ft_printf("ft: %.2000Lf\n\n", LDBL_MIN);
+
 }
