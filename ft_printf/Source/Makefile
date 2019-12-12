@@ -59,6 +59,8 @@ C_SRCS = \
 	./FSM/pf_fsm_print_object_state.c \
 	./FSM/pf_fsm_start_state.c \
 	./FSM/pf_fsm_width_state.c \
+	./FSM/pf_fsm_wildcard_prcs_state.c \
+	./FSM/pf_fsm_wildcard_width_state.c \
 	./object_printing/extra/pf_print_nchar.c \
 	./object_printing/extra/print_num_full/pf_print_num_full_d.c \
 	./object_printing/ft_printf_print_object.c \

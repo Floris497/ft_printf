@@ -72,6 +72,8 @@ t_pf_ret				pf_fsm_length_state(t_pf_obj *obj)
 		return (PF_RET_LENGTH_STATE);
 	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
 		return (PF_RET_CONV_STATE);
+	else if (ft_strchr(WILDCARD_OPTS, *(obj->input)))
+		return (PF_RET_WILDCARD_WIDTH_STATE);
 	else
 		return (PF_RET_PRINT_EMPTY_OBJECT_STATE);
 	return (PF_RET_ERROR_STATE);
