@@ -18,107 +18,107 @@
 #include <float.h>
 
 void floats(void);
-// void wildcards(void);
-//
-// void wildcards(void)
-// {
-// 	printf("\nWildcards:\n\n");
-//
-// 	printf("|%d|\n", 10);
-// 	ft_printf("|%d|\n\n", 10);
-//
-// 	printf("|%*.*d|\n", 4, 20, 40);
-// 	ft_printf("|%*.*d|\n\n", 4, 20, 40);
-//
-// 	printf("|%*.*4d|\n", 4, 20, 40);
-// 	ft_printf("|%*.*4d|\n\n", 4, 20, 40);
-//
-// 	printf("|%*.*.4d|\n", 4, 20, 40);
-// 	ft_printf("|%*.*.4d|\n\n", 4, 20, 40);
-//
-// 	printf("|%*.4.*d|\n", 4, 20, 40);
-// 	ft_printf("|%*.4.*d|\n\n", 4, 20, 40);
-//
-// 	printf("|%*.4.*d|\n", 4, 20, 40);
-// 	ft_printf("|%*.4.*d|\n\n", 4, 20, 40);
-//
-// 	printf("|%*.4*d|\n", 4, 20, 40);
-// 	ft_printf("|%*.4*d|\n\n", 4, 20, 40);
-//
-// 	printf("|%*.4*d|\n", 4, 20, 40);
-// 	ft_printf("|%*.4*d|\n\n", 4, 20, 40);
-//
-// 	printf("|%**.**d|\n",	 4, 20, 6, 21, 40);
-// 	ft_printf("|%**.**d|\n\n",	 4, 20, 6, 21, 40);
-//
-// 	printf("|%**.**4d|\n",	 4, 20, 6, 21, 40);
-// 	ft_printf("|%**.**4d|\n\n",	 4, 20, 6, 21, 40);
-//
-// 	printf("|%**.**.4d|\n",	 4, 20, 6, 21, 40);
-// 	ft_printf("|%**.**.4d|\n\n",	 4, 20, 6, 21, 40);
-//
-// 	printf("|%**.4.**d|\n",	 4, 20, 6, 21, 40);
-// 	ft_printf("|%**.4.**d|\n\n",	 4, 20, 6, 21, 40);
-//
-// 	printf("|%**.4.**d|\n",	 4, 20, 6, 21, 40);
-// 	ft_printf("|%**.4.**d|\n\n",	 4, 20, 6, 21, 40);
-//
-// 	printf("|%**.4**d|\n",	 4, 20, 6, 21, 40);
-// 	ft_printf("|%**.4**d|\n\n",	 4, 20, 6, 21, 40);
-//
-// 	printf("|%**.4**d|\n",	 4, 20, 6, 21, 40);
-// 	ft_printf("|%**.4**d|\n\n",	 4, 20, 6, 21, 40);
-//
-// 	printf("\nWildcards moulitest:\n\n");
-//
-// 	printf("|%*d|\n", 5, 42);
-// 	ft_printf("|%*d|\n\n", 5, 42);
-//
-// 	printf("|%*d|\n", -5, 42);
-// 	ft_printf("|%*d|\n\n", -5, 42);
-//
-// 	printf("|%*d|\n", 0, 42);
-// 	ft_printf("|%*d|\n\n", 0, 42);
-//
-// 	printf("|%*c|\n", 0, 0);
-// 	ft_printf("|%*c|\n\n", 0, 0);
-//
-// 	printf("|%*c|\n", -15, 0);
-// 	ft_printf("|%*c|\n\n", -15, 0);
-//
-// 	printf("|%.*d|\n", 5, 42);
-// 	ft_printf("|%.*d|\n\n", 5, 42);
-//
-// 	printf("|%.*d|\n", -5, 42);
-// 	ft_printf("|%.*d|\n\n", -5, 42);
-//
-// 	printf("|%.*d|\n", 0, 42);
-// 	ft_printf("|%.*d|\n\n", 0, 42);
-//
-// 	printf("|%.*s|\n", 5, "42");
-// 	ft_printf("|%.*s|\n\n", 5, "42");
-//
-// 	printf("|%.*s|\n", -5, "42");
-// 	ft_printf("|%.*s|\n\n", -5, "42");
-//
-// 	printf("|%.*s|\n", 0, "42");
-// 	ft_printf("|%.*s|\n\n", 0, "42");
-//
-// 	printf("|%*s|\n", 5, 0);
-// 	ft_printf("|%*s|\n\n", 5, 0);
-//
-// 	printf("|%*p|\n", 10, 0);
-// 	ft_printf("|%*p|\n\n", 10, 0);
-//
-// 	printf("|%*3d|\n", 5, 0);
-// 	ft_printf("|%*3d|\n\n", 5, 0);
-//
-// 	printf("|%05.*d|\n", -15, 42);
-// 	ft_printf("|%05.*d|\n\n", -15, 42);
-//
-// 	printf("|%*.*d|\n", 0, 3, 0);
-// 	ft_printf("|%*.*d|\n\n", 0, 3, 0);
-// }
+void wildcards(void);
+
+void wildcards(void)
+{
+	printf("\nWildcards:\n\n");
+
+	printf("|%d|\n", 10);
+	ft_printf("|%d|\n\n", 10);
+
+	printf("|%*.*d|\n", 4, 20, 40);
+	ft_printf("|%*.*d|\n\n", 4, 20, 40);
+
+	printf("|%*.*4d|\n", 4, 20, 40);
+	ft_printf("|%*.*4d|\n\n", 4, 20, 40);
+
+	printf("|%*.*.4d|\n", 4, 20, 40);
+	ft_printf("|%*.*.4d|\n\n", 4, 20, 40);
+
+	printf("|%*.4.*d|\n", 4, 20, 40);
+	ft_printf("|%*.4.*d|\n\n", 4, 20, 40);
+
+	printf("|%*.4.*d|\n", 4, 20, 40);
+	ft_printf("|%*.4.*d|\n\n", 4, 20, 40);
+
+	printf("|%*.4*d|\n", 4, 20, 40);
+	ft_printf("|%*.4*d|\n\n", 4, 20, 40);
+
+	printf("|%*.4*d|\n", 4, 20, 40);
+	ft_printf("|%*.4*d|\n\n", 4, 20, 40);
+
+	printf("|%**.**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.**d|\n\n",	 4, 20, 6, 21, 40);
+
+	printf("|%**.**4d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.**4d|\n\n",	 4, 20, 6, 21, 40);
+
+	printf("|%**.**.4d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.**.4d|\n\n",	 4, 20, 6, 21, 40);
+
+	printf("|%**.4.**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4.**d|\n\n",	 4, 20, 6, 21, 40);
+
+	printf("|%**.4.**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4.**d|\n\n",	 4, 20, 6, 21, 40);
+
+	printf("|%**.4**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4**d|\n\n",	 4, 20, 6, 21, 40);
+
+	printf("|%**.4**d|\n",	 4, 20, 6, 21, 40);
+	ft_printf("|%**.4**d|\n\n",	 4, 20, 6, 21, 40);
+
+	printf("\nWildcards moulitest:\n\n");
+
+	printf("|%*d|\n", 5, 42);
+	ft_printf("|%*d|\n\n", 5, 42);
+
+	printf("|%*d|\n", -5, 42);
+	ft_printf("|%*d|\n\n", -5, 42);
+
+	printf("|%*d|\n", 0, 42);
+	ft_printf("|%*d|\n\n", 0, 42);
+
+	printf("|%*c|\n", 0, 0);
+	ft_printf("|%*c|\n\n", 0, 0);
+
+	printf("|%*c|\n", -15, 0);
+	ft_printf("|%*c|\n\n", -15, 0);
+
+	printf("|%.*d|\n", 5, 42);
+	ft_printf("|%.*d|\n\n", 5, 42);
+
+	printf("|%.*d|\n", -5, 42);
+	ft_printf("|%.*d|\n\n", -5, 42);
+
+	printf("|%.*d|\n", 0, 42);
+	ft_printf("|%.*d|\n\n", 0, 42);
+
+	printf("|%.*s|\n", 5, "42");
+	ft_printf("|%.*s|\n\n", 5, "42");
+
+	printf("|%.*s|\n", -5, "42");
+	ft_printf("|%.*s|\n\n", -5, "42");
+
+	printf("|%.*s|\n", 0, "42");
+	ft_printf("|%.*s|\n\n", 0, "42");
+
+	printf("|%*s|\n", 5, 0);
+	ft_printf("|%*s|\n\n", 5, 0);
+
+	printf("|%*p|\n", 10, 0);
+	ft_printf("|%*p|\n\n", 10, 0);
+
+	printf("|%*3d|\n", 5, 0);
+	ft_printf("|%*3d|\n\n", 5, 0);
+
+	printf("|%05.*d|\n", -15, 42);
+	ft_printf("|%05.*d|\n\n", -15, 42);
+
+	printf("|%*.*d|\n", 0, 3, 0);
+	ft_printf("|%*.*d|\n\n", 0, 3, 0);
+}
 
 void floats(void) {
 
@@ -180,9 +180,6 @@ void floats(void) {
 
 	printf("pf: %f|\n", -0.00125);
 	ft_printf("ft: %f|\n\n", -0.00125);
-
-	printf("pf: %.25f|\n", -0.0000000000000000000000125);
-	ft_printf("ft: %.25f|\n\n", -0.0000000000000000000000125);
 
 	printf("pf: %f|\n", 100000000.0);
 	ft_printf("ft: %f|\n\n", 100000000.0);
@@ -336,9 +333,6 @@ void floats(void) {
 
 	printf("pf: %.27f|\n", 632.28376510723481);
 	ft_printf("ft: %.27f|\n\n", 632.28376510723481);
-
-	printf("pf: %.2000Lf|\n", LDBL_MIN);
-	ft_printf("ft: %.2000Lf|\n\n", LDBL_MIN);
 }
 
 int main(int argc, const char *argv[])

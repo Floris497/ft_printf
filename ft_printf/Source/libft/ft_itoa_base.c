@@ -55,6 +55,6 @@ char		*ft_itoa_base(long long n, unsigned int base)
 		number[0] = '-';
 	}
 	ft_strnbr_base_cl(n < 0 ? (unsigned long long)-n :
-		(unsigned long long)n, base, n < 0 ? number + 1 : number, len);
+		(unsigned long long)n, base, number, len);
 	return (number);
 }
