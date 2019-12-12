@@ -16,7 +16,10 @@
 static t_pf_ret	set_width_wild(t_pf_obj *obj)
 {
 	if (*(obj->input) == '*')
-		obj->part->width = (int)va_arg(*(obj->args), int);
+	{
+		int value = (int)va_arg(*(obj->args), int);
+		obj->part->width = value < 0 ? -value : value;
+	}
 	else
 		return (PF_RET_FORMAT_ERROR);
 	return (PF_RET_SUCCESS);
