@@ -23,6 +23,12 @@ t_pf_len_mod			get_lenmod(const char c)
 		return (L_PF_LEN_MOD);
 	else if (c == 'L')
 		return (XL_PF_LEN_MOD);
+	else if (c == 'z')
+		return (LL_PF_LEN_MOD);
+	else if (c == 'j')
+		return (LL_PF_LEN_MOD);
+	else if (c == 't')
+		return (LL_PF_LEN_MOD);
 	else
 		return (NO_LEN_MOD);
 }
@@ -36,7 +42,7 @@ static t_pf_len_mod		update_lenmod(const char c, t_pf_len_mod *lenmod)
 	else if (*lenmod & L_PF_LEN_MOD && get_lenmod(c) == L_PF_LEN_MOD)
 		return (*lenmod = LL_PF_LEN_MOD);
 	else
-		return (*lenmod |= get_lenmod(c));
+		return (*lenmod = get_lenmod(c));
 }
 
 static t_pf_ret			set_length(t_pf_obj *obj)
@@ -66,6 +72,8 @@ t_pf_ret				pf_fsm_length_state(t_pf_obj *obj)
 		return (PF_RET_LENGTH_STATE);
 	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
 		return (PF_RET_CONV_STATE);
+	else if (ft_strchr(WILDCARD_OPTS, *(obj->input)))
+		return (PF_RET_WILDCARD_WIDTH_STATE);
 	else
 		return (PF_RET_PRINT_EMPTY_OBJECT_STATE);
 	return (PF_RET_ERROR_STATE);

@@ -19,6 +19,8 @@ t_pf_ret	pf_print_pad_conv_o
 	(const char *str, t_pf_part *part, t_pf_obj *obj);
 t_pf_ret	pf_print_pad_conv_x
 	(const char *str, t_pf_part *part, t_pf_obj *obj);
+t_pf_ret	pf_print_pad_conv_u
+(const char *str, t_pf_part *part, t_pf_obj *obj);
 t_pf_ret	pf_print_pad_conv_d
 	(const char *str, t_pf_part *part, t_pf_obj *obj);
 t_pf_ret	pf_print_pad_conv_c

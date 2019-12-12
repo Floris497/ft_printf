@@ -20,6 +20,8 @@ t_pf_ret	ft_printf_print_part_d(t_pf_obj *obj, t_pf_part *part)
 	char *number;
 
 	number = ft_itoa_base(part->value.s_ll_value, 10);
+	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
+		part->flags &= ~(PF_ZR_FLAG);
 	pf_print_pad_conv_d(number, part, obj);
 	free(number);
 	return (PF_RET_SUCCESS);

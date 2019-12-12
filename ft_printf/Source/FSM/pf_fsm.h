@@ -19,7 +19,8 @@
 # define WIDTH_OPTS_X "0123456789"
 # define PRECIS_OPTS_X ".0123456789"
 # define PRECIS_OPTS "."
-# define LENG_OPTS "hlL"
+# define WILDCARD_OPTS "*"
+# define LENG_OPTS "hlLzjt"
 # define FLAG_OPTS "0 #+-'"
 # define CONV_OPTS "cspdiouxXbf"
 
@@ -36,5 +37,7 @@ t_pf_ret	pf_fsm_print_object_state(t_pf_obj *obj);
 t_pf_ret	pf_fsm_print_empty_object_state(t_pf_obj *obj);
 t_pf_ret	pf_fsm_print_char_state(t_pf_obj *obj);
 t_pf_ret	pf_fsm_init_state(t_pf_obj *obj);
+t_pf_ret	pf_fsm_wildcard_width_state(t_pf_obj *obj);
+t_pf_ret	pf_fsm_wildcard_prcs_state(t_pf_obj *obj);
 
 #endif

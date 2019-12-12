@@ -34,7 +34,7 @@ static void		ft_strnbr_base_cl
 	}
 }
 
-char			*ft_itoa_base(long long n, unsigned int base)
+char			*ft_utoa_base(unsigned long long n, unsigned int base)
 {
 	char	*number;
 	size_t	len;

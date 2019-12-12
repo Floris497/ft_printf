@@ -28,7 +28,9 @@ t_pf_ret		ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part)
 {
 	char *str;
 
-	str = ft_itoa_base(part->value.u_ll_value, 16);
+	str = ft_utoa_base(part->value.u_ll_value, 16);
+	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
+		part->flags &= ~(PF_ZR_FLAG);
 	change_chars(str, part);
 	pf_print_pad_conv_x(str, part, obj);
 	free(str);

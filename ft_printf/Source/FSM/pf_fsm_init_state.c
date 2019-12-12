@@ -41,6 +41,8 @@ t_pf_ret			pf_fsm_init_state(t_pf_obj *obj)
 		return (PF_RET_PRECIS_STATE);
 	else if (ft_strchr(LENG_OPTS, *(obj->input)))
 		return (PF_RET_LENGTH_STATE);
+	else if (ft_strchr(WILDCARD_OPTS, *(obj->input)))
+		return (PF_RET_WILDCARD_WIDTH_STATE);
 	else
 		return (PF_RET_PRINT_EMPTY_OBJECT_STATE);
 }
