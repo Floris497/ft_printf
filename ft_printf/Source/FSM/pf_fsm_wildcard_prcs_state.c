@@ -15,9 +15,11 @@
 
 static t_pf_ret	set_precis_wild(t_pf_obj *obj)
 {
+	int value;
+
 	if (obj->input[0] == '*')
 	{
-		int value = (int)va_arg(*(obj->args), int);
+		value = (int)va_arg(*(obj->args), int);
 		obj->part->prcs = value < 0 ? PRCS_NS : value;
 	}
 	else

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char		char_for_number_base(unsigned int n)
+static char	char_for_number_base(unsigned int n)
 {
 	if (n <= 9)
 		return ('0' + n);
@@ -20,11 +20,11 @@ static char		char_for_number_base(unsigned int n)
 		return ('A' + n - 10);
 }
 
-static void		ft_strnbr_base_cl
+static void	ft_strnbr_base_cl
 	(unsigned long long nbr, unsigned int base, char *dst, size_t len)
 {
-	t_index				idx;
-	
+	t_index	idx;
+
 	idx = len;
 	while (nbr >= 1)
 	{
@@ -34,7 +34,7 @@ static void		ft_strnbr_base_cl
 	}
 }
 
-char			*ft_itoa_base(long long n, unsigned int base)
+char		*ft_itoa_base(long long n, unsigned int base)
 {
 	char	*number;
 	size_t	len;
@@ -51,6 +51,7 @@ char			*ft_itoa_base(long long n, unsigned int base)
 	number = (char *)ft_memalloc(len + 1);
 	if (!number)
 		return (number);
-	ft_strnbr_base_cl(n < 0 ? (unsigned long long)-n : (unsigned long long)n, base, number, len);
+	ft_strnbr_base_cl(n < 0 ? (unsigned long long)-n :
+		(unsigned long long)n, base, number, len);
 	return (number);
 }

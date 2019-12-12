@@ -15,7 +15,7 @@
 #include "pf_print_conv.h"
 #include "float_aux.h"
 
-static int		is_negative(t_pf_part *part)
+static int	is_negative(t_pf_part *part)
 {
 	t_pf_f2u	f2u;
 
@@ -24,26 +24,26 @@ static int		is_negative(t_pf_part *part)
 	return (f2u.ld.s_exp & LD_SIGN);
 }
 
-static char 	*special_case_zero(char *str, t_pf_part *part)
+static char	*special_case_zero(char *str, t_pf_part *part)
 {
 	free(str);
 	str = malloc(part->prcs + 3);
 	ft_memcpy(str, "0.", 2);
 	ft_memset(str + 2, '0', part->prcs);
 	str[part->prcs + 2] = '\0';
-	return str;
+	return (str);
 }
 
-static char 	*special_case_nan(char *str, t_pf_part *part)
+static char	*special_case_nan(char *str, t_pf_part *part)
 {
 	free(str);
 	str = malloc(5);
 	ft_memcpy(str, "*nan", 5);
 	part->prcs = 3;
-	return str;
+	return (str);
 }
 
-static char 	*special_case_inf(char *str, t_pf_part *part)
+static char	*special_case_inf(char *str, t_pf_part *part)
 {
 	free(str);
 	str = malloc(6);
@@ -62,7 +62,7 @@ static char 	*special_case_inf(char *str, t_pf_part *part)
 		ft_memcpy(str, "*inf", 5);
 		part->prcs = 3;
 	}
-	return str;
+	return (str);
 }
 
 t_pf_ret	ft_printf_print_part_f(t_pf_obj *obj, t_pf_part *part)
