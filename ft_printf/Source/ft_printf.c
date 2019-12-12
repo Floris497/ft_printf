@@ -38,7 +38,7 @@ int		ft_printf(const char *format, ...)
 	return ((int)object.chr_wrtn);
 }
 
-int		ft_fprintf(FILE * restrict stream, const char * restrict format, ...)
+int		ft_fprintf(FILE *stream, const char *format, ...)
 {
 	va_list		ap;
 	t_pf_obj	object;
@@ -58,7 +58,7 @@ int		ft_fprintf(FILE * restrict stream, const char * restrict format, ...)
 	return ((int)object.chr_wrtn);
 }
 
-int		ft_dprintf(int fd, const char * restrict format, ...)
+int		ft_dprintf(int fd, const char *format, ...)
 {
 	va_list		ap;
 	t_pf_obj	object;
@@ -77,5 +77,3 @@ int		ft_dprintf(int fd, const char * restrict format, ...)
 	va_end(ap);
 	return ((int)object.chr_wrtn);
 }
-
-

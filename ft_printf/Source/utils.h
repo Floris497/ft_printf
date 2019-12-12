@@ -1,10 +1,14 @@
-//
-//  utils.h
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 12/12/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   utils.h                                           :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <marvin@42.fr>                     :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/12/13 00:08:55 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/12/13 00:08:58 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
@@ -13,4 +17,4 @@
 
 t_pf_ret	empty_part(t_pf_part *part);
 
-#endif /* utils_h */
+#endif

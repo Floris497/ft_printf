@@ -63,7 +63,7 @@ char		**ft_strsplit(char const *s, char c)
 	int		wordlen;
 
 	nwords = strsplit_count_words(s, c);
-	arr = (char **)malloc(sizeof(char **) * (nwords + 1));
+	arr = (char **)malloc(sizeof(char *) * (nwords + 1));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;

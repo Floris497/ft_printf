@@ -13,13 +13,9 @@
 #ifndef FT_PRINTF_TYPES_H
 # define FT_PRINTF_TYPES_H
 
-# if DEBUG
-#  define NYI "Not yet implemented"
-# endif
-
 # include <stddef.h>
 # include <stdarg.h>
-# include <string.h>
+# include <strings.h>
 # include <stdio.h>
 
 # ifdef linux
@@ -31,8 +27,6 @@
 /*
 ** t_ft_return contains return codes
 */
-
-typedef enum e_pf_ret		t_pf_ret;
 
 enum	e_pf_ret
 {
@@ -54,17 +48,16 @@ enum	e_pf_ret
 	PF_RET_PRINT_OBJECT_STATE = 18,
 	PF_RET_PRINT_EMPTY_OBJECT_STATE = 19,
 	PF_RET_PRINT_CHAR_STATE = 20,
-	PF_RET_INIT_STATE  = 21,
-	PF_RET_WILDCARD_PRCS_STATE  = 22,
-	PF_RET_WILDCARD_WIDTH_STATE  = 23,
+	PF_RET_INIT_STATE = 21,
+	PF_RET_WILDCARD_PRCS_STATE = 22,
+	PF_RET_WILDCARD_WIDTH_STATE = 23,
 };
+
+typedef enum e_pf_ret		t_pf_ret;
 
 /*
 ** t_pf_conversion contains the conversion types
 */
-
-typedef enum e_pf_conv		t_pf_conv;
-typedef enum e_pf_conv		t_pf_conv;
 
 enum	e_pf_conv
 {
@@ -126,6 +119,7 @@ enum	e_pf_conv
 	Z_CONV = (unsigned long long)1 << 59,
 };
 
+typedef enum e_pf_conv		t_pf_conv;
 
 /*
 ** t_pf_LEN_MOD contains the len_modifier types
@@ -194,8 +188,7 @@ union	u_pf_value
 # define PRCS_NS -1
 # define LEN_NS -1
 
-
-typedef enum e_pf_dest_type		t_pf_dest_type;
+typedef enum e_pf_dest_type	t_pf_dest_type;
 
 enum	e_pf_dest_type
 {
@@ -207,7 +200,7 @@ typedef union u_pf_dest		t_pf_dest;
 
 union	u_pf_dest
 {
-	FILE 	*file;
+	FILE	*file;
 	int		fd;
 };
 
@@ -227,14 +220,13 @@ typedef struct s_pf_obj		t_pf_obj;
 
 struct	s_pf_obj
 {
-	const char 		*input;
+	const char		*input;
 	size_t			chr_wrtn;
 	t_pf_part		*part;
 	va_list			*args;
 	t_pf_dest_type	dtype;
 	t_pf_dest		dest;
 	t_pf_ret		(*print)(const char *, ssize_t, t_pf_obj *);
-	
 };
 
 typedef struct s_lenblock	t_lenblock;
@@ -248,17 +240,21 @@ struct	s_lenblock
 	char			*order;
 };
 
-typedef	struct 		s_ld_parts
+typedef	struct s_ld_parts	t_ld_parts;
+
+struct	s_ld_parts
 {
 	unsigned long	m;
 	unsigned long	s_exp;
-}					t_ld_parts;
+};
 
-typedef union		u_pf_f2u
+typedef union u_pf_f2u		t_pf_f2u;
+
+union	u_pf_f2u
 {
 	long double		f;
 	t_ld_parts		ld;
-}					t_pf_f2u;
+};
 
 # define LD_SIGN 0x0000000000008000
 # define LD_EXP 0x0000000000007FFF

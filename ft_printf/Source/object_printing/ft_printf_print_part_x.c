@@ -30,7 +30,7 @@ t_pf_ret		ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part)
 
 	number = ft_utoa_base(part->value.u_ll_value, 16);
 	if (number == NULL)
-		return PF_RET_ERROR;
+		return (PF_RET_ERROR);
 	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
 		part->flags &= ~(PF_ZR_FLAG);
 	change_chars(number, part);

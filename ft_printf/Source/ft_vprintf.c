@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                      ::::::::: :::::::::   */
-/*   ft_vprintf.c                                       :+:       :+:          */
+/*   ft_vprintf.c                                      :+:       :+:          */
 /*                                                    +:+       +:+           */
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
@@ -18,13 +18,13 @@
 #include "ft_printf_types.h"
 #include "pf_fsm.h"
 
-int		ft_vprintf(const char * restrict format, va_list ap)
+int		ft_vprintf(const char *format, va_list ap)
 {
 	va_list		apc;
 	t_pf_obj	object;
 	t_pf_part	part;
 
-    va_copy(apc, ap);
+	va_copy(apc, ap);
 	empty_part(&part);
 	object.part = &part;
 	object.print = &print;
@@ -37,13 +37,13 @@ int		ft_vprintf(const char * restrict format, va_list ap)
 	return ((int)object.chr_wrtn);
 }
 
-int		ft_vfprintf(FILE * restrict stream, const char * restrict format, va_list ap)
+int		ft_vfprintf(FILE *stream, const char *format, va_list ap)
 {
 	va_list		apc;
 	t_pf_obj	object;
 	t_pf_part	part;
 
-    va_copy(apc, ap);
+	va_copy(apc, ap);
 	empty_part(&part);
 	object.part = &part;
 	object.print = &print;
@@ -56,13 +56,13 @@ int		ft_vfprintf(FILE * restrict stream, const char * restrict format, va_list a
 	return ((int)object.chr_wrtn);
 }
 
-int		ft_vdprintf(int fd, const char * restrict format, va_list ap)
+int		ft_vdprintf(int fd, const char *format, va_list ap)
 {
 	va_list		apc;
 	t_pf_obj	object;
 	t_pf_part	part;
 
-    va_copy(apc, ap);
+	va_copy(apc, ap);
 	empty_part(&part);
 	object.part = &part;
 	object.print = &print;

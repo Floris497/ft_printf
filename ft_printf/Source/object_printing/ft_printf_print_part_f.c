@@ -74,7 +74,7 @@ t_pf_ret	ft_printf_print_part_f(t_pf_obj *obj, t_pf_part *part)
 	obj->part->prcs = (obj->part->prcs == PRCS_NS ? 6 : obj->part->prcs);
 	str = ft_ftoa(part);
 	if (str == NULL)
-		return PF_RET_ERROR;
+		return (PF_RET_ERROR);
 	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
 		part->flags &= ~(PF_ZR_FLAG);
 	while (str[idx] != '\0' && (str[idx] == '0' && str[idx + 1] != '.') &&

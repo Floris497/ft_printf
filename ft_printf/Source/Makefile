@@ -6,7 +6,7 @@
 #    By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#        #
 #                                                   +#+       +#+              #
 #    Created: 2019/01/08 16:32:51 by ffredrik      #+#       #+#               #
-#    Updated: 2019/03/30 16:46:08 by ffredrik     ###       ###                #
+#    Updated: 2019/12/12 21:34:49 by ffredrik     ###       ###                #
 #                                                                              #
 # **************************************************************************** #
 	
@@ -15,7 +15,7 @@ NAME_DL = libftprintf.dylib
 NAME_LIBFT = libft/libft.a
 
 CC = clang
-C_FLAGS = -Wall -Wextra -Werror
+C_FLAGS = -Wall -Wextra -Werror -g
 
 AR = ar
 AR_FLAGS = rcs

@@ -27,7 +27,8 @@ static int		is_negative(t_pf_part *part)
 
 static void		print_sign(t_pf_part *part, t_pf_obj *obj)
 {
-	if (part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || is_negative(part))
+	if (part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG
+		|| is_negative(part))
 	{
 		if (is_negative(part))
 			obj->print("-", 1, obj);
@@ -40,7 +41,7 @@ static t_pf_ret	pf_print_pad_conv_f_blk
 	(const char *str, t_pf_part *part, t_pf_obj *obj, t_lenblock lb)
 {
 	size_t		idx;
-	
+
 	idx = 0;
 	while (lb.order[idx] != '\0')
 	{
@@ -69,13 +70,16 @@ static t_pf_ret	pf_print_pad_conv_f_blk
 t_pf_ret		pf_print_pad_conv_f
 	(const char *str, t_pf_part *part, t_pf_obj *obj)
 {
-	t_lenblock lblock;
-	int		   needs_dot;
+	t_lenblock	lblock;
+	int			needs_dot;
 
 	needs_dot = ((part->flags & PF_HT_FLAG) && ft_strchr(str, '.') == NULL);
 	lblock.r_prsc = (int)ft_strlen(*str == '*' ? str + 1 : str);
-	lblock.r_width = lblock.r_prsc + ((part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG || is_negative(part)) && *str != '*') + needs_dot;
-	lblock.total_len = (lblock.r_width < part->width) ? part->width : lblock.r_width;
+	lblock.r_width = lblock.r_prsc +
+		((part->flags & PF_SP_FLAG || part->flags & PF_PL_FLAG
+		|| is_negative(part)) && *str != '*') + needs_dot;
+	lblock.total_len =
+		(lblock.r_width < part->width) ? part->width : lblock.r_width;
 	lblock.pad_len = lblock.total_len - lblock.r_width;
 	if (part->flags & PF_MN_FLAG)
 		lblock.order = needs_dot ? "SNDP" : "SNP";

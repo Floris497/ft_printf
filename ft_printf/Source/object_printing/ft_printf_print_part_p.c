@@ -21,7 +21,7 @@ t_pf_ret		ft_printf_print_part_p(t_pf_obj *obj, t_pf_part *part)
 
 	number = ft_utoa_base((unsigned long long)part->value.ptr, 16);
 	if (number == NULL)
-		return PF_RET_ERROR;
+		return (PF_RET_ERROR);
 	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
 		part->flags &= ~(PF_ZR_FLAG);
 	ft_strlower(number);

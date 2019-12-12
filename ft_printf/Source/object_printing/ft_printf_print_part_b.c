@@ -21,7 +21,7 @@ t_pf_ret	ft_printf_print_part_b(t_pf_obj *obj, t_pf_part *part)
 
 	number = ft_utoa_base(part->value.u_ll_value, 2);
 	if (number == NULL)
-		return PF_RET_ERROR;
+		return (PF_RET_ERROR);
 	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
 		part->flags &= ~(PF_ZR_FLAG);
 	pf_print_pad_conv_x(number, part, obj);
