@@ -15,7 +15,7 @@
 
 # include "ft_printf_types.h"
 
-# define DECI_CONV (D_CONV | I_CONV | O_CONV | U_CONV | X_CONV | XX_CONV | B_CONV)
+# define DECI_CONV (D_CONV|I_CONV|O_CONV|U_CONV|X_CONV|XX_CONV|B_CONV)
 # define STR_CONV (C_CONV | S_CONV | P_CONV)
 # define FLT_CONV (F_CONV)
 
@@ -28,7 +28,10 @@
 # define SIGN_CONV (U_CONV | O_CONV | X_CONV | XX_CONV | B_CONV)
 # define FLOAT_CONV (F_CONV)
 
-# define NO_PNTR_CONV (D_CONV | I_CONV | O_CONV | U_CONV | X_CONV | XX_CONV | F_CONV | XF_CONV | C_CONV | B_CONV)
+/*
+** # define NO_PNTR_CONV (D_CONV | I_CONV | O_CONV | U_CONV |
+** X_CONV | XX_CONV | F_CONV | XF_CONV | C_CONV | B_CONV)
+*/
 
 t_pf_len_mod pf_get_length_for_conv(t_pf_len_mod *lenmod, t_pf_conv *conv);
 

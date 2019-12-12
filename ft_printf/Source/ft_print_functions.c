@@ -1,10 +1,14 @@
-//
-//  ft_print_functions.c
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 12/12/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   ft_print_functions.c                              :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:48 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/30 16:46:08 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <unistd.h>
 #include <libft.h>
@@ -23,7 +27,7 @@ static t_pf_ret write_to_buffer(const char *str, size_t len)
 	static size_t	idx = 0;
 	size_t			added_bytes;
 	t_pf_ret		ret;
-	
+
 	ret = PF_RET_SUCCESS;
 	added_bytes = 0;
 	if (str == NULL)

@@ -1,10 +1,14 @@
-//
-//  ft_print_functions.h
-//  ft_printf
-//
-//  Created by Floris Fredrikze on 12/12/2019.
-//  Copyright © 2019 Floris Fredrikze. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                      ::::::::: :::::::::   */
+/*   ft_print_functions.h                              :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/03/01 17:22:48 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/30 16:46:08 by ffredrik     ###       ###               */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FT_PRINT_FUNCTIONS_H
 # define FT_PRINT_FUNCTIONS_H

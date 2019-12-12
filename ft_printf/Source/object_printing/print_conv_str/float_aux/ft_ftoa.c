@@ -43,6 +43,8 @@ static int	get_str_size(int d_exp, int prcs)
 	int	size;
 
 	size = (d_exp < 0 ? -d_exp + LD_PRCS : d_exp + LD_PRCS) + 3;
+	if (d_exp < 0)
+		size = ft_min(prcs + 4 + LD_PRCS, size);
 	size = ft_max(prcs + 4 + (d_exp > 1 ? d_exp : 0) + LD_PRCS, size);
 	return (size);
 }
@@ -63,7 +65,7 @@ char		*ft_ftoa(t_pf_part *part)
 	size = get_str_size(d_exp, part->prcs);
 	str = (char *)ft_memalloc(sizeof(char) * size);
 	str = ft_memset(str, '0', size - 1);
-	str[(d_exp < 0 ? -d_exp : d_exp + 1)] = '.';
+	str[(d_exp < 0 ? 1 : d_exp + 1)] = '.';
 	i = 0;
 	str = set_left_of_dot(str, d_exp, f2u.ld, &i);
 	str = set_right_of_dot(str, size, f2u.ld, i);
