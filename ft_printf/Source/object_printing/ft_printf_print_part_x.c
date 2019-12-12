@@ -26,13 +26,15 @@ static t_pf_ret	change_chars(char *str, t_pf_part *part)
 
 t_pf_ret		ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part)
 {
-	char *str;
+	char *number;
 
-	str = ft_utoa_base(part->value.u_ll_value, 16);
+	number = ft_utoa_base(part->value.u_ll_value, 16);
+	if (number == NULL)
+		return PF_RET_ERROR;
 	if (part->flags & PF_MN_FLAG && part->flags & PF_ZR_FLAG)
 		part->flags &= ~(PF_ZR_FLAG);
-	change_chars(str, part);
-	pf_print_pad_conv_x(str, part, obj);
-	free(str);
+	change_chars(number, part);
+	pf_print_pad_conv_x(number, part, obj);
+	free(number);
 	return (PF_RET_SUCCESS);
 }
