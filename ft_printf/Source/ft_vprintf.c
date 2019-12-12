@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                      ::::::::: :::::::::   */
-/*   ft_printf.c                                       :+:       :+:          */
+/*   ft_vprintf.c                                       :+:       :+:          */
 /*                                                    +:+       +:+           */
 /*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
 /*                                                  +#+       +#+             */
@@ -18,64 +18,59 @@
 #include "ft_printf_types.h"
 #include "pf_fsm.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_vprintf(const char * restrict format, va_list ap)
 {
-	va_list		ap;
+	va_list		apc;
 	t_pf_obj	object;
 	t_pf_part	part;
 
+    va_copy(apc, ap);
 	empty_part(&part);
 	object.part = &part;
 	object.print = &print;
 	object.chr_wrtn = 0;
-	va_start(ap, format);
-	object.args = &ap;
+	object.args = &apc;
 	object.input = format;
 	object.dtype = PRINT_DEST_FIDES;
 	object.dest.fd = 1;
 	pf_fsm_controller_state(&object);
-	va_end(ap);
 	return ((int)object.chr_wrtn);
 }
 
-int		ft_fprintf(FILE * restrict stream, const char * restrict format, ...)
+int		ft_vfprintf(FILE * restrict stream, const char * restrict format, va_list ap)
 {
-	va_list		ap;
+	va_list		apc;
 	t_pf_obj	object;
 	t_pf_part	part;
 
+    va_copy(apc, ap);
 	empty_part(&part);
 	object.part = &part;
 	object.print = &print;
 	object.chr_wrtn = 0;
-	va_start(ap, format);
-	object.args = &ap;
+	object.args = &apc;
 	object.input = format;
 	object.dtype = PRINT_DEST_STREAM;
 	object.dest.file = stream;
 	pf_fsm_controller_state(&object);
-	va_end(ap);
 	return ((int)object.chr_wrtn);
 }
 
-int		ft_dprintf(int fd, const char * restrict format, ...)
+int		ft_vdprintf(int fd, const char * restrict format, va_list ap)
 {
-	va_list		ap;
+	va_list		apc;
 	t_pf_obj	object;
 	t_pf_part	part;
 
+    va_copy(apc, ap);
 	empty_part(&part);
 	object.part = &part;
 	object.print = &print;
 	object.chr_wrtn = 0;
-	va_start(ap, format);
-	object.args = &ap;
+	object.args = &apc;
 	object.input = format;
 	object.dtype = PRINT_DEST_FIDES;
 	object.dest.fd = fd;
 	pf_fsm_controller_state(&object);
-	va_end(ap);
 	return ((int)object.chr_wrtn);
 }
-
-

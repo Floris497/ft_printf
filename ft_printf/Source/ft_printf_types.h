@@ -20,6 +20,7 @@
 # include <stddef.h>
 # include <stdarg.h>
 # include <string.h>
+# include <stdio.h>
 
 # ifdef linux
 #  include <sys/types.h>
@@ -193,6 +194,23 @@ union	u_pf_value
 # define PRCS_NS -1
 # define LEN_NS -1
 
+
+typedef enum e_pf_dest_type		t_pf_dest_type;
+
+enum	e_pf_dest_type
+{
+	PRINT_DEST_STREAM,
+	PRINT_DEST_FIDES,
+};
+
+typedef union u_pf_dest		t_pf_dest;
+
+union	u_pf_dest
+{
+	FILE 	*file;
+	int		fd;
+};
+
 typedef struct s_pf_part	t_pf_part;
 
 struct	s_pf_part
@@ -213,7 +231,10 @@ struct	s_pf_obj
 	size_t			chr_wrtn;
 	t_pf_part		*part;
 	va_list			*args;
+	t_pf_dest_type	dtype;
+	t_pf_dest		dest;
 	t_pf_ret		(*print)(const char *, ssize_t, t_pf_obj *);
+	
 };
 
 typedef struct s_lenblock	t_lenblock;

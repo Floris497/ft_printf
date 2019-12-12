@@ -12,12 +12,26 @@
 
 #define LOCAL_BUFFER_SIZE 2048
 
-static t_pf_ret print_buffer(int fd, const char *str, size_t len)
+static t_pf_ret print_buffer(const char *str, size_t len, t_pf_obj *obj)
 {
-	return (write(fd, str, len) >= 0 ? PF_RET_SUCCESS : PF_RET_ERROR);
+	int ret;
+	int fd;
+	
+	ret = PF_RET_ERROR;
+	if (obj->dtype == PRINT_DEST_FIDES)
+		ret = (write(obj->dest.fd, str, len) >= 0 ? PF_RET_SUCCESS : PF_RET_WRITE_ERROR);
+	else if (obj->dtype == PRINT_DEST_STREAM)
+	{
+		fd = fileno(obj->dest.file);
+		if (fd >= 0)
+			ret = (write(fd, str, len) >= 0 ? PF_RET_SUCCESS : PF_RET_WRITE_ERROR);
+		else
+			ret = PF_RET_WRITE_ERROR;
+	}
+	return (ret);
 }
 
-static t_pf_ret write_to_buffer(const char *str, size_t len)
+static t_pf_ret write_to_buffer(const char *str, size_t len, t_pf_obj *obj)
 {
 	static char		buffer[LOCAL_BUFFER_SIZE + 1] = {0};
 	static size_t	idx = 0;
@@ -28,7 +42,7 @@ static t_pf_ret write_to_buffer(const char *str, size_t len)
 	added_bytes = 0;
 	if (str == NULL)
 	{
-		ret = print_buffer(1, buffer, idx);
+		ret = print_buffer(buffer, idx, obj);
 		idx = 0;
 		return (ret);
 	}
@@ -43,7 +57,7 @@ static t_pf_ret write_to_buffer(const char *str, size_t len)
 		}
 		else
 		{
-			ret = print_buffer(1, buffer, LOCAL_BUFFER_SIZE);
+			ret = print_buffer(buffer, LOCAL_BUFFER_SIZE, obj);
 			idx = 0;
 		}
 	}
@@ -53,10 +67,10 @@ static t_pf_ret write_to_buffer(const char *str, size_t len)
 t_pf_ret		print(const char *str, ssize_t n, t_pf_obj *obj)
 {
 	if (str == NULL && n == 0)
-		return write_to_buffer(str, n);
+		return write_to_buffer(str, n, obj);
 	if (n == LEN_NS || n < 0)
 		n = ft_strlen(str);
-	if (write_to_buffer(str, n) >= 0)
+	if (write_to_buffer(str, n, obj) >= 0)
 	{
 		obj->chr_wrtn += n;
 		return (PF_RET_SUCCESS);
