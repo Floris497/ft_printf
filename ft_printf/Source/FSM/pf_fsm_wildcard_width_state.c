@@ -19,6 +19,9 @@ static t_pf_ret	set_width_wild(t_pf_obj *obj)
 	{
 		int value = (int)va_arg(*(obj->args), int);
 		obj->part->width = value < 0 ? -value : value;
+		if (value < 0) {
+			obj->part->flags |= PF_MN_FLAG; // WHAT THE FUCK?!
+		}
 	}
 	else
 		return (PF_RET_FORMAT_ERROR);
