@@ -15,6 +15,7 @@
 		70AC90142219C057002B0507 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AC90132219C057002B0507 /* main.c */; };
 		70AC90212219C125002B0507 /* ft_printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AC90202219C125002B0507 /* ft_printf.c */; };
 		70AF0A5D23A1BCE2008C0FAC /* pf_fsm_init_state.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AF0A5C23A1BCE2008C0FAC /* pf_fsm_init_state.c */; };
+		70AF0A5F23A1BE5A008C0FAC /* pf_print_conv_u.c in Sources */ = {isa = PBXBuildFile; fileRef = 70AF0A5E23A1BE5A008C0FAC /* pf_print_conv_u.c */; };
 		70E8A701239686E3000E0B64 /* ft_printf_print_part_f.c in Sources */ = {isa = PBXBuildFile; fileRef = 70E8A700239686E3000E0B64 /* ft_printf_print_part_f.c */; };
 		70E8A71123968843000E0B64 /* pf_print_conv_f.c in Sources */ = {isa = PBXBuildFile; fileRef = 70E8A71023968843000E0B64 /* pf_print_conv_f.c */; };
 		70E8A71523968BE4000E0B64 /* ft_ftoa.c in Sources */ = {isa = PBXBuildFile; fileRef = 70E8A714239688FA000E0B64 /* ft_ftoa.c */; };
@@ -87,6 +88,7 @@
 		70AC90202219C125002B0507 /* ft_printf.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_printf.c; sourceTree = "<group>"; };
 		70AC90222219D80F002B0507 /* ft_printf_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_types.h; sourceTree = "<group>"; };
 		70AF0A5C23A1BCE2008C0FAC /* pf_fsm_init_state.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pf_fsm_init_state.c; sourceTree = "<group>"; };
+		70AF0A5E23A1BE5A008C0FAC /* pf_print_conv_u.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pf_print_conv_u.c; sourceTree = "<group>"; };
 		70DA30AA2219E23100CDEDA3 /* ft_printf_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ft_printf_private.h; sourceTree = "<group>"; };
 		70DA30B5221A074200CDEDA3 /* ft_striter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_striter.c; sourceTree = "<group>"; };
 		70DA30B6221A074200CDEDA3 /* ft_isspace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_isspace.c; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				A3CB37302358B831005BBA2C /* pf_print_conv_x.c */,
 				708C423F2382F63500645174 /* pf_print_conv_p.c */,
 				708C423E2382F63500645174 /* pf_print_conv_s.c */,
+				70AF0A5E23A1BE5A008C0FAC /* pf_print_conv_u.c */,
 				70E8A71023968843000E0B64 /* pf_print_conv_f.c */,
 			);
 			path = print_conv_str;
@@ -595,6 +598,7 @@
 				A3CB37542358C42F005BBA2C /* pf_fsm_width_state.c in Sources */,
 				70E8A71523968BE4000E0B64 /* ft_ftoa.c in Sources */,
 				A3CB374C2358C42F005BBA2C /* pf_fsm_flags_state.c in Sources */,
+				70AF0A5F23A1BE5A008C0FAC /* pf_print_conv_u.c in Sources */,
 				70E8A701239686E3000E0B64 /* ft_printf_print_part_f.c in Sources */,
 				A3CB37512358C42F005BBA2C /* pf_fsm_print_empty_object_state.c in Sources */,
 				A3CB374A2358C42F005BBA2C /* pf_fsm_end_state.c in Sources */,

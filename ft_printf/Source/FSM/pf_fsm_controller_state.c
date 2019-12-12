@@ -28,8 +28,8 @@ static t_state_function	g_jump_table[14] =
 	pf_fsm_print_empty_object_state,
 	pf_fsm_print_char_state,
 	pf_fsm_init_state,
-	pf_fsm_wildcard_width_state,
 	pf_fsm_wildcard_prcs_state,
+	pf_fsm_wildcard_width_state,
 };
 
 t_pf_ret				pf_fsm_controller_state(t_pf_obj *obj)
