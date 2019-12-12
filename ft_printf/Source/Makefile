@@ -63,6 +63,7 @@ C_SRCS = \
 	./FSM/pf_fsm_wildcard_width_state.c \
 	./ft_print_functions.c \
 	./ft_printf.c \
+	./ft_vprintf.c \
 	./object_printing/extra/pf_print_nchar.c \
 	./object_printing/extra/print_num_full/pf_print_num_full_d.c \
 	./object_printing/ft_printf_print_object.c \
