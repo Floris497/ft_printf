@@ -344,5 +344,7 @@ void floats(void) {
 int main(int argc, const char *argv[])
 {
 	// wildcards();
+	sleep(2);
 	floats();
+	sleep(2);
 }
