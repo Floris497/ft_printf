@@ -20,13 +20,6 @@
 int flaots(void);
 void wildcards(void);
 
-int main(int argc, const char *argv[])
-{
-
-	wildcards();
-	floats();
-}
-
 void wildcards(void)
 {
 	printf("\nWildcards:\n\n");
@@ -125,9 +118,6 @@ void wildcards(void)
 
 	printf("|%*.*d|\n", 0, 3, 0);
 	ft_printf("|%*.*d|\n\n", 0, 3, 0);
-
-
-
 }
 
 void floats(void) {
@@ -343,6 +333,10 @@ void floats(void) {
 
 	printf("pf: %.27f|\n", 632.28376510723481);
 	ft_printf("ft: %.27f|\n\n", 632.28376510723481);
+}
 
-	return (0);
+int main(int argc, const char *argv[])
+{
+	wildcards();
+	floats();
 }
