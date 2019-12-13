@@ -15,9 +15,9 @@
 
 # include "ft_printf_types.h"
 
-# define DECI_CONV (D_CONV|I_CONV|O_CONV|U_CONV|X_CONV|XX_CONV|B_CONV)
+# define DECI_CONV_EXT (XX_CONV | XD_CONV | XO_CONV | XU_CONV | X_CONV)
+# define DECI_CONV (D_CONV | I_CONV | O_CONV | U_CONV | B_CONV | DECI_CONV_EXT)
 # define STR_CONV (C_CONV | S_CONV | P_CONV)
-# define FLT_CONV (F_CONV)
 
 /*
 ** not yet classified
@@ -26,7 +26,7 @@
 
 # define PNTR_CONV (N_CONV | S_CONV | P_CONV)
 # define SIGN_CONV (U_CONV | O_CONV | X_CONV | XX_CONV | B_CONV)
-# define FLOAT_CONV (F_CONV)
+# define FLOAT_CONV (F_CONV | XF_CONV)
 
 /*
 ** # define NO_PNTR_CONV (D_CONV | I_CONV | O_CONV | U_CONV |

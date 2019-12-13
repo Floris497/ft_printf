@@ -22,7 +22,7 @@
 # define WILDCARD_OPTS "*"
 # define LENG_OPTS "hlLzjt"
 # define FLAG_OPTS "0 #+-'"
-# define CONV_OPTS "cspdiouxXbf"
+# define CONV_OPTS "cspdiouxXbfFDOU"
 
 typedef t_pf_ret		(*t_state_function)(t_pf_obj *);
 

@@ -38,7 +38,10 @@ static char	*special_case_nan(char *str, t_pf_part *part)
 {
 	free(str);
 	str = malloc(5);
-	ft_memcpy(str, "*nan", 5);
+	if (part->conv == XF_CONV)
+		ft_memcpy(str, "*NAN", 5);
+	else
+		ft_memcpy(str, "*nan", 5);
 	part->prcs = 3;
 	return (str);
 }
@@ -54,12 +57,15 @@ static char	*special_case_inf(char *str, t_pf_part *part)
 	}
 	else if (part->flags & PF_PL_FLAG || (part->flags & PF_SP_FLAG))
 	{
-		ft_memcpy(str, part->flags & PF_PL_FLAG ? "*+inf" : "* inf", 5);
+		if (part->conv == XF_CONV)
+			ft_memcpy(str, part->flags & PF_PL_FLAG ? "*+INF" : "* INF", 5);
+		else
+			ft_memcpy(str, part->flags & PF_PL_FLAG ? "*+inf" : "* inf", 5);
 		part->prcs = 4;
 	}
 	else
 	{
-		ft_memcpy(str, "*inf", 5);
+		ft_memcpy(str, (part->conv == XF_CONV) ? "*INF" : "*inf", 5);
 		part->prcs = 3;
 	}
 	return (str);

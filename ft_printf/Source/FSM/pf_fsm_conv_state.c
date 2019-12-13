@@ -33,6 +33,10 @@ static t_pf_ret	set_conv(const char c, t_pf_obj *obj)
 		obj->part->conv = g_conversion_table[(c - 'A')];
 	else
 		return (PF_RET_FORMAT_ERROR);
+	if (obj->part->conv & (XD_CONV | XO_CONV | XU_CONV))
+	{
+		obj->part->len_mod = L_PF_LEN_MOD;
+	}
 	return (PF_RET_SUCCESS);
 }
 

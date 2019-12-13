@@ -61,8 +61,8 @@ typedef enum e_pf_ret		t_pf_ret;
 
 enum	e_pf_conv
 {
-	CONV_NS = (unsigned long long)1 << 1,
 	NOT_A_CONV = (unsigned long long)1 << 0,
+	CONV_NS = (unsigned long long)1 << 1,
 
 	XA_CONV = (unsigned long long)1 << 2,
 	XB_CONV = (unsigned long long)1 << 3,
