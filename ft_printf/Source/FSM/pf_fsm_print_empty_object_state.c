@@ -32,8 +32,11 @@ static t_pf_ret
 t_pf_ret
 	pf_fsm_print_empty_object_state(t_pf_obj *obj)
 {
-	set_part(obj);
-	ft_print_object(obj);
-	(obj->input)++;
+	if (*(obj->input) != '\0')
+	{
+		set_part(obj);
+		ft_print_object(obj);
+		(obj->input)++;
+	}
 	return (PF_RET_END_STATE);
 }
