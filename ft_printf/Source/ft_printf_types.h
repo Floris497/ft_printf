@@ -256,6 +256,16 @@ union	u_pf_f2u
 	t_ld_parts		ld;
 };
 
+# define LOCAL_BUFFER_SIZE 2048
+
+typedef	struct s_pf_buffer	t_pf_buffer;
+
+struct	s_pf_buffer
+{
+	const char	*data[LOCAL_BUFFER_SIZE + 1];
+	size_t		idx;
+};
+
 # define LD_SIGN 0x0000000000008000
 # define LD_EXP 0x0000000000007FFF
 # define LD_FRACTION 0x7FFFFFFFFFFFFFFF

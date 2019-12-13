@@ -12,8 +12,6 @@
 
 #include "pf_fsm.h"
 
-typedef t_pf_ret		(*t_state_function)(t_pf_obj *);
-
 static t_state_function	g_jump_table[14] =
 {
 	pf_fsm_conv_state,

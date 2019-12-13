@@ -12,29 +12,50 @@
 
 #include "ft_printf_print.h"
 
+static t_pprint_function g_conversion_table[58] =
+{
+	NULL, NULL,
+	ft_printf_print_part_c,
+	ft_printf_print_part_d,
+	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+	ft_printf_print_part_u,
+	NULL, NULL,
+	ft_printf_print_part_x,
+	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+	ft_printf_print_part_b,
+	ft_printf_print_part_c,
+	ft_printf_print_part_d,
+	NULL,
+	ft_printf_print_part_f,
+	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+	ft_printf_print_part_o,
+	NULL, NULL, NULL,
+	ft_printf_print_part_s,
+	NULL,
+	ft_printf_print_part_u,
+	NULL, NULL,
+	ft_printf_print_part_x,
+	NULL, NULL,
+};
+
 t_pf_ret	ft_print_object(t_pf_obj *obj)
 {
-	if (obj->part->conv == C_CONV)
-		ft_printf_print_part_c(obj, obj->part);
-	else if (obj->part->conv == S_CONV)
-		ft_printf_print_part_s(obj, obj->part);
-	else if (obj->part->conv == P_CONV)
-		ft_printf_print_part_p(obj, obj->part);
-	else if (obj->part->conv == D_CONV)
-		ft_printf_print_part_d(obj, obj->part);
-	else if (obj->part->conv == I_CONV)
-		ft_printf_print_part_i(obj, obj->part);
-	else if (obj->part->conv == O_CONV)
-		ft_printf_print_part_o(obj, obj->part);
-	else if (obj->part->conv == U_CONV)
-		ft_printf_print_part_u(obj, obj->part);
-	else if (obj->part->conv == X_CONV || obj->part->conv == XX_CONV)
-		ft_printf_print_part_x(obj, obj->part);
-	else if (obj->part->conv == B_CONV)
-		ft_printf_print_part_b(obj, obj->part);
-	else if (obj->part->conv == F_CONV)
-		ft_printf_print_part_f(obj, obj->part);
-	else
+	int			idx;
+	t_pf_conv	conv;
+
+	idx = 0;
+	conv = obj->part->conv;
+	if (conv == 0)
+	{
 		obj->print("<value>", LEN_NS, obj);
-	return (PF_RET_SUCCESS);
+		return (PF_RET_FORMAT_ERROR);
+	}
+	while (idx < 58)
+	{
+		if (1 << idx == conv)
+			return (g_conversion_table[idx](obj, obj->part));
+		idx++;
+	}
+	return (PF_RET_ERROR);
 }

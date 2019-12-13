@@ -34,6 +34,7 @@ int		ft_vprintf(const char *format, va_list ap)
 	object.dtype = PRINT_DEST_FIDES;
 	object.dest.fd = 1;
 	pf_fsm_controller_state(&object);
+	va_end(apc);
 	return ((int)object.chr_wrtn);
 }
 
@@ -53,6 +54,7 @@ int		ft_vfprintf(FILE *stream, const char *format, va_list ap)
 	object.dtype = PRINT_DEST_STREAM;
 	object.dest.file = stream;
 	pf_fsm_controller_state(&object);
+	va_end(apc);
 	return ((int)object.chr_wrtn);
 }
 
@@ -72,5 +74,6 @@ int		ft_vdprintf(int fd, const char *format, va_list ap)
 	object.dtype = PRINT_DEST_FIDES;
 	object.dest.fd = fd;
 	pf_fsm_controller_state(&object);
+	va_end(apc);
 	return ((int)object.chr_wrtn);
 }

@@ -24,6 +24,8 @@
 # define FLAG_OPTS "0 #+-'"
 # define CONV_OPTS "cspdiouxXbf"
 
+typedef t_pf_ret		(*t_state_function)(t_pf_obj *);
+
 t_pf_ret	pf_fsm_controller_state(t_pf_obj *obj);
 t_pf_ret	pf_fsm_conv_state(t_pf_obj *obj);
 t_pf_ret	pf_fsm_end_state(t_pf_obj *obj);

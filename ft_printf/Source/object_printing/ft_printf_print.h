@@ -15,6 +15,8 @@
 
 # include "ft_printf_types.h"
 
+typedef t_pf_ret		(*t_pprint_function)(t_pf_obj *, t_pf_part *);
+
 t_pf_ret	ft_print_object(t_pf_obj *obj);
 t_pf_ret	ft_printf_print_part_x(t_pf_obj *obj, t_pf_part *part);
 t_pf_ret	ft_printf_print_part_u(t_pf_obj *obj, t_pf_part *part);

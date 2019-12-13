@@ -14,22 +14,20 @@
 #include <libft.h>
 #include "ft_print_functions.h"
 
-#define LOCAL_BUFFER_SIZE 2048
-
-static t_pf_ret		print_buffer(const char *str, size_t len, t_pf_obj *obj)
+static t_pf_ret		print_buffer(t_pf_buffer *buff, size_t len, t_pf_obj *obj)
 {
 	int ret;
 	int fd;
 
 	ret = PF_RET_ERROR;
 	if (obj->dtype == PRINT_DEST_FIDES)
-		ret = (write(obj->dest.fd, str, len) >= 0
+		ret = (write(obj->dest.fd, buff->data, len) >= 0
 				? PF_RET_SUCCESS : PF_RET_WRITE_ERROR);
 	else if (obj->dtype == PRINT_DEST_STREAM)
 	{
-		fd = fileno(obj->dest.file);
+		fd = obj->dest.file->_file;
 		if (fd >= 0)
-			ret = (write(fd, str, len) >= 0
+			ret = (write(fd, buff->data, len) >= 0
 				? PF_RET_SUCCESS : PF_RET_WRITE_ERROR);
 		else
 			ret = PF_RET_WRITE_ERROR;
@@ -37,29 +35,42 @@ static t_pf_ret		print_buffer(const char *str, size_t len, t_pf_obj *obj)
 	return (ret);
 }
 
+static t_pf_ret		update_buffer
+	(size_t *added_bytes, t_pf_buffer *buff, size_t len, const char *str)
+{
+	long long		lens;
+	char			*buffer;
+
+	buffer = (char *)buff->data;
+	lens = ft_min(LOCAL_BUFFER_SIZE - buff->idx, len - *added_bytes);
+	ft_memcpy(&buffer[buff->idx], &str[*added_bytes], lens);
+	*added_bytes += lens;
+	buff->idx += lens;
+	return (PF_RET_SUCCESS);
+}
+
 static t_pf_ret		write_to_buffer(const char *str, size_t len, t_pf_obj *obj)
 {
-	static char		buffer[LOCAL_BUFFER_SIZE + 1] = {0};
-	static size_t	idx = 0;
-	size_t			added_bytes;
-	t_pf_ret		ret;
-	long long		lens;
+	static t_pf_buffer	buff;
+	size_t				added_bytes;
+	t_pf_ret			ret;
 
 	ret = PF_RET_SUCCESS;
 	added_bytes = 0;
-	while (added_bytes <= len && ret == PF_RET_SUCCESS)
+	if (str == NULL)
 	{
-		if (idx < LOCAL_BUFFER_SIZE && len > 0)
-		{
-			lens = ft_min(LOCAL_BUFFER_SIZE - idx, len - added_bytes);
-			ft_memcpy(&buffer[idx], &str[added_bytes], lens);
-			added_bytes += lens;
-			idx += lens;
-		}
+		ret = print_buffer(&buff, buff.idx, obj);
+		buff.idx = 0;
+		return (ret);
+	}
+	while (added_bytes < len && ret == PF_RET_SUCCESS)
+	{
+		if (buff.idx < LOCAL_BUFFER_SIZE)
+			update_buffer(&added_bytes, &buff, len, str);
 		else
 		{
-			ret = print_buffer(buffer, LOCAL_BUFFER_SIZE, obj);
-			idx = 0;
+			ret = print_buffer(&buff, LOCAL_BUFFER_SIZE, obj);
+			buff.idx = 0;
 		}
 	}
 	return (ret);

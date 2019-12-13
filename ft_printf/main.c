@@ -337,8 +337,17 @@ void floats(void) {
 
 int main(int argc, const char *argv[])
 {
-	// wildcards();
-	sleep(2);
-	floats();
-	sleep(2);
+//	ft_printf("Hello, World 1 %d\n", 42);
+//	ft_fprintf(stdout, "Hello, World 2 %d\n", 42);
+//	ft_dprintf(STDOUT_FILENO, "Hello, World 3 %d\n", 42);
+
+	printf("%D\n", 234123412341244234);
+	printf("%d\n", 234123412341244234);
+
+//	int ft_vprintf(const char *format, va_list ap);
+//	int ft_vfprintf(FILE *stream, const char *format, va_list ap);
+//	int ft_vdprintf(int fd, const char *format, va_list ap);
+	
+//  wildcards();
+//	floats();
 }
