@@ -18,17 +18,17 @@ t_pf_ret			pf_fsm_init_state(t_pf_obj *obj)
 {
 	empty_part(obj->part);
 	(obj->input)++;
-	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
+	if (ft_slow_memchr(CONV_OPTS, *(obj->input), L_CONV_OPTS))
 		return (PF_RET_CONV_STATE);
-	else if (ft_strchr(FLAG_OPTS, *(obj->input)) != NULL)
+	else if (ft_slow_memchr(FLAG_OPTS, *(obj->input), L_FLAG_OPTS))
 		return (PF_RET_FLAGS_STATE);
-	else if (ft_strchr(WIDTH_OPTS, *(obj->input)))
+	else if (ft_slow_memchr(WIDTH_OPTS, *(obj->input), L_WIDTH_OPTS))
 		return (PF_RET_WIDTH_STATE);
-	else if (ft_strchr(PRECIS_OPTS, *(obj->input)))
+	else if (ft_slow_memchr(PRECIS_OPTS, *(obj->input), L_PRECIS_OPTS))
 		return (PF_RET_PRECIS_STATE);
-	else if (ft_strchr(LENG_OPTS, *(obj->input)))
+	else if (ft_slow_memchr(LENG_OPTS, *(obj->input), L_LENG_OPTS))
 		return (PF_RET_LENGTH_STATE);
-	else if (ft_strchr(WILDCARD_OPTS, *(obj->input)))
+	else if (ft_slow_memchr(WILDCARD_OPTS, *(obj->input), L_WILDCARD_OPTS))
 		return (PF_RET_WILDCARD_WIDTH_STATE);
 	else
 		return (PF_RET_PRINT_EMPTY_OBJECT_STATE);

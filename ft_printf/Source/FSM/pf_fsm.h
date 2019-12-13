@@ -16,13 +16,21 @@
 # include "ft_printf_types.h"
 
 # define WIDTH_OPTS "123456789"
+# define L_WIDTH_OPTS 9
 # define WIDTH_OPTS_X "0123456789"
+# define L_WIDTH_OPTS_X 10
 # define PRECIS_OPTS_X ".0123456789"
+# define L_PRECIS_OPTS_X 11
 # define PRECIS_OPTS "."
+# define L_PRECIS_OPTS 1
 # define WILDCARD_OPTS "*"
+# define L_WILDCARD_OPTS 1
 # define LENG_OPTS "hlLzjt"
+# define L_LENG_OPTS 6
 # define FLAG_OPTS "0 #+-'"
+# define L_FLAG_OPTS 6
 # define CONV_OPTS "cspdiouxXbfFDOU"
+# define L_CONV_OPTS 15
 
 typedef t_pf_ret		(*t_state_function)(t_pf_obj *);
 

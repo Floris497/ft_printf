@@ -3,21 +3,62 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "set_width:pf_fsm_width_state.c">
+      </ContextState>
+      <ContextState
+         contextName = "set_part:pf_fsm_print_empty_object_state.c">
+      </ContextState>
+      <ContextState
+         contextName = "ft_print_object:ft_printf_print_object.c">
+      </ContextState>
+      <ContextState
+         contextName = "write_to_buffer:ft_print_functions.c">
+      </ContextState>
+      <ContextState
+         contextName = "pf_print_pad_conv_c_blk:pf_print_conv_c.c">
+      </ContextState>
+      <ContextState
+         contextName = "empty_part:utils.c">
+      </ContextState>
+      <ContextState
+         contextName = "pf_fsm_print_empty_object_state:pf_fsm_print_empty_object_state.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "*(obj-&gt;input - 1)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "pf_print_pad_conv_d:pf_print_conv_d.c">
          <PersistentStrings>
             <PersistentString
                value = "part-&gt;width">
             </PersistentString>
             <PersistentString
-               value = "part-&gt;width - num_len + ((is_neg) ? 1 : 0)">
+               value = "part-&gt;width - num_len">
             </PersistentString>
             <PersistentString
-               value = "part-&gt;width - num_len">
+               value = "part-&gt;width - num_len + ((is_neg) ? 1 : 0)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ft_print_object:ft_printf_print_object.c">
+         contextName = "pf_fsm_controller_state:pf_fsm_controller_state.c">
+      </ContextState>
+      <ContextState
+         contextName = "pf_print_pad_conv_c:pf_print_conv_c.c">
+      </ContextState>
+      <ContextState
+         contextName = "pf_fsm_start_state:pf_fsm_start_state.c">
+      </ContextState>
+      <ContextState
+         contextName = "ft_printf_print_part_c:ft_printf_print_part_c.c">
+      </ContextState>
+      <ContextState
+         contextName = "update_buffer:ft_print_functions.c">
+      </ContextState>
+      <ContextState
+         contextName = "pf_fsm_width_state:pf_fsm_width_state.c">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

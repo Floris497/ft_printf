@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_slow_memchr.c                                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2019/02/26 19:00:49 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/02/26 19:00:50 by fmiceli       ########   odam.nl         */
+/*                                                      ::::::::: :::::::::   */
+/*   ft_memchr.c                                       :+:       :+:          */
+/*                                                    +:+       +:+           */
+/*   By: ffredrik <ffredrik@student.codam.nl>        :#::+::#  :#::+::#       */
+/*                                                  +#+       +#+             */
+/*   Created: 2019/01/10 19:57:03 by ffredrik      #+#       #+#              */
+/*   Updated: 2019/03/21 20:16:30 by ffredrik     ###       ###               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void	*ft_slow_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*b;
+	t_index			idx;
+	unsigned char	*mem;
 
-	b = (unsigned char*)s;
-	while (n > 0)
+	mem = (unsigned char*)s;
+	idx = 0;
+	while (idx < n)
 	{
-		if (*b == (unsigned char)c)
-			return (b);
-		b++;
-		n--;
+		if (mem[idx] == (unsigned char)c)
+			return ((char *)&mem[idx]);
+		idx++;
 	}
 	return (NULL);
 }

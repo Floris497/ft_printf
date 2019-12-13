@@ -47,7 +47,7 @@ static t_pf_len_mod		update_lenmod(const char c, t_pf_len_mod *lenmod)
 
 static t_pf_ret			set_length(t_pf_obj *obj)
 {
-	if (ft_strchr(LENG_OPTS, *(obj->input)))
+	if (ft_slow_memchr(LENG_OPTS, *(obj->input), L_LENG_OPTS))
 		obj->part->len_mod = update_lenmod(*(obj->input), &obj->part->len_mod);
 	return (PF_RET_SUCCESS);
 }
@@ -57,22 +57,22 @@ t_pf_ret				pf_fsm_length_state(t_pf_obj *obj)
 	t_pf_ret rc;
 
 	rc = PF_RET_SUCCESS;
-	if (ft_strchr(LENG_OPTS, *(obj->input)) != NULL)
+	if (ft_slow_memchr(LENG_OPTS, *(obj->input), L_LENG_OPTS))
 		rc = set_length(obj);
 	if (rc < 0)
 		return (PF_RET_ERROR_STATE);
 	(obj->input)++;
-	if (ft_strchr(WIDTH_OPTS, *(obj->input)))
+	if (ft_slow_memchr(WIDTH_OPTS, *(obj->input), L_WIDTH_OPTS))
 		return (PF_RET_WIDTH_STATE);
-	if (ft_strchr(FLAG_OPTS, *(obj->input)))
+	if (ft_slow_memchr(FLAG_OPTS, *(obj->input), L_FLAG_OPTS))
 		return (PF_RET_FLAGS_STATE);
-	else if (ft_strchr(PRECIS_OPTS, *(obj->input)))
+	else if (ft_slow_memchr(PRECIS_OPTS, *(obj->input), L_PRECIS_OPTS))
 		return (PF_RET_PRECIS_STATE);
-	else if (ft_strchr(LENG_OPTS, *(obj->input)))
+	else if (ft_slow_memchr(LENG_OPTS, *(obj->input), L_LENG_OPTS))
 		return (PF_RET_LENGTH_STATE);
-	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
+	if (ft_slow_memchr(CONV_OPTS, *(obj->input), L_CONV_OPTS))
 		return (PF_RET_CONV_STATE);
-	else if (ft_strchr(WILDCARD_OPTS, *(obj->input)))
+	else if (ft_slow_memchr(WILDCARD_OPTS, *(obj->input), L_WILDCARD_OPTS))
 		return (PF_RET_WILDCARD_WIDTH_STATE);
 	else
 		return (PF_RET_PRINT_EMPTY_OBJECT_STATE);

@@ -45,7 +45,7 @@ t_pf_ret		pf_fsm_conv_state(t_pf_obj *obj)
 	t_pf_ret	rc;
 
 	rc = PF_RET_PRINT_OBJECT_STATE;
-	if (ft_strchr(CONV_OPTS, *(obj->input)) != NULL)
+	if (ft_slow_memchr(CONV_OPTS, *(obj->input), L_CONV_OPTS) != NULL)
 		rc = set_conv(*(obj->input), obj);
 	if (rc < 0)
 		return (PF_RET_ERROR_STATE);
