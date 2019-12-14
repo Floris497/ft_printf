@@ -96,7 +96,7 @@ C_OBJS = $(C_SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c $(C_HEADERS)
 	@$(CC) -o $@ -c $< $(C_FLAGS) $(C_INCLUDES)
 	@echo CC: $<
 
